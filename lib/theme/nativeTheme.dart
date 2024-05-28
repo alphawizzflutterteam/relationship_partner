@@ -66,7 +66,7 @@ class Themes {
           color: Colors.black,
           fontWeight: FontWeight.w500,
           fontSize: 19), //AppBar bold
-      headline5: const TextStyle(color: Colors.black),
+      headline5: const TextStyle(color: Colors.white),
       headline6: const TextStyle(color: Colors.black),
       caption:
           TextStyle(color: COLORS().bodyTextColor, fontSize: 10), //bottom Bar
@@ -149,7 +149,7 @@ class Themes {
         headline2: TextStyle(color: Colors.black),
         headline3: TextStyle(color: Colors.black),
         headline4: TextStyle(color: Colors.black),
-        headline5: TextStyle(color: Colors.black),
+        headline5: TextStyle(color: Colors.white),
         headline6: TextStyle(color: Colors.black),
         subtitle1: TextStyle(color: Colors.black), //
         subtitle2: TextStyle(color: Colors.black),

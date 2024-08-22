@@ -34,24 +34,30 @@ class LoginScreen extends StatelessWidget {
       },
       child: Scaffold(
         resizeToAvoidBottomInset: false,
-        body:  Container(
+        body: Container(
           height: double.maxFinite,
           decoration: BoxDecoration(
               gradient: LinearGradient(
                   begin: Alignment.topRight,
                   end: Alignment.bottomLeft,
                   stops: [
-                    0.2,
-                    0.5,
-                    0.8,
-                    0.9
-                  ],
-                  colors: [  COLORS().secondary,Theme.of(context).primaryColor,COLORS().secondary, Theme.of(context).primaryColor
-                  ])),
+                0.2,
+                0.5,
+                0.8,
+                0.9
+              ],
+                  colors: [
+                COLORS().secondary,
+                Theme.of(context).primaryColor,
+                COLORS().secondary,
+                Theme.of(context).primaryColor
+              ])),
           child: SingleChildScrollView(
             child: Column(
               children: [
-                SizedBox(height: Get.height * 0.1,),
+                SizedBox(
+                  height: Get.height * 0.1,
+                ),
                 Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
@@ -72,12 +78,17 @@ class LoginScreen extends StatelessWidget {
                     ),
                     Text(
                       global.appName,
-                      style: TextStyle(color: Colors.white, fontWeight: FontWeight.w700, fontSize: 20, ),
-                    ).translate(),
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontWeight: FontWeight.w700,
+                        fontSize: 20,
+                      ),
+                    ),
                   ],
                 ),
-                SizedBox(height: Get.height * 0.02,),
-
+                SizedBox(
+                  height: Get.height * 0.02,
+                ),
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 20),
                   child: Card(
@@ -91,27 +102,27 @@ class LoginScreen extends StatelessWidget {
                             child: SizedBox(
                                 child: FutureBuilder(
                                     future:
-                                    global.translatedText("Phone Number"),
+                                        global.translatedText("Phone Number"),
                                     builder: (context, snapshot) {
                                       return IntlPhoneField(
                                         autovalidateMode: null,
                                         showDropdownIcon: false,
                                         flagsButtonPadding:
-                                        const EdgeInsets.all(6),
+                                            const EdgeInsets.all(6),
                                         onCountryChanged: (value) {},
                                         controller:
-                                        loginOtpController.cMobileNumber,
+                                            loginOtpController.cMobileNumber,
                                         keyboardType: TextInputType.phone,
                                         inputFormatters: [
                                           FilteringTextInputFormatter.digitsOnly
                                         ],
                                         decoration: InputDecoration(
                                             contentPadding:
-                                            const EdgeInsets.symmetric(
-                                                vertical: 10,
-                                                horizontal: 10),
+                                                const EdgeInsets.symmetric(
+                                                    vertical: 10,
+                                                    horizontal: 10),
                                             hintText:
-                                            snapshot.data ?? 'Phone Number',
+                                                snapshot.data ?? 'Phone Number',
                                             errorText: null,
                                             hintStyle: TextStyle(
                                               color: Colors.grey,
@@ -135,12 +146,13 @@ class LoginScreen extends StatelessWidget {
                               phoneNumber.isNotEmpty
                                   ?
 
-                              /// For Temporary login
-                              loginController.tempLogin(loginOtpController
-                                  .cMobileNumber
-                                  .text) //loginController.sendLoginOTP(phoneNumber)
+                                  /// For Temporary login
+                                  /*loginController.tempLogin(loginOtpController
+                                      .cMobileNumber
+                                      .text)*/ //loginController.sendLoginOTP(phoneNumber)
+                                  loginController.sendLoginOTP(phoneNumber)
                                   : global.showToast(
-                                  message: 'Please enter mobile number');
+                                      message: 'Please enter mobile number');
                             },
                             child: Padding(
                               padding: const EdgeInsets.fromLTRB(18, 20, 18, 0),
@@ -150,12 +162,12 @@ class LoginScreen extends StatelessWidget {
                                 decoration: BoxDecoration(
                                   color: COLORS().primaryColor,
                                   borderRadius:
-                                  BorderRadius.all(Radius.circular(6)),
+                                      BorderRadius.all(Radius.circular(6)),
                                 ),
                                 child: Row(
                                   mainAxisSize: MainAxisSize.min,
                                   mainAxisAlignment:
-                                  MainAxisAlignment.spaceEvenly,
+                                      MainAxisAlignment.spaceEvenly,
                                   children: [
                                     const SizedBox(
                                       width: 40,
@@ -164,7 +176,7 @@ class LoginScreen extends StatelessWidget {
                                       'SEND OTP',
                                       style: TextStyle(color: Colors.white),
                                       textAlign: TextAlign.center,
-                                    ).translate(),
+                                    ),
                                     Image.asset(
                                       IMAGECONST.arrowLeft,
                                       color: Colors.white,
@@ -177,53 +189,83 @@ class LoginScreen extends StatelessWidget {
                           ),
                           GetBuilder<LoginController>(
                               builder: (logninController) {
-                                return Padding(
-                                    padding: const EdgeInsets.all(15.0),
-                                    child: RichText(
-                                      textAlign: TextAlign.center,
-                                      text: TextSpan(
-                                        text: '${loginController.signupText} ',
-                                        style: Theme.of(context)
-                                            .primaryTextTheme
-                                            .subtitle1,
-                                        children: [
-                                          TextSpan(
-                                            text:
+                            return Padding(
+                                padding: const EdgeInsets.all(15.0),
+                                child: RichText(
+                                  textAlign: TextAlign.center,
+                                  text: TextSpan(
+                                    text: '${loginController.signupText} ',
+                                    style: Theme.of(context)
+                                        .primaryTextTheme
+                                        .subtitle1,
+                                    children: [
+                                      TextSpan(
+                                        text:
                                             loginController.termsConditionText,
-                                            style: TextStyle(
-                                              decoration: TextDecoration.underline,
-                                              fontSize: 11,
-                                              color: Colors.blue,
-                                            ),
-                                            recognizer: TapGestureRecognizer()
-                                              ..onTap = () {
-                                                Get.to(
-                                                        () => TermAndConditionScreen());
-                                                print("Terms and condition");
-                                              },
-                                          ),
-                                          TextSpan(
-                                            text: ' ${loginController.andText} ',
-                                            style: TextStyle(
-                                                color: Colors.black, fontSize: 11),
-                                          ),
-                                          TextSpan(
-                                            text: loginController.privacyPolicyText,
-                                            style: TextStyle(
-                                                decoration:
-                                                TextDecoration.underline,
-                                                fontSize: 11,
-                                                color: Colors.blue),
-                                            recognizer: TapGestureRecognizer()
-                                              ..onTap = () {
-                                                Get.to(() => PrivacyPolicyScreen());
-                                                print("Privacy policy");
-                                              },
-                                          ),
-                                        ],
+                                        style: TextStyle(
+                                          decoration: TextDecoration.underline,
+                                          fontSize: 11,
+                                          color: Colors.blue,
+                                        ),
+                                        recognizer: TapGestureRecognizer()
+                                          ..onTap = () {
+                                            Get.to(
+                                                () => TermAndConditionScreen());
+                                          },
                                       ),
-                                    ));
-                              }),
+                                      TextSpan(
+                                        text: ' ${loginController.andText} ',
+                                        style: TextStyle(
+                                            color: Colors.black, fontSize: 11),
+                                      ),
+                                      TextSpan(
+                                        text: loginController.privacyPolicyText,
+                                        style: TextStyle(
+                                            decoration:
+                                                TextDecoration.underline,
+                                            fontSize: 11,
+                                            color: Colors.blue),
+                                        recognizer: TapGestureRecognizer()
+                                          ..onTap = () {
+                                            Get.to(() => PrivacyPolicyScreen());
+                                            print("Privacy policy");
+                                          },
+                                      ),
+                                    ],
+                                  ),
+                                ));
+                          }),
+                          SizedBox(
+                            height: 50,
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.only(
+                                top: 10, left: 10, right: 10, bottom: 5),
+                            child: SizedBox(
+                              child: Row(
+                                  mainAxisSize: MainAxisSize.min,
+                                  children: [
+                                    Text(
+                                      " Don't have account ?",
+                                      style: TextStyle(
+                                          color: Colors.grey, fontSize: 14),
+                                    ),
+                                    GestureDetector(
+                                      onTap: () {
+                                        Get.to(() => SignupScreen());
+                                      },
+                                      child: Text(
+                                        'Signup',
+                                        style: TextStyle(
+                                            decoration:
+                                                TextDecoration.underline,
+                                            fontSize: 14,
+                                            color: Colors.blue),
+                                      ),
+                                    )
+                                  ]),
+                            ),
+                          ),
                         ]),
                         /*InkWell(
                               onTap: () {

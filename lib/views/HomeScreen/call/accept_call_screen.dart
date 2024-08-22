@@ -23,7 +23,13 @@ class AcceptCallScreen extends StatefulWidget {
   final String profile;
   final int callId;
   final String fcmToken;
-  const AcceptCallScreen({super.key, required this.id, required this.fcmToken, required this.name, required this.profile, required this.callId});
+  const AcceptCallScreen(
+      {super.key,
+      required this.id,
+      required this.fcmToken,
+      required this.name,
+      required this.profile,
+      required this.callId});
 
   @override
   State<AcceptCallScreen> createState() => _AcceptCallScreenState();
@@ -52,14 +58,21 @@ class _AcceptCallScreenState extends State<AcceptCallScreen> {
   Future generateToken() async {
     try {
       global.sp = await SharedPreferences.getInstance();
-      CurrentUser userData = CurrentUser.fromJson(json.decode(global.sp!.getString("currentUser") ?? ""));
+      CurrentUser userData = CurrentUser.fromJson(
+          json.decode(global.sp!.getString("currentUser") ?? ""));
       int id = userData.id ?? 0;
       global.agoraChannelName = '${global.channelName}${id}_${widget.id}';
       log('channel :- ${global.agoraChannelName}');
-      await callController.getRtcToken(global.getSystemFlagValue(global.systemFlagNameList.agoraAppId), global.getSystemFlagValue(global.systemFlagNameList.agoraAppCertificate), "$uid", global.agoraChannelName);
+      await callController.getRtcToken(
+          global.getSystemFlagValue(global.systemFlagNameList.agoraAppId),
+          global.getSystemFlagValue(
+              global.systemFlagNameList.agoraAppCertificate),
+          "$uid",
+          global.agoraChannelName);
       log("call token:-${global.agoraToken}");
       global.showOnlyLoaderDialog();
-      await callController.sendCallToken(global.agoraToken, global.agoraChannelName, widget.callId);
+      await callController.sendCallToken(
+          global.agoraToken, global.agoraChannelName, widget.callId);
       global.hideLoader();
       log("object");
     } catch (e) {
@@ -72,7 +85,8 @@ class _AcceptCallScreenState extends State<AcceptCallScreen> {
   Widget build(BuildContext context) {
     return WillPopScope(
       onWillPop: () async {
-        global.showToast(message: 'Please leave the call by pressing leave button');
+        global.showToast(
+            message: 'Please leave the call by pressing leave button');
         return false;
       },
       child: Scaffold(
@@ -101,10 +115,12 @@ class _AcceptCallScreenState extends State<AcceptCallScreen> {
                               builder: (BuildContext context) {
                                 return AlertDialog(
                                   shape: const RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.all(Radius.circular(10)),
+                                    borderRadius:
+                                        BorderRadius.all(Radius.circular(10)),
                                   ),
                                   scrollable: true,
-                                  content: Stack(clipBehavior: Clip.none, children: [
+                                  content:
+                                      Stack(clipBehavior: Clip.none, children: [
                                     Column(
                                       children: [
                                         const SizedBox(
@@ -115,13 +131,19 @@ class _AcceptCallScreenState extends State<AcceptCallScreen> {
                                           tileColor: Colors.white,
                                           title: Text(
                                             "Name",
-                                            style: Theme.of(context).primaryTextTheme.headline3,
+                                            style: Theme.of(context)
+                                                .primaryTextTheme
+                                                .headline3,
                                           ).translate(),
                                           trailing: SizedBox(
                                             width: 120,
                                             child: Text(
-                                              callController.intakeData[0].name ?? "User",
-                                              style: Theme.of(context).primaryTextTheme.subtitle1,
+                                              callController
+                                                      .intakeData[0].name ??
+                                                  "User",
+                                              style: Theme.of(context)
+                                                  .primaryTextTheme
+                                                  .subtitle1,
                                               textAlign: TextAlign.end,
                                             ).translate(),
                                           ),
@@ -131,14 +153,21 @@ class _AcceptCallScreenState extends State<AcceptCallScreen> {
                                           tileColor: Colors.white,
                                           title: Text(
                                             "Birth Date",
-                                            style: Theme.of(context).primaryTextTheme.headline3,
+                                            style: Theme.of(context)
+                                                .primaryTextTheme
+                                                .headline3,
                                           ).translate(),
                                           trailing: SizedBox(
                                             width: 120,
                                             child: Text(
-                                              DateFormat('dd-MM-yyyy').format(DateTime.parse(callController.intakeData[0].birthDate.toString())),
+                                              DateFormat('dd-MM-yyyy').format(
+                                                  DateTime.parse(callController
+                                                      .intakeData[0].birthDate
+                                                      .toString())),
                                               textAlign: TextAlign.end,
-                                              style: Theme.of(context).primaryTextTheme.subtitle1,
+                                              style: Theme.of(context)
+                                                  .primaryTextTheme
+                                                  .subtitle1,
                                             ).translate(),
                                           ),
                                         ),
@@ -147,11 +176,17 @@ class _AcceptCallScreenState extends State<AcceptCallScreen> {
                                           tileColor: Colors.white,
                                           title: Text(
                                             "Birth Time",
-                                            style: Theme.of(context).primaryTextTheme.headline3,
+                                            style: Theme.of(context)
+                                                .primaryTextTheme
+                                                .headline3,
                                           ).translate(),
                                           trailing: Text(
-                                            callController.intakeData[0].birthTime.toString(),
-                                            style: Theme.of(context).primaryTextTheme.subtitle1,
+                                            callController
+                                                .intakeData[0].birthTime
+                                                .toString(),
+                                            style: Theme.of(context)
+                                                .primaryTextTheme
+                                                .subtitle1,
                                           ).translate(),
                                         ),
                                         ListTile(
@@ -159,13 +194,19 @@ class _AcceptCallScreenState extends State<AcceptCallScreen> {
                                           tileColor: Colors.white,
                                           title: Text(
                                             "Birth Place",
-                                            style: Theme.of(context).primaryTextTheme.headline3,
+                                            style: Theme.of(context)
+                                                .primaryTextTheme
+                                                .headline3,
                                           ).translate(),
                                           trailing: SizedBox(
                                             width: 120,
                                             child: Text(
-                                              callController.intakeData[0].birthPlace.toString(),
-                                              style: Theme.of(context).primaryTextTheme.subtitle1,
+                                              callController
+                                                  .intakeData[0].birthPlace
+                                                  .toString(),
+                                              style: Theme.of(context)
+                                                  .primaryTextTheme
+                                                  .subtitle1,
                                               textAlign: TextAlign.end,
                                             ).translate(),
                                           ),
@@ -175,11 +216,17 @@ class _AcceptCallScreenState extends State<AcceptCallScreen> {
                                           tileColor: Colors.white,
                                           title: Text(
                                             "Phone Number",
-                                            style: Theme.of(context).primaryTextTheme.headline3,
+                                            style: Theme.of(context)
+                                                .primaryTextTheme
+                                                .headline3,
                                           ).translate(),
                                           trailing: Text(
-                                            callController.intakeData[0].phoneNumber.toString(),
-                                            style: Theme.of(context).primaryTextTheme.subtitle1,
+                                            callController
+                                                .intakeData[0].phoneNumber
+                                                .toString(),
+                                            style: Theme.of(context)
+                                                .primaryTextTheme
+                                                .subtitle1,
                                             textAlign: TextAlign.end,
                                           ).translate(),
                                         ),
@@ -188,95 +235,153 @@ class _AcceptCallScreenState extends State<AcceptCallScreen> {
                                           tileColor: Colors.white,
                                           title: Text(
                                             "Occupation",
-                                            style: Theme.of(context).primaryTextTheme.headline3,
+                                            style: Theme.of(context)
+                                                .primaryTextTheme
+                                                .headline3,
                                           ).translate(),
                                           trailing: SizedBox(
                                             width: 120,
                                             child: Text(
-                                              callController.intakeData[0].occupation.toString(),
-                                              style: Theme.of(context).primaryTextTheme.subtitle1,
+                                              callController
+                                                  .intakeData[0].occupation
+                                                  .toString(),
+                                              style: Theme.of(context)
+                                                  .primaryTextTheme
+                                                  .subtitle1,
                                               textAlign: TextAlign.end,
                                             ).translate(),
                                           ),
                                         ),
-                                        callController.intakeData[0].topicOfConcern == ""
+                                        callController.intakeData[0]
+                                                    .topicOfConcern ==
+                                                ""
                                             ? const SizedBox()
                                             : ListTile(
                                                 enabled: true,
                                                 tileColor: Colors.white,
                                                 title: Text(
                                                   "Topic",
-                                                  style: Theme.of(context).primaryTextTheme.headline3,
+                                                  style: Theme.of(context)
+                                                      .primaryTextTheme
+                                                      .headline3,
                                                 ).translate(),
                                                 trailing: SizedBox(
                                                   width: 120,
                                                   child: Text(
-                                                    callController.intakeData[0].topicOfConcern.toString(),
-                                                    style: Theme.of(context).primaryTextTheme.subtitle1,
+                                                    callController.intakeData[0]
+                                                        .topicOfConcern
+                                                        .toString(),
+                                                    style: Theme.of(context)
+                                                        .primaryTextTheme
+                                                        .subtitle1,
                                                     textAlign: TextAlign.end,
                                                   ).translate(),
                                                 ),
                                               ),
-                                        callController.intakeData[0].partnerName != null && callController.intakeData[0].partnerName != ''
+                                        callController.intakeData[0]
+                                                        .partnerName !=
+                                                    null &&
+                                                callController.intakeData[0]
+                                                        .partnerName !=
+                                                    ''
                                             ? ListTile(
                                                 enabled: true,
                                                 tileColor: Colors.white,
                                                 title: Text(
                                                   "Partner Name",
-                                                  style: Theme.of(context).primaryTextTheme.headline3,
+                                                  style: Theme.of(context)
+                                                      .primaryTextTheme
+                                                      .headline3,
                                                 ).translate(),
                                                 trailing: Text(
-                                                  callController.intakeData[0].partnerName.toString(),
-                                                  style: Theme.of(context).primaryTextTheme.subtitle1,
+                                                  callController
+                                                      .intakeData[0].partnerName
+                                                      .toString(),
+                                                  style: Theme.of(context)
+                                                      .primaryTextTheme
+                                                      .subtitle1,
                                                   textAlign: TextAlign.end,
                                                 ).translate(),
                                               )
                                             : const SizedBox(),
-                                        callController.intakeData[0].partnerBirthDate != null
+                                        callController.intakeData[0]
+                                                    .partnerBirthDate !=
+                                                null
                                             ? ListTile(
                                                 enabled: true,
                                                 tileColor: Colors.white,
                                                 title: Text(
                                                   "Partner Birth Date",
-                                                  style: Theme.of(context).primaryTextTheme.headline3,
+                                                  style: Theme.of(context)
+                                                      .primaryTextTheme
+                                                      .headline3,
                                                 ).translate(),
                                                 trailing: SizedBox(
                                                   width: 120,
                                                   child: Text(
-                                                    DateFormat('dd-MM-yyyy').format(DateTime.parse(callController.intakeData[0].partnerBirthDate.toString())),
-                                                    style: Theme.of(context).primaryTextTheme.subtitle1,
+                                                    DateFormat('dd-MM-yyyy')
+                                                        .format(DateTime.parse(
+                                                            callController
+                                                                .intakeData[0]
+                                                                .partnerBirthDate
+                                                                .toString())),
+                                                    style: Theme.of(context)
+                                                        .primaryTextTheme
+                                                        .subtitle1,
                                                     textAlign: TextAlign.end,
                                                   ).translate(),
                                                 ),
                                               )
                                             : const SizedBox(),
-                                        callController.intakeData[0].partnerBirthTime != null && callController.intakeData[0].partnerBirthTime != ''
+                                        callController.intakeData[0]
+                                                        .partnerBirthTime !=
+                                                    null &&
+                                                callController.intakeData[0]
+                                                        .partnerBirthTime !=
+                                                    ''
                                             ? ListTile(
                                                 enabled: true,
                                                 tileColor: Colors.white,
                                                 title: Text(
                                                   "Partner Birth Time",
-                                                  style: Theme.of(context).primaryTextTheme.headline3,
+                                                  style: Theme.of(context)
+                                                      .primaryTextTheme
+                                                      .headline3,
                                                 ).translate(),
                                                 trailing: Text(
-                                                  callController.intakeData[0].partnerBirthTime.toString(),
-                                                  style: Theme.of(context).primaryTextTheme.subtitle1,
+                                                  callController.intakeData[0]
+                                                      .partnerBirthTime
+                                                      .toString(),
+                                                  style: Theme.of(context)
+                                                      .primaryTextTheme
+                                                      .subtitle1,
                                                 ).translate(),
                                               )
                                             : const SizedBox(),
-                                        callController.intakeData[0].partnerBirthPlace != null && callController.intakeData[0].partnerBirthPlace != ''
+                                        callController.intakeData[0]
+                                                        .partnerBirthPlace !=
+                                                    null &&
+                                                callController.intakeData[0]
+                                                        .partnerBirthPlace !=
+                                                    ''
                                             ? ListTile(
                                                 enabled: true,
                                                 tileColor: Colors.white,
                                                 title: Text(
                                                   "Partner Birth Place",
-                                                  style: Theme.of(context).primaryTextTheme.headline3,
+                                                  style: Theme.of(context)
+                                                      .primaryTextTheme
+                                                      .headline3,
                                                 ).translate(),
                                                 trailing: SizedBox(
                                                   width: 120,
                                                   child: Text(
-                                                    callController.intakeData[0].partnerBirthPlace.toString(),
-                                                    style: Theme.of(context).primaryTextTheme.subtitle1,
+                                                    callController.intakeData[0]
+                                                        .partnerBirthPlace
+                                                        .toString(),
+                                                    style: Theme.of(context)
+                                                        .primaryTextTheme
+                                                        .subtitle1,
                                                     textAlign: TextAlign.end,
                                                   ).translate(),
                                                 ),
@@ -293,8 +398,10 @@ class _AcceptCallScreenState extends State<AcceptCallScreen> {
                                             },
                                             child: const Icon(Icons.close)))
                                   ]),
-                                  actionsAlignment: MainAxisAlignment.spaceBetween,
-                                  actionsPadding: const EdgeInsets.only(bottom: 15, left: 15, right: 15),
+                                  actionsAlignment:
+                                      MainAxisAlignment.spaceBetween,
+                                  actionsPadding: const EdgeInsets.only(
+                                      bottom: 15, left: 15, right: 15),
                                 );
                               });
                         },
@@ -307,7 +414,8 @@ class _AcceptCallScreenState extends State<AcceptCallScreen> {
                       children: [
                         Text(
                           widget.name == '' ? 'User' : widget.name,
-                          style: Get.textTheme.subtitle1!.copyWith(fontWeight: FontWeight.w500, fontSize: 20),
+                          style: Get.textTheme.subtitle1!.copyWith(
+                              fontWeight: FontWeight.w500, fontSize: 20),
                         ).translate(),
                         SizedBox(
                           child: status(),
@@ -345,7 +453,8 @@ class _AcceptCallScreenState extends State<AcceptCallScreen> {
                           )
                         : CachedNetworkImage(
                             imageUrl: '${global.imgBaseurl}${widget.profile}',
-                            imageBuilder: (context, imageProvider) => CircleAvatar(
+                            imageBuilder: (context, imageProvider) =>
+                                CircleAvatar(
                               radius: 60,
                               backgroundColor: Colors.transparent,
                               child: Image.network(
@@ -354,7 +463,8 @@ class _AcceptCallScreenState extends State<AcceptCallScreen> {
                                 height: 60,
                               ),
                             ),
-                            placeholder: (context, url) => const Center(child: CircularProgressIndicator()),
+                            placeholder: (context, url) => const Center(
+                                child: CircularProgressIndicator()),
                             errorWidget: (context, url, error) => Image.asset(
                               'assets/images/no_customer_image.png',
                               fit: BoxFit.contain,
@@ -438,7 +548,9 @@ class _AcceptCallScreenState extends State<AcceptCallScreen> {
     //agoraEngine.startAudioRecording(config);
     //create an instance of the Agora engine
     agoraEngine = createAgoraRtcEngine();
-    await agoraEngine.initialize(RtcEngineContext(appId: global.getSystemFlagValue(global.systemFlagNameList.agoraAppId)));
+    await agoraEngine.initialize(RtcEngineContext(
+        appId:
+            global.getSystemFlagValue(global.systemFlagNameList.agoraAppId)));
 
     // Register the event handler
     agoraEngine.registerEventHandler(
@@ -454,7 +566,8 @@ class _AcceptCallScreenState extends State<AcceptCallScreen> {
           // ignore: avoid_print
           print("RemoteId for call$remoteUid");
         },
-        onUserOffline: (RtcConnection connection, int remoteUId, UserOfflineReasonType reason) {
+        onUserOffline: (RtcConnection connection, int remoteUId,
+            UserOfflineReasonType reason) {
           setState(() {
             remoteUid = null;
           });
@@ -487,7 +600,8 @@ class _AcceptCallScreenState extends State<AcceptCallScreen> {
           return Padding(
             padding: const EdgeInsets.only(left: 10),
             child: time.min != null
-                ? Text('${time.min} min ${time.sec} sec', style: const TextStyle(fontWeight: FontWeight.w500))
+                ? Text('${time.min} min ${time.sec} sec',
+                    style: const TextStyle(fontWeight: FontWeight.w500))
                 : Text(
                     '${time.sec} sec',
                     style: const TextStyle(fontWeight: FontWeight.w500),

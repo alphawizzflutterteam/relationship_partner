@@ -186,6 +186,10 @@ class APIHelper {
         body: json.encode(
             {"contactNo": contactNo, 'userDeviceDetails': userDeviceDetails}),
       );
+
+      print(
+          '${global.appParameters[global.appMode]['apiUrl']}loginAppAstrologer');
+
       print('done : ${json.encode({
             "contactNo": contactNo,
             'userDeviceDetails': userDeviceDetails
@@ -206,6 +210,31 @@ class APIHelper {
       return getAPIResult(response, recordList);
     } catch (e) {
       print("Exception: $screen - login(): " + e.toString());
+    }
+  }
+
+  Future<dynamic> sendOtp(String mobile) async {
+    try {
+      final response = await http.post(
+        Uri.parse('${global.appParameters[global.appMode]['apiUrl']}sendOtp'),
+        body: json.encode({"contactNo": mobile}),
+        headers: await global.getApiHeaders(false),
+      );
+      log('${response.request?.url}');
+      log('${json.encode(mobile)}');
+
+      print(response);
+      dynamic recordList;
+      if (response.statusCode == 200) {
+        recordList = json.decode(response.body);
+
+        log('token at login:- ${response.body}');
+      } else {
+        recordList = null;
+      }
+      return getAPIResult(response, recordList);
+    } catch (e) {
+      print("Exception in loginSignUp():-" + e.toString());
     }
   }
 
@@ -466,6 +495,11 @@ class APIHelper {
         body: json.encode({"callId": callId}),
       );
       dynamic recordList;
+      print(
+          '${global.appParameters[global.appMode]['apiUrl']}callRequest/accept');
+      print('${json.encode({"callId": callId})}');
+      log('${response.headers}');
+
       if (response.statusCode == 200) {
         //recordList = json.encode(response.body);
       } else {
@@ -507,6 +541,15 @@ class APIHelper {
         body: json.encode(
             {"token": token, "channelName": channelName, "callId": callId}),
       );
+
+      print(
+          "${global.appParameters[global.appMode]['apiUrl']}callRequest/storeToken");
+      log("${json.encode({
+            "token": token,
+            "channelName": channelName,
+            "callId": callId
+          })}");
+
       dynamic recordList;
       if (response.statusCode == 200) {
         recordList = json.encode(response.body);

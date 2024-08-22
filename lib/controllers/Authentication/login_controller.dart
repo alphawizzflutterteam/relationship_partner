@@ -106,10 +106,32 @@ class LoginController extends GetxController {
 //send otp to login
   Future<void> sendLoginOTP(String phoneNumber) async {
     try {
-      await global.checkBody().then((result) {
+      await global.checkBody().then((result) async {
         if (result) {
           global.showOnlyLoaderDialog();
-          FirebaseAuth _auth = FirebaseAuth.instance;
+          await apiHelper.sendOtp(phoneNumber).then((result) async {
+            if (result.status == "200") {
+              print('${result.status}____________');
+              log('${result.recordList['otp']}____________');
+              // var recordId = result.recordList["recordList"];
+
+              global.hideLoader();
+              LoginOtpController loginOtpController =
+                  Get.put(LoginOtpController());
+              loginOtpController.timer();
+              Get.to(() => LoginOtpScreen(
+                    mobileNumber: phoneNumber,
+                    verificationId: '',
+                    otp: result.recordList['otp'].toString(),
+                  ));
+            } else {
+              global.hideLoader();
+              log("what\'s wrong ${result.status}");
+              global.showToast(message: result.message.toString());
+            }
+          });
+
+          /*FirebaseAuth _auth = FirebaseAuth.instance;
           _auth.verifyPhoneNumber(
             phoneNumber: '+91$phoneNumber',
             //timeout: const Duration(seconds: 60),
@@ -124,6 +146,7 @@ class LoginController extends GetxController {
               //Please try agains some time
               log('Login Screen - > ${e.message.toString()}');
             },
+
             codeSent: (String verificationId, int? resendToken) async {
               global.hideLoader();
               LoginOtpController loginOtpController =
@@ -136,7 +159,7 @@ class LoginController extends GetxController {
               log('Login Screen -> code sent');
             },
             codeAutoRetrievalTimeout: (String verificationId) {},
-          );
+          );*/
         }
       });
     } catch (e) {

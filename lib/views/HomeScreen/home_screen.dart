@@ -30,6 +30,7 @@ import 'package:astrologer_app/widgets/floating_action_button.dart';
 import 'package:astrologer_app/widgets/wallet_history_screen.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_ringtone_player/flutter_ringtone_player.dart';
 import 'package:get/get.dart';
 import 'package:google_translator/google_translator.dart';
 import 'package:intl/intl.dart';
@@ -846,7 +847,7 @@ class HomeScreen extends StatelessWidget {
                                                                                 : callController.callList[index].name,
                                                                             style:
                                                                                 Get.theme.primaryTextTheme.headline3,
-                                                                          ).translate(),
+                                                                          ) /*.translate()*/,
                                                                         ),
                                                                       ],
                                                                     ),
@@ -927,6 +928,8 @@ class HomeScreen extends StatelessWidget {
                                                                           () async {
                                                                         global
                                                                             .showOnlyLoaderDialog();
+                                                                        FlutterRingtonePlayer()
+                                                                            .stop();
                                                                         await callController
                                                                             .acceptCallRequest(
                                                                           callController
@@ -954,7 +957,7 @@ class HomeScreen extends StatelessWidget {
                                                                           : const Text(
                                                                               "Accept",
                                                                               textAlign: TextAlign.center,
-                                                                            ).translate(),
+                                                                            ) /*.translate()*/,
                                                                     ),
                                                                   ),
                                                                   SizedBox(
@@ -974,7 +977,7 @@ class HomeScreen extends StatelessWidget {
                                                                         Get.dialog(
                                                                           AlertDialog(
                                                                             title:
-                                                                                const Text("Are you sure you want remove customer?").translate(),
+                                                                                const Text("Are you sure you want remove customer?") /*.translate()*/,
                                                                             content:
                                                                                 Row(
                                                                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -983,14 +986,15 @@ class HomeScreen extends StatelessWidget {
                                                                                   onPressed: () {
                                                                                     Get.back();
                                                                                   },
-                                                                                  child: const Text("No").translate(),
+                                                                                  child: const Text("No") /*.translate()*/,
                                                                                 ),
                                                                                 ElevatedButton(
                                                                                   onPressed: () {
+                                                                                    FlutterRingtonePlayer().stop();
                                                                                     callController.rejectCallRequest(callController.callList[index].callId);
                                                                                     callController.update();
                                                                                   },
-                                                                                  child: const Text("Yes").translate(),
+                                                                                  child: const Text("Yes") /*.translate()*/,
                                                                                 ),
                                                                               ],
                                                                             ),
@@ -1006,7 +1010,7 @@ class HomeScreen extends StatelessWidget {
                                                                           : const Text(
                                                                               "Reject",
                                                                               textAlign: TextAlign.center,
-                                                                            ).translate(),
+                                                                            ) /*.translate()*/,
                                                                     ),
                                                                   ),
                                                                 ],

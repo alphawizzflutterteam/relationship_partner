@@ -33,6 +33,7 @@ class CallController extends GetxController {
   Future getCallList(bool isLazyLoading) async {
     try {
       startIndex = 0;
+      callList = [];
       if (callList.isNotEmpty) {
         startIndex = callList.length;
       }
@@ -69,7 +70,8 @@ class CallController extends GetxController {
     }
   }
 
-  acceptCallRequest(int callId, String profile, String name, int id, String fcmToken) async {
+  acceptCallRequest(
+      int callId, String profile, String name, int id, String fcmToken) async {
     try {
       await global.checkBody().then(
         (result) async {
@@ -144,7 +146,8 @@ class CallController extends GetxController {
                   await getCallList(false);
                   Get.back();
                 } else {
-                  global.showToast(message: "Reject Request failed please try again later!");
+                  global.showToast(
+                      message: "Reject Request failed please try again later!");
                 }
               },
             );
@@ -157,15 +160,19 @@ class CallController extends GetxController {
     }
   }
 
-  Future<dynamic> getRtcToken(String appId, String appCertificate, String chatId, String channelName) async {
+  Future<dynamic> getRtcToken(String appId, String appCertificate,
+      String chatId, String channelName) async {
     try {
       await global.checkBody().then((result) async {
         if (result) {
-          await apiHelper.generateRtcToken(appId, appCertificate, chatId, channelName).then((result) {
+          await apiHelper
+              .generateRtcToken(appId, appCertificate, chatId, channelName)
+              .then((result) {
             if (result.status == "200") {
               global.agoraToken = result.recordList['rtcToken'];
             } else {
-              global.showToast(message: '${result.status} failed to get live RTC Token');
+              global.showToast(
+                  message: '${result.status} failed to get live RTC Token');
             }
           });
         }
@@ -205,7 +212,8 @@ class CallController extends GetxController {
         // barrierDismissible: false, // user must tap button for close dialog!
         builder: (BuildContext context) {
           return AlertDialog(
-            shape: const RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(10))),
+            shape: const RoundedRectangleBorder(
+                borderRadius: BorderRadius.all(Radius.circular(10))),
             content: SizedBox(
               height: 150,
               child: Column(
@@ -239,7 +247,9 @@ class CallController extends GetxController {
                       child: Container(
                         height: 40,
                         width: 80,
-                        decoration: BoxDecoration(color: Colors.red, borderRadius: BorderRadius.circular(50)),
+                        decoration: BoxDecoration(
+                            color: Colors.red,
+                            borderRadius: BorderRadius.circular(50)),
                         child: Center(
                           child: const Text(
                             "Ok",
@@ -253,7 +263,8 @@ class CallController extends GetxController {
               ),
             ),
             actionsAlignment: MainAxisAlignment.spaceBetween,
-            actionsPadding: const EdgeInsets.only(bottom: 15, left: 15, right: 15),
+            actionsPadding:
+                const EdgeInsets.only(bottom: 15, left: 15, right: 15),
           );
         });
   }

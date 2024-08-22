@@ -13,8 +13,16 @@ import 'package:google_translator/google_translator.dart';
 class LoginOtpScreen extends StatelessWidget {
   String? mobileNumber;
   String? verificationId;
+  String? otp;
+  bool? fromSignup;
 
-  LoginOtpScreen({Key? key, this.mobileNumber, this.verificationId}) : super(key: key);
+  LoginOtpScreen(
+      {Key? key,
+      this.mobileNumber,
+      this.verificationId,
+      this.otp,
+      this.fromSignup})
+      : super(key: key);
 
   final LoginOtpController loginOtpController = Get.put(LoginOtpController());
   LoginController loginController = Get.find<LoginController>();
@@ -41,8 +49,9 @@ class LoginOtpScreen extends StatelessWidget {
           appbarPadding: 0,
           title: const Text(
             MessageConstants.VERIFY_PHONE,
-            style: TextStyle(color: Colors.black, fontWeight: FontWeight.w300, fontSize: 19),
-          ).translate(),
+            style: TextStyle(
+                color: Colors.black, fontWeight: FontWeight.w300, fontSize: 19),
+          ),
           backgroundColor: Colors.grey[100],
         ),
         body: Center(
@@ -55,7 +64,11 @@ class LoginOtpScreen extends StatelessWidget {
                   Text(
                     'OTP Send to ${loginOtpController.countryCode}-$mobileNumber',
                     style: const TextStyle(color: Colors.green),
-                  ).translate(),
+                  ),
+                  Text(
+                    'OTP: $otp',
+                    style: const TextStyle(color: Colors.green),
+                  ),
                   const SizedBox(
                     height: 30,
                   ),
@@ -63,7 +76,7 @@ class LoginOtpScreen extends StatelessWidget {
                     height: 50,
                     child: OtpTextField(
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                      numberOfFields: 6,
+                      numberOfFields: 4,
                       showFieldAsBox: true,
                       textStyle: const TextStyle(color: Colors.black),
                       onCodeChanged: (value) {},
@@ -75,7 +88,8 @@ class LoginOtpScreen extends StatelessWidget {
                       filled: true,
                       fillColor: Colors.white,
                       fieldWidth: 48,
-                      keyboardType: const TextInputType.numberWithOptions(decimal: true, signed: true),
+                      keyboardType: const TextInputType.numberWithOptions(
+                          decimal: true, signed: true),
                       borderColor: Colors.transparent,
                       enabledBorderColor: Colors.transparent,
                       focusedBorderColor: Colors.transparent,
@@ -89,28 +103,37 @@ class LoginOtpScreen extends StatelessWidget {
                   SizedBox(
                     width: double.infinity,
                     child: ElevatedButton(
-                      onPressed: () {
-                        loginOtpController.checkOtp(
+                      onPressed: () async {
+                        /*loginOtpController.checkOtp(
                           mobileNumber!,
                           verificationId!,
                           loginOtpController.smsCode,
-                        );
+                        );*/
+                        print('${loginOtpController.smsCode}____________');
+                        print(
+                            '${loginOtpController.smsCode == otp}____________');
+
+                        if (loginOtpController.smsCode == otp) {
+                          await loginController.loginAstrologer(mobileNumber);
+                        }
                         loginOtpController.update();
                       },
                       style: ElevatedButton.styleFrom(
                         elevation: 0,
                         shape: RoundedRectangleBorder(
-                          side: const BorderSide(width: 0.5, color: Colors.grey),
+                          side:
+                              const BorderSide(width: 0.5, color: Colors.grey),
                           borderRadius: BorderRadius.circular(10),
                         ),
                         padding: const EdgeInsets.all(12),
                         backgroundColor: Get.theme.primaryColor,
-                        textStyle: const TextStyle(fontSize: 18, color: Colors.black),
+                        textStyle:
+                            const TextStyle(fontSize: 18, color: Colors.black),
                       ),
                       child: const Text(
                         MessageConstants.SUBMIT_CAPITAL,
                         style: TextStyle(color: Colors.black),
-                      ).translate(),
+                      ),
                     ),
                   ),
                   const SizedBox(
@@ -125,41 +148,62 @@ class LoginOtpScreen extends StatelessWidget {
                                 children: [
                                   Text(
                                     'Resend OTP Available in ${loginOtpController.maxSecond} s',
-                                    style: const TextStyle(color: Colors.green, fontWeight: FontWeight.w500),
-                                  ).translate()
+                                    style: const TextStyle(
+                                        color: Colors.green,
+                                        fontWeight: FontWeight.w500),
+                                  )
                                 ],
                               )
-                            : Column(mainAxisAlignment: MainAxisAlignment.start, crossAxisAlignment: CrossAxisAlignment.start, children: [
-                                const Text(
-                                  'Resend OTP Available',
-                                  style: TextStyle(color: Colors.green, fontWeight: FontWeight.w500),
-                                ).translate(),
-                                Row(
-                                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                  children: [
-                                    ElevatedButton(
-                                      onPressed: () {
-                                        String phoneNumber = loginOtpController.cMobileNumber.text;
-                                        loginController.sendLoginOTP(phoneNumber);
-                                      },
-                                      style: ButtonStyle(
-                                        shape: MaterialStateProperty.all(
-                                          RoundedRectangleBorder(
-                                            borderRadius: BorderRadius.circular(10),
+                            : Column(
+                                mainAxisAlignment: MainAxisAlignment.start,
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                    const Text(
+                                      'Resend OTP Available',
+                                      style: TextStyle(
+                                          color: Colors.green,
+                                          fontWeight: FontWeight.w500),
+                                    ),
+                                    Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.spaceBetween,
+                                      children: [
+                                        ElevatedButton(
+                                          onPressed: () {
+                                            String phoneNumber =
+                                                loginOtpController
+                                                    .cMobileNumber.text;
+                                            loginController
+                                                .sendLoginOTP(phoneNumber);
+                                          },
+                                          style: ButtonStyle(
+                                            shape: MaterialStateProperty.all(
+                                              RoundedRectangleBorder(
+                                                borderRadius:
+                                                    BorderRadius.circular(10),
+                                              ),
+                                            ),
+                                            padding: MaterialStateProperty.all(
+                                                const EdgeInsets.only(
+                                                    left: 25, right: 25)),
+                                            backgroundColor:
+                                                MaterialStateProperty.all(
+                                                    Get.theme.primaryColor),
+                                            textStyle:
+                                                MaterialStateProperty.all(
+                                                    const TextStyle(
+                                                        fontSize: 12,
+                                                        color: Colors.black)),
+                                          ),
+                                          child: const Text(
+                                            'Resend OTP on SMS',
+                                            style:
+                                                TextStyle(color: Colors.black),
                                           ),
                                         ),
-                                        padding: MaterialStateProperty.all(const EdgeInsets.only(left: 25, right: 25)),
-                                        backgroundColor: MaterialStateProperty.all(Get.theme.primaryColor),
-                                        textStyle: MaterialStateProperty.all(const TextStyle(fontSize: 12, color: Colors.black)),
-                                      ),
-                                      child: const Text(
-                                        'Resend OTP on SMS',
-                                        style: TextStyle(color: Colors.black),
-                                      ).translate(),
-                                    ),
-                                  ],
-                                )
-                              ]));
+                                      ],
+                                    )
+                                  ]));
                   })
                 ],
               ),

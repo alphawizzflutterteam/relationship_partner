@@ -2,7 +2,9 @@
 
 import 'dart:async';
 import 'dart:convert';
+import 'dart:developer';
 import 'dart:io';
+import 'package:agora_rtm/agora_rtm.dart';
 import 'package:astrologer_app/controllers/Authentication/signup_otp_controller.dart';
 import 'package:astrologer_app/models/Master%20Table%20Model/all_skill_model.dart';
 import 'package:astrologer_app/models/Master%20Table%20Model/astrologer_category_list_model.dart';
@@ -45,7 +47,15 @@ class SignupController extends GetxController {
 //static List
   List<Week>? week = [];
   List<TimeAvailabilityModel>? timeAvailabilityList = [];
-  List<String?> daysList = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+  List<String?> daysList = [
+    "Sunday",
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday"
+  ];
 
 //--------------------Personal Details----------------------
 //Name
@@ -77,15 +87,19 @@ class SignupController extends GetxController {
   Future<File?> openCamera(Color color, {bool isProfile = true}) async {
     try {
       final ImagePicker picker = ImagePicker();
-      XFile? _selectedImage = await picker.pickImage(source: ImageSource.camera);
+      XFile? _selectedImage =
+          await picker.pickImage(source: ImageSource.camera);
 
       if (_selectedImage != null) {
         CroppedFile? _croppedFile = await ImageCropper().cropImage(
           sourcePath: _selectedImage.path,
-          aspectRatio: isProfile ? const CropAspectRatio(ratioX: 1, ratioY: 1) : null,
+          aspectRatio:
+              isProfile ? const CropAspectRatio(ratioX: 1, ratioY: 1) : null,
           uiSettings: [
             AndroidUiSettings(
-              initAspectRatio: isProfile ? CropAspectRatioPreset.square : CropAspectRatioPreset.original,
+              initAspectRatio: isProfile
+                  ? CropAspectRatioPreset.square
+                  : CropAspectRatioPreset.original,
               backgroundColor: Colors.grey,
               toolbarColor: Colors.grey[100],
               toolbarWidgetColor: color,
@@ -108,15 +122,19 @@ class SignupController extends GetxController {
   Future<File?> openGallery(Color color, {bool isProfile = true}) async {
     try {
       final ImagePicker picker = ImagePicker();
-      XFile? _selectedImage = await picker.pickImage(source: ImageSource.gallery);
+      XFile? _selectedImage =
+          await picker.pickImage(source: ImageSource.gallery);
 
       if (_selectedImage != null) {
         CroppedFile? croppedFile = await ImageCropper().cropImage(
           sourcePath: _selectedImage.path,
-          aspectRatio: isProfile ? const CropAspectRatio(ratioX: 1, ratioY: 1) : null,
+          aspectRatio:
+              isProfile ? const CropAspectRatio(ratioX: 1, ratioY: 1) : null,
           uiSettings: [
             AndroidUiSettings(
-              initAspectRatio: isProfile ? CropAspectRatioPreset.square : CropAspectRatioPreset.original,
+              initAspectRatio: isProfile
+                  ? CropAspectRatioPreset.square
+                  : CropAspectRatioPreset.original,
               backgroundColor: Colors.grey,
               toolbarColor: Colors.grey[100],
               toolbarWidgetColor: color,
@@ -214,7 +232,8 @@ class SignupController extends GetxController {
 //source of business
   String? selectedDegreeDiploma;
 //College/School/university
-  final TextEditingController cCollegeSchoolUniversity = TextEditingController();
+  final TextEditingController cCollegeSchoolUniversity =
+      TextEditingController();
   final FocusNode fCollegeSchoolUniversity = FocusNode();
 //Learn Astrology
   final TextEditingController cLearnAstrology = TextEditingController();
@@ -244,7 +263,8 @@ class SignupController extends GetxController {
   }
 
 //Expected Minimum Earning from Astroguru
-  final TextEditingController cExptectedMinimumEarning = TextEditingController();
+  final TextEditingController cExptectedMinimumEarning =
+      TextEditingController();
   final FocusNode fExpectedMinimumEarning = FocusNode();
 //Expected Maximum Earning
   final TextEditingController cExpectedMaximumEarning = TextEditingController();
@@ -372,14 +392,18 @@ class SignupController extends GetxController {
     try {
 //------Validation_of_Personal_Detail-----------------
       if (index == 0) {
-        if (cName.text != "" && (cEmail.text != '' && GetUtils.isEmail(cEmail.text)) && (cMobileNumber.text != "" && cMobileNumber.text.length == 10) && termAndCondtion.value == true) {
+        if (cName.text != "" &&
+            (cEmail.text != '' && GetUtils.isEmail(cEmail.text)) &&
+            (cMobileNumber.text != "" && cMobileNumber.text.length == 10) &&
+            termAndCondtion.value == true) {
           print("index = 0");
           checkContactExist(cMobileNumber.text);
         } else if (cName.text == "") {
           global.showToast(message: "Please Enter Valid Name");
         } else if (cEmail.text == '' || !GetUtils.isEmail(cEmail.text)) {
           global.showToast(message: "Please Enter Valid Email Address");
-        } else if (cMobileNumber.text == '' || cMobileNumber.text.length != 10) {
+        } else if (cMobileNumber.text == '' ||
+            cMobileNumber.text.length != 10) {
           global.showToast(message: "Please Enter Valid Mobile Number");
         } else if (termAndCondtion.value == false) {
           global.showToast(message: "Please Agree With T&C");
@@ -390,18 +414,20 @@ class SignupController extends GetxController {
 //------Validation_of_Skill_Detail-----------------
       else if (index == 1) {
         if (selectedGender != "" &&
-            selectedDate != null &&
-            cSelectCategory.text != "" &&
-            cPrimarySkill.text != "" &&
-            cAllSkill.text != "" &&
-            cLanguage.text != "" &&
-            cCharges.text != "" &&
-            cVideoCharges.text != "" &&
-            cReportCharges.text != "" &&
-            cExpirence.text != "" &&
-            cContributionHours.text != "" &&
+                selectedDate != null &&
+                cSelectCategory.text != "" &&
+                cPrimarySkill.text != "" &&
+                // cAllSkill.text != "" &&
+                cLanguage.text != "" &&
+                // cCharges.text != "" &&
+                // cVideoCharges.text != "" &&
+                // cReportCharges.text != "" &&
+                cExpirence.text !=
+                    "" /*&&
+           // cContributionHours.text != "" &&
             (anyOnlinePlatform == 1 && cNameOfPlatform.text != "" || anyOnlinePlatform == 2 || anyOnlinePlatform == null) &&
-            (anyOnlinePlatform == 1 && cMonthlyEarning.text != "" || anyOnlinePlatform == 2 || anyOnlinePlatform == null)) {
+            (anyOnlinePlatform == 1 && cMonthlyEarning.text != "" || anyOnlinePlatform == 2 || anyOnlinePlatform == null)*/
+            ) {
           print("index = 1");
           onStepNext();
           // } else if (selectedImage == null) {
@@ -414,62 +440,91 @@ class SignupController extends GetxController {
           global.showToast(message: "Please Select astrologer category");
         } else if (cPrimarySkill.text == "") {
           global.showToast(message: "Please Select Primary Skill");
-        } else if (cAllSkill.text == "") {
+        } /*else if (cAllSkill.text == "") {
           global.showToast(message: "Please Select All Skill");
-        } else if (cLanguage.text == "") {
+        }*/
+        else if (cLanguage.text == "") {
           global.showToast(message: "Please Select Language");
-        } else if (cCharges.text == "") {
+        } /*else if (cCharges.text == "") {
           global.showToast(message: "Please Enter Charges");
         } else if (cVideoCharges.text == "") {
           global.showToast(message: "Please Enter video Charges");
         } else if (cReportCharges.text == "") {
           global.showToast(message: "Please Enter report Charges");
-        } else if (cExpirence.text == "") {
+        } */
+        else if (cExpirence.text == "") {
           global.showToast(message: "Please Enter Expirence");
-        } else if (cContributionHours.text == "") {
+        } /*else if (cContributionHours.text == "") {
           global.showToast(message: "Please Enter Contribution Hours");
         } else if (anyOnlinePlatform == 1 && cNameOfPlatform.text == "") {
           global.showToast(message: "Please Enter Name Of Platform");
         } else if (anyOnlinePlatform == 1 && cMonthlyEarning.text == "") {
           global.showToast(message: "Please Enter Monthly Earning");
-        } else {
-          global.showToast(message: "Something Wrong in Skill Detail Form");
         }
+        else {
+          global.showToast(message: "Something Wrong in Skill Detail Form");
+        }*/
       }
 //------Validation_of_Other_Detail-----------------
       else if (index == 2) {
-        if (cOnBoardYou.text != "" && cTimeForInterview.text != "" && (selectedSourceOfBusiness != "" && selectedSourceOfBusiness != null) && (selectedHighestQualification != "" && selectedHighestQualification != null) && (selectedDegreeDiploma != "" && selectedDegreeDiploma != null) && cExptectedMinimumEarning.text != "" && cExpectedMaximumEarning.text != "" && cLongBio.text != "") {
+        if (/*cOnBoardYou.text != "" &&
+            cTimeForInterview.text != "" &&
+            (selectedSourceOfBusiness != "" &&
+                selectedSourceOfBusiness != null) &&*/
+            (selectedHighestQualification != "" &&
+                    selectedHighestQualification != null) &&
+                (selectedDegreeDiploma != "" &&
+                    selectedDegreeDiploma != null) &&
+                // cExptectedMinimumEarning.text != "" &&
+                //   cExpectedMaximumEarning.text != "" &&
+                cLongBio.text != "") {
           print("index = 2");
           onStepNext();
-        } else if (cOnBoardYou.text == "") {
+          //onStepNext();
+        } else /*if (cOnBoardYou.text == "") {
           global.showToast(message: "Please Enter Why Should We Onboard You");
         } else if (cTimeForInterview.text == "") {
           global.showToast(message: "Please Enter Suitable Time For Interview");
-        } else if (selectedSourceOfBusiness == null || selectedSourceOfBusiness == "") {
+        } else if (selectedSourceOfBusiness == null ||
+            selectedSourceOfBusiness == "") {
           global.showToast(message: "Please Select Source Of Business");
-        } else if (selectedHighestQualification == null || selectedHighestQualification == "") {
+        } else*/
+        if (selectedHighestQualification == null ||
+            selectedHighestQualification == "") {
           global.showToast(message: "Please Select Highest Qualification");
-        } else if (selectedDegreeDiploma == null || selectedDegreeDiploma == "") {
+        } else if (selectedDegreeDiploma == null ||
+            selectedDegreeDiploma == "") {
           global.showToast(message: "Please Select Degree/Diploma");
-        } else if (cExptectedMinimumEarning.text == "") {
+        } /*else if (cExptectedMinimumEarning.text == "") {
           global.showToast(message: "Please Enter Minimum Earning");
         } else if (cExpectedMaximumEarning.text == "") {
           global.showToast(message: "Please Enter Maximum Earning");
-        } else if (cLongBio.text == "") {
+        }*/
+        else if (cLongBio.text == "") {
           global.showToast(message: "Please Enter Long Bio");
         } else {
           global.showToast(message: "Something Wrong in Other Detail Form");
         }
       }
 //------Validation_of_Assignment-----------------
-      else if (index == 3) {
-        if ((selectedForeignCountryCount != "" && selectedForeignCountryCount != null) && (selectedCurrentlyWorkingJob != "" && selectedCurrentlyWorkingJob != null) && cGoodQuality.text != "" && cBiggestChallenge.text != "" && cRepeatedQuestion.text != "") {
+      /*else if (index == 3) {
+        if ((selectedForeignCountryCount != "" &&
+                selectedForeignCountryCount != null) &&
+            (selectedCurrentlyWorkingJob != "" &&
+                selectedCurrentlyWorkingJob != null) &&
+            cGoodQuality.text != "" &&
+            cBiggestChallenge.text != "" &&
+            cRepeatedQuestion.text != "") {
           print("index = 3");
           onStepNext();
-        } else if (selectedForeignCountryCount == "" || selectedForeignCountryCount == null) {
-          global.showToast(message: "Please Select Number of Foreign Country You Lived");
-        } else if (selectedCurrentlyWorkingJob == "" || selectedCurrentlyWorkingJob == null) {
-          global.showToast(message: "Please Select Current Working Fulltime Job");
+        } else if (selectedForeignCountryCount == "" ||
+            selectedForeignCountryCount == null) {
+          global.showToast(
+              message: "Please Select Number of Foreign Country You Lived");
+        } else if (selectedCurrentlyWorkingJob == "" ||
+            selectedCurrentlyWorkingJob == null) {
+          global.showToast(
+              message: "Please Select Current Working Fulltime Job");
         } else if (cGoodQuality.text == "") {
           global.showToast(message: "Please Enter Good Quality");
         } else if (cBiggestChallenge.text == "") {
@@ -479,9 +534,9 @@ class SignupController extends GetxController {
         } else {
           global.showToast(message: "Something Wrong in Assignment Form");
         }
-      }
+      }*/
 //------Validation_of_Availability_Detail-----------------
-      else if (index == 4) {
+      else if (index == 3) {
         // signupAstrologer();
         if (cStartTime.text != '' && cEndTime.text != '') {
           signupAstrologer();
@@ -514,11 +569,12 @@ class SignupController extends GetxController {
             global.user.astrologerCategory = cSelectCategory.text;
             global.user.allSkill = cAllSkill.text;
             global.user.languageKnown = cLanguage.text;
-            global.user.charges = int.parse(cCharges.text);
+            /*global.user.charges = int.parse(cCharges.text);
             global.user.videoCallRate = int.parse(cVideoCharges.text);
             global.user.reportRate = int.parse(cReportCharges.text);
             global.user.expirenceInYear = int.parse(cExpirence.text);
-            global.user.dailyContributionHours = int.parse(cContributionHours.text);
+            global.user.dailyContributionHours =
+                int.parse(cContributionHours.text);*/
             global.user.hearAboutAstroGuru = cHearAboutAstroGuru.text;
             global.user.isWorkingOnAnotherPlatform = anyOnlinePlatform;
             global.user.otherPlatformName = cNameOfPlatform.text;
@@ -538,8 +594,10 @@ class SignupController extends GetxController {
             global.user.webSiteProfileLink = cWebSite.text;
             global.user.isAnyBodyRefer = referPerson;
             global.user.referedPersonName = cNameOfReferPerson.text;
-            global.user.expectedMinimumEarning = int.parse(cExptectedMinimumEarning.text);
-            global.user.expectedMaximumEarning = int.parse(cExpectedMaximumEarning.text);
+            /* global.user.expectedMinimumEarning =
+                int.parse(cExptectedMinimumEarning.text);
+            global.user.expectedMaximumEarning =
+                int.parse(cExpectedMaximumEarning.text);*/
             global.user.longBio = cLongBio.text;
             global.user.foreignCountryCount = selectedForeignCountryCount;
             global.user.currentlyWorkingJob = selectedCurrentlyWorkingJob;
@@ -567,23 +625,35 @@ class SignupController extends GetxController {
             global.user.week = [];
             for (var i = 0; i < week!.length; i++) {
               if (week![i].timeAvailabilityList!.isNotEmpty) {
-                global.user.week!.add(Week(day: week![i].day, timeAvailabilityList: week![i].timeAvailabilityList));
+                global.user.week!.add(Week(
+                    day: week![i].day,
+                    timeAvailabilityList: week![i].timeAvailabilityList));
               }
             }
+
             global.user.week!.removeWhere((element) => element.day == "");
+
+            log('${global.user.toJson()}');
             global.showOnlyLoaderDialog();
+
             await apiHelper.signUp(global.user).then(
               (apiRresult) async {
                 global.hideLoader();
                 if (apiRresult.status == '200') {
                   global.user = apiRresult.recordList;
-                  Get.offUntil(MaterialPageRoute(builder: (context) => const SuccessRegistrationScreen()), (route) => false);
-                  global.showToast(message: "You Have Succesfully Register User");
+                  Get.offUntil(
+                      MaterialPageRoute(
+                          builder: (context) =>
+                              const SuccessRegistrationScreen()),
+                      (route) => false);
+                  global.showToast(
+                      message: "You Have Succesfully Register User");
                 } else if (apiRresult.status == '400') {
                   global.showToast(message: apiRresult.message);
                   update();
                 } else {
-                  global.showToast(message: "Somehing Went Wrong, Please Try Again Later");
+                  global.showToast(
+                      message: "Somehing Went Wrong, Please Try Again Later");
                 }
               },
             );
@@ -611,7 +681,8 @@ class SignupController extends GetxController {
                   sendOTP(phoneNumber);
                 } else {
                   global.hideLoader();
-                  global.showToast(message: "Contact Number is Already Register");
+                  global.showToast(
+                      message: "Contact Number is Already Register");
                 }
               },
             );
@@ -620,7 +691,8 @@ class SignupController extends GetxController {
       );
       update();
     } catch (e) {
-      print("Exception - SignUpControoler.dart - checkContactExist(): " + e.toString());
+      print("Exception - SignUpControoler.dart - checkContactExist(): " +
+          e.toString());
     }
   }
 
@@ -690,7 +762,9 @@ class SignupController extends GetxController {
 
   void paginateTask() {
     walletHistoryScrollController.addListener(() async {
-      if (walletHistoryScrollController.position.pixels == walletHistoryScrollController.position.maxScrollExtent && !isAllDataLoaded) {
+      if (walletHistoryScrollController.position.pixels ==
+              walletHistoryScrollController.position.maxScrollExtent &&
+          !isAllDataLoaded) {
         isMoreDataAvailable = true;
         print('scroll my following');
         update();
@@ -698,7 +772,9 @@ class SignupController extends GetxController {
       }
     });
     chatHistoryScrollController.addListener(() async {
-      if (chatHistoryScrollController.position.pixels == chatHistoryScrollController.position.maxScrollExtent && !isAllDataLoaded) {
+      if (chatHistoryScrollController.position.pixels ==
+              chatHistoryScrollController.position.maxScrollExtent &&
+          !isAllDataLoaded) {
         isMoreDataAvailable = true;
         print('scroll my following');
         update();
@@ -706,7 +782,9 @@ class SignupController extends GetxController {
       }
     });
     callHistoryScrollController.addListener(() async {
-      if (callHistoryScrollController.position.pixels == callHistoryScrollController.position.maxScrollExtent && !isAllDataLoaded) {
+      if (callHistoryScrollController.position.pixels ==
+              callHistoryScrollController.position.maxScrollExtent &&
+          !isAllDataLoaded) {
         isMoreDataAvailable = true;
         print('scroll my following');
         update();
@@ -714,7 +792,9 @@ class SignupController extends GetxController {
       }
     });
     reportHistoryScrollController.addListener(() async {
-      if (reportHistoryScrollController.position.pixels == reportHistoryScrollController.position.maxScrollExtent && !isAllDataLoaded) {
+      if (reportHistoryScrollController.position.pixels ==
+              reportHistoryScrollController.position.maxScrollExtent &&
+          !isAllDataLoaded) {
         isMoreDataAvailable = true;
         print('scroll my following');
         update();
@@ -737,7 +817,9 @@ class SignupController extends GetxController {
           if (result) {
             global.showOnlyLoaderDialog();
             int id = global.user.id ?? 0;
-            apiHelper.getAstrologerProfile(id, startIndex, fetchRecord).then((result) {
+            apiHelper
+                .getAstrologerProfile(id, startIndex, fetchRecord)
+                .then((result) {
               global.hideLoader();
               if (result.status == "200") {
                 astrologerList.addAll(result.recordList);

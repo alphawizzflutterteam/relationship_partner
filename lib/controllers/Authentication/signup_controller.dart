@@ -453,7 +453,7 @@ class SignupController extends GetxController {
           global.showToast(message: "Please Enter report Charges");
         } */
         else if (cExpirence.text == "") {
-          global.showToast(message: "Please Enter Expirence");
+          global.showToast(message: "Please Enter Experience");
         } /*else if (cContributionHours.text == "") {
           global.showToast(message: "Please Enter Contribution Hours");
         } else if (anyOnlinePlatform == 1 && cNameOfPlatform.text == "") {
@@ -647,13 +647,13 @@ class SignupController extends GetxController {
                               const SuccessRegistrationScreen()),
                       (route) => false);
                   global.showToast(
-                      message: "You Have Succesfully Register User");
+                      message: "You Have Successfully Register User");
                 } else if (apiRresult.status == '400') {
                   global.showToast(message: apiRresult.message);
                   update();
                 } else {
                   global.showToast(
-                      message: "Somehing Went Wrong, Please Try Again Later");
+                      message: "Something Went Wrong, Please Try Again Later");
                 }
               },
             );

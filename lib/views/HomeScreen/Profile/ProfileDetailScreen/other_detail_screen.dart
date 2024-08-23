@@ -11,14 +11,17 @@ class OtherDetailScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        appBar: MyCustomAppBar(height: 80, backgroundColor: COLORS().primaryColor, title: const Text("Other Detail").translate()),
+        appBar: MyCustomAppBar(
+            height: 80,
+            backgroundColor: COLORS().primaryColor,
+            title: const Text("Other Detail").translate()),
         body: SingleChildScrollView(
           child: Padding(
             padding: const EdgeInsets.all(8.0),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Container(
+                /*Container(
                   color: Colors.white,
                   child: ExpansionTile(
                     childrenPadding: const EdgeInsets.symmetric(horizontal: 5),
@@ -51,7 +54,7 @@ class OtherDetailScreen extends StatelessWidget {
                       style: Theme.of(context).primaryTextTheme.subtitle1,
                     ).translate(),
                   ),
-                ),
+                ),*/
                 global.user.currentCity != null && global.user.currentCity != ''
                     ? Padding(
                         padding: const EdgeInsets.only(top: 8.0),
@@ -63,13 +66,16 @@ class OtherDetailScreen extends StatelessWidget {
                             style: Theme.of(context).primaryTextTheme.headline3,
                           ).translate(),
                           trailing: Text(
-                            global.user.currentCity != null && global.user.currentCity != '' ? '${global.user.currentCity}' : "",
+                            global.user.currentCity != null &&
+                                    global.user.currentCity != ''
+                                ? '${global.user.currentCity}'
+                                : "",
                             style: Theme.of(context).primaryTextTheme.subtitle1,
                           ).translate(),
                         ),
                       )
                     : const SizedBox(),
-                Padding(
+                /*Padding(
                   padding: const EdgeInsets.only(top: 8.0),
                   child: ListTile(
                     enabled: true,
@@ -87,7 +93,7 @@ class OtherDetailScreen extends StatelessWidget {
                       ).translate(),
                     ),
                   ),
-                ),
+                ),*/
                 Padding(
                   padding: const EdgeInsets.only(top: 8.0),
                   child: ListTile(
@@ -100,7 +106,10 @@ class OtherDetailScreen extends StatelessWidget {
                     trailing: SizedBox(
                       width: 190,
                       child: Text(
-                        global.user.highestQualification != null && global.user.highestQualification != '' ? '${global.user.highestQualification}' : "",
+                        global.user.highestQualification != null &&
+                                global.user.highestQualification != ''
+                            ? '${global.user.highestQualification}'
+                            : "",
                         style: Theme.of(context).primaryTextTheme.subtitle1,
                         textAlign: TextAlign.end,
                       ),
@@ -119,14 +128,18 @@ class OtherDetailScreen extends StatelessWidget {
                     trailing: SizedBox(
                       width: 150,
                       child: Text(
-                        global.user.degreeDiploma != null && global.user.degreeDiploma != '' ? '${global.user.degreeDiploma}' : "",
+                        global.user.degreeDiploma != null &&
+                                global.user.degreeDiploma != ''
+                            ? '${global.user.degreeDiploma}'
+                            : "",
                         style: Theme.of(context).primaryTextTheme.subtitle1,
                         textAlign: TextAlign.end,
                       ),
                     ),
                   ),
                 ),
-                global.user.collegeSchoolUniversity != null && global.user.collegeSchoolUniversity != ''
+                global.user.collegeSchoolUniversity != null &&
+                        global.user.collegeSchoolUniversity != ''
                     ? Padding(
                         padding: const EdgeInsets.only(top: 8.0),
                         child: ListTile(
@@ -139,15 +152,20 @@ class OtherDetailScreen extends StatelessWidget {
                           trailing: SizedBox(
                             width: 190,
                             child: Text(
-                              global.user.collegeSchoolUniversity != null && global.user.collegeSchoolUniversity != '' ? '${global.user.collegeSchoolUniversity}' : "",
-                              style: Theme.of(context).primaryTextTheme.subtitle1,
+                              global.user.collegeSchoolUniversity != null &&
+                                      global.user.collegeSchoolUniversity != ''
+                                  ? '${global.user.collegeSchoolUniversity}'
+                                  : "",
+                              style:
+                                  Theme.of(context).primaryTextTheme.subtitle1,
                               textAlign: TextAlign.end,
                             ),
                           ),
                         ),
                       )
                     : const SizedBox(),
-                global.user.learnAstrology != null && global.user.learnAstrology != ''
+                global.user.learnAstrology != null &&
+                        global.user.learnAstrology != ''
                     ? Padding(
                         padding: const EdgeInsets.only(top: 8.0),
                         child: ListTile(
@@ -158,13 +176,17 @@ class OtherDetailScreen extends StatelessWidget {
                             style: Theme.of(context).primaryTextTheme.headline3,
                           ).translate(),
                           trailing: Text(
-                            global.user.learnAstrology != null && global.user.learnAstrology != '' ? '${global.user.learnAstrology}' : "",
+                            global.user.learnAstrology != null &&
+                                    global.user.learnAstrology != ''
+                                ? '${global.user.learnAstrology}'
+                                : "",
                             style: Theme.of(context).primaryTextTheme.subtitle1,
                           ).translate(),
                         ),
                       )
                     : const SizedBox(),
-                global.user.instagramProfileLink != null && global.user.instagramProfileLink != ''
+                global.user.instagramProfileLink != null &&
+                        global.user.instagramProfileLink != ''
                     ? Padding(
                         padding: const EdgeInsets.only(top: 8.0),
                         child: ListTile(
@@ -175,13 +197,17 @@ class OtherDetailScreen extends StatelessWidget {
                             style: Theme.of(context).primaryTextTheme.headline3,
                           ).translate(),
                           trailing: Text(
-                            global.user.instagramProfileLink != null && global.user.instagramProfileLink != '' ? '${global.user.instagramProfileLink}' : "",
+                            global.user.instagramProfileLink != null &&
+                                    global.user.instagramProfileLink != ''
+                                ? '${global.user.instagramProfileLink}'
+                                : "",
                             style: Theme.of(context).primaryTextTheme.subtitle1,
                           ),
                         ),
                       )
                     : const SizedBox(),
-                global.user.facebookProfileLink != null && global.user.facebookProfileLink != ''
+                global.user.facebookProfileLink != null &&
+                        global.user.facebookProfileLink != ''
                     ? Padding(
                         padding: const EdgeInsets.only(top: 8.0),
                         child: ListTile(
@@ -192,13 +218,17 @@ class OtherDetailScreen extends StatelessWidget {
                             style: Theme.of(context).primaryTextTheme.headline3,
                           ).translate(),
                           trailing: Text(
-                            global.user.facebookProfileLink != null && global.user.facebookProfileLink != '' ? '${global.user.facebookProfileLink}' : "",
+                            global.user.facebookProfileLink != null &&
+                                    global.user.facebookProfileLink != ''
+                                ? '${global.user.facebookProfileLink}'
+                                : "",
                             style: Theme.of(context).primaryTextTheme.subtitle1,
                           ),
                         ),
                       )
                     : const SizedBox(),
-                global.user.linkedInProfileLink != null && global.user.linkedInProfileLink != ''
+                global.user.linkedInProfileLink != null &&
+                        global.user.linkedInProfileLink != ''
                     ? Padding(
                         padding: const EdgeInsets.only(top: 8.0),
                         child: ListTile(
@@ -209,13 +239,17 @@ class OtherDetailScreen extends StatelessWidget {
                             style: Theme.of(context).primaryTextTheme.headline3,
                           ).translate(),
                           trailing: Text(
-                            global.user.linkedInProfileLink != null && global.user.linkedInProfileLink != '' ? '${global.user.linkedInProfileLink}' : "",
+                            global.user.linkedInProfileLink != null &&
+                                    global.user.linkedInProfileLink != ''
+                                ? '${global.user.linkedInProfileLink}'
+                                : "",
                             style: Theme.of(context).primaryTextTheme.subtitle1,
                           ),
                         ),
                       )
                     : const SizedBox(),
-                global.user.youtubeProfileLink != null && global.user.youtubeProfileLink != ''
+                global.user.youtubeProfileLink != null &&
+                        global.user.youtubeProfileLink != ''
                     ? Padding(
                         padding: const EdgeInsets.only(top: 8.0),
                         child: ListTile(
@@ -226,13 +260,17 @@ class OtherDetailScreen extends StatelessWidget {
                             style: Theme.of(context).primaryTextTheme.headline3,
                           ).translate(),
                           trailing: Text(
-                            global.user.youtubeProfileLink != null && global.user.youtubeProfileLink != '' ? '${global.user.youtubeProfileLink}' : "",
+                            global.user.youtubeProfileLink != null &&
+                                    global.user.youtubeProfileLink != ''
+                                ? '${global.user.youtubeProfileLink}'
+                                : "",
                             style: Theme.of(context).primaryTextTheme.subtitle1,
                           ),
                         ),
                       )
                     : const SizedBox(),
-                global.user.webSiteProfileLink != null && global.user.webSiteProfileLink != ''
+                global.user.webSiteProfileLink != null &&
+                        global.user.webSiteProfileLink != ''
                     ? Padding(
                         padding: const EdgeInsets.only(top: 8.0),
                         child: ListTile(
@@ -243,13 +281,17 @@ class OtherDetailScreen extends StatelessWidget {
                             style: Theme.of(context).primaryTextTheme.headline3,
                           ).translate(),
                           trailing: Text(
-                            global.user.webSiteProfileLink != null && global.user.webSiteProfileLink != '' ? '${global.user.webSiteProfileLink}' : "",
+                            global.user.webSiteProfileLink != null &&
+                                    global.user.webSiteProfileLink != ''
+                                ? '${global.user.webSiteProfileLink}'
+                                : "",
                             style: Theme.of(context).primaryTextTheme.subtitle1,
                           ),
                         ),
                       )
                     : const SizedBox(),
-                global.user.referedPersonName != null && global.user.referedPersonName != ''
+                global.user.referedPersonName != null &&
+                        global.user.referedPersonName != ''
                     ? Padding(
                         padding: const EdgeInsets.only(top: 8.0),
                         child: ListTile(
@@ -260,13 +302,16 @@ class OtherDetailScreen extends StatelessWidget {
                             style: Theme.of(context).primaryTextTheme.headline3,
                           ).translate(),
                           trailing: Text(
-                            global.user.referedPersonName != null && global.user.referedPersonName != '' ? '${global.user.referedPersonName}' : "",
+                            global.user.referedPersonName != null &&
+                                    global.user.referedPersonName != ''
+                                ? '${global.user.referedPersonName}'
+                                : "",
                             style: Theme.of(context).primaryTextTheme.subtitle1,
                           ).translate(),
                         ),
                       )
                     : const SizedBox(),
-                Padding(
+                /*Padding(
                   padding: const EdgeInsets.only(top: 8.0),
                   child: ListTile(
                     enabled: true,
@@ -280,8 +325,8 @@ class OtherDetailScreen extends StatelessWidget {
                       style: Theme.of(context).primaryTextTheme.subtitle1,
                     ),
                   ),
-                ),
-                Padding(
+                ),*/
+                /*Padding(
                   padding: const EdgeInsets.only(top: 8.0),
                   child: ListTile(
                     enabled: true,
@@ -295,7 +340,7 @@ class OtherDetailScreen extends StatelessWidget {
                       style: Theme.of(context).primaryTextTheme.subtitle1,
                     ),
                   ),
-                ),
+                ),*/
                 Container(
                   color: Colors.white,
                   child: ExpansionTile(
@@ -308,7 +353,10 @@ class OtherDetailScreen extends StatelessWidget {
                       Padding(
                         padding: const EdgeInsets.only(bottom: 10),
                         child: Text(
-                          global.user.longBio != null && global.user.longBio != '' ? '${global.user.longBio}' : "My Name is developer And i am working as astrologer in this company",
+                          global.user.longBio != null &&
+                                  global.user.longBio != ''
+                              ? '${global.user.longBio}'
+                              : "My Name is developer And i am working as astrologer in this company",
                           style: Theme.of(context).primaryTextTheme.subtitle1,
                         ).translate(),
                       ),

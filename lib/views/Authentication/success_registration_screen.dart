@@ -22,7 +22,10 @@ class SuccessRegistrationScreen extends StatelessWidget {
           leading: IconButton(
             onPressed: () {
               Get.delete<LoginController>();
-              Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (context) => LoginScreen()), (route) => false);
+              Navigator.pushAndRemoveUntil(
+                  context,
+                  MaterialPageRoute(builder: (context) => LoginScreen()),
+                  (route) => false);
             },
             icon: const Icon(
               Icons.arrow_back_ios,
@@ -41,13 +44,14 @@ class SuccessRegistrationScreen extends StatelessWidget {
               padding: const EdgeInsets.only(top: 40.0, left: 15, right: 15),
               child: Center(
                 child: Text(
-                  "Thanks for submitting your detail with AstroGuru Partner,your token number is 101010 Our team shall reach out to you for interview within 4 weeks if profile get shortlisted, For more information, drop an email at astroguru@gmail.com",
+                  "Thanks for submitting your detail with Relationship Revive Partner",
                   style: Theme.of(context).primaryTextTheme.subtitle1,
                 ).translate(),
               ),
             )
           ],
         ),
+        //Our team shall reach out to you if your profile get shortlisted, For more information, drop an email at relationshiprevive@gmail.com
         bottomNavigationBar: Container(
           height: 45,
           margin: const EdgeInsets.only(left: 10, right: 10, bottom: 10),
@@ -59,12 +63,15 @@ class SuccessRegistrationScreen extends StatelessWidget {
           child: TextButton(
             onPressed: () {
               Get.delete<LoginController>();
-              Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (context) => LoginScreen()), (route) => false);
+              Navigator.pushAndRemoveUntil(
+                  context,
+                  MaterialPageRoute(builder: (context) => LoginScreen()),
+                  (route) => false);
             },
             child: const Text(
               MessageConstants.LOGIN,
               style: TextStyle(color: Colors.black),
-            ).translate(),
+            ),
           ),
         ),
       ),

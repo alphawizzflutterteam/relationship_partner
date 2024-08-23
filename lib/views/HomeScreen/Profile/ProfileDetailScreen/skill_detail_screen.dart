@@ -27,7 +27,8 @@ class SkillDetailScreen extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Center(
-                  child: global.user.imagePath != null && global.user.imagePath!.isNotEmpty
+                  child: global.user.imagePath != null &&
+                          global.user.imagePath!.isNotEmpty
                       ? signupController.astrologerList[0].imagePath!.isNotEmpty
                           ? Container(
                               height: Get.height * 0.12,
@@ -35,7 +36,8 @@ class SkillDetailScreen extends StatelessWidget {
                               decoration: BoxDecoration(
                                 borderRadius: BorderRadius.circular(7),
                                 image: DecorationImage(
-                                  image: NetworkImage("${global.imgBaseurl}${signupController.astrologerList[0].imagePath}"),
+                                  image: NetworkImage(
+                                      "${global.imgBaseurl}${signupController.astrologerList[0].imagePath}"),
                                   fit: BoxFit.cover,
                                 ),
                               ),
@@ -46,7 +48,8 @@ class SkillDetailScreen extends StatelessWidget {
                               decoration: BoxDecoration(
                                 borderRadius: BorderRadius.circular(7),
                                 image: DecorationImage(
-                                  image: NetworkImage("${global.imgBaseurl}${global.user.imagePath}"),
+                                  image: NetworkImage(
+                                      "${global.imgBaseurl}${global.user.imagePath}"),
                                   fit: BoxFit.cover,
                                 ),
                                 border: Border.all(
@@ -58,7 +61,9 @@ class SkillDetailScreen extends StatelessWidget {
                       : Container(
                           height: 90,
                           width: 90,
-                          decoration: BoxDecoration(borderRadius: BorderRadius.circular(7), color: COLORS().primaryColor),
+                          decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(7),
+                              color: COLORS().primaryColor),
                           child: CircleAvatar(
                             backgroundColor: COLORS().primaryColor,
                             radius: 45,
@@ -78,7 +83,9 @@ class SkillDetailScreen extends StatelessWidget {
                       style: Theme.of(context).primaryTextTheme.headline3,
                     ).translate(),
                     trailing: Text(
-                      global.user.gender != null && global.user.gender != '' ? '${global.user.gender}' : "",
+                      global.user.gender != null && global.user.gender != ''
+                          ? '${global.user.gender}'
+                          : "",
                       style: Theme.of(context).primaryTextTheme.subtitle1,
                     ).translate(),
                   ),
@@ -93,7 +100,10 @@ class SkillDetailScreen extends StatelessWidget {
                       style: Theme.of(context).primaryTextTheme.headline3,
                     ).translate(),
                     trailing: Text(
-                      global.user.birthDate != null ? DateFormat('dd-MM-yyyy').format(DateTime.parse(global.user.birthDate.toString())) : "",
+                      global.user.birthDate != null
+                          ? DateFormat('dd-MM-yyyy').format(
+                              DateTime.parse(global.user.birthDate.toString()))
+                          : "",
                       style: Theme.of(context).primaryTextTheme.subtitle1,
                     ),
                   ),
@@ -104,13 +114,20 @@ class SkillDetailScreen extends StatelessWidget {
                     enabled: true,
                     tileColor: Colors.white,
                     title: Text(
-                      "Astrologer category",
+                      "Advisor category",
                       style: Theme.of(context).primaryTextTheme.headline3,
                     ).translate(),
                     trailing: SizedBox(
                       width: 200,
                       child: Text(
-                        global.user.astrologerCategoryId!.isNotEmpty ? global.user.astrologerCategoryId!.map((e) => e.name).toList().toString().replaceAll('[', '').replaceAll(']', '') : "",
+                        global.user.astrologerCategoryId!.isNotEmpty
+                            ? global.user.astrologerCategoryId!
+                                .map((e) => e.name)
+                                .toList()
+                                .toString()
+                                .replaceAll('[', '')
+                                .replaceAll(']', '')
+                            : "",
                         style: Theme.of(context).primaryTextTheme.subtitle1,
                         textAlign: TextAlign.end,
                       ).translate(),
@@ -129,14 +146,21 @@ class SkillDetailScreen extends StatelessWidget {
                     trailing: SizedBox(
                       width: 200,
                       child: Text(
-                        global.user.primarySkillId!.isNotEmpty ? global.user.primarySkillId!.map((e) => e.name).toList().toString().replaceAll('[', '').replaceAll(']', '') : "",
+                        global.user.primarySkillId!.isNotEmpty
+                            ? global.user.primarySkillId!
+                                .map((e) => e.name)
+                                .toList()
+                                .toString()
+                                .replaceAll('[', '')
+                                .replaceAll(']', '')
+                            : "",
                         style: Theme.of(context).primaryTextTheme.subtitle1,
                         textAlign: TextAlign.end,
                       ).translate(),
                     ),
                   ),
                 ),
-                Padding(
+                /*Padding(
                   padding: const EdgeInsets.only(top: 8.0),
                   child: ListTile(
                     enabled: true,
@@ -148,13 +172,20 @@ class SkillDetailScreen extends StatelessWidget {
                     trailing: SizedBox(
                       width: 200,
                       child: Text(
-                        global.user.allSkillId!.isNotEmpty ? global.user.allSkillId!.map((e) => e.name).toList().toString().replaceAll('[', '').replaceAll(']', '') : "",
+                        global.user.allSkillId!.isNotEmpty
+                            ? global.user.allSkillId!
+                                .map((e) => e.name)
+                                .toList()
+                                .toString()
+                                .replaceAll('[', '')
+                                .replaceAll(']', '')
+                            : "",
                         style: Theme.of(context).primaryTextTheme.subtitle1,
                         textAlign: TextAlign.end,
                       ).translate(),
                     ),
                   ),
-                ),
+                ),*/
                 Padding(
                   padding: const EdgeInsets.only(top: 8.0),
                   child: ListTile(
@@ -167,14 +198,21 @@ class SkillDetailScreen extends StatelessWidget {
                     trailing: SizedBox(
                       width: 200,
                       child: Text(
-                        global.user.languageId!.isNotEmpty ? global.user.languageId!.map((e) => e.name).toList().toString().replaceAll('[', '').replaceAll(']', '') : "",
+                        global.user.languageId!.isNotEmpty
+                            ? global.user.languageId!
+                                .map((e) => e.name)
+                                .toList()
+                                .toString()
+                                .replaceAll('[', '')
+                                .replaceAll(']', '')
+                            : "",
                         style: Theme.of(context).primaryTextTheme.subtitle1,
                         textAlign: TextAlign.end,
                       ).translate(),
                     ),
                   ),
                 ),
-                Padding(
+                /*Padding(
                   padding: const EdgeInsets.only(top: 8.0),
                   child: ListTile(
                     enabled: true,
@@ -184,7 +222,10 @@ class SkillDetailScreen extends StatelessWidget {
                       style: Theme.of(context).primaryTextTheme.headline3,
                     ).translate(),
                     trailing: Text(
-                      global.user.charges != null && global.user.charges != 0 ? '${global.getSystemFlagValue(global.systemFlagNameList.currency)} ' '${global.user.charges}' : "${global.getSystemFlagValue(global.systemFlagNameList.currency)} 0",
+                      global.user.charges != null && global.user.charges != 0
+                          ? '${global.getSystemFlagValue(global.systemFlagNameList.currency)} '
+                              '${global.user.charges}'
+                          : "${global.getSystemFlagValue(global.systemFlagNameList.currency)} 0",
                       style: Theme.of(context).primaryTextTheme.subtitle1,
                     ),
                   ),
@@ -199,7 +240,11 @@ class SkillDetailScreen extends StatelessWidget {
                       style: Theme.of(context).primaryTextTheme.headline3,
                     ).translate(),
                     trailing: Text(
-                      global.user.videoCallRate != null && global.user.videoCallRate != 0 ? '${global.getSystemFlagValue(global.systemFlagNameList.currency)} ' '${global.user.videoCallRate}' : "${global.getSystemFlagValue(global.systemFlagNameList.currency)} 0",
+                      global.user.videoCallRate != null &&
+                              global.user.videoCallRate != 0
+                          ? '${global.getSystemFlagValue(global.systemFlagNameList.currency)} '
+                              '${global.user.videoCallRate}'
+                          : "${global.getSystemFlagValue(global.systemFlagNameList.currency)} 0",
                       style: Theme.of(context).primaryTextTheme.subtitle1,
                     ),
                   ),
@@ -214,27 +259,34 @@ class SkillDetailScreen extends StatelessWidget {
                       style: Theme.of(context).primaryTextTheme.headline3,
                     ).translate(),
                     trailing: Text(
-                      global.user.reportRate != null && global.user.reportRate != 0 ? '${global.getSystemFlagValue(global.systemFlagNameList.currency)} ' '${global.user.reportRate}' : "${global.getSystemFlagValue(global.systemFlagNameList.currency)} 0",
+                      global.user.reportRate != null &&
+                              global.user.reportRate != 0
+                          ? '${global.getSystemFlagValue(global.systemFlagNameList.currency)} '
+                              '${global.user.reportRate}'
+                          : "${global.getSystemFlagValue(global.systemFlagNameList.currency)} 0",
                       style: Theme.of(context).primaryTextTheme.subtitle1,
                     ),
                   ),
-                ),
+                ),*/
                 Padding(
                   padding: const EdgeInsets.only(top: 8.0),
                   child: ListTile(
                     enabled: true,
                     tileColor: Colors.white,
                     title: Text(
-                      "Expirence In Year",
+                      "Experience In Year",
                       style: Theme.of(context).primaryTextTheme.headline3,
                     ).translate(),
                     trailing: Text(
-                      global.user.expirenceInYear != null && global.user.expirenceInYear != 0 ? '${global.user.expirenceInYear}' : "0",
+                      global.user.expirenceInYear != null &&
+                              global.user.expirenceInYear != 0
+                          ? '${global.user.expirenceInYear}'
+                          : "0",
                       style: Theme.of(context).primaryTextTheme.subtitle1,
                     ),
                   ),
                 ),
-                Padding(
+                /*Padding(
                   padding: const EdgeInsets.only(top: 8.0),
                   child: ListTile(
                     enabled: true,
@@ -244,27 +296,34 @@ class SkillDetailScreen extends StatelessWidget {
                       style: Theme.of(context).primaryTextTheme.headline3,
                     ).translate(),
                     trailing: Text(
-                      global.user.dailyContributionHours != null && global.user.dailyContributionHours != 0 ? '${global.user.dailyContributionHours}' : "0",
+                      global.user.dailyContributionHours != null &&
+                              global.user.dailyContributionHours != 0
+                          ? '${global.user.dailyContributionHours}'
+                          : "0",
                       style: Theme.of(context).primaryTextTheme.subtitle1,
                     ),
                   ),
-                ),
-                Padding(
+                ),*/
+                /*Padding(
                   padding: const EdgeInsets.only(top: 8.0),
                   child: ListTile(
                     enabled: true,
                     tileColor: Colors.white,
                     title: Text(
-                      "Where did you hear about AstroGuru?",
+                      "Where did you hear about Relationship Revive?",
                       style: Theme.of(context).primaryTextTheme.headline3,
                     ).translate(),
                     trailing: Text(
-                      global.user.hearAboutAstroGuru != null && global.user.hearAboutAstroGuru != '' ? '${global.user.hearAboutAstroGuru}' : "Youtube",
+                      global.user.hearAboutAstroGuru != null &&
+                              global.user.hearAboutAstroGuru != ''
+                          ? '${global.user.hearAboutAstroGuru}'
+                          : "Youtube",
                       style: Theme.of(context).primaryTextTheme.subtitle1,
                     ).translate(),
                   ),
-                ),
-                global.user.otherPlatformName != null && global.user.otherPlatformName != ''
+                ),*/
+                global.user.otherPlatformName != null &&
+                        global.user.otherPlatformName != ''
                     ? Padding(
                         padding: const EdgeInsets.only(top: 8.0),
                         child: ListTile(
@@ -275,13 +334,17 @@ class SkillDetailScreen extends StatelessWidget {
                             style: Theme.of(context).primaryTextTheme.headline3,
                           ).translate(),
                           trailing: Text(
-                            global.user.otherPlatformName != null && global.user.otherPlatformName != '' ? '${global.user.otherPlatformName}' : "",
+                            global.user.otherPlatformName != null &&
+                                    global.user.otherPlatformName != ''
+                                ? '${global.user.otherPlatformName}'
+                                : "",
                             style: Theme.of(context).primaryTextTheme.subtitle1,
                           ).translate(),
                         ),
                       )
                     : const SizedBox(),
-                global.user.otherPlatformMonthlyEarning != null && global.user.otherPlatformMonthlyEarning != ''
+                global.user.otherPlatformMonthlyEarning != null &&
+                        global.user.otherPlatformMonthlyEarning != ''
                     ? Padding(
                         padding: const EdgeInsets.only(top: 8.0),
                         child: ListTile(
@@ -292,7 +355,11 @@ class SkillDetailScreen extends StatelessWidget {
                             style: Theme.of(context).primaryTextTheme.headline3,
                           ).translate(),
                           trailing: Text(
-                            global.user.otherPlatformMonthlyEarning != null && global.user.otherPlatformMonthlyEarning != '' ? '${global.user.otherPlatformMonthlyEarning}' : "",
+                            global.user.otherPlatformMonthlyEarning != null &&
+                                    global.user.otherPlatformMonthlyEarning !=
+                                        ''
+                                ? '${global.user.otherPlatformMonthlyEarning}'
+                                : "",
                             style: Theme.of(context).primaryTextTheme.subtitle1,
                           ).translate(),
                         ),

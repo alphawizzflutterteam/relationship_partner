@@ -1124,6 +1124,30 @@ class SignupScreen extends StatelessWidget {
                                         );
                                       }),
                                 ),
+
+                                const Padding(
+                                  padding: EdgeInsets.only(top: 12),
+                                  child: PrimaryTextWidget(
+                                      text: "Experience In Years"),
+                                ),
+                                Padding(
+                                  padding: const EdgeInsets.only(top: 5.0),
+                                  child: CommonTextFieldWidget(
+                                    textEditingController:
+                                        signupController.cExpirence,
+                                    focusNode: signupController.fExpirence,
+                                    counterText: '',
+                                    maxLength: 2,
+                                    onFieldSubmitted: (f) {
+                                      FocusScope.of(context).requestFocus(
+                                          signupController.fContributionHours);
+                                    },
+                                    hintText: "Enter Your Experience",
+                                    keyboardType:
+                                        const TextInputType.numberWithOptions(
+                                            decimal: true, signed: true),
+                                  ),
+                                ),
 //Charge
                                 /*const Padding(
                                   padding: EdgeInsets.only(top: 12),
@@ -1495,7 +1519,7 @@ class SignupScreen extends StatelessWidget {
                                 Padding(
                                   padding: const EdgeInsets.only(top: 5.0),
                                   child: CommonTextFieldWidget(
-                                    hintText: "Bardoli",
+                                    hintText: "Enter Your City",
                                     textEditingController:
                                         signupController.cLiveCity,
                                     focusNode: signupController.fLiveCity,
@@ -1934,6 +1958,7 @@ class SignupScreen extends StatelessWidget {
                                   padding: const EdgeInsets.only(top: 5.0),
                                   child: CommonTextFieldWidget(
                                     maxLines: 5,
+                                    maxLength: 2000,
                                     textEditingController:
                                         signupController.cLongBio,
                                     focusNode: signupController.fLongBio,

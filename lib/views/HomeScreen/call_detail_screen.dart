@@ -18,7 +18,8 @@ import '../../models/chat_message_model.dart';
 class CallDetailScreen extends StatelessWidget {
   CallHistoryModel? callHistorydata;
   CallDetailScreen({Key? key, this.callHistorydata}) : super(key: key);
-  final CallDetailController callDetailController = Get.put(CallDetailController());
+  final CallDetailController callDetailController =
+      Get.put(CallDetailController());
 
   @override
   Widget build(BuildContext context) {
@@ -34,10 +35,13 @@ class CallDetailScreen extends StatelessWidget {
           appBar: AppBar(
             backgroundColor: COLORS().primaryColor,
             title: Text(
-              callHistorydata!.name != null && callHistorydata!.name!.isNotEmpty ? '${callHistorydata!.name} detail\'s' : "User detail's",
+              callHistorydata!.name != null && callHistorydata!.name!.isNotEmpty
+                  ? '${callHistorydata!.name} detail\'s'
+                  : "User detail's",
             ).translate(),
             leading: IconButton(
-              icon: Icon(Platform.isIOS ? Icons.arrow_back_ios : Icons.arrow_back),
+              icon: Icon(
+                  Platform.isIOS ? Icons.arrow_back_ios : Icons.arrow_back),
               onPressed: () async {
                 print('back press');
                 await callDetailController.disposeAudioPlayer();
@@ -55,13 +59,17 @@ class CallDetailScreen extends StatelessWidget {
                 child: Card(
                   color: Colors.white,
                   child: Padding(
-                    padding: const EdgeInsets.only(left: 12, top: 12, right: 12),
+                    padding:
+                        const EdgeInsets.only(left: 12, top: 12, right: 12),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         const Text(
                           "Client Profile:",
-                          style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold, fontSize: 16),
+                          style: TextStyle(
+                              color: Colors.black,
+                              fontWeight: FontWeight.bold,
+                              fontSize: 16),
                         ).translate(),
                         Padding(
                           padding: const EdgeInsets.only(top: 10.0),
@@ -69,10 +77,15 @@ class CallDetailScreen extends StatelessWidget {
                             children: [
                               Text(
                                 "Name : ",
-                                style: Theme.of(context).primaryTextTheme.subtitle1,
+                                style: Theme.of(context)
+                                    .primaryTextTheme
+                                    .subtitle1,
                               ).translate(),
                               Text(
-                                callHistorydata!.name != null && callHistorydata!.name!.isNotEmpty ? '${callHistorydata!.name}' : "User",
+                                callHistorydata!.name != null &&
+                                        callHistorydata!.name!.isNotEmpty
+                                    ? '${callHistorydata!.name}'
+                                    : "User",
                                 style: Get.theme.primaryTextTheme.headline3,
                               ).translate(),
                             ],
@@ -84,7 +97,9 @@ class CallDetailScreen extends StatelessWidget {
                             children: [
                               Text(
                                 "Mobile Number : ",
-                                style: Theme.of(context).primaryTextTheme.subtitle1,
+                                style: Theme.of(context)
+                                    .primaryTextTheme
+                                    .subtitle1,
                               ).translate(),
                               Text(
                                 '${callHistorydata!.contactNo}',
@@ -99,7 +114,9 @@ class CallDetailScreen extends StatelessWidget {
                             children: [
                               Text(
                                 "Call status : ",
-                                style: Theme.of(context).primaryTextTheme.subtitle1,
+                                style: Theme.of(context)
+                                    .primaryTextTheme
+                                    .subtitle1,
                               ).translate(),
                               Text(
                                 '${callHistorydata!.callStatus}',
@@ -120,13 +137,17 @@ class CallDetailScreen extends StatelessWidget {
                 child: Card(
                   color: Colors.white,
                   child: Padding(
-                    padding: const EdgeInsets.only(left: 12, top: 12, right: 12),
+                    padding:
+                        const EdgeInsets.only(left: 12, top: 12, right: 12),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         const Text(
                           "Appointment Schedule:",
-                          style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold, fontSize: 16),
+                          style: TextStyle(
+                              color: Colors.black,
+                              fontWeight: FontWeight.bold,
+                              fontSize: 16),
                         ).translate(),
                         Padding(
                           padding: const EdgeInsets.only(top: 10.0),
@@ -134,7 +155,9 @@ class CallDetailScreen extends StatelessWidget {
                             children: [
                               Text(
                                 "Expert Name : ",
-                                style: Theme.of(context).primaryTextTheme.subtitle1,
+                                style: Theme.of(context)
+                                    .primaryTextTheme
+                                    .subtitle1,
                               ).translate(),
                               Text(
                                 '${callHistorydata!.astrologerName}',
@@ -149,10 +172,14 @@ class CallDetailScreen extends StatelessWidget {
                             children: [
                               Text(
                                 "Time : ",
-                                style: Theme.of(context).primaryTextTheme.subtitle1,
+                                style: Theme.of(context)
+                                    .primaryTextTheme
+                                    .subtitle1,
                               ).translate(),
                               Text(
-                                DateFormat('dd MMM yyyy , hh:mm a').format(DateTime.parse(callHistorydata!.createdAt!.toString())),
+                                DateFormat('dd MMM yyyy , hh:mm a').format(
+                                    DateTime.parse(callHistorydata!.createdAt!
+                                        .toString())),
                                 style: Get.theme.primaryTextTheme.headline3,
                               ),
                             ],
@@ -164,10 +191,15 @@ class CallDetailScreen extends StatelessWidget {
                             children: [
                               Text(
                                 "Duration : ",
-                                style: Theme.of(context).primaryTextTheme.subtitle1,
+                                style: Theme.of(context)
+                                    .primaryTextTheme
+                                    .subtitle1,
                               ).translate(),
                               Text(
-                                callHistorydata!.totalMin != null && callHistorydata!.totalMin!.isNotEmpty ? '${callHistorydata!.totalMin} min' : "0 min",
+                                callHistorydata!.totalMin != null &&
+                                        callHistorydata!.totalMin!.isNotEmpty
+                                    ? '${callHistorydata!.totalMin} min'
+                                    : "0 min",
                                 style: Get.theme.primaryTextTheme.headline3,
                               ),
                             ],
@@ -179,7 +211,9 @@ class CallDetailScreen extends StatelessWidget {
                             children: [
                               Text(
                                 "Price : ",
-                                style: Theme.of(context).primaryTextTheme.subtitle1,
+                                style: Theme.of(context)
+                                    .primaryTextTheme
+                                    .subtitle1,
                               ).translate(),
                               Text(
                                 '${global.getSystemFlagValue(global.systemFlagNameList.currency)} ${callHistorydata!.charge}',
@@ -194,7 +228,9 @@ class CallDetailScreen extends StatelessWidget {
                             children: [
                               Text(
                                 "Deduction : ",
-                                style: Theme.of(context).primaryTextTheme.subtitle1,
+                                style: Theme.of(context)
+                                    .primaryTextTheme
+                                    .subtitle1,
                               ).translate(),
                               Text(
                                 '${global.getSystemFlagValue(global.systemFlagNameList.currency)} ${callHistorydata!.deduction}',
@@ -210,15 +246,19 @@ class CallDetailScreen extends StatelessWidget {
               ),
               callHistorydata!.chatId != ""
                   ? Padding(
-                      padding: const EdgeInsets.symmetric(vertical: 6.0, horizontal: 12),
+                      padding: const EdgeInsets.symmetric(
+                          vertical: 6.0, horizontal: 12),
                       child: const Text(
                         'Live Client Chat History',
-                        style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold, fontSize: 16),
+                        style: TextStyle(
+                            color: Colors.black,
+                            fontWeight: FontWeight.bold,
+                            fontSize: 16),
                       ).translate(),
                     )
                   : const SizedBox(),
               //Recording Audio
-              callHistorydata!.chatId != ""
+              /*callHistorydata!.chatId != ""
                   ? Expanded(
                       child: Card(
                         shape: RoundedRectangleBorder(
@@ -376,7 +416,7 @@ class CallDetailScreen extends StatelessWidget {
                           ),
                         ),
                       );
-                    })
+                    })*/
             ],
           ),
         ),

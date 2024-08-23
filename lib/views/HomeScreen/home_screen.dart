@@ -371,7 +371,7 @@ class HomeScreen extends StatelessWidget {
                                     tabs: [
                                       // const Text('Chat').translate(),
                                       const Text('Calls').translate(),
-                                      const Text('Report').translate(),
+                                      // const Text('Report').translate(),
                                     ],
                                   ),
                                 ),
@@ -977,7 +977,7 @@ class HomeScreen extends StatelessWidget {
                                                                         Get.dialog(
                                                                           AlertDialog(
                                                                             title:
-                                                                                const Text("Are you sure you want remove customer?") /*.translate()*/,
+                                                                                const Text("Are you sure you want reject call?") /*.translate()*/,
                                                                             content:
                                                                                 Row(
                                                                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -1026,7 +1026,7 @@ class HomeScreen extends StatelessWidget {
                                       },
                                     ),
                                     //third TabBar --report--
-                                    ReportRequestScreen(),
+                                    /*ReportRequestScreen(),*/
                                   ],
                                 ),
                               )
@@ -1075,10 +1075,10 @@ class HomeScreen extends StatelessWidget {
                                             COLORS().bodyTextColor,
                                         labelColor: Colors.black,
                                         tabs: [
-                                          const Text('Wallet').translate(),
+                                          /* const Text('Wallet').translate(),*/
                                           const Text('Call').translate(),
                                           // const Text('Chat').translate(),
-                                          const Text('Report').translate(),
+                                          /* const Text('Report').translate(),*/
                                         ],
                                       ),
                                     ),
@@ -1089,10 +1089,10 @@ class HomeScreen extends StatelessWidget {
                                           homeController.historyTabController,
                                       children: [
                                         //First Tabbar
-                                        GetBuilder<SignupController>(
+                                        /* GetBuilder<SignupController>(
                                             builder: (c) {
                                           return WalletHistoryScreen();
-                                        }),
+                                        }),*/
                                         //Second Tabbar history of call
                                         GetBuilder<SignupController>(
                                           builder: (signupController) {
@@ -1672,7 +1672,7 @@ class HomeScreen extends StatelessWidget {
                                           },
                                         ),*/
                                         //Fifth Tabbar
-                                        ReportHistoryListScreen(),
+                                        // ReportHistoryListScreen(),
                                       ],
                                     ),
                                   )

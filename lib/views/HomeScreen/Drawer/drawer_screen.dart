@@ -135,7 +135,7 @@ class DrawerScreen extends StatelessWidget {
             const Divider(
               color: Colors.black,
             ),
-            ListTile(
+            /*ListTile(
               contentPadding: EdgeInsets.zero,
               title: Row(
                 children: [
@@ -157,7 +157,7 @@ class DrawerScreen extends StatelessWidget {
                 await assistantController.getAstrologerAssistantList();
                 Get.to(() => AssistantScreen());
               },
-            ),
+            ),*/
             /*ListTile(
               contentPadding: EdgeInsets.zero,
               title: Row(
@@ -236,7 +236,7 @@ class DrawerScreen extends StatelessWidget {
                 Get.to(() => CustomeReviewScreen());
               },
             ),
-            ListTile(
+            /*ListTile(
               contentPadding: EdgeInsets.zero,
               title: Row(
                 children: [
@@ -260,7 +260,7 @@ class DrawerScreen extends StatelessWidget {
                 global.hideLoader();
                 Get.to(() => AppReviewScreen());
               },
-            ),
+            ),*/
             ListTile(
               contentPadding: EdgeInsets.zero,
               title: Row(

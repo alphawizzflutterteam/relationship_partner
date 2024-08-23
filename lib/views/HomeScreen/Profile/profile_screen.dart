@@ -104,7 +104,7 @@ class ProfileScreen extends StatelessWidget {
                                             ),
                                           ),
                                         ),
-                                  GetBuilder<FollowingController>(
+                                  /*GetBuilder<FollowingController>(
                                     builder: (followingController) {
                                       return TextButton(
                                         onPressed: () {
@@ -122,12 +122,12 @@ class ProfileScreen extends StatelessWidget {
                                         ).translate(),
                                       );
                                     },
-                                  ),
+                                  ),*/
                                 ],
                               ),
                             ),
                             Padding(
-                              padding: const EdgeInsets.only(top: 8),
+                              padding: const EdgeInsets.only(top: 8, left: 10),
                               child: Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
@@ -142,12 +142,12 @@ class ProfileScreen extends StatelessWidget {
                                   ).translate(),
                                   Row(
                                     children: [
-                                      Text(
+                                      /*Text(
                                         "Email: ",
                                         style: Theme.of(context)
                                             .primaryTextTheme
                                             .subtitle1,
-                                      ).translate(),
+                                      ).translate(),*/
                                       SizedBox(
                                         width: Get.width / 2.6,
                                         child: Text(
@@ -166,12 +166,12 @@ class ProfileScreen extends StatelessWidget {
                                   ),
                                   Row(
                                     children: [
-                                      Text(
+                                      /*Text(
                                         "Mobile Number: ",
                                         style: Theme.of(context)
                                             .primaryTextTheme
                                             .subtitle1,
-                                      ).translate(),
+                                      ).translate(),*/
                                       Text(
                                         global.user.contactNo != null &&
                                                 global.user.contactNo != ''

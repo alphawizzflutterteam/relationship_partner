@@ -87,8 +87,11 @@ class SignupController extends GetxController {
   Future<File?> openCamera(Color color, {bool isProfile = true}) async {
     try {
       final ImagePicker picker = ImagePicker();
-      XFile? _selectedImage =
-          await picker.pickImage(source: ImageSource.camera);
+      XFile? _selectedImage = await picker.pickImage(
+          source: ImageSource.camera,
+          maxHeight: 400,
+          maxWidth: 400,
+          imageQuality: 80);
 
       if (_selectedImage != null) {
         CroppedFile? _croppedFile = await ImageCropper().cropImage(
@@ -122,8 +125,11 @@ class SignupController extends GetxController {
   Future<File?> openGallery(Color color, {bool isProfile = true}) async {
     try {
       final ImagePicker picker = ImagePicker();
-      XFile? _selectedImage =
-          await picker.pickImage(source: ImageSource.gallery);
+      XFile? _selectedImage = await picker.pickImage(
+          source: ImageSource.gallery,
+          maxWidth: 400,
+          maxHeight: 400,
+          imageQuality: 80);
 
       if (_selectedImage != null) {
         CroppedFile? croppedFile = await ImageCropper().cropImage(
@@ -633,12 +639,17 @@ class SignupController extends GetxController {
 
             global.user.week!.removeWhere((element) => element.day == "");
 
-            log('${global.user.toJson()}');
+            //log('${global.user.toJson()}');
+            log('skill_______${global.user.primarySkillId?.first.toJson()}');
+            log('category__${global.user.astrologerCategoryId?.first.toJson()}');
+            log('language___${global.user.languageId?.first.toJson()}');
+            log('day____${global.user.week?.first.toJson()}');
             global.showOnlyLoaderDialog();
 
             await apiHelper.signUp(global.user).then(
               (apiRresult) async {
                 global.hideLoader();
+                print('${apiRresult.status}______________');
                 if (apiRresult.status == '200') {
                   global.user = apiRresult.recordList;
                   Get.offUntil(

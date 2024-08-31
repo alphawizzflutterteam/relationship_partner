@@ -42,7 +42,25 @@ class APIHelper {
   dynamic getAPIResult<T>(final response, T recordList) {
     try {
       dynamic result;
+
       result = APIResult.fromJson(json.decode(response.body), recordList);
+
+      return result;
+    } catch (e) {
+      print("Exception: $screen - getAPIResult " + e.toString());
+    }
+  }
+
+  dynamic getAPIResult2<T>(final response, T recordList) {
+    try {
+      dynamic result;
+      if (recordList == null) {
+        result =
+            ErrorAPIResult.fromJson(json.decode(response.body), recordList);
+      } else {
+        result = APIResult.fromJson(json.decode(response.body), recordList);
+      }
+
       return result;
     } catch (e) {
       print("Exception: $screen - getAPIResult " + e.toString());
@@ -60,6 +78,8 @@ class APIHelper {
         body: json.encode(user.toJson()),
       );
       log('done : $response');
+      log('_astrologerCat____${user.astrologerCategoryId?.first.toJson()}');
+      log('_ primory skill ${user.primarySkillId?.first.toJson()}');
       dynamic recordList;
       if (response.statusCode == 200) {
         print(json.decode(response.body));
@@ -217,14 +237,14 @@ class APIHelper {
     try {
       final response = await http.post(
         Uri.parse('${global.appParameters[global.appMode]['apiUrl']}sendOtp'),
-        body: json.encode({"contactNo": mobile}),
+        body: json.encode({"contactNo": mobile, "login": '1'}),
         headers: await global.getApiHeaders(false),
       );
       log('${response.request?.url}');
-      log('${json.encode(mobile)}');
+      log('${json.encode({"contactNo": mobile, "login": '1'})}');
 
-      print(response);
       dynamic recordList;
+
       if (response.statusCode == 200) {
         recordList = json.decode(response.body);
 
@@ -232,7 +252,7 @@ class APIHelper {
       } else {
         recordList = null;
       }
-      return getAPIResult(response, recordList);
+      return getAPIResult2(response, recordList);
     } catch (e) {
       print("Exception in loginSignUp():-" + e.toString());
     }

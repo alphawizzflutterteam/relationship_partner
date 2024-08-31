@@ -2628,8 +2628,8 @@ class SignupScreen extends StatelessWidget {
       BuildContext context, int days, String isTapDay, int widgetIndex) {
     return Get.dialog(
       AlertDialog(
-        title: Center(
-          child: const Text("Set Your Time"),
+        title: const Center(
+          child: Text("Set Your Time"),
         ),
         content: SizedBox(
           height: MediaQuery.of(context).size.height * 1 / 3,

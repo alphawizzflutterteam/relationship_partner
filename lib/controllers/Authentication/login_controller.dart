@@ -89,8 +89,10 @@ class LoginController extends GetxController {
               Get.to(() => HomeScreen());
             } else if (result.status == "400") {
               global.showToast(message: result.message.toString());
+              global.hideLoader();
             } else {
               global.showToast(message: result.message.toString());
+              global.hideLoader();
             }
           });
         } else {
@@ -111,7 +113,6 @@ class LoginController extends GetxController {
           global.showOnlyLoaderDialog();
           await apiHelper.sendOtp(phoneNumber).then((result) async {
             if (result.status == "200") {
-              print('${result.status}____________');
               log('${result.recordList['otp']}____________');
               // var recordId = result.recordList["recordList"];
 
@@ -126,8 +127,8 @@ class LoginController extends GetxController {
                   ));
             } else {
               global.hideLoader();
-              log("what\'s wrong ${result.status}");
-              global.showToast(message: result.message.toString());
+              log("what\'s wrong ${result.error.contactNo[0]}");
+              global.showToast(message: result.error.contactNo[0]);
             }
           });
 

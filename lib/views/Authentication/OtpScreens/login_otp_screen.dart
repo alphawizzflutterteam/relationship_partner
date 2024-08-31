@@ -109,9 +109,6 @@ class LoginOtpScreen extends StatelessWidget {
                           verificationId!,
                           loginOtpController.smsCode,
                         );*/
-                        print('${loginOtpController.smsCode}____________');
-                        print(
-                            '${loginOtpController.smsCode == otp}____________');
 
                         if (loginOtpController.smsCode == otp) {
                           await loginController.loginAstrologer(mobileNumber);

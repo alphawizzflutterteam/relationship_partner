@@ -6,20 +6,25 @@ import 'package:astrologer_app/controllers/Authentication/signup_otp_controller.
 import 'package:astrologer_app/widgets/app_bar_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_otp_text_field/flutter_otp_text_field.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:get/get.dart';
 import 'package:google_translator/google_translator.dart';
 
 class SignupOtpScreen extends StatelessWidget {
   String? mobileNumber;
   String? verificationId;
+  String? otp;
 
-  SignupOtpScreen({Key? key, this.mobileNumber, this.verificationId}) : super(key: key);
+  SignupOtpScreen({Key? key, this.mobileNumber, this.verificationId, this.otp})
+      : super(key: key);
 
   final SignupController signupController = Get.find<SignupController>();
-  final SignupOtpController signupOtpController = Get.find<SignupOtpController>();
+  final SignupOtpController signupOtpController =
+      Get.find<SignupOtpController>();
 
   @override
   Widget build(BuildContext context) {
+    print('${otp}_________________kjhkjhkds');
     return SafeArea(
       child: Scaffold(
         backgroundColor: Colors.grey[100],
@@ -39,7 +44,8 @@ class SignupOtpScreen extends StatelessWidget {
           appbarPadding: 0,
           title: const Text(
             MessageConstants.VERIFY_PHONE,
-            style: TextStyle(color: Colors.black, fontWeight: FontWeight.w300, fontSize: 19),
+            style: TextStyle(
+                color: Colors.black, fontWeight: FontWeight.w300, fontSize: 19),
           ).translate(),
           backgroundColor: Colors.grey[100],
         ),
@@ -53,7 +59,11 @@ class SignupOtpScreen extends StatelessWidget {
                   Text(
                     'OTP Send to ${signupOtpController.countryCode}-$mobileNumber',
                     style: const TextStyle(color: Colors.green),
-                  ).translate(),
+                  ),
+                  Text(
+                    'OTP: $otp',
+                    style: const TextStyle(color: Colors.green),
+                  ),
                   const SizedBox(
                     height: 30,
                   ),
@@ -61,7 +71,7 @@ class SignupOtpScreen extends StatelessWidget {
                     height: 50,
                     child: OtpTextField(
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                      numberOfFields: 6,
+                      numberOfFields: 4,
                       showFieldAsBox: true,
                       onSubmit: (value) {
                         signupController.smsCode = value;
@@ -87,20 +97,28 @@ class SignupOtpScreen extends StatelessWidget {
                     child: ElevatedButton(
                       onPressed: () {
                         FocusScope.of(context).unfocus();
-                        signupController.onStepNext();
-                        signupOtpController.verifyOTP();
 
-                        Navigator.pop(context);
+                        if (signupController.smsCode == otp) {
+                          signupController.onStepNext();
+                          Navigator.pop(context);
+                          Navigator.pop(context);
+                        } else {
+                          Fluttertoast.showToast(msg: 'enter valid otp');
+                        }
+
+                        signupOtpController.verifyOTP();
                       },
                       style: ElevatedButton.styleFrom(
                         elevation: 0,
                         shape: RoundedRectangleBorder(
-                          side: const BorderSide(width: 0.5, color: Colors.grey),
+                          side:
+                              const BorderSide(width: 0.5, color: Colors.grey),
                           borderRadius: BorderRadius.circular(10),
                         ),
                         padding: const EdgeInsets.all(12),
                         backgroundColor: Get.theme.primaryColor,
-                        textStyle: const TextStyle(fontSize: 18, color: Colors.black),
+                        textStyle:
+                            const TextStyle(fontSize: 18, color: Colors.black),
                       ),
                       child: const Text(
                         MessageConstants.VERIFY_OTP,
@@ -120,46 +138,69 @@ class SignupOtpScreen extends StatelessWidget {
                                 children: [
                                   Text(
                                     'Resend OTP Available in ${signupOtpController.maxSecond} s',
-                                    style: const TextStyle(color: Colors.green, fontWeight: FontWeight.w500),
+                                    style: const TextStyle(
+                                        color: Colors.green,
+                                        fontWeight: FontWeight.w500),
                                   ).translate()
                                 ],
                               )
-                            : Column(mainAxisAlignment: MainAxisAlignment.start, crossAxisAlignment: CrossAxisAlignment.start, children: [
-                                const Text(
-                                  'Resend OTP Available',
-                                  style: TextStyle(color: Colors.green, fontWeight: FontWeight.w500),
-                                ).translate(),
-                                Row(
-                                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                  children: [
-                                    ElevatedButton(
-                                      onPressed: () {
-                                        signupOtpController.maxSecond = 60;
-                                        signupOtpController.second = 0;
-                                        signupOtpController.update();
-                                        signupOtpController.timer();
-                                        signupController.cMobileNumber.text = mobileNumber!;
-                                        signupOtpController.verifyOTP();
-                                        print('Resend otp');
-                                      },
-                                      style: ButtonStyle(
-                                        shape: MaterialStateProperty.all(
-                                          RoundedRectangleBorder(
-                                            borderRadius: BorderRadius.circular(10),
+                            : Column(
+                                mainAxisAlignment: MainAxisAlignment.start,
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                    const Text(
+                                      'Resend OTP Available',
+                                      style: TextStyle(
+                                          color: Colors.green,
+                                          fontWeight: FontWeight.w500),
+                                    ).translate(),
+                                    Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.spaceBetween,
+                                      children: [
+                                        ElevatedButton(
+                                          onPressed: () {
+                                            signupOtpController.maxSecond = 60;
+                                            signupOtpController.second = 0;
+                                            signupOtpController.update();
+                                            signupOtpController.timer();
+                                            signupController.cMobileNumber
+                                                .text = mobileNumber!;
+                                            //signupOtpController.verifyOTP();
+                                            signupController.sendLoginOTP(
+                                                signupController
+                                                    .cMobileNumber.text,
+                                                isResend: true);
+                                            print('Resend otp');
+                                          },
+                                          style: ButtonStyle(
+                                            shape: MaterialStateProperty.all(
+                                              RoundedRectangleBorder(
+                                                borderRadius:
+                                                    BorderRadius.circular(10),
+                                              ),
+                                            ),
+                                            padding: MaterialStateProperty.all(
+                                                const EdgeInsets.only(
+                                                    left: 25, right: 25)),
+                                            backgroundColor:
+                                                MaterialStateProperty.all(
+                                                    Get.theme.primaryColor),
+                                            textStyle:
+                                                MaterialStateProperty.all(
+                                                    const TextStyle(
+                                                        fontSize: 12,
+                                                        color: Colors.black)),
                                           ),
+                                          child: const Text(
+                                            'Resend OTP on SMS',
+                                            style:
+                                                TextStyle(color: Colors.black),
+                                          ).translate(),
                                         ),
-                                        padding: MaterialStateProperty.all(const EdgeInsets.only(left: 25, right: 25)),
-                                        backgroundColor: MaterialStateProperty.all(Get.theme.primaryColor),
-                                        textStyle: MaterialStateProperty.all(const TextStyle(fontSize: 12, color: Colors.black)),
-                                      ),
-                                      child: const Text(
-                                        'Resend OTP on SMS',
-                                        style: TextStyle(color: Colors.black),
-                                      ).translate(),
-                                    ),
-                                  ],
-                                )
-                              ]));
+                                      ],
+                                    )
+                                  ]));
                   })
                 ],
               ),

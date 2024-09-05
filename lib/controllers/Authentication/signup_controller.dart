@@ -689,7 +689,8 @@ class SignupController extends GetxController {
               (result) {
                 global.hideLoader();
                 if (result.status == "200") {
-                  sendOTP(phoneNumber);
+                  //sendOTP(phoneNumber);
+                  sendLoginOTP(phoneNumber);
                 } else {
                   global.hideLoader();
                   global.showToast(
@@ -704,6 +705,91 @@ class SignupController extends GetxController {
     } catch (e) {
       print("Exception - SignUpControoler.dart - checkContactExist(): " +
           e.toString());
+    }
+  }
+
+  Future<void> sendLoginOTP(String phoneNumber, {bool? isResend}) async {
+    try {
+      await global.checkBody().then((result) async {
+        if (result) {
+          global.showOnlyLoaderDialog();
+          await apiHelper.sendOtp(phoneNumber, '0').then((result) async {
+            if (result.status == "200") {
+              log('${result.recordList['otp']}____________');
+              // var recordId = result.recordList["recordList"];
+
+              Get.find<SignupOtpController>().second = 0;
+              Get.find<SignupOtpController>().maxSecond = 60;
+              update();
+
+              global.showToast(
+                  message: 'OTP has been send to your mobile number');
+              Get.find<SignupOtpController>().timer();
+
+              if (isResend ?? false) {
+                global.hideLoader();
+                Navigator.pushReplacement(
+                    Get.context!,
+                    MaterialPageRoute(
+                        builder: (context) => SignupOtpScreen(
+                              mobileNumber: cMobileNumber.text,
+                              verificationId:
+                                  result.recordList['otp'].toString(),
+                              otp: result.recordList['otp'].toString(),
+                            )));
+
+                /*Get.off(() => SignupOtpScreen(
+                      mobileNumber: cMobileNumber.text,
+                      verificationId: result.recordList['otp'].toString(),
+                      otp: result.recordList['otp'].toString(),
+                    ));*/
+              } else {
+                Get.to(() => SignupOtpScreen(
+                      mobileNumber: cMobileNumber.text,
+                      verificationId: result.recordList['otp'].toString(),
+                      otp: result.recordList['otp'].toString(),
+                    ));
+              }
+            } else {
+              global.hideLoader();
+              log("what\'s wrong ${result.error.contactNo[0]}");
+              global.showToast(message: result.error.contactNo[0]);
+            }
+          });
+
+          /*FirebaseAuth _auth = FirebaseAuth.instance;
+          _auth.verifyPhoneNumber(
+            phoneNumber: '+91$phoneNumber',
+            //timeout: const Duration(seconds: 60),
+            verificationCompleted: (PhoneAuthCredential credential) {
+              //lobal.hideLoader();
+              log("Select $credential");
+            },
+            verificationFailed: (FirebaseAuthException e) {
+              global.hideLoader();
+              //global.showToast(message: e.toString());
+              Get.snackbar('Warning', e.toString());
+              //Please try agains some time
+              log('Login Screen - > ${e.message.toString()}');
+            },
+
+            codeSent: (String verificationId, int? resendToken) async {
+              global.hideLoader();
+              LoginOtpController loginOtpController =
+                  Get.put(LoginOtpController());
+              loginOtpController.timer();
+              Get.to(() => LoginOtpScreen(
+                    mobileNumber: phoneNumber,
+                    verificationId: verificationId,
+                  ));
+              log('Login Screen -> code sent');
+            },
+            codeAutoRetrievalTimeout: (String verificationId) {},
+          );*/
+        }
+      });
+    } catch (e) {
+      print("Exception - $screen - sendLoginOTP():" + e.toString());
     }
   }
 

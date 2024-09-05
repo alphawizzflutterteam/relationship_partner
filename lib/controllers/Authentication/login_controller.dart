@@ -111,7 +111,7 @@ class LoginController extends GetxController {
       await global.checkBody().then((result) async {
         if (result) {
           global.showOnlyLoaderDialog();
-          await apiHelper.sendOtp(phoneNumber).then((result) async {
+          await apiHelper.sendOtp(phoneNumber, '1').then((result) async {
             if (result.status == "200") {
               log('${result.recordList['otp']}____________');
               // var recordId = result.recordList["recordList"];

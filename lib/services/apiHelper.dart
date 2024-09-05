@@ -233,11 +233,11 @@ class APIHelper {
     }
   }
 
-  Future<dynamic> sendOtp(String mobile) async {
+  Future<dynamic> sendOtp(String mobile, String type) async {
     try {
       final response = await http.post(
         Uri.parse('${global.appParameters[global.appMode]['apiUrl']}sendOtp'),
-        body: json.encode({"contactNo": mobile, "login": '1'}),
+        body: json.encode({"contactNo": mobile, "login": type}),
         headers: await global.getApiHeaders(false),
       );
       log('${response.request?.url}');

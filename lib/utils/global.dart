@@ -129,7 +129,7 @@ Future<void> share() async {
 String imgBaseurl = "http://relationship.developmentalphawizz.com/";
 String pdfBaseurl = "";
 String appMode = "LIVE";
-String webBaseUrl = "";
+String webBaseUrl = "http://relationship.developmentalphawizz.com/admin/";
 
 Map<String, dynamic> appParameters = {
   "LIVE": {

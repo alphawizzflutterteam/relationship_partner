@@ -47,10 +47,14 @@ class LoginScreen extends StatelessWidget {
                 0.9
               ],
                   colors: [
-                COLORS().secondary,
-                Theme.of(context).primaryColor,
-                COLORS().secondary,
-                Theme.of(context).primaryColor
+                COLORS.gradient1,
+                COLORS.gradient2,
+                COLORS.gradient3,
+                COLORS.gradient4,
+                // COLORS().secondary,
+                // Theme.of(context).primaryColor,
+                // COLORS().secondary,
+                // Theme.of(context).primaryColor
               ])),
           child: SingleChildScrollView(
             child: Column(
@@ -267,6 +271,7 @@ class LoginScreen extends StatelessWidget {
                             ),
                           ),
                         ]),
+
                         /*InkWell(
                               onTap: () {
                                 signupController.week = [];

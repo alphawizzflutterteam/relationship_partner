@@ -1,4 +1,5 @@
 import 'package:astrologer_app/constants/colorConst.dart';
+import 'package:astrologer_app/utils/extentions.dart';
 import 'package:astrologer_app/widgets/app_bar_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:astrologer_app/utils/global.dart' as global;
@@ -14,10 +15,11 @@ class PersonalDetailScreen extends StatelessWidget {
       child: Scaffold(
         appBar: MyCustomAppBar(
           height: 80,
-          backgroundColor: COLORS().primaryColor,
+          backgroundColor: COLORS().whiteColor,
           title: const Text("Personal Detail").translate(),
         ),
-        body: Padding(
+        body: Container(
+          decoration: GradientBoxDecoration.customGradient(),
           padding: const EdgeInsets.all(8.0),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -34,7 +36,9 @@ class PersonalDetailScreen extends StatelessWidget {
                   style: Theme.of(context).primaryTextTheme.headline3,
                 ).translate(),
                 trailing: Text(
-                  global.user.name != null && global.user.name != '' ? '${global.user.name}' : "Astologer name",
+                  global.user.name != null && global.user.name != ''
+                      ? '${global.user.name}'
+                      : "Astologer name",
                   style: Theme.of(context).primaryTextTheme.subtitle1,
                 ).translate(),
               ),
@@ -54,7 +58,9 @@ class PersonalDetailScreen extends StatelessWidget {
                   trailing: SizedBox(
                     width: 190,
                     child: Text(
-                      global.user.email != null && global.user.email != '' ? '${global.user.email}' : "astri@gmail.com",
+                      global.user.email != null && global.user.email != ''
+                          ? '${global.user.email}'
+                          : "astri@gmail.com",
                       style: Theme.of(context).primaryTextTheme.subtitle1,
                       textAlign: TextAlign.end,
                     ),
@@ -84,7 +90,10 @@ class PersonalDetailScreen extends StatelessWidget {
                           style: Theme.of(context).primaryTextTheme.subtitle1,
                         ),
                         Text(
-                          global.user.contactNo != null && global.user.contactNo != '' ? '${global.user.contactNo}' : "",
+                          global.user.contactNo != null &&
+                                  global.user.contactNo != ''
+                              ? '${global.user.contactNo}'
+                              : "",
                           style: Theme.of(context).primaryTextTheme.subtitle1,
                           textAlign: TextAlign.end,
                         ),

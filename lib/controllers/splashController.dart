@@ -19,6 +19,7 @@ import 'package:get/get.dart';
 import 'package:astrologer_app/utils/global.dart' as global;
 import 'package:shared_preferences/shared_preferences.dart';
 
+import '../views/welcomeScreen.dart';
 import 'HomeController/live_astrologer_controller.dart';
 
 class SplashController extends GetxController {
@@ -116,14 +117,17 @@ class SplashController extends GetxController {
                     await liveAstrologerController.endLiveSession(true);
                     Get.off(() => HomeScreen(), routeName: "HomeScreen");
                   } else {
-                    Get.off(() => LoginScreen(), routeName: "LoginScreen");
+                    Get.off(() => WelcomeScreen(), routeName: "WelcomeScreen");
+                    // Get.off(() => LoginScreen(), routeName: "LoginScreen");
                   }
                 } else {
-                  Get.off(() => LoginScreen(), routeName: "LoginScreen");
+                  Get.off(() => WelcomeScreen(), routeName: "WelcomeScreen");
+                  // Get.off(() => LoginScreen(), routeName: "LoginScreen");
                 }
               });
             } else {
-              Get.off(() => LoginScreen(), routeName: "LoginScreen");
+              Get.off(() => WelcomeScreen(), routeName: "WelcomeScreen");
+              // Get.off(() => LoginScreen(), routeName: "LoginScreen");
             }
           } else {
             global.showToast(message: "No Network Available");

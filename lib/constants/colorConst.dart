@@ -10,4 +10,9 @@ class COLORS {
   Color errorColor = const Color(0xFFe60000);
   Color? greyBackgroundColor = Colors.grey[200];
   Color secondary = const Color(0xff209A4B);
+
+  static Color gradient1 = Color(0xFFAED2C8);
+  static Color gradient2 = Color(0xFFB7D7CF);
+  static Color gradient3 = Color(0xFF84D4D8);
+  static Color gradient4 = Color(0xFF18B9CA);
 }

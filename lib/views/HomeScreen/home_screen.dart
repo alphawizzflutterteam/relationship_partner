@@ -15,6 +15,7 @@ import 'package:astrologer_app/controllers/HomeController/report_controller.dart
 import 'package:astrologer_app/controllers/HomeController/wallet_controller.dart';
 import 'package:astrologer_app/controllers/following_controller.dart';
 import 'package:astrologer_app/controllers/notification_controller.dart';
+import 'package:astrologer_app/utils/extentions.dart';
 import 'package:astrologer_app/views/HomeScreen/Drawer/Wallet/Wallet_screen.dart';
 import 'package:astrologer_app/views/HomeScreen/Drawer/drawer_screen.dart';
 import 'package:astrologer_app/views/HomeScreen/Profile/edit_profile_screen.dart';
@@ -332,7 +333,8 @@ class HomeScreen extends StatelessWidget {
                       ),
                 body: Container(
                   height: height,
-                  color: COLORS().greyBackgroundColor,
+                  // color: COLORS().primaryColor,
+                  decoration: GradientBoxDecoration.customGradient(),
                   child: homeController.isSelectedBottomIcon == 1
                       ?
                       //---------------------------Home-------------------------------------

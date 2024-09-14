@@ -36,30 +36,35 @@ class CustomeReviewScreen extends StatelessWidget {
                   )
                 : signupController.astrologerList[0].review!.isEmpty ||
                         signupController.astrologerList[0].review == []
-                    ? Column(
-                        crossAxisAlignment: CrossAxisAlignment.end,
-                        children: [
-                          Padding(
-                            padding: const EdgeInsets.only(
-                                top: 10, right: 10, bottom: 200),
-                            child: ElevatedButton(
-                              onPressed: () async {
-                                signupController.astrologerList.clear();
-                                await signupController
-                                    .astrologerProfileById(false);
-                                signupController.update();
-                              },
-                              child: const Icon(
-                                Icons.refresh_outlined,
-                                color: Colors.black,
+                    ? Container(
+                        height: Get.height,
+                        decoration: GradientBoxDecoration.customGradient(),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.end,
+                          children: [
+                            Padding(
+                              padding: const EdgeInsets.only(
+                                  top: 10, right: 10, bottom: 200),
+                              child: ElevatedButton(
+                                onPressed: () async {
+                                  signupController.astrologerList.clear();
+                                  await signupController
+                                      .astrologerProfileById(false);
+                                  signupController.update();
+                                },
+                                child: const Icon(
+                                  Icons.refresh_outlined,
+                                  color: Colors.white,
+                                ),
                               ),
                             ),
-                          ),
-                          Center(
-                            child: const Text("You don't have any review yet!")
-                                .translate(),
-                          ),
-                        ],
+                            Center(
+                              child:
+                                  const Text("You don't have any review yet!")
+                                      .translate(),
+                            ),
+                          ],
+                        ),
                       )
                     : RefreshIndicator(
                         onRefresh: () async {

@@ -123,9 +123,11 @@ class WalletScreen extends StatelessWidget {
                                                     const EdgeInsets.all(10),
                                                 child: Text(
                                                   'Withdraw',
-                                                  style: Get.theme.textTheme
-                                                      .subtitle2,
-                                                ).translate(),
+                                                  style: Get
+                                                      .theme.textTheme.subtitle2
+                                                      ?.copyWith(
+                                                          color: Colors.white),
+                                                ),
                                               ),
                                             ),
                                           )
@@ -328,7 +330,7 @@ class WalletScreen extends StatelessWidget {
                                         child: TabBar(
                                           labelStyle: const TextStyle(
                                               fontWeight: FontWeight.bold),
-                                          labelColor: Colors.black,
+                                          labelColor: Colors.white,
                                           unselectedLabelColor: Colors.grey,
                                           isScrollable: true,
                                           indicatorSize:

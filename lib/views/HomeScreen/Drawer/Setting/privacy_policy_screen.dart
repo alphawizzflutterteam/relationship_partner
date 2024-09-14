@@ -14,9 +14,9 @@ class PrivacyPolicyScreen extends StatelessWidget {
       appBar: MyCustomAppBar(
         height: 80,
         backgroundColor: COLORS().primaryColor,
-        title: const Text("Privacy Policy").translate(),
+        title: const Text("Privacy Policy"),
       ),
-      body: WebView(
+      body: const WebView(
         initialUrl: /*'${global.webBaseUrl}privacypolicy'*/
             'https://relationship.developmentalphawizz.com/admin/privacypolicy',
         javascriptMode: JavascriptMode.unrestricted,

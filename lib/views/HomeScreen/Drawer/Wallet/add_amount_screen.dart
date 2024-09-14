@@ -2,6 +2,7 @@
 
 import 'package:astrologer_app/constants/colorConst.dart';
 import 'package:astrologer_app/controllers/HomeController/wallet_controller.dart';
+import 'package:astrologer_app/utils/extentions.dart';
 import 'package:astrologer_app/views/HomeScreen/Drawer/Wallet/Wallet_screen.dart';
 import 'package:astrologer_app/widgets/app_bar_widget.dart';
 import 'package:astrologer_app/widgets/common_textfield_widget.dart';
@@ -28,12 +29,13 @@ class AddAmountScreen extends StatelessWidget {
         resizeToAvoidBottomInset: false,
         appBar: MyCustomAppBar(
           height: 80,
-          title: const Text("Withdraw screen").translate(),
-          backgroundColor: COLORS().primaryColor,
+          title: const Text("Withdraw screen"),
+          backgroundColor: COLORS().whiteColor,
         ),
         body: GetBuilder<WalletController>(
           builder: (walletController) {
-            return Padding(
+            return Container(
+              decoration: GradientBoxDecoration.customGradient(),
               padding: const EdgeInsets.all(10),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -117,15 +119,19 @@ class AddAmountScreen extends StatelessWidget {
                             children: [
                               const Padding(
                                 padding: EdgeInsets.only(top: 12),
-                                child: PrimaryTextWidget(text: "Account number"),
+                                child:
+                                    PrimaryTextWidget(text: "Account number"),
                               ),
                               Padding(
                                 padding: const EdgeInsets.only(top: 5.0),
                                 child: CommonTextFieldWidget(
                                   hintText: "Account number",
-                                  textEditingController: walletController.cBankNumber,
+                                  textEditingController:
+                                      walletController.cBankNumber,
                                   keyboardType: TextInputType.number,
-                                  formatter: [FilteringTextInputFormatter.digitsOnly],
+                                  formatter: [
+                                    FilteringTextInputFormatter.digitsOnly
+                                  ],
                                   maxLength: 16,
                                   counterText: '',
                                 ),
@@ -138,7 +144,8 @@ class AddAmountScreen extends StatelessWidget {
                                 padding: const EdgeInsets.only(top: 5.0),
                                 child: CommonTextFieldWidget(
                                   hintText: "IFSC number",
-                                  textEditingController: walletController.cIfscCode,
+                                  textEditingController:
+                                      walletController.cIfscCode,
                                   keyboardType: TextInputType.text,
                                 ),
                               ),
@@ -147,12 +154,17 @@ class AddAmountScreen extends StatelessWidget {
                                 child: PrimaryTextWidget(text: "Holder name"),
                               ),
                               Padding(
-                                padding: const EdgeInsets.only(top: 5.0, bottom: 20),
+                                padding:
+                                    const EdgeInsets.only(top: 5.0, bottom: 20),
                                 child: CommonTextFieldWidget(
                                   hintText: "Holder name",
-                                  textEditingController: walletController.cAccountHolder,
+                                  textEditingController:
+                                      walletController.cAccountHolder,
                                   keyboardType: TextInputType.text,
-                                  formatter: [FilteringTextInputFormatter.allow(RegExp("[a-zA-Z ]"))],
+                                  formatter: [
+                                    FilteringTextInputFormatter.allow(
+                                        RegExp("[a-zA-Z ]"))
+                                  ],
                                 ),
                               ),
                             ],
@@ -185,25 +197,45 @@ class AddAmountScreen extends StatelessWidget {
                       onPressed: () async {
                         try {
                           if (walletController.updateAmountId != null) {
-                            if (walletController.cWithdrawAmount.text != "" && double.parse(walletController.cWithdrawAmount.text) <= double.parse(walletController.withdraw.walletAmount.toString())) {
-                              walletController.validateUpdateAmount(walletController.updateAmountId!);
-                            } else if (walletController.cWithdrawAmount.text != "" && int.parse(walletController.cWithdrawAmount.text) < int.parse(walletController.cWithdrawAmount.text)) {
-                              walletController.validateUpdateAmount(walletController.updateAmountId!);
+                            if (walletController.cWithdrawAmount.text != "" &&
+                                double.parse(walletController
+                                        .cWithdrawAmount.text) <=
+                                    double.parse(walletController
+                                        .withdraw.walletAmount
+                                        .toString())) {
+                              walletController.validateUpdateAmount(
+                                  walletController.updateAmountId!);
+                            } else if (walletController.cWithdrawAmount.text !=
+                                    "" &&
+                                int.parse(
+                                        walletController.cWithdrawAmount.text) <
+                                    int.parse(walletController
+                                        .cWithdrawAmount.text)) {
+                              walletController.validateUpdateAmount(
+                                  walletController.updateAmountId!);
                             } else {
-                              global.showToast(message: "Please enter a valid amount");
+                              global.showToast(
+                                  message: "Please enter a valid amount");
                             }
                           } else {
-                            if (walletController.cWithdrawAmount.text != "" && double.parse(walletController.cWithdrawAmount.text) <= double.parse(walletController.withdraw.walletAmount.toString())) {
+                            if (walletController.cWithdrawAmount.text != "" &&
+                                double.parse(walletController
+                                        .cWithdrawAmount.text) <=
+                                    double.parse(walletController
+                                        .withdraw.walletAmount
+                                        .toString())) {
                               walletController.validateAmount();
                             } else {
-                              global.showToast(message: "Please enter a valid amount");
+                              global.showToast(
+                                  message: "Please enter a valid amount");
                             }
                           }
                           await walletController.getAmountList();
                           walletController.update();
                         } catch (e) {
                           // ignore: avoid_print
-                          print('Exception in add_amount_screen :- SUBMIT button:- $e');
+                          print(
+                              'Exception in add_amount_screen :- SUBMIT button:- $e');
                         }
                       },
                       child: const Text("SUBMIT").translate(),

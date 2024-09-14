@@ -1141,7 +1141,7 @@ class HomeScreen extends StatelessWidget {
                                                                 Icons
                                                                     .refresh_outlined,
                                                                 color: Colors
-                                                                    .black,
+                                                                    .white,
                                                               ),
                                                             ),
                                                           ),

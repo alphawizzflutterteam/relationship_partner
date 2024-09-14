@@ -44,9 +44,18 @@ class SuccessRegistrationScreen extends StatelessWidget {
               padding: const EdgeInsets.only(top: 40.0, left: 15, right: 15),
               child: Center(
                 child: Text(
-                  "Thanks for submitting your detail with Relationship Revive Partner",
+                  "Thank you for your interest and for submitting your details. Our team will review your profile and provide an update shortly",
                   style: Theme.of(context).primaryTextTheme.subtitle1,
-                ).translate(),
+                ),
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.only(top: 40.0, left: 15, right: 15),
+              child: Center(
+                child: Text(
+                  "Feel free to reach us at support@neeluworld.com",
+                  style: Theme.of(context).primaryTextTheme.subtitle1,
+                ),
               ),
             )
           ],

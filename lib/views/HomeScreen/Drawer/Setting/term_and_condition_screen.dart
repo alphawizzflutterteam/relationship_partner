@@ -14,9 +14,9 @@ class TermAndConditionScreen extends StatelessWidget {
       appBar: MyCustomAppBar(
         height: 80,
         backgroundColor: COLORS().primaryColor,
-        title: const Text("Terms and Condition").translate(),
+        title: const Text("Terms and Condition"),
       ),
-      body: WebView(
+      body: const WebView(
         initialUrl: /*'${global.webBaseUrl}termsCondition'*/
             'https://relationship.developmentalphawizz.com/admin/termsCondition',
         javascriptMode: JavascriptMode.unrestricted,

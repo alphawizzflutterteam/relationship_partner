@@ -18,6 +18,7 @@ import 'package:astrologer_app/widgets/common_padding.dart';
 import 'package:astrologer_app/widgets/common_textfield_widget.dart';
 import 'package:astrologer_app/widgets/primary_text_widget.dart';
 import 'package:dotted_border/dotted_border.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -316,6 +317,30 @@ class SignupScreen extends StatelessWidget {
                                                   "I Agree to the Terms And Condition"),
                                         ),
                                       ],
+                                    ),
+                                  ),
+
+                                  const SizedBox(
+                                    height: 60,
+                                  ),
+
+                                  TextButton(
+                                    style: TextButton.styleFrom(
+                                      backgroundColor: COLORS().primaryColor,
+                                      maximumSize: Size(
+                                          MediaQuery.of(context).size.width / 2,
+                                          100),
+                                      minimumSize: Size(
+                                          MediaQuery.of(context).size.width / 3,
+                                          48),
+                                    ),
+                                    onPressed: () {
+                                      FocusScope.of(context).unfocus();
+                                      signupController.validateForm(0);
+                                    },
+                                    child: const Text(
+                                      MessageConstants.GET_OTP,
+                                      style: TextStyle(color: Colors.black),
                                     ),
                                   )
                                 ],
@@ -2372,7 +2397,7 @@ class SignupScreen extends StatelessWidget {
               ),
               bottomNavigationBar: Padding(
                 padding: const EdgeInsets.only(left: 10, right: 10, bottom: 10),
-                child: signupController.index == 0
+                child: /*signupController.index == 0
                     ? TextButton(
                         style: TextButton.styleFrom(
                           backgroundColor: COLORS().primaryColor,
@@ -2390,7 +2415,8 @@ class SignupScreen extends StatelessWidget {
                           style: TextStyle(color: Colors.black),
                         ),
                       )
-                    : signupController.index == 1
+                    :*/
+                    signupController.index == 1
                         ? TextButton(
                             style: TextButton.styleFrom(
                               backgroundColor: COLORS().primaryColor,

@@ -77,6 +77,9 @@ class LoginOtpScreen extends StatelessWidget {
                 padding: const EdgeInsets.only(top: 30.0),
                 child: Column(
                   children: [
+                    const SizedBox(
+                      height: 20,
+                    ),
                     Text(
                       'OTP Send to ${loginOtpController.countryCode}-$mobileNumber',
                       style: const TextStyle(color: Colors.black),
@@ -86,7 +89,7 @@ class LoginOtpScreen extends StatelessWidget {
                       style: const TextStyle(color: Colors.black),
                     ),
                     const SizedBox(
-                      height: 30,
+                      height: 40,
                     ),
                     SizedBox(
                       height: 50,
@@ -114,7 +117,7 @@ class LoginOtpScreen extends StatelessWidget {
                       ),
                     ),
                     const SizedBox(
-                      height: 15,
+                      height: 60,
                     ),
                     SizedBox(
                       width: double.infinity,
@@ -150,7 +153,7 @@ class LoginOtpScreen extends StatelessWidget {
                       ),
                     ),
                     const SizedBox(
-                      height: 15,
+                      height: 40,
                     ),
                     GetBuilder<LoginOtpController>(builder: (c) {
                       return SizedBox(

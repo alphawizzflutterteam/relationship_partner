@@ -36,7 +36,7 @@ class WelcomeScreen extends StatelessWidget {
             SizedBox(
               height: 30,
             ),
-            Container(
+            SizedBox(
               height: (MediaQuery.of(context).size.height) / 1.5,
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -47,15 +47,46 @@ class WelcomeScreen extends StatelessWidget {
                     textAlign: TextAlign.center,
                     style: Get.textTheme.headlineLarge,
                   )),
-                  Container(
+                  SizedBox(
                       height: 300,
                       width: 300,
                       child: Lottie.asset("assets/animation/welcome.json")),
-                  Text(
-                    ' Let’s begin the journey \ntowards a better \ntomorrow….',
-                    textAlign: TextAlign.center,
-                    style: Get.textTheme.titleLarge,
-                  ),
+                  RichText(
+                    textAlign: TextAlign.left,
+                    text: TextSpan(
+                      text: "Let’s ",
+                      style: TextStyle(
+                        fontSize: 16,
+                        color: Colors.black,
+                        fontWeight: FontWeight.normal,
+                      ),
+                      children: <TextSpan>[
+                        TextSpan(
+                          text: 'create',
+                          style: TextStyle(
+                            fontSize: 25,
+                            fontStyle: FontStyle.italic,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                        TextSpan(
+                          text: ' the journey towards a',
+                          style: TextStyle(
+                            fontSize: 16,
+                            fontWeight: FontWeight.normal,
+                          ),
+                        ),
+                        TextSpan(
+                          text: '\nbetter tomorrow...',
+                          style: TextStyle(
+                            fontSize: 25,
+                            fontWeight: FontWeight.bold,
+                            fontStyle: FontStyle.italic,
+                          ),
+                        ),
+                      ],
+                    ),
+                  )
                 ],
               ),
             ),

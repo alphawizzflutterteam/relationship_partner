@@ -400,7 +400,7 @@ class KundliMatchingResultScreen extends StatelessWidget {
                                   uriPrefix: 'https://astroguruupdated.page.link',
                                   link: Uri.parse("https://astroguruupdated.page.link/userProfile?screen=dailyHorscope"),
                                   androidParameters: const AndroidParameters(
-                                    packageName: 'com.example.astrologer_app',
+                                    packageName: 'com.relationship_app',
                                     minimumVersion: 1,
                                   ),
                                 );

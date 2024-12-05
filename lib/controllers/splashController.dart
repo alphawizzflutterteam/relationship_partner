@@ -173,7 +173,7 @@ class SplashController extends GetxController {
             "https://astroguruupdated.page.link/userProfile?screen=astrologerShare"),
         // ignore: prefer_const_constructors
         androidParameters: AndroidParameters(
-          packageName: 'com.example.astrologer_app',
+          packageName: 'com.relationship_app',
           minimumVersion: 1,
         ),
       );

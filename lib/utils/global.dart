@@ -126,15 +126,15 @@ Future<void> share() async {
 }
 
 //Base url for api
-String imgBaseurl = "http://relationship.developmentalphawizz.com/";
+String imgBaseurl = "https://relationship-revive.com/";
 String pdfBaseurl = "";
 String appMode = "LIVE";
-String webBaseUrl = "http://relationship.developmentalphawizz.com/admin/";
+String webBaseUrl = "https://relationship-revive.com/admin/";
 
 Map<String, dynamic> appParameters = {
   "LIVE": {
     "apiUrl":
-        "http://relationship.developmentalphawizz.com/api/" //"https://astro.codefuse.org/api/",
+        "https://relationship-revive.com/api/" //"https://astro.codefuse.org/api/",
   },
   "DEV": {
     "apiUrl": "http://192.168.29.223:8001/api/",
@@ -374,7 +374,7 @@ createAndShareLinkForDailyHorscope(ScreenshotController sc) async {
     link: Uri.parse(
         "https://astroguruupdated.page.link/userProfile?screen=dailyHorscope"),
     androidParameters: const AndroidParameters(
-      packageName: 'com.example.astrologer_app',
+      packageName: 'com.relationship_app',
       minimumVersion: 1,
     ),
   );

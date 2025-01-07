@@ -77,6 +77,10 @@ android {
             shrinkResources true
         }
     }
+
+    configurations.all {
+        exclude group: "io.agora.rtc", module: "full-screen-sharing"
+    }
 }
 
 flutter {

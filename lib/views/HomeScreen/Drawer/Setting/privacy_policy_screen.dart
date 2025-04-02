@@ -16,9 +16,9 @@ class PrivacyPolicyScreen extends StatelessWidget {
         backgroundColor: COLORS().primaryColor,
         title: const Text("Privacy Policy"),
       ),
-      body: const WebView(
-        initialUrl: /*'${global.webBaseUrl}privacypolicy'*/
-            'https://relationship.developmentalphawizz.com/admin/privacypolicy',
+      body:  WebView(
+        initialUrl: '${global.webBaseUrl}privacy-policy-1',
+            /*'https://relationship.developmentalphawizz.com/admin/privacypolicy',*/
         javascriptMode: JavascriptMode.unrestricted,
       ),
     );

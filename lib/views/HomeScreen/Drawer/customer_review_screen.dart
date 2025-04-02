@@ -245,7 +245,7 @@ class CustomeReviewScreen extends StatelessWidget {
                                                   ),
                                                 )
                                               : const SizedBox(),
-                                          signupController
+                                         /* signupController
                                                   .astrologerList[0]
                                                   .review![index]
                                                   .reply!
@@ -295,31 +295,13 @@ class CustomeReviewScreen extends StatelessWidget {
                                                         flex: 1,
                                                         child: IconButton(
                                                           onPressed: () {
-                                                            if (signupController
-                                                                    .astrologerList[
-                                                                        0]
-                                                                    .review![
-                                                                        index]
-                                                                    .reviewReply !=
-                                                                null) {
-                                                              signupController
-                                                                  .sendReply(
-                                                                signupController
-                                                                    .astrologerList[
-                                                                        0]
-                                                                    .review![
-                                                                        index]
-                                                                    .id!,
-                                                                signupController
-                                                                    .astrologerList[
-                                                                        0]
-                                                                    .review![
-                                                                        index]
-                                                                    .reviewReply!
-                                                                    .text,
+
+                                                            if (signupController.astrologerList[0].review![index].reviewReply != null) {
+                                                              signupController.sendReply(
+                                                                signupController.astrologerList[0].review![index].id!,
+                                                                signupController.astrologerList[0].review![index].reviewReply!.text,
                                                               );
-                                                              signupController
-                                                                  .update();
+                                                              signupController.update();
                                                             } else {
                                                               global.showToast(
                                                                   message:
@@ -336,7 +318,7 @@ class CustomeReviewScreen extends StatelessWidget {
                                                       ),
                                                     ],
                                                   ),
-                                                ),
+                                                ),*/
                                         ],
                                       ),
                                     ),

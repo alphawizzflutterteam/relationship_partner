@@ -22,7 +22,7 @@ import 'package:astrologer_app/services/apiHelper.dart';
 import 'package:astrologer_app/views/Authentication/login_screen.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:device_info_plus/device_info_plus.dart';
-import 'package:firebase_dynamic_links/firebase_dynamic_links.dart';
+// import 'package:firebase_dynamic_links/firebase_dynamic_links.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -70,7 +70,7 @@ bool isUserJoinAsChatInLive = false;
 List<HighestQualificationModel>? highestQualificationModelList = [];
 List<CountryTravel>? degreeDiplomaList = [];
 List<CountryTravel>? jobWorkingList = [];
-FirebaseDynamicLinks dynamicLinks = FirebaseDynamicLinks.instance;
+// FirebaseDynamicLinks dynamicLinks = FirebaseDynamicLinks.instance;
 APIHelper apiHelper = APIHelper();
 List<HororscopeSignModel> hororscopeSignList = [];
 final List foreignCountryCountList = <String>["0", "1-2", "3-5", "6+"];
@@ -369,20 +369,20 @@ createAndShareLinkForDailyHorscope(ScreenshotController sc) async {
   showOnlyLoaderDialog();
   String appShareLink;
   String applink;
-  final DynamicLinkParameters parameters = DynamicLinkParameters(
-    uriPrefix: 'https://astroguruupdated.page.link',
-    link: Uri.parse(
-        "https://astroguruupdated.page.link/userProfile?screen=dailyHorscope"),
-    androidParameters: const AndroidParameters(
-      packageName: 'com.relationship_app',
-      minimumVersion: 1,
-    ),
-  );
-  Uri url;
-  final ShortDynamicLink shortLink = await dynamicLinks
-      .buildShortLink(parameters, shortLinkType: ShortDynamicLinkType.short);
-  url = shortLink.shortUrl;
-  appShareLink = url.toString();
+  // final DynamicLinkParameters parameters = DynamicLinkParameters(
+  //   uriPrefix: 'https://astroguruupdated.page.link',
+  //   link: Uri.parse(
+  //       "https://astroguruupdated.page.link/userProfile?screen=dailyHorscope"),
+  //   androidParameters: const AndroidParameters(
+  //     packageName: 'com.relationship_app',
+  //     minimumVersion: 1,
+  //   ),
+  // );
+  // Uri url;
+  // final ShortDynamicLink shortLink = await dynamicLinks
+  //     .buildShortLink(parameters, shortLinkType: ShortDynamicLinkType.short);
+  // url = shortLink.shortUrl;
+  appShareLink = '';//url.toString();
   applink = appShareLink;
   hideLoader();
   final directory = (await getApplicationDocumentsDirectory()).path;

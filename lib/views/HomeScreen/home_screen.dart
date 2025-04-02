@@ -733,10 +733,9 @@ class HomeScreen extends StatelessWidget {
                                                       ),
                                                     ),
                                                   ),
-                                                  Center(
-                                                    child: const Text(
-                                                            "You don't have call request yet!")
-                                                        .translate(),
+                                                  const Center(
+                                                    child: Text(
+                                                            "You don't have call request yet!"),
                                                   ),
                                                 ],
                                               )

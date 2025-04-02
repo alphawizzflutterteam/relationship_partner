@@ -4,7 +4,7 @@ import 'package:astrologer_app/models/History/report_history_model.dart';
 import 'package:astrologer_app/widgets/app_bar_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:syncfusion_flutter_pdfviewer/pdfviewer.dart';
+// import 'package:syncfusion_flutter_pdfviewer/pdfviewer.dart';
 import 'package:astrologer_app/utils/global.dart' as global;
 
 class ViewReportPdfScreen extends StatelessWidget {
@@ -21,10 +21,10 @@ class ViewReportPdfScreen extends StatelessWidget {
           backgroundColor: COLORS().primaryColor,
           title: const Text("PDF"),
         ),
-        body: SfPdfViewer.network(
-          '${global.pdfBaseurl}${reportHistoryData!.reportFile}',
-          enableDocumentLinkAnnotation: false,
-        ),
+        // body: SfPdfViewer.network(
+        //   '${global.pdfBaseurl}${reportHistoryData!.reportFile}',
+        //   enableDocumentLinkAnnotation: false,
+        // ),
       ),
     );
   }

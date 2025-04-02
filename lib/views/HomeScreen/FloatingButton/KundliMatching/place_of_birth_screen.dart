@@ -69,7 +69,7 @@ class PlaceOfBirthSearchScreen extends StatelessWidget {
                       );
                     }),
               ),
-              Expanded(
+              /*Expanded(
                 child: ListView.builder(
                   itemCount: searchPlaceController.predictions.length,
                   itemBuilder: (context, index) {
@@ -110,7 +110,7 @@ class PlaceOfBirthSearchScreen extends StatelessWidget {
                     );
                   },
                 ),
-              ),
+              ),*/
             ],
           );
         }),

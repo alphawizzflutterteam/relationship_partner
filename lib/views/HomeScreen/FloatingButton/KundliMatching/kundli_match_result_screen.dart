@@ -3,7 +3,7 @@
 import 'dart:io';
 
 import 'package:astrologer_app/controllers/kundli_matchig_controller.dart';
-import 'package:firebase_dynamic_links/firebase_dynamic_links.dart';
+// import 'package:firebase_dynamic_links/firebase_dynamic_links.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_share/flutter_share.dart';
 import 'package:get/get.dart';
@@ -393,22 +393,22 @@ class KundliMatchingResultScreen extends StatelessWidget {
                                   },
                                 );
                                 String appShareLink;
-                                FirebaseDynamicLinks dynamicLinks = FirebaseDynamicLinks.instance;
-                                // ignore: unused_local_variable
-                                String applink;
-                                final DynamicLinkParameters parameters = DynamicLinkParameters(
-                                  uriPrefix: 'https://astroguruupdated.page.link',
-                                  link: Uri.parse("https://astroguruupdated.page.link/userProfile?screen=dailyHorscope"),
-                                  androidParameters: const AndroidParameters(
-                                    packageName: 'com.relationship_app',
-                                    minimumVersion: 1,
-                                  ),
-                                );
-                                Uri url;
-                                final ShortDynamicLink shortLink = await dynamicLinks.buildShortLink(parameters, shortLinkType: ShortDynamicLinkType.short);
-                                url = shortLink.shortUrl;
-                                appShareLink = url.toString();
-                                applink = appShareLink;
+                                // FirebaseDynamicLinks dynamicLinks = FirebaseDynamicLinks.instance;
+                                // // ignore: unused_local_variable
+                                // String applink;
+                                // final DynamicLinkParameters parameters = DynamicLinkParameters(
+                                //   uriPrefix: 'https://astroguruupdated.page.link',
+                                //   link: Uri.parse("https://astroguruupdated.page.link/userProfile?screen=dailyHorscope"),
+                                //   androidParameters: const AndroidParameters(
+                                //     packageName: 'com.relationship_app',
+                                //     minimumVersion: 1,
+                                //   ),
+                                // );
+                                //Uri url;
+                                // final ShortDynamicLink shortLink = await dynamicLinks.buildShortLink(parameters, shortLinkType: ShortDynamicLinkType.short);
+                               // url = shortLink.shortUrl;
+                                appShareLink = '';//url.toString();
+                                String applink = '';//appShareLink;
                                 Get.back(); //back from dialog
                                 final temp1 = Platform.isAndroid ? await getExternalStorageDirectory() : await getApplicationDocumentsDirectory();
                                 screenshotController.capture().then((image) async {

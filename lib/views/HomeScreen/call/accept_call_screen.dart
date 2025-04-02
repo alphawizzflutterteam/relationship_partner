@@ -48,28 +48,41 @@ class _AcceptCallScreenState extends State<AcceptCallScreen> {
   int min = 0;
   int sec = 0;
   final CallController callController = CallController();
+
+  static const appId = "68e78b7633604458a5bf8b312a5b59cc";
+// Fill in the temporary token generated from Agora Console
+  static const token = "007eJxTYChb/FH8+IL0p9um/L2VI3ag7JB/Q/T80/45beL7XWYtdnFTYDCzSDW3SDI3MzY2MzAxMbVINE1Ks0gyNjQCMkwtk5MNNzekNwQyMvgnWjIzMkAgiM/LkJyYk+Nb6ZhSllmcX8TAAADvYSN4";
+// Fill in the channel name you used to generate the token
+  static const channel = "callMyAdvisor";
+
+
   @override
   void initState() {
     super.initState();
     // Set up an instance of Agora engine
     setupVoiceSDKEngine();
+    log('${global.getSystemFlagValue(global.systemFlagNameList.agoraAppId)}__dfsdfsfsfsdf____${global.agoraToken}__${global.agoraChannelName}____');
+
   }
 
   Future generateToken() async {
     try {
+
       global.sp = await SharedPreferences.getInstance();
       CurrentUser userData = CurrentUser.fromJson(
           json.decode(global.sp!.getString("currentUser") ?? ""));
       int id = userData.id ?? 0;
       global.agoraChannelName = '${global.channelName}${id}_${widget.id}';
       log('channel :- ${global.agoraChannelName}');
-      await callController.getRtcToken(
-          global.getSystemFlagValue(global.systemFlagNameList.agoraAppId),
-          global.getSystemFlagValue(
-              global.systemFlagNameList.agoraAppCertificate),
-          "$uid",
-          global.agoraChannelName);
+
+    //  print('${global.getSystemFlagValue(global.systemFlagNameList.agoraAppId)}_______cvcxvxv_______skjdakdh');
+     // print('${global.getSystemFlagValue(global.systemFlagNameList.agoraAppCertificate)}_______cvcxvxv_______skjdakdh');
+
+      await callController.getRtcToken(global.getSystemFlagValue(global.systemFlagNameList.agoraAppId), global.getSystemFlagValue(global.systemFlagNameList.agoraAppCertificate), "$uid", global.agoraChannelName);
+
       log("call token:-${global.agoraToken}");
+      //global.agoraChannelName = 'mychenal';
+     // global.agoraToken = '007eJxTYNj7YDXPnhla5ao3Kl6x6s986XieVT5HNdCHNyHvrEmjnZQCg5lFqrlFkrmZsbGZgYmJqUWiaVKaRZKxoRGQYWqZnLz66+v0hkBGBgWzKFZGBggE8TkYciuTM1LzEnMYGAAodh7K' ;
       global.showOnlyLoaderDialog();
       await callController.sendCallToken(
           global.agoraToken, global.agoraChannelName, widget.callId);
@@ -134,7 +147,7 @@ class _AcceptCallScreenState extends State<AcceptCallScreen> {
                                             style: Theme.of(context)
                                                 .primaryTextTheme
                                                 .headline3,
-                                          ).translate(),
+                                          ),
                                           trailing: SizedBox(
                                             width: 120,
                                             child: Text(
@@ -145,7 +158,7 @@ class _AcceptCallScreenState extends State<AcceptCallScreen> {
                                                   .primaryTextTheme
                                                   .subtitle1,
                                               textAlign: TextAlign.end,
-                                            ).translate(),
+                                            ),
                                           ),
                                         ),
                                         ListTile(
@@ -156,7 +169,7 @@ class _AcceptCallScreenState extends State<AcceptCallScreen> {
                                             style: Theme.of(context)
                                                 .primaryTextTheme
                                                 .headline3,
-                                          ).translate(),
+                                          ),
                                           trailing: SizedBox(
                                             width: 120,
                                             child: Text(
@@ -168,7 +181,7 @@ class _AcceptCallScreenState extends State<AcceptCallScreen> {
                                               style: Theme.of(context)
                                                   .primaryTextTheme
                                                   .subtitle1,
-                                            ).translate(),
+                                            ),
                                           ),
                                         ),
                                         ListTile(
@@ -179,7 +192,7 @@ class _AcceptCallScreenState extends State<AcceptCallScreen> {
                                             style: Theme.of(context)
                                                 .primaryTextTheme
                                                 .headline3,
-                                          ).translate(),
+                                          ),
                                           trailing: Text(
                                             callController
                                                 .intakeData[0].birthTime
@@ -187,7 +200,7 @@ class _AcceptCallScreenState extends State<AcceptCallScreen> {
                                             style: Theme.of(context)
                                                 .primaryTextTheme
                                                 .subtitle1,
-                                          ).translate(),
+                                          ),
                                         ),
                                         ListTile(
                                           enabled: true,
@@ -197,7 +210,7 @@ class _AcceptCallScreenState extends State<AcceptCallScreen> {
                                             style: Theme.of(context)
                                                 .primaryTextTheme
                                                 .headline3,
-                                          ).translate(),
+                                          ),
                                           trailing: SizedBox(
                                             width: 120,
                                             child: Text(
@@ -208,7 +221,7 @@ class _AcceptCallScreenState extends State<AcceptCallScreen> {
                                                   .primaryTextTheme
                                                   .subtitle1,
                                               textAlign: TextAlign.end,
-                                            ).translate(),
+                                            ),
                                           ),
                                         ),
                                         ListTile(
@@ -219,7 +232,7 @@ class _AcceptCallScreenState extends State<AcceptCallScreen> {
                                             style: Theme.of(context)
                                                 .primaryTextTheme
                                                 .headline3,
-                                          ).translate(),
+                                          ),
                                           trailing: Text(
                                             callController
                                                 .intakeData[0].phoneNumber
@@ -228,7 +241,7 @@ class _AcceptCallScreenState extends State<AcceptCallScreen> {
                                                 .primaryTextTheme
                                                 .subtitle1,
                                             textAlign: TextAlign.end,
-                                          ).translate(),
+                                          ),
                                         ),
                                         ListTile(
                                           enabled: true,
@@ -238,7 +251,7 @@ class _AcceptCallScreenState extends State<AcceptCallScreen> {
                                             style: Theme.of(context)
                                                 .primaryTextTheme
                                                 .headline3,
-                                          ).translate(),
+                                          ),
                                           trailing: SizedBox(
                                             width: 120,
                                             child: Text(
@@ -249,7 +262,7 @@ class _AcceptCallScreenState extends State<AcceptCallScreen> {
                                                   .primaryTextTheme
                                                   .subtitle1,
                                               textAlign: TextAlign.end,
-                                            ).translate(),
+                                            ),
                                           ),
                                         ),
                                         callController.intakeData[0]
@@ -264,7 +277,7 @@ class _AcceptCallScreenState extends State<AcceptCallScreen> {
                                                   style: Theme.of(context)
                                                       .primaryTextTheme
                                                       .headline3,
-                                                ).translate(),
+                                                ),
                                                 trailing: SizedBox(
                                                   width: 120,
                                                   child: Text(
@@ -275,7 +288,7 @@ class _AcceptCallScreenState extends State<AcceptCallScreen> {
                                                         .primaryTextTheme
                                                         .subtitle1,
                                                     textAlign: TextAlign.end,
-                                                  ).translate(),
+                                                  ),
                                                 ),
                                               ),
                                         callController.intakeData[0]
@@ -292,7 +305,7 @@ class _AcceptCallScreenState extends State<AcceptCallScreen> {
                                                   style: Theme.of(context)
                                                       .primaryTextTheme
                                                       .headline3,
-                                                ).translate(),
+                                                ),
                                                 trailing: Text(
                                                   callController
                                                       .intakeData[0].partnerName
@@ -301,7 +314,7 @@ class _AcceptCallScreenState extends State<AcceptCallScreen> {
                                                       .primaryTextTheme
                                                       .subtitle1,
                                                   textAlign: TextAlign.end,
-                                                ).translate(),
+                                                ),
                                               )
                                             : const SizedBox(),
                                         callController.intakeData[0]
@@ -315,7 +328,7 @@ class _AcceptCallScreenState extends State<AcceptCallScreen> {
                                                   style: Theme.of(context)
                                                       .primaryTextTheme
                                                       .headline3,
-                                                ).translate(),
+                                                ),
                                                 trailing: SizedBox(
                                                   width: 120,
                                                   child: Text(
@@ -329,7 +342,7 @@ class _AcceptCallScreenState extends State<AcceptCallScreen> {
                                                         .primaryTextTheme
                                                         .subtitle1,
                                                     textAlign: TextAlign.end,
-                                                  ).translate(),
+                                                  ),
                                                 ),
                                               )
                                             : const SizedBox(),
@@ -347,7 +360,7 @@ class _AcceptCallScreenState extends State<AcceptCallScreen> {
                                                   style: Theme.of(context)
                                                       .primaryTextTheme
                                                       .headline3,
-                                                ).translate(),
+                                                ),
                                                 trailing: Text(
                                                   callController.intakeData[0]
                                                       .partnerBirthTime
@@ -355,7 +368,7 @@ class _AcceptCallScreenState extends State<AcceptCallScreen> {
                                                   style: Theme.of(context)
                                                       .primaryTextTheme
                                                       .subtitle1,
-                                                ).translate(),
+                                                ),
                                               )
                                             : const SizedBox(),
                                         callController.intakeData[0]
@@ -372,7 +385,7 @@ class _AcceptCallScreenState extends State<AcceptCallScreen> {
                                                   style: Theme.of(context)
                                                       .primaryTextTheme
                                                       .headline3,
-                                                ).translate(),
+                                                ),
                                                 trailing: SizedBox(
                                                   width: 120,
                                                   child: Text(
@@ -383,7 +396,7 @@ class _AcceptCallScreenState extends State<AcceptCallScreen> {
                                                         .primaryTextTheme
                                                         .subtitle1,
                                                     textAlign: TextAlign.end,
-                                                  ).translate(),
+                                                  ),
                                                 ),
                                               )
                                             : const SizedBox()
@@ -416,7 +429,7 @@ class _AcceptCallScreenState extends State<AcceptCallScreen> {
                           widget.name == '' ? 'User' : widget.name,
                           style: Get.textTheme.subtitle1!.copyWith(
                               fontWeight: FontWeight.w500, fontSize: 20),
-                        ).translate(),
+                        ),
                         SizedBox(
                           child: status(),
                         ),
@@ -495,7 +508,7 @@ class _AcceptCallScreenState extends State<AcceptCallScreen> {
                 },
                 child: Icon(
                   Icons.volume_up,
-                  color: isSpeaker ? Colors.blue : Colors.grey,
+                  color: isSpeaker ? Colors.white : Colors.grey,
                 ),
               ),
               InkWell(
@@ -531,7 +544,7 @@ class _AcceptCallScreenState extends State<AcceptCallScreen> {
                 },
                 child: Icon(
                   Icons.mic_off,
-                  color: isMuted ? Colors.blue : Colors.grey,
+                  color: isMuted ? Colors.white : Colors.grey,
                 ),
               ),
             ],
@@ -549,8 +562,10 @@ class _AcceptCallScreenState extends State<AcceptCallScreen> {
     //create an instance of the Agora engine
     agoraEngine = createAgoraRtcEngine();
     await agoraEngine.initialize(RtcEngineContext(
-        appId:
-            global.getSystemFlagValue(global.systemFlagNameList.agoraAppId)));
+        appId: global.getSystemFlagValue(global.systemFlagNameList.agoraAppId)//appId
+
+
+    ));
 
     // Register the event handler
     agoraEngine.registerEventHandler(
@@ -588,11 +603,11 @@ class _AcceptCallScreenState extends State<AcceptCallScreen> {
     String statusText;
     if (remoteUid == null) {
       statusText = 'Calling...';
-      return Text(statusText).translate();
+      return Text(statusText);
     } else {
       statusText = 'Calling in progress';
       return CountdownTimer(
-        endTime: DateTime.now().millisecondsSinceEpoch + 1000 * 300,
+        endTime: DateTime.now().millisecondsSinceEpoch + 1000 * 600,
         widgetBuilder: (_, CurrentRemainingTime? time) {
           if (time == null) {
             return const Text('00 min 00 sec');
@@ -624,8 +639,8 @@ class _AcceptCallScreenState extends State<AcceptCallScreen> {
       channelProfile: ChannelProfileType.channelProfileCommunication,
     );
     await agoraEngine.joinChannel(
-      token: global.agoraToken,
-      channelId: global.agoraChannelName,
+      token: global.agoraToken,//token
+      channelId: global.agoraChannelName,//channel
       options: options,
       uid: uid,
     );

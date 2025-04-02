@@ -14,6 +14,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:astrologer_app/utils/global.dart' as global;
 import 'package:google_translator/google_translator.dart';
+import 'package:share_plus/share_plus.dart';
 
 class SettingListScreen extends StatelessWidget {
   SettingListScreen({Key? key}) : super(key: key);
@@ -67,6 +68,26 @@ class SettingListScreen extends StatelessWidget {
                     Icon(Icons.arrow_forward_ios, color: COLORS().primaryColor),
                 onTap: () {
                   Get.to(() => PrivacyPolicyScreen());
+                },
+              ),
+              Divider(
+                color: COLORS().primaryColor,
+              ),
+              ListTile(
+                enabled: true,
+                tileColor: Colors.white,
+                leading: Icon(
+                  Icons.share,
+                  color: COLORS().primaryColor,
+                ),
+                title: Text(
+                  "Share App",
+                  style: Theme.of(context).primaryTextTheme.subtitle1,
+                ).translate(),
+                trailing:
+                Icon(Icons.arrow_forward_ios, color: COLORS().primaryColor),
+                onTap: () {
+                  Share.share('Hey! check out this new app https://play.google.com/store/apps/details?id=com.relationship_app', subject: 'Relationship Revive');
                 },
               ),
               Divider(
@@ -151,9 +172,8 @@ class SettingListScreen extends StatelessWidget {
                 onTap: () {
                   Get.dialog(
                     AlertDialog(
-                      title: const Text(
-                              "Are you sure you want to delete this Account?")
-                          .translate(),
+                      title:  Text(
+                              "Are you sure you want to delete this Account?",style: Get.textTheme.titleMedium?.copyWith(fontSize: 14)),
                       content: Row(
                         children: [
                           Expanded(
@@ -163,7 +183,7 @@ class SettingListScreen extends StatelessWidget {
                                 Get.back();
                               },
                               child:
-                                  const Text(MessageConstants.No).translate(),
+                                   Text(MessageConstants.No,style: Get.textTheme.titleMedium?.copyWith(fontSize: 14,color: Colors.white)),
                             ),
                           ),
                           const SizedBox(
@@ -181,7 +201,7 @@ class SettingListScreen extends StatelessWidget {
                                     (route) => false);
                               },
                               child:
-                                  const Text(MessageConstants.YES).translate(),
+                                   Text(MessageConstants.YES,style: Get.textTheme.titleMedium?.copyWith(fontSize: 14,color: Colors.white)),
                             ),
                           ),
                         ],

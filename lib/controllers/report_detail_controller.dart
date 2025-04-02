@@ -7,7 +7,7 @@ import 'package:astrologer_app/models/report_model.dart';
 import 'package:astrologer_app/report/open_file.dart';
 import 'package:astrologer_app/services/apiHelper.dart';
 import 'package:get/get.dart';
-import 'package:flutter_document_picker/flutter_document_picker.dart';
+// import 'package:flutter_document_picker/flutter_document_picker.dart';
 import 'package:astrologer_app/utils/global.dart' as global;
 
 class ReportDetailController extends GetxController {
@@ -24,20 +24,20 @@ class ReportDetailController extends GetxController {
 
 //Select pdf from storage file
   Future selectPDF() async {
-    try {
-      FlutterDocumentPickerParams params = FlutterDocumentPickerParams(
-        allowedFileExtensions: ['pdf', 'doc', 'docx'],
-        invalidFileNameSymbols: ['/'],
-      );
-
-      path = await FlutterDocumentPicker.openDocument(params: params);
-
-      update();
-      print("---->>>> $path");
-      return File(path!);
-    } catch (e) {
-      print('Exception - $screen - selectPDF():' + e.toString());
-    }
+    // try {
+    //   FlutterDocumentPickerParams params = FlutterDocumentPickerParams(
+    //     allowedFileExtensions: ['pdf', 'doc', 'docx'],
+    //     invalidFileNameSymbols: ['/'],
+    //   );
+    //
+    //   path = await FlutterDocumentPicker.openDocument(params: params);
+    //
+    //   update();
+    //   print("---->>>> $path");
+    //   return File(path!);
+    // } catch (e) {
+    //   print('Exception - $screen - selectPDF():' + e.toString());
+    // }
   }
 
 //View file

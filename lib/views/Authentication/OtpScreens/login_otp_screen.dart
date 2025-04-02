@@ -84,10 +84,10 @@ class LoginOtpScreen extends StatelessWidget {
                       'OTP Send to ${loginOtpController.countryCode}-$mobileNumber',
                       style: const TextStyle(color: Colors.black),
                     ),
-                    Text(
+                    /*Text(
                       'OTP: $otp',
                       style: const TextStyle(color: Colors.black),
-                    ),
+                    ),*/
                     const SizedBox(
                       height: 40,
                     ),

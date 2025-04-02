@@ -12,7 +12,7 @@ import 'package:astrologer_app/models/user_model.dart';
 import 'package:astrologer_app/services/apiHelper.dart';
 import 'package:astrologer_app/views/Authentication/login_screen.dart';
 import 'package:astrologer_app/views/HomeScreen/home_screen.dart';
-import 'package:firebase_dynamic_links/firebase_dynamic_links.dart';
+// import 'package:firebase_dynamic_links/firebase_dynamic_links.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter_share/flutter_share.dart';
 import 'package:get/get.dart';
@@ -31,7 +31,7 @@ class SplashController extends GetxController {
   FollowingController followingController = Get.put(FollowingController());
   LiveAstrologerController liveAstrologerController =
       Get.put(LiveAstrologerController());
-  FirebaseDynamicLinks dynamicLinks = FirebaseDynamicLinks.instance;
+ // FirebaseDynamicLinks dynamicLinks = FirebaseDynamicLinks.instance;
   String? appShareLinkForLiveSreaming;
 
   //Class
@@ -60,35 +60,24 @@ class SplashController extends GetxController {
                   await global.getDeviceData();
 
                   await getSystemList();
-                  global.appName = global
-                      .getSystemFlagValue(global.systemFlagNameList.appName);
+
+
+                  global.appName = global.getSystemFlagValue(global.systemFlagNameList.appName);
                   global.spLanguage = await SharedPreferences.getInstance();
-                  currentLanguageCode =
-                      global.spLanguage!.getString('currentLanguage') ?? 'en';
+                  currentLanguageCode = global.spLanguage!.getString('currentLanguage') ?? 'en';
                   update();
                   global.getMasterTableDataModelList = apiResult.recordList;
-                  global.astrologerCategoryModelList =
-                      global.getMasterTableDataModelList.astrologerCategory;
-                  global.skillModelList =
-                      global.getMasterTableDataModelList.skill;
-                  global.allSkillModelList =
-                      global.getMasterTableDataModelList.allskill;
-                  global.languageModelList =
-                      global.getMasterTableDataModelList.language;
-                  global.assistantPrimarySkillModelList =
-                      global.getMasterTableDataModelList.assistantPrimarySkill;
-                  global.assistantAllSkillModelList =
-                      global.getMasterTableDataModelList.assistantAllSkill;
-                  global.assistantLanguageModelList =
-                      global.getMasterTableDataModelList.assistantLanguage;
-                  global.mainSourceBusinessModelList =
-                      global.getMasterTableDataModelList.mainSourceBusiness;
-                  global.highestQualificationModelList =
-                      global.getMasterTableDataModelList.highestQualification;
-                  global.degreeDiplomaList =
-                      global.getMasterTableDataModelList.qualifications;
-                  global.jobWorkingList =
-                      global.getMasterTableDataModelList.jobs;
+                  global.astrologerCategoryModelList = global.getMasterTableDataModelList.astrologerCategory;
+                  global.skillModelList = global.getMasterTableDataModelList.skill;
+                  global.allSkillModelList = global.getMasterTableDataModelList.allskill;
+                  global.languageModelList = global.getMasterTableDataModelList.language;
+                  global.assistantPrimarySkillModelList = global.getMasterTableDataModelList.assistantPrimarySkill;
+                  global.assistantAllSkillModelList = global.getMasterTableDataModelList.assistantAllSkill;
+                  global.assistantLanguageModelList = global.getMasterTableDataModelList.assistantLanguage;
+                  global.mainSourceBusinessModelList = global.getMasterTableDataModelList.mainSourceBusiness;
+                  global.highestQualificationModelList = global.getMasterTableDataModelList.highestQualification;
+                  global.degreeDiplomaList = global.getMasterTableDataModelList.qualifications;
+                  global.jobWorkingList = global.getMasterTableDataModelList.jobs;
                 }
               },
             );
@@ -164,37 +153,37 @@ class SplashController extends GetxController {
   }
 
   Future<void> createAstrologerShareLink() async {
-    try {
-      global.showOnlyLoaderDialog();
-      String appShareLink;
-      final DynamicLinkParameters parameters = DynamicLinkParameters(
-        uriPrefix: 'https://astroguruupdated.page.link',
-        link: Uri.parse(
-            "https://astroguruupdated.page.link/userProfile?screen=astrologerShare"),
-        // ignore: prefer_const_constructors
-        androidParameters: AndroidParameters(
-          packageName: 'com.relationship_app',
-          minimumVersion: 1,
-        ),
-      );
-      Uri url;
-      final ShortDynamicLink shortLink = await dynamicLinks.buildShortLink(
-          parameters,
-          shortLinkType: ShortDynamicLinkType.short);
-      url = shortLink.shortUrl;
-      appShareLink = url.toString();
-      appShareLinkForLiveSreaming = appShareLink;
-      update();
-      global.hideLoader();
-      await FlutterShare.share(
-        title:
-            'Hey! I am using ${global.getSystemFlagValue(global.systemFlagNameList.appName)} to get predictions related to marriage/career. I would recommend you to connect with ${global.getSystemFlagValue(global.systemFlagNameList.appName)}.',
-        text:
-            'Hey! I am using ${global.getSystemFlagValue(global.systemFlagNameList.appName)} to get predictions related to marriage/career. I would recommend you to connect with ${global.getSystemFlagValue(global.systemFlagNameList.appName)}.',
-        linkUrl: '$appShareLinkForLiveSreaming',
-      );
-    } catch (e) {
-      print("Exception - global.dart - referAndEarn():$e");
-    }
-  }
+  //   try {
+  //     global.showOnlyLoaderDialog();
+  //     String appShareLink;
+  //     final DynamicLinkParameters parameters = DynamicLinkParameters(
+  //       uriPrefix: 'https://astroguruupdated.page.link',
+  //       link: Uri.parse(
+  //           "https://astroguruupdated.page.link/userProfile?screen=astrologerShare"),
+  //       // ignore: prefer_const_constructors
+  //       androidParameters: AndroidParameters(
+  //         packageName: 'com.relationship_app',
+  //         minimumVersion: 1,
+  //       ),
+  //     );
+  //     Uri url;
+  //     final ShortDynamicLink shortLink = await dynamicLinks.buildShortLink(
+  //         parameters,
+  //         shortLinkType: ShortDynamicLinkType.short);
+  //     url = shortLink.shortUrl;
+  //     appShareLink = url.toString();
+  //     appShareLinkForLiveSreaming = appShareLink;
+  //     update();
+  //     global.hideLoader();
+  //     await FlutterShare.share(
+  //       title:
+  //           'Hey! I am using ${global.getSystemFlagValue(global.systemFlagNameList.appName)} to get predictions related to marriage/career. I would recommend you to connect with ${global.getSystemFlagValue(global.systemFlagNameList.appName)}.',
+  //       text:
+  //           'Hey! I am using ${global.getSystemFlagValue(global.systemFlagNameList.appName)} to get predictions related to marriage/career. I would recommend you to connect with ${global.getSystemFlagValue(global.systemFlagNameList.appName)}.',
+  //       linkUrl: '$appShareLinkForLiveSreaming',
+  //     );
+  //   } catch (e) {
+  //     print("Exception - global.dart - referAndEarn():$e");
+  //   }
+   }
 }

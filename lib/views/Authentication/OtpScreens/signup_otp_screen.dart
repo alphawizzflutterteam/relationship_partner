@@ -78,10 +78,10 @@ class SignupOtpScreen extends StatelessWidget {
                       'OTP Send to ${signupOtpController.countryCode}-$mobileNumber',
                       style: const TextStyle(color: Colors.green),
                     ),
-                    Text(
-                      'OTP: $otp',
-                      style: const TextStyle(color: Colors.green),
-                    ),
+                    // Text(
+                    //   'OTP: $otp',
+                    //   style: const TextStyle(color: Colors.green),
+                    // ),
                     const SizedBox(
                       height: 40,
                     ),

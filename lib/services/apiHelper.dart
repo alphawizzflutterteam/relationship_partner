@@ -285,13 +285,13 @@ class APIHelper {
 //Master table
   Future getMasterTableData() async {
     try {
-      print(
-          "mmmm-----${global.appParameters[global.appMode]['apiUrl']}getMasterAstrologer");
+      print("mmmm-----${global.appParameters[global.appMode]['apiUrl']}getMasterAstrologer");
       final response = await http.post(
-        Uri.parse(
-            "${global.appParameters[global.appMode]['apiUrl']}getMasterAstrologer"),
+        Uri.parse("${global.appParameters[global.appMode]['apiUrl']}getMasterAstrologer"),
         headers: await global.getApiHeaders(false),
       );
+
+      print('Status Code: ${response.statusCode}');
 
       print('done : $response');
       dynamic recordList;

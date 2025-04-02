@@ -14,7 +14,7 @@ import 'package:astrologer_app/views/HomeScreen/FloatingButton/FreeKundli/Tabs/k
 import 'package:astrologer_app/views/HomeScreen/FloatingButton/FreeKundli/Tabs/kundliDashaScreen.dart';
 import 'package:astrologer_app/views/HomeScreen/FloatingButton/FreeKundli/Tabs/kundliReportScreen.dart';
 import 'package:date_format/date_format.dart';
-import 'package:firebase_dynamic_links/firebase_dynamic_links.dart';
+// import 'package:firebase_dynamic_links/firebase_dynamic_links.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_share/flutter_share.dart';
 import 'package:get/get.dart';
@@ -2412,24 +2412,24 @@ class KundliController extends GetxController {
               ],
             )),
       ));
-      FirebaseDynamicLinks dynamicLinks = FirebaseDynamicLinks.instance;
-      String appShareLink;
+      // FirebaseDynamicLinks dynamicLinks = FirebaseDynamicLinks.instance;
+      String appShareLink = '';
 
       // ignore: unused_local_variable
       String applink;
-      final DynamicLinkParameters parameters = DynamicLinkParameters(
-        uriPrefix: 'https://astroguruupdated.page.link',
-        link: Uri.parse("https://astroguruupdated.page.link/userProfile?screen=astroProfile"),
-        androidParameters: const AndroidParameters(
-          packageName: 'com.relationship_app',
-          minimumVersion: 1,
-        ),
-      );
-      Uri url;
-      final ShortDynamicLink shortLink = await dynamicLinks.buildShortLink(parameters, shortLinkType: ShortDynamicLinkType.short);
-      url = shortLink.shortUrl;
-      appShareLink = url.toString();
-      applink = appShareLink;
+      // final DynamicLinkParameters parameters = DynamicLinkParameters(
+      //   uriPrefix: 'https://astroguruupdated.page.link',
+      //   link: Uri.parse("https://astroguruupdated.page.link/userProfile?screen=astroProfile"),
+      //   androidParameters: const AndroidParameters(
+      //     packageName: 'com.relationship_app',
+      //     minimumVersion: 1,
+      //   ),
+      // );
+      // Uri url;
+      // final ShortDynamicLink shortLink = await dynamicLinks.buildShortLink(parameters, shortLinkType: ShortDynamicLinkType.short);
+      // url = shortLink.shortUrl;
+      // appShareLink = url.toString();
+      // applink = appShareLink;
       String fileName = DateTime.now().microsecondsSinceEpoch.toString();
       final temp = Platform.isAndroid ? await getExternalStorageDirectory() : await getApplicationDocumentsDirectory();
       final path = '${temp!.path}/$fileName.pdf';

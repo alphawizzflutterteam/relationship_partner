@@ -16,6 +16,7 @@ import 'package:permission_handler/permission_handler.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import '../../../models/user_model.dart';
+import '../../../utils/countdown.dart';
 
 class AcceptCallScreen extends StatefulWidget {
   final int id;
@@ -430,8 +431,8 @@ class _AcceptCallScreenState extends State<AcceptCallScreen> {
                           style: Get.textTheme.subtitle1!.copyWith(
                               fontWeight: FontWeight.w500, fontSize: 20),
                         ),
-                        SizedBox(
-                          child: status(),
+                        const SizedBox(
+                          child: CountUpTimer() //status(),
                         ),
                         const SizedBox(
                           height: 15,

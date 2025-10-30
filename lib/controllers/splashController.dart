@@ -103,7 +103,7 @@ class SplashController extends GetxController {
                     await reportController.getReportList(false);
                     await followingController.followingList(false);
 
-                    await liveAstrologerController.endLiveSession(true);
+                   // await liveAstrologerController.endLiveSession(true);
                     Get.off(() => HomeScreen(), routeName: "HomeScreen");
                   } else {
                     Get.off(() => WelcomeScreen(), routeName: "WelcomeScreen");

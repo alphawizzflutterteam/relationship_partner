@@ -113,7 +113,7 @@ class LoginController extends GetxController {
           global.showOnlyLoaderDialog();
           await apiHelper.sendOtp(phoneNumber, '1').then((result) async {
             if (result.status == "200") {
-              log('${result.recordList['otp']}____________');
+              print('${result.recordList['otp']}_______otp_____');
               // var recordId = result.recordList["recordList"];
 
               global.hideLoader();

@@ -2397,7 +2397,8 @@ class SignupScreen extends StatelessWidget {
               ),
               bottomNavigationBar: Padding(
                 padding: const EdgeInsets.only(left: 10, right: 10, bottom: 10),
-                child: /*signupController.index == 0
+                child:
+                /*signupController.index == 0
                     ? TextButton(
                         style: TextButton.styleFrom(
                           backgroundColor: COLORS().primaryColor,
@@ -2434,9 +2435,7 @@ class SignupScreen extends StatelessWidget {
                               style: TextStyle(color: Colors.black),
                             ),
                           )
-                        : signupController.index == 2 ||
-                                signupController.index == 3 ||
-                                signupController.index == 4
+                        : signupController.index == 2 || signupController.index == 3 || signupController.index == 4
                             ? Row(
                                 children: [
                                   Expanded(
@@ -2477,8 +2476,6 @@ class SignupScreen extends StatelessWidget {
                                             48),
                                       ),
                                       onPressed: () {
-                                        print(
-                                            '${signupController.index}____________');
                                         FocusScope.of(context).unfocus();
                                         if (signupController.index == 2) {
                                           signupController.validateForm(2);

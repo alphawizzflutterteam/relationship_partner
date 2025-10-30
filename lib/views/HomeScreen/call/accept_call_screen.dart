@@ -574,6 +574,8 @@ class _AcceptCallScreenState extends State<AcceptCallScreen> {
         onJoinChannelSuccess: (RtcConnection connection, int elapsed) {
           // ignore: avoid_print
           print('joined${connection.localUid}');
+          onVolume(isSpeaker);
+          onMute(isMuted);
         },
         onUserJoined: (RtcConnection connection, int remoteUId, int elapsed) {
           setState(() {
@@ -595,8 +597,8 @@ class _AcceptCallScreenState extends State<AcceptCallScreen> {
       ),
     );
     await generateToken();
-    onVolume(isSpeaker);
-    onMute(isMuted);
+    //onVolume(isSpeaker);
+   // onMute(isMuted);
     join();
   }
 

@@ -145,7 +145,7 @@ class CustomeReviewScreen extends StatelessWidget {
                                                   style: Get
                                                       .theme
                                                       .primaryTextTheme
-                                                      .headline3,
+                                                      .displaySmall,
                                                 ).translate(),
                                               ),
                                             ],
@@ -197,7 +197,7 @@ class CustomeReviewScreen extends StatelessWidget {
                                                       .review!
                                                   : "",
                                               style: Get.theme.primaryTextTheme
-                                                  .subtitle1,
+                                                  .titleMedium,
                                             ).translate(),
                                           ),
                                           signupController
@@ -240,7 +240,7 @@ class CustomeReviewScreen extends StatelessWidget {
                                                       style: Get
                                                           .theme
                                                           .primaryTextTheme
-                                                          .subtitle1,
+                                                          .titleMedium,
                                                     ).translate(),
                                                   ),
                                                 )

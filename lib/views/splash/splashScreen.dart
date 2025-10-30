@@ -54,7 +54,7 @@ class SplashScreen extends BaseRoute {
               global.appName != ""
                   ? Text(
                       global.appName,
-                      style: Get.textTheme.headline5,
+                      style: Get.textTheme.headlineSmall,
                     )
                   : const CircularProgressIndicator()
             ],

@@ -40,7 +40,7 @@ class CommonSmallTextFieldWidget extends StatelessWidget {
           padding: const EdgeInsets.only(top: 12.0),
           child: Text(
             titleText ?? "textfield Name Not Defined",
-            style: Theme.of(context).primaryTextTheme.headline3,
+            style: Theme.of(context).primaryTextTheme.displaySmall,
           ).translate(),
         ),
         FutureBuilder(

@@ -5,7 +5,7 @@ import 'dart:convert';
 import 'dart:developer';
 
 import 'package:agora_rtc_engine/agora_rtc_engine.dart';
-import 'package:agora_rtm/agora_rtm.dart';
+// import 'package:agora_rtm/agora_rtm.dart';
 import 'package:astrologer_app/controllers/HomeController/live_astrologer_controller.dart';
 import 'package:astrologer_app/models/message_model_live.dart';
 import 'package:astrologer_app/services/apiHelper.dart';
@@ -49,9 +49,9 @@ class _LiveScreenState extends State<LiveScreen> {
   String channelId = "";
   String peerUserId = "";
   bool isSetConn = false;
-  late AgoraRtmClient client;
+  // late AgoraRtmClient client;
   bool isImHost = false;
-  late AgoraRtmChannel channel;
+  // late AgoraRtmChannel channel;
   int? conneId;
   String userName = "";
   final TextEditingController messageController = TextEditingController();
@@ -320,7 +320,7 @@ class _LiveScreenState extends State<LiveScreen> {
     super.initState();
 
     setupVideoSDKEngine();
-    createClient();
+    // createClient();
     getWaitList();
   }
 
@@ -806,7 +806,7 @@ class _LiveScreenState extends State<LiveScreen> {
                             InkWell(
                               onTap: () {
                                 if (messageController.text != "") {
-                                  sendMessage(messageController.text);
+                                  // sendMessage(messageController.text);
                                   messageController.clear();
                                 }
                               },
@@ -1250,117 +1250,117 @@ class _LiveScreenState extends State<LiveScreen> {
     }
   }
 
-  void createClient() async {
-    client = await AgoraRtmClient.createInstance(global.getSystemFlagValue(global.systemFlagNameList.agoraAppId));
+  // void createClient() async {
+  //   client = await AgoraRtmClient.createInstance(global.getSystemFlagValue(global.systemFlagNameList.agoraAppId));
+  //
+  //   client.onMessageReceived = (AgoraRtmMessage message, String peerId) {
+  //     setState(() {
+  //       messageList.add(MessageModel(
+  //         message: message.text,
+  //         userName: message.text,
+  //         profile: currentUserProfile,
+  //         isMe: true,
+  //       ));
+  //       reverseMessage = messageList.reversed.toList();
+  //     });
+  //   };
+  //
+  //   await generateChatToken();
+  //   // login();
+  // }
 
-    client.onMessageReceived = (AgoraRtmMessage message, String peerId) {
-      setState(() {
-        messageList.add(MessageModel(
-          message: message.text,
-          userName: message.text,
-          profile: currentUserProfile,
-          isMe: true,
-        ));
-        reverseMessage = messageList.reversed.toList();
-      });
-    };
+  // void login() async {
+  //   if (chatuid.isEmpty) {
+  //     log('Enter userId');
+  //   }
+  //   try {
+  //     log('client $client');
+  //     await generateChatToken();
+  //     await client.login(global.agoraChatToken, chatuid);
+  //     joinChannel();
+  //
+  //     log("login success:");
+  //   } catch (e) {
+  //     log("Exception in login:- $e");
+  //   }
+  // }
 
-    await generateChatToken();
-    login();
-  }
+  // void joinChannel() async {
+  //   if (channelId.isEmpty) {
+  //     log("Please input channel id to join.");
+  //     return;
+  //   }
+  //   try {
+  //     channel = await createChannel(channelId);
+  //     await channel.join();
+  //   } catch (e) {
+  //     log("Exception in joinChannel:- $e");
+  //   }
+  // }
 
-  void login() async {
-    if (chatuid.isEmpty) {
-      log('Enter userId');
-    }
-    try {
-      log('client $client');
-      await generateChatToken();
-      await client.login(global.agoraChatToken, chatuid);
-      joinChannel();
+  // Future<AgoraRtmChannel> createChannel(String name) async {
+  //   AgoraRtmChannel? channel = await client.createChannel(name);
+  //   channel!.onMemberJoined = (member) {
+  //     setState(() {
+  //       messageList.add(MessageModel(
+  //         message: 'joined',
+  //         userName: member.userId.split(global.encodedString)[1],
+  //         profile: currentUserProfile,
+  //         isMe: true,
+  //       ));
+  //       reverseMessage = messageList.reversed.toList();
+  //       channel.getMembers().then((value) {
+  //         print("Members count: " + value.toString());
+  //         viewer = value.length;
+  //         setState(() {});
+  //       });
+  //     });
+  //     log("member joined: ${member.userId},channel:${member.channelId}");
+  //   };
+  //   channel.onMemberLeft = (member) {
+  //     log("member left: ${member.userId},channel:${member.channelId}");
+  //     channel.getMembers().then((value) {
+  //       print("Members count: " + value.toString());
+  //       viewer = value.length;
+  //       setState(() {});
+  //     });
+  //   };
+  //   channel.onMessageReceived = (message, fromMember) {
+  //     log("Public Message from  ${fromMember.userId} :  ${message.text}");
+  //     setState(() {
+  //       messageList.add(MessageModel(
+  //         message: message.text.split("&&")[1],
+  //         userName: message.text.split("&&")[0],
+  //         profile: message.text.split("&&")[2],
+  //         isMe: true,
+  //         gift: message.text.split('&&')[3],
+  //       ));
+  //       reverseMessage = messageList.reversed.toList();
+  //     });
+  //   };
+  //   return channel;
+  // }
 
-      log("login success:");
-    } catch (e) {
-      log("Exception in login:- $e");
-    }
-  }
-
-  void joinChannel() async {
-    if (channelId.isEmpty) {
-      log("Please input channel id to join.");
-      return;
-    }
-    try {
-      channel = await createChannel(channelId);
-      await channel.join();
-    } catch (e) {
-      log("Exception in joinChannel:- $e");
-    }
-  }
-
-  Future<AgoraRtmChannel> createChannel(String name) async {
-    AgoraRtmChannel? channel = await client.createChannel(name);
-    channel!.onMemberJoined = (member) {
-      setState(() {
-        messageList.add(MessageModel(
-          message: 'joined',
-          userName: member.userId.split(global.encodedString)[1],
-          profile: currentUserProfile,
-          isMe: true,
-        ));
-        reverseMessage = messageList.reversed.toList();
-        channel.getMembers().then((value) {
-          print("Members count: " + value.toString());
-          viewer = value.length;
-          setState(() {});
-        });
-      });
-      log("member joined: ${member.userId},channel:${member.channelId}");
-    };
-    channel.onMemberLeft = (member) {
-      log("member left: ${member.userId},channel:${member.channelId}");
-      channel.getMembers().then((value) {
-        print("Members count: " + value.toString());
-        viewer = value.length;
-        setState(() {});
-      });
-    };
-    channel.onMessageReceived = (message, fromMember) {
-      log("Public Message from  ${fromMember.userId} :  ${message.text}");
-      setState(() {
-        messageList.add(MessageModel(
-          message: message.text.split("&&")[1],
-          userName: message.text.split("&&")[0],
-          profile: message.text.split("&&")[2],
-          isMe: true,
-          gift: message.text.split('&&')[3],
-        ));
-        reverseMessage = messageList.reversed.toList();
-      });
-    };
-    return channel;
-  }
-
-  void sendMessage(String message) async {
-    try {
-      await channel.sendMessage(AgoraRtmMessage.fromText('$currenUserName&&$message&&$currentUserProfile&&null'));
-      log('channelId -------->$channelId');
-      setState(() {
-        messageList.add(MessageModel(
-          message: message,
-          userName: currenUserName,
-          profile: currentUserProfile,
-          isMe: true,
-          gift: 'null',
-        ));
-        reverseMessage = messageList.reversed.toList();
-      });
-
-      print('message sent to channel : - $message');
-    } catch (e) {
-      print("Exception in sendChannelMessage: -${e.toString()}");
-    }
-  }
+  // void sendMessage(String message) async {
+  //   try {
+  //     await channel.sendMessage(AgoraRtmMessage.fromText('$currenUserName&&$message&&$currentUserProfile&&null'));
+  //     log('channelId -------->$channelId');
+  //     setState(() {
+  //       messageList.add(MessageModel(
+  //         message: message,
+  //         userName: currenUserName,
+  //         profile: currentUserProfile,
+  //         isMe: true,
+  //         gift: 'null',
+  //       ));
+  //       reverseMessage = messageList.reversed.toList();
+  //     });
+  //
+  //     print('message sent to channel : - $message');
+  //   } catch (e) {
+  //     print("Exception in sendChannelMessage: -${e.toString()}");
+  //   }
+  // }
 
   @override
   void dispose() async {

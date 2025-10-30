@@ -1,6 +1,7 @@
 import 'package:astrologer_app/constants/colorConst.dart';
 import 'package:astrologer_app/widgets/app_bar_widget.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_inappwebview/flutter_inappwebview.dart';
 import 'package:google_translator/google_translator.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 import 'package:astrologer_app/utils/global.dart' as global;
@@ -16,11 +17,20 @@ class TermAndConditionScreen extends StatelessWidget {
         backgroundColor: COLORS().primaryColor,
         title: const Text("Terms and Condition"),
       ),
-      body: const WebView(
-        initialUrl: /*'${global.webBaseUrl}termsCondition'*/
-            'https://relationship.developmentalphawizz.com/admin/termsCondition',
-        javascriptMode: JavascriptMode.unrestricted,
-      ),
+      body: InAppWebView(
+        initialUrlRequest: URLRequest(
+          url: WebUri('https://relationship.developmentalphawizz.com/admin/termsCondition'),
+        ),
+        initialSettings: InAppWebViewSettings(
+          javaScriptEnabled: true,
+        ),
+      )
+
+      // const WebView(
+      //   initialUrl: /*'${global.webBaseUrl}termsCondition'*/
+      //       'https://relationship.developmentalphawizz.com/admin/termsCondition',
+      //   javascriptMode: JavascriptMode.unrestricted,
+      // ),
     );
   }
 }

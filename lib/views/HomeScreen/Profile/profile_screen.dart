@@ -121,7 +121,7 @@ class ProfileScreen extends StatelessWidget {
                                             '${followingController.followerList.length} followers',
                                             style: Theme.of(context)
                                                 .primaryTextTheme
-                                                .headline2,
+                                                .displayMedium,
                                           ).translate(),
                                         );
                                       },
@@ -142,7 +142,7 @@ class ProfileScreen extends StatelessWidget {
                                           : "Advisor Name",
                                       style: Theme.of(context)
                                           .primaryTextTheme
-                                          .headline2,
+                                          .displayMedium,
                                     ).translate(),
                                     Row(
                                       children: [
@@ -150,7 +150,7 @@ class ProfileScreen extends StatelessWidget {
                                           "Email: ",
                                           style: Theme.of(context)
                                               .primaryTextTheme
-                                              .subtitle1,
+                                              .titleMedium,
                                         ).translate(),*/
                                         SizedBox(
                                           width: Get.width / 2.6,
@@ -163,7 +163,7 @@ class ProfileScreen extends StatelessWidget {
                                             maxLines: 1,
                                             style: Theme.of(context)
                                                 .primaryTextTheme
-                                                .subtitle1,
+                                                .titleMedium,
                                           ),
                                         ),
                                       ],
@@ -174,7 +174,7 @@ class ProfileScreen extends StatelessWidget {
                                           "Mobile Number: ",
                                           style: Theme.of(context)
                                               .primaryTextTheme
-                                              .subtitle1,
+                                              .titleMedium,
                                         ).translate(),*/
                                         Text(
                                           global.user.contactNo != null &&
@@ -183,7 +183,7 @@ class ProfileScreen extends StatelessWidget {
                                               : "",
                                           style: Theme.of(context)
                                               .primaryTextTheme
-                                              .subtitle1,
+                                              .titleMedium,
                                         ),
                                       ],
                                     ),
@@ -209,7 +209,7 @@ class ProfileScreen extends StatelessWidget {
                             title: Text(
                               "Personal Detail",
                               style:
-                                  Theme.of(context).primaryTextTheme.subtitle1,
+                                  Theme.of(context).primaryTextTheme.titleMedium,
                             ).translate(),
                             trailing: Icon(Icons.arrow_forward_ios,
                                 color: COLORS().blackColor),
@@ -230,7 +230,7 @@ class ProfileScreen extends StatelessWidget {
                             title: Text(
                               "Skill Details",
                               style:
-                                  Theme.of(context).primaryTextTheme.subtitle1,
+                                  Theme.of(context).primaryTextTheme.titleMedium,
                             ).translate(),
                             trailing: Icon(Icons.arrow_forward_ios,
                                 color: COLORS().blackColor),
@@ -251,7 +251,7 @@ class ProfileScreen extends StatelessWidget {
                             title: Text(
                               "Other Details",
                               style:
-                                  Theme.of(context).primaryTextTheme.subtitle1,
+                                  Theme.of(context).primaryTextTheme.titleMedium,
                             ).translate(),
                             trailing: Icon(
                               Icons.arrow_forward_ios,
@@ -273,7 +273,7 @@ class ProfileScreen extends StatelessWidget {
                             ),
                             title: Text(
                               "Assignment",
-                              style: Theme.of(context).primaryTextTheme.subtitle1,
+                              style: Theme.of(context).primaryTextTheme.titleMedium,
                             ).translate(),
                             trailing: const Icon(Icons.arrow_forward_ios),
                             onTap: () {
@@ -293,7 +293,7 @@ class ProfileScreen extends StatelessWidget {
                             title: Text(
                               "Availability",
                               style:
-                                  Theme.of(context).primaryTextTheme.subtitle1,
+                                  Theme.of(context).primaryTextTheme.titleMedium,
                             ).translate(),
                             trailing: Icon(Icons.arrow_forward_ios,
                                 color: COLORS().blackColor),
@@ -316,7 +316,7 @@ class ProfileScreen extends StatelessWidget {
                             ),
                             title: Text(
                               "Chat Availability",
-                              style: Theme.of(context).primaryTextTheme.subtitle1,
+                              style: Theme.of(context).primaryTextTheme.titleMedium,
                             ).translate(),
                             trailing: const Icon(Icons.arrow_forward_ios),
                             onTap: () {
@@ -362,7 +362,7 @@ class ProfileScreen extends StatelessWidget {
                             title: Text(
                               "Call Availability",
                               style:
-                                  Theme.of(context).primaryTextTheme.subtitle1,
+                                  Theme.of(context).primaryTextTheme.titleMedium,
                             ).translate(),
                             trailing: Icon(Icons.arrow_forward_ios,
                                 color: COLORS().blackColor),

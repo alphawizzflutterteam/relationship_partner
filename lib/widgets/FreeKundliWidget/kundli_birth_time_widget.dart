@@ -34,7 +34,7 @@ class KundliBirthTimeWidget extends StatelessWidget {
                 }),
             Text(
               'Dont\'t know my exact time of birth',
-              style: Get.textTheme.subtitle1!.copyWith(fontSize: 12, color: Colors.black),
+              style: Get.textTheme.titleMedium!.copyWith(fontSize: 12, color: Colors.black),
             ).translate()
           ],
         ),
@@ -42,7 +42,7 @@ class KundliBirthTimeWidget extends StatelessWidget {
           padding: const EdgeInsets.only(left: 8.0, right: 8.0, bottom: 8.0),
           child: Text(
             'Note:Without time of birth,we can still achive upto 80% accurate predictions',
-            style: Get.textTheme.subtitle1!.copyWith(fontSize: 12, color: Colors.grey),
+            style: Get.textTheme.titleMedium!.copyWith(fontSize: 12, color: Colors.grey),
           ).translate(),
         ),
         const SizedBox(
@@ -63,7 +63,7 @@ class KundliBirthTimeWidget extends StatelessWidget {
             child: Text(
               'Next',
               textAlign: TextAlign.center,
-              style: Get.theme.primaryTextTheme.subtitle1,
+              style: Get.theme.primaryTextTheme.titleMedium,
             ).translate(),
           ),
         ),

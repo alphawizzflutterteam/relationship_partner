@@ -51,7 +51,7 @@ class AppReviewScreen extends StatelessWidget {
                         children: [
                           Text(
                             'I am the Product Manager',
-                            style: Get.theme.primaryTextTheme.subtitle1!.copyWith(fontWeight: FontWeight.w500),
+                            style: Get.theme.primaryTextTheme.titleMedium!.copyWith(fontWeight: FontWeight.w500),
                           ).translate(),
                           const Text(
                             'share your feedback to help us improve the app',
@@ -192,7 +192,7 @@ class AppReviewScreen extends StatelessWidget {
                                           child: Text(
                                             // ignore: unnecessary_null_comparison
                                             (appReviewController.clientReviews[index].name != null && appReviewController.clientReviews[index].name != '') ? appReviewController.clientReviews[index].name : 'User',
-                                            style: Get.theme.primaryTextTheme.subtitle2!.copyWith(
+                                            style: Get.theme.primaryTextTheme.titleSmall!.copyWith(
                                               fontWeight: FontWeight.w400,
                                             ),
                                           ).translate(),
@@ -215,7 +215,7 @@ class AppReviewScreen extends StatelessWidget {
                                   maxLines: 6,
                                   textAlign: TextAlign.justify,
                                   overflow: TextOverflow.ellipsis,
-                                  style: Get.theme.primaryTextTheme.bodyText2!.copyWith(
+                                  style: Get.theme.primaryTextTheme.bodyMedium!.copyWith(
                                     fontWeight: FontWeight.w300,
                                     fontSize: 14,
                                   ),

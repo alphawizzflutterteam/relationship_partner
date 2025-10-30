@@ -79,14 +79,14 @@ class CallDetailScreen extends StatelessWidget {
                                 "Name : ",
                                 style: Theme.of(context)
                                     .primaryTextTheme
-                                    .subtitle1,
+                                    .titleMedium,
                               ).translate(),
                               Text(
                                 callHistorydata!.name != null &&
                                         callHistorydata!.name!.isNotEmpty
                                     ? '${callHistorydata!.name}'
                                     : "User",
-                                style: Get.theme.primaryTextTheme.headline3,
+                                style: Get.theme.primaryTextTheme.displaySmall,
                               ).translate(),
                             ],
                           ),
@@ -99,11 +99,11 @@ class CallDetailScreen extends StatelessWidget {
                                 "Mobile Number : ",
                                 style: Theme.of(context)
                                     .primaryTextTheme
-                                    .subtitle1,
+                                    .titleMedium,
                               ).translate(),
                               Text(
                                 '${callHistorydata!.contactNo}',
-                                style: Get.theme.primaryTextTheme.headline3,
+                                style: Get.theme.primaryTextTheme.displaySmall,
                               ),
                             ],
                           ),
@@ -116,11 +116,11 @@ class CallDetailScreen extends StatelessWidget {
                                 "Call status : ",
                                 style: Theme.of(context)
                                     .primaryTextTheme
-                                    .subtitle1,
+                                    .titleMedium,
                               ).translate(),
                               Text(
                                 '${callHistorydata!.callStatus}',
-                                style: Get.theme.primaryTextTheme.headline3,
+                                style: Get.theme.primaryTextTheme.displaySmall,
                               ).translate(),
                             ],
                           ),
@@ -157,11 +157,11 @@ class CallDetailScreen extends StatelessWidget {
                                 "Expert Name : ",
                                 style: Theme.of(context)
                                     .primaryTextTheme
-                                    .subtitle1,
+                                    .titleMedium,
                               ).translate(),
                               Text(
                                 '${callHistorydata!.astrologerName}',
-                                style: Get.theme.primaryTextTheme.headline3,
+                                style: Get.theme.primaryTextTheme.displaySmall,
                               ).translate(),
                             ],
                           ),
@@ -174,13 +174,13 @@ class CallDetailScreen extends StatelessWidget {
                                 "Time : ",
                                 style: Theme.of(context)
                                     .primaryTextTheme
-                                    .subtitle1,
+                                    .titleMedium,
                               ).translate(),
                               Text(
                                 DateFormat('dd MMM yyyy , hh:mm a').format(
                                     DateTime.parse(callHistorydata!.createdAt!
                                         .toString())),
-                                style: Get.theme.primaryTextTheme.headline3,
+                                style: Get.theme.primaryTextTheme.displaySmall,
                               ),
                             ],
                           ),
@@ -193,14 +193,14 @@ class CallDetailScreen extends StatelessWidget {
                                 "Duration : ",
                                 style: Theme.of(context)
                                     .primaryTextTheme
-                                    .subtitle1,
+                                    .titleMedium,
                               ).translate(),
                               Text(
                                 callHistorydata!.totalMin != null &&
                                         callHistorydata!.totalMin!.isNotEmpty
                                     ? '${callHistorydata!.totalMin} min'
                                     : "0 min",
-                                style: Get.theme.primaryTextTheme.headline3,
+                                style: Get.theme.primaryTextTheme.displaySmall,
                               ),
                             ],
                           ),
@@ -213,11 +213,11 @@ class CallDetailScreen extends StatelessWidget {
                                 "Price : ",
                                 style: Theme.of(context)
                                     .primaryTextTheme
-                                    .subtitle1,
+                                    .titleMedium,
                               ).translate(),
                               Text(
                                 '${global.getSystemFlagValue(global.systemFlagNameList.currency)} ${callHistorydata!.charge}',
-                                style: Get.theme.primaryTextTheme.headline3,
+                                style: Get.theme.primaryTextTheme.displaySmall,
                               ),
                             ],
                           ),
@@ -230,11 +230,11 @@ class CallDetailScreen extends StatelessWidget {
                                 "Deduction : ",
                                 style: Theme.of(context)
                                     .primaryTextTheme
-                                    .subtitle1,
+                                    .titleMedium,
                               ).translate(),
                               Text(
                                 '${global.getSystemFlagValue(global.systemFlagNameList.currency)} ${callHistorydata!.deduction}',
-                                style: Get.theme.primaryTextTheme.headline3,
+                                style: Get.theme.primaryTextTheme.displaySmall,
                               ),
                             ],
                           ),

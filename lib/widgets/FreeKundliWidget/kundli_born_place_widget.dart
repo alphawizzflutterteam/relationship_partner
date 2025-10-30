@@ -80,7 +80,7 @@ class KundliBornPlaceWidget extends StatelessWidget {
             child: Text(
               'Submit',
               textAlign: TextAlign.center,
-              style: Get.theme.primaryTextTheme.subtitle1,
+              style: Get.theme.primaryTextTheme.titleMedium,
             ).translate(),
           ),
         ),

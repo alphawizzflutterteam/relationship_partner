@@ -38,7 +38,7 @@ class ChatWithAstrologerAssistantScreen extends StatelessWidget {
               onTap: () async {},
               child: Text(
                 customerName,
-                style: Get.theme.primaryTextTheme.headline6!.copyWith(
+                style: Get.theme.primaryTextTheme.titleLarge!.copyWith(
                   fontSize: 18,
                   fontWeight: FontWeight.normal,
                 ),

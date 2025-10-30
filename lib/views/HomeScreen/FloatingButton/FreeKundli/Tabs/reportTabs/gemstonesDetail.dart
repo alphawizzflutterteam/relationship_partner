@@ -22,7 +22,7 @@ class GemstonesDetail extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.start,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text('Life Stone', style: Get.textTheme.subtitle1!.copyWith(fontWeight: FontWeight.bold)).translate(),
+                  Text('Life Stone', style: Get.textTheme.titleMedium!.copyWith(fontWeight: FontWeight.bold)).translate(),
                   const SizedBox(
                     height: 10,
                   ),
@@ -38,11 +38,11 @@ class GemstonesDetail extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.start,
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Text('Life Stone', style: Get.textTheme.subtitle1!.copyWith(fontWeight: FontWeight.w500)).translate(),
+                        Text('Life Stone', style: Get.textTheme.titleMedium!.copyWith(fontWeight: FontWeight.w500)).translate(),
                         const SizedBox(
                           height: 10,
                         ),
-                        Text('You will be connected to your concerned Astrologer via the chat window. You have to provide your name and gotra for sankalp You will be connected to your concerned Astrologer via the chat window. You have to provide your name and gotra for sankalp', style: Get.textTheme.subtitle1!.copyWith(fontSize: 12)).translate(),
+                        Text('You will be connected to your concerned Astrologer via the chat window. You have to provide your name and gotra for sankalp You will be connected to your concerned Astrologer via the chat window. You have to provide your name and gotra for sankalp', style: Get.textTheme.titleMedium!.copyWith(fontSize: 12)).translate(),
                         Container(
                           width: double.infinity,
                           padding: const EdgeInsets.all(8),
@@ -61,7 +61,7 @@ class GemstonesDetail extends StatelessWidget {
                                         width: 100,
                                         child: Text(
                                           'life stone',
-                                          style: Get.textTheme.bodyText2!.copyWith(fontSize: 10),
+                                          style: Get.textTheme.bodyMedium!.copyWith(fontSize: 10),
                                         ).translate()),
                                     const SizedBox(
                                       width: 50,
@@ -69,7 +69,7 @@ class GemstonesDetail extends StatelessWidget {
                                     Expanded(
                                         child: Text(
                                       '${kundliController.gemstoneList!.lifeStone!.name}',
-                                      style: Get.textTheme.bodyText2!.copyWith(fontSize: 10),
+                                      style: Get.textTheme.bodyMedium!.copyWith(fontSize: 10),
                                     ).translate()),
                                   ],
                                 ),
@@ -86,7 +86,7 @@ class GemstonesDetail extends StatelessWidget {
                                         width: 100,
                                         child: Text(
                                           'How to wear',
-                                          style: Get.textTheme.bodyText2!.copyWith(fontSize: 10),
+                                          style: Get.textTheme.bodyMedium!.copyWith(fontSize: 10),
                                         ).translate()),
                                     const SizedBox(
                                       width: 50,
@@ -94,7 +94,7 @@ class GemstonesDetail extends StatelessWidget {
                                     Expanded(
                                         child: Text(
                                       '${kundliController.gemstoneList!.lifeStone!.wearMetal}, ${kundliController.gemstoneList!.lifeStone!.wearFinger}',
-                                      style: Get.textTheme.bodyText2!.copyWith(fontSize: 10),
+                                      style: Get.textTheme.bodyMedium!.copyWith(fontSize: 10),
                                     ).translate()),
                                   ],
                                 ),
@@ -117,7 +117,7 @@ class GemstonesDetail extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.start,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text('Lucky Stone', style: Get.textTheme.subtitle1!.copyWith(fontWeight: FontWeight.bold)).translate(),
+                  Text('Lucky Stone', style: Get.textTheme.titleMedium!.copyWith(fontWeight: FontWeight.bold)).translate(),
                   const SizedBox(
                     height: 10,
                   ),
@@ -133,11 +133,11 @@ class GemstonesDetail extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.start,
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Text('Lucky Gemstone', style: Get.textTheme.subtitle1!.copyWith(fontWeight: FontWeight.w500)).translate(),
+                        Text('Lucky Gemstone', style: Get.textTheme.titleMedium!.copyWith(fontWeight: FontWeight.w500)).translate(),
                         const SizedBox(
                           height: 10,
                         ),
-                        Text('You will be connected to your concerned Astrologer via the chat window. You have to provide your name and gotra for sankalp You will be connected to your concerned Astrologer via the chat window. You have to provide your name and gotra for sankalp', style: Get.textTheme.subtitle1!.copyWith(fontSize: 12)).translate(),
+                        Text('You will be connected to your concerned Astrologer via the chat window. You have to provide your name and gotra for sankalp You will be connected to your concerned Astrologer via the chat window. You have to provide your name and gotra for sankalp', style: Get.textTheme.titleMedium!.copyWith(fontSize: 12)).translate(),
                         Container(
                           width: double.infinity,
                           padding: const EdgeInsets.all(8),
@@ -156,7 +156,7 @@ class GemstonesDetail extends StatelessWidget {
                                         width: 100,
                                         child: Text(
                                           'life stone',
-                                          style: Get.textTheme.bodyText2!.copyWith(fontSize: 10),
+                                          style: Get.textTheme.bodyMedium!.copyWith(fontSize: 10),
                                         ).translate()),
                                     const SizedBox(
                                       width: 50,
@@ -164,7 +164,7 @@ class GemstonesDetail extends StatelessWidget {
                                     Expanded(
                                         child: Text(
                                       '${kundliController.gemstoneList!.luckyStone!.name}',
-                                      style: Get.textTheme.bodyText2!.copyWith(fontSize: 10),
+                                      style: Get.textTheme.bodyMedium!.copyWith(fontSize: 10),
                                     ).translate()),
                                   ],
                                 ),
@@ -181,7 +181,7 @@ class GemstonesDetail extends StatelessWidget {
                                         width: 100,
                                         child: Text(
                                           'How to wear',
-                                          style: Get.textTheme.bodyText2!.copyWith(fontSize: 10),
+                                          style: Get.textTheme.bodyMedium!.copyWith(fontSize: 10),
                                         ).translate()),
                                     const SizedBox(
                                       width: 50,
@@ -189,7 +189,7 @@ class GemstonesDetail extends StatelessWidget {
                                     Expanded(
                                         child: Text(
                                       '${kundliController.gemstoneList!.luckyStone!.wearMetal}, ${kundliController.gemstoneList!.luckyStone!.wearFinger}',
-                                      style: Get.textTheme.bodyText2!.copyWith(fontSize: 10),
+                                      style: Get.textTheme.bodyMedium!.copyWith(fontSize: 10),
                                     ).translate()),
                                   ],
                                 ),
@@ -212,7 +212,7 @@ class GemstonesDetail extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.start,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text('Fortune Stone', style: Get.textTheme.subtitle1!.copyWith(fontWeight: FontWeight.bold)).translate(),
+                  Text('Fortune Stone', style: Get.textTheme.titleMedium!.copyWith(fontWeight: FontWeight.bold)).translate(),
                   const SizedBox(
                     height: 10,
                   ),
@@ -228,11 +228,11 @@ class GemstonesDetail extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.start,
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Text('Fortune Stone', style: Get.textTheme.subtitle1!.copyWith(fontWeight: FontWeight.w500)).translate(),
+                        Text('Fortune Stone', style: Get.textTheme.titleMedium!.copyWith(fontWeight: FontWeight.w500)).translate(),
                         const SizedBox(
                           height: 10,
                         ),
-                        Text('You will be connected to your concerned Astrologer via the chat window. You have to provide your name and gotra for sankalp You will be connected to your concerned Astrologer via the chat window. You have to provide your name and gotra for sankalp', style: Get.textTheme.subtitle1!.copyWith(fontSize: 12)).translate(),
+                        Text('You will be connected to your concerned Astrologer via the chat window. You have to provide your name and gotra for sankalp You will be connected to your concerned Astrologer via the chat window. You have to provide your name and gotra for sankalp', style: Get.textTheme.titleMedium!.copyWith(fontSize: 12)).translate(),
                         Container(
                           width: double.infinity,
                           padding: const EdgeInsets.all(8),
@@ -251,7 +251,7 @@ class GemstonesDetail extends StatelessWidget {
                                         width: 100,
                                         child: Text(
                                           'life stone',
-                                          style: Get.textTheme.bodyText2!.copyWith(fontSize: 10),
+                                          style: Get.textTheme.bodyMedium!.copyWith(fontSize: 10),
                                         ).translate()),
                                     const SizedBox(
                                       width: 50,
@@ -259,7 +259,7 @@ class GemstonesDetail extends StatelessWidget {
                                     Expanded(
                                         child: Text(
                                       '${kundliController.gemstoneList!.fortuneStone!.name}',
-                                      style: Get.textTheme.bodyText2!.copyWith(fontSize: 10),
+                                      style: Get.textTheme.bodyMedium!.copyWith(fontSize: 10),
                                     ).translate()),
                                   ],
                                 ),
@@ -276,7 +276,7 @@ class GemstonesDetail extends StatelessWidget {
                                         width: 100,
                                         child: Text(
                                           'How to wear',
-                                          style: Get.textTheme.bodyText2!.copyWith(fontSize: 10),
+                                          style: Get.textTheme.bodyMedium!.copyWith(fontSize: 10),
                                         ).translate()),
                                     const SizedBox(
                                       width: 50,
@@ -284,7 +284,7 @@ class GemstonesDetail extends StatelessWidget {
                                     Expanded(
                                         child: Text(
                                       '${kundliController.gemstoneList!.fortuneStone!.wearMetal}, ${kundliController.gemstoneList!.fortuneStone!.wearFinger}',
-                                      style: Get.textTheme.bodyText2!.copyWith(fontSize: 10),
+                                      style: Get.textTheme.bodyMedium!.copyWith(fontSize: 10),
                                     ).translate()),
                                   ],
                                 ),

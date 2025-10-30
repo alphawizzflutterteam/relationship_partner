@@ -94,13 +94,13 @@ class AssistantScreen extends StatelessWidget {
                                   children: [
                                     Text(
                                       assistantController.astrologerAssistantList[index].name!,
-                                      style: Theme.of(context).primaryTextTheme.headline3,
+                                      style: Theme.of(context).primaryTextTheme.displaySmall,
                                     ).translate(),
                                     SizedBox(
                                       width: Get.width,
                                       child: Text(
                                         assistantController.astrologerAssistantList[index].assistantPrimarySkillId != null ? assistantController.astrologerAssistantList[index].assistantPrimarySkillId!.map((e) => e.name).toList().toString().replaceAll('[', '').replaceAll(']', '') : '',
-                                        style: Theme.of(context).primaryTextTheme.subtitle1,
+                                        style: Theme.of(context).primaryTextTheme.titleMedium,
                                       ).translate(),
                                     ),
                                   ],
@@ -112,7 +112,7 @@ class AssistantScreen extends StatelessWidget {
                                       child: ListTile(
                                         title: Text(
                                           "Edit",
-                                          style: Theme.of(context).primaryTextTheme.subtitle1,
+                                          style: Theme.of(context).primaryTextTheme.titleMedium,
                                         ).translate(),
                                         trailing: const Icon(
                                           Icons.edit,
@@ -151,7 +151,7 @@ class AssistantScreen extends StatelessWidget {
                                       child: ListTile(
                                         title: Text(
                                           "View",
-                                          style: Theme.of(context).primaryTextTheme.subtitle1,
+                                          style: Theme.of(context).primaryTextTheme.titleMedium,
                                         ).translate(),
                                         trailing: const Icon(
                                           Icons.visibility,
@@ -170,7 +170,7 @@ class AssistantScreen extends StatelessWidget {
                                       child: ListTile(
                                         title: Text(
                                           "Delete",
-                                          style: Theme.of(context).primaryTextTheme.subtitle1,
+                                          style: Theme.of(context).primaryTextTheme.titleMedium,
                                         ).translate(),
                                         trailing: const Icon(
                                           Icons.delete,

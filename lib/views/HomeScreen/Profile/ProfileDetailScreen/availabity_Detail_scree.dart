@@ -47,7 +47,7 @@ class AvailabiltyScreen extends StatelessWidget {
                                       .astrologerList[0].week![index].day!,
                                   style: Theme.of(context)
                                       .primaryTextTheme
-                                      .headline3,
+                                      .displaySmall,
                                 ).translate(),
                               ),
                               signupController.astrologerList[0].week![index]

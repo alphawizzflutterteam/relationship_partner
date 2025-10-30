@@ -16,7 +16,7 @@ class ManglikDosh extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.start,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text('Manglik Analysis', style: Get.textTheme.subtitle1!.copyWith(fontWeight: FontWeight.bold)).translate(),
+          Text('Manglik Analysis', style: Get.textTheme.titleMedium!.copyWith(fontWeight: FontWeight.bold)).translate(),
           const SizedBox(
             height: 10,
           ),
@@ -29,7 +29,7 @@ class ManglikDosh extends StatelessWidget {
           const SizedBox(
             height: 10,
           ),
-          Text('This is a computer generated result. Please consult an Astrologer to confirm & understand this in detail.', style: Get.textTheme.subtitle1!.copyWith(fontSize: 12, color: Colors.grey)).translate()
+          Text('This is a computer generated result. Please consult an Astrologer to confirm & understand this in detail.', style: Get.textTheme.titleMedium!.copyWith(fontSize: 12, color: Colors.grey)).translate()
         ],
       ),
     );

@@ -35,7 +35,7 @@ class BaseRoute extends StatelessWidget {
         TextButton(
           child: Text(
             'Cancel',
-            style: Get.theme.primaryTextTheme.overline,
+            style: Get.theme.primaryTextTheme.labelSmall,
           ).translate(),
           onPressed: () {
             Get.back();
@@ -44,7 +44,7 @@ class BaseRoute extends StatelessWidget {
         TextButton(
           child: Text(
             'Exit',
-            style: Get.theme.primaryTextTheme.overline,
+            style: Get.theme.primaryTextTheme.labelSmall,
           ).translate(),
           onPressed: () async {
             exit(0);

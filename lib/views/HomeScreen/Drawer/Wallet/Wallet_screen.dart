@@ -69,7 +69,7 @@ class WalletScreen extends StatelessWidget {
                                           'Wallet Amount ',
                                           style: Theme.of(context)
                                               .textTheme
-                                              .subtitle2,
+                                              .titleSmall,
                                         ).translate(),
                                       ),
                                     ),
@@ -84,7 +84,7 @@ class WalletScreen extends StatelessWidget {
                                             Text(
                                               '${global.getSystemFlagValue(global.systemFlagNameList.currency)} ',
                                               style:
-                                                  Get.theme.textTheme.bodyText1,
+                                                  Get.theme.textTheme.bodyLarge,
                                             ),
                                             Text(
                                               walletController.withdraw
@@ -95,7 +95,7 @@ class WalletScreen extends StatelessWidget {
                                                       .toStringAsFixed(0)
                                                   : " 0",
                                               style:
-                                                  Get.theme.textTheme.bodyText1,
+                                                  Get.theme.textTheme.bodyLarge,
                                             ),
                                           ],
                                         ),
@@ -124,7 +124,7 @@ class WalletScreen extends StatelessWidget {
                                                 child: Text(
                                                   'Withdraw',
                                                   style: Get
-                                                      .theme.textTheme.subtitle2
+                                                      .theme.textTheme.titleSmall
                                                       ?.copyWith(
                                                           color: Colors.white),
                                                 ),
@@ -147,7 +147,7 @@ class WalletScreen extends StatelessWidget {
                                               'Pending\n Withdraw',
                                               style: Theme.of(context)
                                                   .textTheme
-                                                  .subtitle2,
+                                                  .titleSmall,
                                               textAlign: TextAlign.center,
                                             ).translate(),
                                             SizedBox(
@@ -169,7 +169,7 @@ class WalletScreen extends StatelessWidget {
                                                           style: Get
                                                               .theme
                                                               .textTheme
-                                                              .bodyText1,
+                                                              .bodyLarge,
                                                         ),
                                                         Text(
                                                           walletController
@@ -184,7 +184,7 @@ class WalletScreen extends StatelessWidget {
                                                           style: Get
                                                               .theme
                                                               .textTheme
-                                                              .bodyText1,
+                                                              .bodyLarge,
                                                         ),
                                                       ],
                                                     ),
@@ -200,7 +200,7 @@ class WalletScreen extends StatelessWidget {
                                               'Withdraw\nAmount',
                                               style: Theme.of(context)
                                                   .textTheme
-                                                  .subtitle2,
+                                                  .titleSmall,
                                               textAlign: TextAlign.center,
                                             ).translate(),
                                             SizedBox(
@@ -222,7 +222,7 @@ class WalletScreen extends StatelessWidget {
                                                           style: Get
                                                               .theme
                                                               .textTheme
-                                                              .bodyText1,
+                                                              .bodyLarge,
                                                         ),
                                                         Text(
                                                           walletController
@@ -236,7 +236,7 @@ class WalletScreen extends StatelessWidget {
                                                           style: Get
                                                               .theme
                                                               .textTheme
-                                                              .bodyText1,
+                                                              .bodyLarge,
                                                         ),
                                                       ],
                                                     ),
@@ -252,7 +252,7 @@ class WalletScreen extends StatelessWidget {
                                               'Total\nEarning',
                                               style: Theme.of(context)
                                                   .textTheme
-                                                  .subtitle2,
+                                                  .titleSmall,
                                               textAlign: TextAlign.center,
                                             ).translate(),
                                             SizedBox(
@@ -274,7 +274,7 @@ class WalletScreen extends StatelessWidget {
                                                           style: Get
                                                               .theme
                                                               .textTheme
-                                                              .bodyText1,
+                                                              .bodyLarge,
                                                         ),
                                                         Text(
                                                           walletController
@@ -289,7 +289,7 @@ class WalletScreen extends StatelessWidget {
                                                           style: Get
                                                               .theme
                                                               .textTheme
-                                                              .bodyText1,
+                                                              .bodyLarge,
                                                         ),
                                                       ],
                                                     ),
@@ -437,11 +437,11 @@ class WalletScreen extends StatelessWidget {
                                                                           children: [
                                                                             Text(
                                                                               '${global.getSystemFlagValue(global.systemFlagNameList.currency)} ',
-                                                                              style: Get.theme.textTheme.bodyText1,
+                                                                              style: Get.theme.textTheme.bodyLarge,
                                                                             ),
                                                                             Text(
                                                                               walletController.withdraw.walletModel![index].withdrawAmount.toString(),
-                                                                              style: Get.theme.textTheme.bodyText1,
+                                                                              style: Get.theme.textTheme.bodyLarge,
                                                                             ),
                                                                           ],
                                                                         ),
@@ -461,7 +461,7 @@ class WalletScreen extends StatelessWidget {
                                                                                 padding: const EdgeInsets.only(left: 4),
                                                                                 child: Text(
                                                                                   DateFormat('hh:mm a').format(DateTime.parse(walletController.withdraw.walletModel![index].createdAt.toString())),
-                                                                                  style: Get.theme.textTheme.bodyText2,
+                                                                                  style: Get.theme.textTheme.bodyMedium,
                                                                                 ),
                                                                               ),
                                                                             ],
@@ -477,13 +477,13 @@ class WalletScreen extends StatelessWidget {
                                                                           children: [
                                                                             Text(
                                                                               DateFormat('dd-MM-yyyy').format(DateTime.parse(walletController.withdraw.walletModel![index].createdAt.toString())),
-                                                                              style: Get.theme.textTheme.bodyText2,
+                                                                              style: Get.theme.textTheme.bodyMedium,
                                                                             ),
                                                                             Padding(
                                                                               padding: const EdgeInsets.only(top: 5),
                                                                               child: Text(
                                                                                 walletController.withdraw.walletModel![index].status!,
-                                                                                style: Get.theme.textTheme.bodyText2,
+                                                                                style: Get.theme.textTheme.bodyMedium,
                                                                               ).translate(),
                                                                             ),
                                                                           ],
@@ -509,7 +509,7 @@ class WalletScreen extends StatelessWidget {
                                                                                       padding: const EdgeInsets.all(10),
                                                                                       child: Text(
                                                                                         'Update',
-                                                                                        style: Get.theme.textTheme.subtitle2,
+                                                                                        style: Get.theme.textTheme.titleSmall,
                                                                                       ).translate(),
                                                                                     ),
                                                                                   ),
@@ -579,11 +579,11 @@ class WalletScreen extends StatelessWidget {
                                                                           children: [
                                                                             Text(
                                                                               'Amount : ',
-                                                                              style: Get.theme.textTheme.bodyText1,
+                                                                              style: Get.theme.textTheme.bodyLarge,
                                                                             ).translate(),
                                                                             Text(
                                                                               '${global.getSystemFlagValue(global.systemFlagNameList.currency)} ${walletController.withdraw.walletTransactionModel![index].amount.toString()}',
-                                                                              style: Get.theme.textTheme.bodyText2,
+                                                                              style: Get.theme.textTheme.bodyMedium,
                                                                             ),
                                                                           ],
                                                                         ),
@@ -596,11 +596,11 @@ class WalletScreen extends StatelessWidget {
                                                                             children: [
                                                                               Text(
                                                                                 'Transaction type : ',
-                                                                                style: Get.theme.textTheme.bodyText1,
+                                                                                style: Get.theme.textTheme.bodyLarge,
                                                                               ).translate(),
                                                                               Text(
                                                                                 walletController.withdraw.walletTransactionModel![index].transactionType.toString(),
-                                                                                style: Get.theme.textTheme.bodyText2,
+                                                                                style: Get.theme.textTheme.bodyMedium,
                                                                               ).translate(),
                                                                             ],
                                                                           ),
@@ -617,7 +617,7 @@ class WalletScreen extends StatelessWidget {
                                                                               padding: const EdgeInsets.only(top: 5),
                                                                               child: Text(
                                                                                 DateFormat('dd-MM-yyyy').format(DateTime.parse(walletController.withdraw.walletTransactionModel![index].createdAt.toString())),
-                                                                                style: Get.theme.textTheme.bodyText2,
+                                                                                style: Get.theme.textTheme.bodyMedium,
                                                                               ),
                                                                             ),
                                                                           ],
@@ -665,7 +665,7 @@ class WalletScreen extends StatelessWidget {
         title: walletController.updateAmountId != null
             ? 'UPDATE AN AMOUNT'
             : 'ADD AN AMOUNT',
-        titleStyle: Get.theme.textTheme.subtitle2,
+        titleStyle: Get.theme.textTheme.titleSmall,
         content: Column(
           children: [
             Icon(

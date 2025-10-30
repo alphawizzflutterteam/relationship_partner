@@ -44,7 +44,7 @@ class CreateNewKundki extends StatelessWidget {
                     const SizedBox(
                       width: 10,
                     ),
-                    Text('Kundli', style: Theme.of(context).primaryTextTheme.headline4).translate()
+                    Text('Kundli', style: Theme.of(context).primaryTextTheme.headlineMedium).translate()
                   ],
                 ),
                 SizedBox(

@@ -39,7 +39,7 @@ class CallAvailabilityScreen extends StatelessWidget {
                   title: Center(
                     child: Text(
                       "Change your availability for call",
-                      style: Theme.of(context).primaryTextTheme.headline3,
+                      style: Theme.of(context).primaryTextTheme.displaySmall,
                     ).translate(),
                   ),
                 ),
@@ -58,7 +58,7 @@ class CallAvailabilityScreen extends StatelessWidget {
                     ),
                     Text(
                       'Online',
-                      style: Theme.of(context).primaryTextTheme.subtitle1,
+                      style: Theme.of(context).primaryTextTheme.titleMedium,
                     ).translate()
                   ],
                 ),
@@ -77,7 +77,7 @@ class CallAvailabilityScreen extends StatelessWidget {
                     ),
                     Text(
                       'Offline',
-                      style: Theme.of(context).primaryTextTheme.subtitle1,
+                      style: Theme.of(context).primaryTextTheme.titleMedium,
                     ).translate()
                   ],
                 ),
@@ -96,7 +96,7 @@ class CallAvailabilityScreen extends StatelessWidget {
                     ),
                     Text(
                       'Wait Time',
-                      style: Theme.of(context).primaryTextTheme.subtitle1,
+                      style: Theme.of(context).primaryTextTheme.titleMedium,
                     ).translate()
                   ],
                 ),

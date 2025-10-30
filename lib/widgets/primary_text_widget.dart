@@ -13,7 +13,7 @@ class PrimaryTextWidget extends StatelessWidget {
           return RichText(
             text: TextSpan(
               text: snapshot.data ?? text,
-              style: Theme.of(context).primaryTextTheme.subtitle1,
+              style: Theme.of(context).primaryTextTheme.titleMedium,
               children: const <TextSpan>[
                 TextSpan(
                   text: "*",

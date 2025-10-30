@@ -30,7 +30,7 @@ class NotificationScreen extends StatelessWidget {
               onPressed: () {
                 Get.dialog(
                   AlertDialog(
-                    titleTextStyle: Get.textTheme.bodyText1,
+                    titleTextStyle: Get.textTheme.bodyLarge,
                     title: const Text("Are you sure you want delete all notifications?").translate(),
                     content: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -81,7 +81,7 @@ class NotificationScreen extends StatelessWidget {
                                 Expanded(
                                   child: Text(
                                     notificationController.notificationList[index].title!,
-                                    style: Get.theme.primaryTextTheme.headline3,
+                                    style: Get.theme.primaryTextTheme.displaySmall,
                                   ).translate(),
                                 ),
                               ],
@@ -90,7 +90,7 @@ class NotificationScreen extends StatelessWidget {
                               padding: const EdgeInsets.only(top: 10),
                               child: Text(
                                 notificationController.notificationList[index].description!,
-                                style: Get.theme.primaryTextTheme.subtitle2,
+                                style: Get.theme.primaryTextTheme.titleSmall,
                               ).translate(),
                             ),
                             trailing: Column(
@@ -101,7 +101,7 @@ class NotificationScreen extends StatelessWidget {
                                   onTap: () {
                                     Get.dialog(
                                       AlertDialog(
-                                        titleTextStyle: Get.textTheme.bodyText1,
+                                        titleTextStyle: Get.textTheme.bodyLarge,
                                         title: const Text("Are you sure you want delete notification?").translate(),
                                         content: Row(
                                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -135,7 +135,7 @@ class NotificationScreen extends StatelessWidget {
                                 ),
                                 Text(
                                   DateFormat('dd MMM yyyy').format(DateTime.parse(notificationController.notificationList[index].createdAt.toString())),
-                                  style: Get.theme.primaryTextTheme.bodyText1,
+                                  style: Get.theme.primaryTextTheme.bodyLarge,
                                 ),
                               ],
                             ),

@@ -178,7 +178,7 @@ class ReportRequestScreen extends StatelessWidget {
                                                       padding: const EdgeInsets.only(left: 5),
                                                       child: Text(
                                                         reportController.reportList[index].firstName ?? "Customer Name ${index + 1}",
-                                                        style: Get.theme.primaryTextTheme.headline3,
+                                                        style: Get.theme.primaryTextTheme.displaySmall,
                                                       ).translate(),
                                                     ),
                                                   ],
@@ -196,7 +196,7 @@ class ReportRequestScreen extends StatelessWidget {
                                                         padding: const EdgeInsets.only(left: 5),
                                                         child: Text(
                                                           DateFormat('dd-MM-yyyy').format(DateTime.parse(reportController.reportList[index].birthDate.toString())),
-                                                          style: Get.theme.primaryTextTheme.subtitle2,
+                                                          style: Get.theme.primaryTextTheme.titleSmall,
                                                         ),
                                                       ),
                                                     ],
@@ -216,7 +216,7 @@ class ReportRequestScreen extends StatelessWidget {
                                                               padding: const EdgeInsets.only(left: 5),
                                                               child: Text(
                                                                 reportController.reportList[index].birthTime!,
-                                                                style: Get.theme.primaryTextTheme.subtitle2,
+                                                                style: Get.theme.primaryTextTheme.titleSmall,
                                                               ),
                                                             ),
                                                           ],

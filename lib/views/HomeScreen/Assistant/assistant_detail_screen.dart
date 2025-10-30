@@ -66,11 +66,11 @@ class AssistantDetailScreen extends StatelessWidget {
                       tileColor: Colors.white,
                       title: Text(
                         "Name",
-                        style: Theme.of(context).primaryTextTheme.headline3,
+                        style: Theme.of(context).primaryTextTheme.displaySmall,
                       ).translate(),
                       trailing: Text(
                         '${astrologerAssistant!.name}',
-                        style: Theme.of(context).primaryTextTheme.subtitle1,
+                        style: Theme.of(context).primaryTextTheme.titleMedium,
                       ).translate(),
                     ),
                   ),
@@ -81,11 +81,11 @@ class AssistantDetailScreen extends StatelessWidget {
                       tileColor: Colors.white,
                       title: Text(
                         "Mobile Number",
-                        style: Theme.of(context).primaryTextTheme.headline3,
+                        style: Theme.of(context).primaryTextTheme.displaySmall,
                       ).translate(),
                       trailing: Text(
                         '${astrologerAssistant!.contactNo}',
-                        style: Theme.of(context).primaryTextTheme.subtitle1,
+                        style: Theme.of(context).primaryTextTheme.titleMedium,
                       ),
                     ),
                   ),
@@ -96,11 +96,11 @@ class AssistantDetailScreen extends StatelessWidget {
                       tileColor: Colors.white,
                       title: Text(
                         "Email",
-                        style: Theme.of(context).primaryTextTheme.headline3,
+                        style: Theme.of(context).primaryTextTheme.displaySmall,
                       ).translate(),
                       trailing: Text(
                         '${astrologerAssistant!.email}',
-                        style: Theme.of(context).primaryTextTheme.subtitle1,
+                        style: Theme.of(context).primaryTextTheme.titleMedium,
                       ),
                     ),
                   ),
@@ -111,11 +111,11 @@ class AssistantDetailScreen extends StatelessWidget {
                       tileColor: Colors.white,
                       title: Text(
                         "Gender",
-                        style: Theme.of(context).primaryTextTheme.headline3,
+                        style: Theme.of(context).primaryTextTheme.displaySmall,
                       ).translate(),
                       trailing: Text(
                         '${astrologerAssistant!.gender}',
-                        style: Theme.of(context).primaryTextTheme.subtitle1,
+                        style: Theme.of(context).primaryTextTheme.titleMedium,
                       ).translate(),
                     ),
                   ),
@@ -126,11 +126,11 @@ class AssistantDetailScreen extends StatelessWidget {
                       tileColor: Colors.white,
                       title: Text(
                         "Date of Birth",
-                        style: Theme.of(context).primaryTextTheme.headline3,
+                        style: Theme.of(context).primaryTextTheme.displaySmall,
                       ).translate(),
                       trailing: Text(
                         DateFormat('dd-MM-yyyy').format(DateTime.parse(astrologerAssistant!.birthdate!.toString())),
-                        style: Theme.of(context).primaryTextTheme.subtitle1,
+                        style: Theme.of(context).primaryTextTheme.titleMedium,
                       ),
                     ),
                   ),
@@ -141,11 +141,11 @@ class AssistantDetailScreen extends StatelessWidget {
                       tileColor: Colors.white,
                       title: Text(
                         "Primary Skill",
-                        style: Theme.of(context).primaryTextTheme.headline3,
+                        style: Theme.of(context).primaryTextTheme.displaySmall,
                       ).translate(),
                       trailing: Text(
                         astrologerAssistant!.assistantPrimarySkillId!.map((e) => e.name).toList().toString().replaceAll('[', '').replaceAll(']', ''),
-                        style: Theme.of(context).primaryTextTheme.subtitle1,
+                        style: Theme.of(context).primaryTextTheme.titleMedium,
                       ).translate(),
                     ),
                   ),
@@ -156,11 +156,11 @@ class AssistantDetailScreen extends StatelessWidget {
                       tileColor: Colors.white,
                       title: Text(
                         "All Skill",
-                        style: Theme.of(context).primaryTextTheme.headline3,
+                        style: Theme.of(context).primaryTextTheme.displaySmall,
                       ).translate(),
                       trailing: Text(
                         astrologerAssistant!.assistantAllSkillId!.map((e) => e.name).toList().toString().replaceAll('[', '').replaceAll(']', ''),
-                        style: Theme.of(context).primaryTextTheme.subtitle1,
+                        style: Theme.of(context).primaryTextTheme.titleMedium,
                       ).translate(),
                     ),
                   ),
@@ -171,11 +171,11 @@ class AssistantDetailScreen extends StatelessWidget {
                       tileColor: Colors.white,
                       title: Text(
                         "Language",
-                        style: Theme.of(context).primaryTextTheme.headline3,
+                        style: Theme.of(context).primaryTextTheme.displaySmall,
                       ).translate(),
                       trailing: Text(
                         astrologerAssistant!.assistantLanguageId!.map((e) => e.name).toList().toString().replaceAll('[', '').replaceAll(']', ''),
-                        style: Theme.of(context).primaryTextTheme.subtitle1,
+                        style: Theme.of(context).primaryTextTheme.titleMedium,
                       ).translate(),
                     ),
                   ),
@@ -186,11 +186,11 @@ class AssistantDetailScreen extends StatelessWidget {
                       tileColor: Colors.white,
                       title: Text(
                         "Expirence In Year",
-                        style: Theme.of(context).primaryTextTheme.headline3,
+                        style: Theme.of(context).primaryTextTheme.displaySmall,
                       ).translate(),
                       trailing: Text(
                         '${astrologerAssistant!.experienceInYears}',
-                        style: Theme.of(context).primaryTextTheme.subtitle1,
+                        style: Theme.of(context).primaryTextTheme.titleMedium,
                       ),
                     ),
                   ),

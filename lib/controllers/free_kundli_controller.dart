@@ -14,15 +14,18 @@ import 'package:astrologer_app/views/HomeScreen/FloatingButton/FreeKundli/Tabs/k
 import 'package:astrologer_app/views/HomeScreen/FloatingButton/FreeKundli/Tabs/kundliDashaScreen.dart';
 import 'package:astrologer_app/views/HomeScreen/FloatingButton/FreeKundli/Tabs/kundliReportScreen.dart';
 import 'package:date_format/date_format.dart';
+
 // import 'package:firebase_dynamic_links/firebase_dynamic_links.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_share/flutter_share.dart';
+
+// import 'package:flutter_share/flutter_share.dart';
 import 'package:get/get.dart';
 import 'package:astrologer_app/utils/global.dart' as global;
 import 'package:intl/intl.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:pdf/pdf.dart';
 import 'package:pdf/widgets.dart' as pw;
+import 'package:share_plus/share_plus.dart';
 
 class KundliController extends GetxController {
   TextEditingController userNameController = TextEditingController();
@@ -76,10 +79,17 @@ class KundliController extends GetxController {
   List<KundliGender> gender = [
     KundliGender(title: 'Male', isSelected: false, image: IMAGECONST.male),
     KundliGender(title: 'Female', isSelected: false, image: IMAGECONST.female),
-    KundliGender(title: 'other', isSelected: false, image: IMAGECONST.otherGender),
+    KundliGender(
+        title: 'other', isSelected: false, image: IMAGECONST.otherGender),
   ];
   int initialIndex = 0;
-  List kundliTitle = ['Hey there! \nWhat is Your name ?', 'What is your gender?', 'Enter your birth date', 'Enter your birth time', 'Where were you born?'];
+  List kundliTitle = [
+    'Hey there! \nWhat is Your name ?',
+    'What is your gender?',
+    'Enter your birth date',
+    'Enter your birth time',
+    'Where were you born?'
+  ];
   List<Kundli> listIcon = [
     Kundli(icon: Icons.person, isSelected: true),
     Kundli(icon: Icons.search, isSelected: false),
@@ -95,7 +105,9 @@ class KundliController extends GetxController {
     // KundliDetailTab(title: 'Yoga', isSelected: false),
   ];
 
-  List<KundliDetailTab> remediesTab = [KundliDetailTab(title: 'Gemstones', isSelected: false)];
+  List<KundliDetailTab> remediesTab = [
+    KundliDetailTab(title: 'Gemstones', isSelected: false)
+  ];
   List<KundliDetailTab> rudrakshaTab = [
     KundliDetailTab(title: '3-Mukhi', isSelected: true),
     KundliDetailTab(title: '12-Mukhi', isSelected: false),
@@ -107,7 +119,9 @@ class KundliController extends GetxController {
     KundliDetailTab(title: 'Sadesati', isSelected: false),
   ];
 
-  List<KundliDetailTab> dashaTab = [KundliDetailTab(title: 'Vimshattari', isSelected: true)];
+  List<KundliDetailTab> dashaTab = [
+    KundliDetailTab(title: 'Vimshattari', isSelected: true)
+  ];
 
   List<KundliDetailTab> ashtakvargaTab = [
     KundliDetailTab(title: 'Sav', isSelected: true),
@@ -146,7 +160,10 @@ class KundliController extends GetxController {
     KundliDetailTab(title: 'Planetary', isSelected: false),
     KundliDetailTab(title: 'Yoga', isSelected: false),
   ];
-  List<KundliDetailTab> planetTab = [KundliDetailTab(title: 'Sign', isSelected: true), KundliDetailTab(title: 'Nakshatra', isSelected: false)];
+  List<KundliDetailTab> planetTab = [
+    KundliDetailTab(title: 'Sign', isSelected: true),
+    KundliDetailTab(title: 'Nakshatra', isSelected: false)
+  ];
   List<KundliDetails> basicDetails = [
     KundliDetails(title: 'Name', value: 'Yami'),
     KundliDetails(title: 'Date', value: '02 january 1996'),
@@ -206,47 +223,288 @@ class KundliController extends GetxController {
   ];
 
   final List<Map<String, String>> listOfPlanets = [
-    {"planet": "SU", "cups": "6", "sign": "Libra", "signLord": "Ve", "starLord": "Ma", "subLord": "Me"},
-    {"planet": "Moon", "cups": "4", "sign": "Libra", "signLord": "sa", "starLord": "Ve", "subLord": "Ve"},
-    {"planet": "Mars", "cups": "2", "sign": "Libra", "signLord": "Ju", "starLord": "Me", "subLord": "Ma"},
-    {"planet": "Rahu", "cups": "6", "sign": "Gemni", "signLord": "Ve", "starLord": "Ma", "subLord": "Me"},
-    {"planet": "Jupiter", "cups": "10", "sign": "Libra", "signLord": "Ve", "starLord": "Sa", "subLord": "Ra"},
-    {"planet": "Saturn", "cups": "1", "sign": "Libra", "signLord": "Me", "starLord": "Ma", "subLord": "Sa"},
-    {"planet": "Mercury", "cups": "12", "sign": "Libra", "signLord": "Ve", "starLord": "Ma", "subLord": "Me"},
-    {"planet": "Ketu", "cups": "1", "sign": "Libra", "signLord": "Ve", "starLord": "Ma", "subLord": "Su"},
-    {"planet": "Venus", "cups": "6", "sign": "Libra", "signLord": "Ma", "starLord": "Ma", "subLord": "Me"},
-    {"planet": "Neptune", "cups": "10", "sign": "Aries", "signLord": "Ve", "starLord": "Ju", "subLord": "Ju"},
-    {"planet": "Uranus", "cups": "8", "sign": "Libra", "signLord": "Ve", "starLord": "Ma", "subLord": "Me"},
-    {"planet": "Pluto", "cups": "7", "sign": "capricorn", "signLord": "Me", "starLord": "Ju", "subLord": "Me"},
+    {
+      "planet": "SU",
+      "cups": "6",
+      "sign": "Libra",
+      "signLord": "Ve",
+      "starLord": "Ma",
+      "subLord": "Me"
+    },
+    {
+      "planet": "Moon",
+      "cups": "4",
+      "sign": "Libra",
+      "signLord": "sa",
+      "starLord": "Ve",
+      "subLord": "Ve"
+    },
+    {
+      "planet": "Mars",
+      "cups": "2",
+      "sign": "Libra",
+      "signLord": "Ju",
+      "starLord": "Me",
+      "subLord": "Ma"
+    },
+    {
+      "planet": "Rahu",
+      "cups": "6",
+      "sign": "Gemni",
+      "signLord": "Ve",
+      "starLord": "Ma",
+      "subLord": "Me"
+    },
+    {
+      "planet": "Jupiter",
+      "cups": "10",
+      "sign": "Libra",
+      "signLord": "Ve",
+      "starLord": "Sa",
+      "subLord": "Ra"
+    },
+    {
+      "planet": "Saturn",
+      "cups": "1",
+      "sign": "Libra",
+      "signLord": "Me",
+      "starLord": "Ma",
+      "subLord": "Sa"
+    },
+    {
+      "planet": "Mercury",
+      "cups": "12",
+      "sign": "Libra",
+      "signLord": "Ve",
+      "starLord": "Ma",
+      "subLord": "Me"
+    },
+    {
+      "planet": "Ketu",
+      "cups": "1",
+      "sign": "Libra",
+      "signLord": "Ve",
+      "starLord": "Ma",
+      "subLord": "Su"
+    },
+    {
+      "planet": "Venus",
+      "cups": "6",
+      "sign": "Libra",
+      "signLord": "Ma",
+      "starLord": "Ma",
+      "subLord": "Me"
+    },
+    {
+      "planet": "Neptune",
+      "cups": "10",
+      "sign": "Aries",
+      "signLord": "Ve",
+      "starLord": "Ju",
+      "subLord": "Ju"
+    },
+    {
+      "planet": "Uranus",
+      "cups": "8",
+      "sign": "Libra",
+      "signLord": "Ve",
+      "starLord": "Ma",
+      "subLord": "Me"
+    },
+    {
+      "planet": "Pluto",
+      "cups": "7",
+      "sign": "capricorn",
+      "signLord": "Me",
+      "starLord": "Ju",
+      "subLord": "Me"
+    },
   ];
   final List<Map<String, String>> listOfCups = [
-    {"cups": "1", "degree": "9.86", "sign": "Libra", "signLord": "Ve", "starLord": "Ma", "subLord": "Me"},
-    {"cups": "2", "degree": "40.6", "sign": "Libra", "signLord": "sa", "starLord": "Ve", "subLord": "Ve"},
-    {"cups": "3", "degree": "65.16", "sign": "Libra", "signLord": "Ju", "starLord": "Me", "subLord": "Ma"},
-    {"cups": "4", "degree": "88.66", "sign": "Gemni", "signLord": "Ve", "starLord": "Ma", "subLord": "Me"},
-    {"cups": "5", "degree": "111.26", "sign": "Libra", "signLord": "Ve", "starLord": "Sa", "subLord": "Ra"},
-    {"cups": "6", "degree": "88.61", "sign": "Libra", "signLord": "Me", "starLord": "Ma", "subLord": "Sa"},
-    {"cups": "7", "degree": "115.12", "sign": "Libra", "signLord": "Ve", "starLord": "Ma", "subLord": "Me"},
-    {"cups": "8", "degree": "116.21", "sign": "Libra", "signLord": "Ve", "starLord": "Ma", "subLord": "Su"},
-    {"cups": "9", "degree": "116.26", "sign": "Libra", "signLord": "Ma", "starLord": "Ma", "subLord": "Me"},
-    {"cups": "10", "degree": "210.67", "sign": "Aries", "signLord": "Ve", "starLord": "Ju", "subLord": "Ju"},
-    {"cups": "11", "degree": "278.99", "sign": "Libra", "signLord": "Ve", "starLord": "Ma", "subLord": "Me"},
-    {"cups": "12", "degree": "328.90", "sign": "capricorn", "signLord": "Me", "starLord": "Ju", "subLord": "Me"},
+    {
+      "cups": "1",
+      "degree": "9.86",
+      "sign": "Libra",
+      "signLord": "Ve",
+      "starLord": "Ma",
+      "subLord": "Me"
+    },
+    {
+      "cups": "2",
+      "degree": "40.6",
+      "sign": "Libra",
+      "signLord": "sa",
+      "starLord": "Ve",
+      "subLord": "Ve"
+    },
+    {
+      "cups": "3",
+      "degree": "65.16",
+      "sign": "Libra",
+      "signLord": "Ju",
+      "starLord": "Me",
+      "subLord": "Ma"
+    },
+    {
+      "cups": "4",
+      "degree": "88.66",
+      "sign": "Gemni",
+      "signLord": "Ve",
+      "starLord": "Ma",
+      "subLord": "Me"
+    },
+    {
+      "cups": "5",
+      "degree": "111.26",
+      "sign": "Libra",
+      "signLord": "Ve",
+      "starLord": "Sa",
+      "subLord": "Ra"
+    },
+    {
+      "cups": "6",
+      "degree": "88.61",
+      "sign": "Libra",
+      "signLord": "Me",
+      "starLord": "Ma",
+      "subLord": "Sa"
+    },
+    {
+      "cups": "7",
+      "degree": "115.12",
+      "sign": "Libra",
+      "signLord": "Ve",
+      "starLord": "Ma",
+      "subLord": "Me"
+    },
+    {
+      "cups": "8",
+      "degree": "116.21",
+      "sign": "Libra",
+      "signLord": "Ve",
+      "starLord": "Ma",
+      "subLord": "Su"
+    },
+    {
+      "cups": "9",
+      "degree": "116.26",
+      "sign": "Libra",
+      "signLord": "Ma",
+      "starLord": "Ma",
+      "subLord": "Me"
+    },
+    {
+      "cups": "10",
+      "degree": "210.67",
+      "sign": "Aries",
+      "signLord": "Ve",
+      "starLord": "Ju",
+      "subLord": "Ju"
+    },
+    {
+      "cups": "11",
+      "degree": "278.99",
+      "sign": "Libra",
+      "signLord": "Ve",
+      "starLord": "Ma",
+      "subLord": "Me"
+    },
+    {
+      "cups": "12",
+      "degree": "328.90",
+      "sign": "capricorn",
+      "signLord": "Me",
+      "starLord": "Ju",
+      "subLord": "Me"
+    },
   ];
   final List<Map<String, String>> listOfPlanetsSign = [
-    {"planet": "Ascendant", "sign": "Aries", "signLord": "Mars", "degree": "22 \u00b0", "house": "1"},
-    {"planet": "Venus", "sign": "Aries", "signLord": "Jupiter", "degree": "22 \u00b0", "house": "11"},
-    {"planet": "Ascendant", "sign": "Capricorn", "signLord": "Mars", "degree": "22 \u00b0", "house": "9"},
-    {"planet": "Moon", "sign": "Capricorn", "signLord": "Mars", "degree": "22 \u00b0", "house": "10"},
-    {"planet": "Ascendant", "sign": "Capricorn", "signLord": "Mars", "degree": "22 \u00b0", "house": "1"},
-    {"planet": "Venus", "sign": "Aries", "signLord": "Jupiter", "degree": "22 \u00b0", "house": "8"},
-    {"planet": "Rahu", "sign": "Capricorn", "signLord": "Mars", "degree": "22 \u00b0", "house": "1"},
-    {"planet": "Rahu", "sign": "Aries", "signLord": "Mars", "degree": "22 \u00b0", "house": "1"},
-    {"planet": "Ketu", "sign": "Capricorn", "signLord": "Saturn", "degree": "22 \u00b0", "house": "1"},
-    {"planet": "Ascendant", "sign": "Aries", "signLord": "Saturn", "degree": "22 \u00b0", "house": "7"},
-    {"planet": "Ascendant", "sign": "Aries", "signLord": "Mars", "degree": "22 \u00b0", "house": "1"},
-    {"planet": "pluto", "sign": "Scorpio", "signLord": "Mars", "degree": "22 \u00b0", "house": "10"},
+    {
+      "planet": "Ascendant",
+      "sign": "Aries",
+      "signLord": "Mars",
+      "degree": "22 \u00b0",
+      "house": "1"
+    },
+    {
+      "planet": "Venus",
+      "sign": "Aries",
+      "signLord": "Jupiter",
+      "degree": "22 \u00b0",
+      "house": "11"
+    },
+    {
+      "planet": "Ascendant",
+      "sign": "Capricorn",
+      "signLord": "Mars",
+      "degree": "22 \u00b0",
+      "house": "9"
+    },
+    {
+      "planet": "Moon",
+      "sign": "Capricorn",
+      "signLord": "Mars",
+      "degree": "22 \u00b0",
+      "house": "10"
+    },
+    {
+      "planet": "Ascendant",
+      "sign": "Capricorn",
+      "signLord": "Mars",
+      "degree": "22 \u00b0",
+      "house": "1"
+    },
+    {
+      "planet": "Venus",
+      "sign": "Aries",
+      "signLord": "Jupiter",
+      "degree": "22 \u00b0",
+      "house": "8"
+    },
+    {
+      "planet": "Rahu",
+      "sign": "Capricorn",
+      "signLord": "Mars",
+      "degree": "22 \u00b0",
+      "house": "1"
+    },
+    {
+      "planet": "Rahu",
+      "sign": "Aries",
+      "signLord": "Mars",
+      "degree": "22 \u00b0",
+      "house": "1"
+    },
+    {
+      "planet": "Ketu",
+      "sign": "Capricorn",
+      "signLord": "Saturn",
+      "degree": "22 \u00b0",
+      "house": "1"
+    },
+    {
+      "planet": "Ascendant",
+      "sign": "Aries",
+      "signLord": "Saturn",
+      "degree": "22 \u00b0",
+      "house": "7"
+    },
+    {
+      "planet": "Ascendant",
+      "sign": "Aries",
+      "signLord": "Mars",
+      "degree": "22 \u00b0",
+      "house": "1"
+    },
+    {
+      "planet": "pluto",
+      "sign": "Scorpio",
+      "signLord": "Mars",
+      "degree": "22 \u00b0",
+      "house": "10"
+    },
   ];
+
   @override
   void onInit() async {
     _init();
@@ -286,6 +544,7 @@ class KundliController extends GetxController {
 
   String? dropDownGender;
   List item = ['Male', 'Female', 'Other'];
+
   String innitialValue(int callId, List<String> item) {
     if (callId == 1) {
       return dropDownGender ?? item[0];
@@ -300,6 +559,7 @@ class KundliController extends GetxController {
   }
 
   var pdf = pw.Document();
+
   shareKundli(KundliModel userDetails) async {
     try {
       pdf = pw.Document();
@@ -310,1176 +570,867 @@ class KundliController extends GetxController {
       int formattedHour = int.parse(DateFormat('HH').format(dateBasic));
       int formattedMint = int.parse(DateFormat('mm').format(dateBasic));
 
-      await getBasicDetail(day: formattedDay, hour: formattedHour, min: formattedMint, month: formattedMonth, year: formattedYear, lat: userDetails.latitude, lon: userDetails.longitude, tzone: userDetails.timezone);
-      await getBasicPanchangDetail(day: formattedDay, hour: formattedHour, min: formattedMint, month: formattedMonth, year: formattedYear, lat: userDetails.latitude, lon: userDetails.longitude, tzone: userDetails.timezone);
-      await getBasicAvakhadaDetail(day: formattedDay, hour: formattedHour, min: formattedMint, month: formattedMonth, year: formattedYear, lat: userDetails.latitude, lon: userDetails.longitude, tzone: userDetails.timezone);
-      await getSadesatiDetail(day: formattedDay, hour: formattedHour, min: formattedMint, month: formattedMonth, year: formattedYear, lat: userDetails.latitude, lon: userDetails.longitude, tzone: userDetails.timezone);
-      await getKalsarpaDetail(day: formattedDay, hour: formattedHour, min: formattedMint, month: formattedMonth, year: formattedYear, lat: userDetails.latitude, lon: userDetails.longitude, tzone: userDetails.timezone);
-      await getGemstoneDetail(day: formattedDay, hour: formattedHour, min: formattedMint, month: formattedMonth, year: formattedYear, lat: userDetails.latitude, lon: userDetails.longitude, tzone: userDetails.timezone);
-      await getChartPlanetsDetail(day: formattedDay, hour: formattedHour, min: formattedMint, month: formattedMonth, year: formattedYear, lat: userDetails.latitude, lon: userDetails.longitude, tzone: userDetails.timezone);
-      await getVimshattariDetail(day: formattedDay, hour: formattedHour, min: formattedMint, month: formattedMonth, year: formattedYear, lat: userDetails.latitude, lon: userDetails.longitude, tzone: userDetails.timezone);
-      await getReportDescDetail(day: formattedDay, hour: formattedHour, min: formattedMint, month: formattedMonth, year: formattedYear, lat: userDetails.latitude, lon: userDetails.longitude, tzone: userDetails.timezone);
+      await getBasicDetail(day: formattedDay,
+          hour: formattedHour,
+          min: formattedMint,
+          month: formattedMonth,
+          year: formattedYear,
+          lat: userDetails.latitude,
+          lon: userDetails.longitude,
+          tzone: userDetails.timezone);
+      await getBasicPanchangDetail(day: formattedDay,
+          hour: formattedHour,
+          min: formattedMint,
+          month: formattedMonth,
+          year: formattedYear,
+          lat: userDetails.latitude,
+          lon: userDetails.longitude,
+          tzone: userDetails.timezone);
+      await getBasicAvakhadaDetail(day: formattedDay,
+          hour: formattedHour,
+          min: formattedMint,
+          month: formattedMonth,
+          year: formattedYear,
+          lat: userDetails.latitude,
+          lon: userDetails.longitude,
+          tzone: userDetails.timezone);
+      await getSadesatiDetail(day: formattedDay,
+          hour: formattedHour,
+          min: formattedMint,
+          month: formattedMonth,
+          year: formattedYear,
+          lat: userDetails.latitude,
+          lon: userDetails.longitude,
+          tzone: userDetails.timezone);
+      await getKalsarpaDetail(day: formattedDay,
+          hour: formattedHour,
+          min: formattedMint,
+          month: formattedMonth,
+          year: formattedYear,
+          lat: userDetails.latitude,
+          lon: userDetails.longitude,
+          tzone: userDetails.timezone);
+      await getGemstoneDetail(day: formattedDay,
+          hour: formattedHour,
+          min: formattedMint,
+          month: formattedMonth,
+          year: formattedYear,
+          lat: userDetails.latitude,
+          lon: userDetails.longitude,
+          tzone: userDetails.timezone);
+      await getChartPlanetsDetail(day: formattedDay,
+          hour: formattedHour,
+          min: formattedMint,
+          month: formattedMonth,
+          year: formattedYear,
+          lat: userDetails.latitude,
+          lon: userDetails.longitude,
+          tzone: userDetails.timezone);
+      await getVimshattariDetail(day: formattedDay,
+          hour: formattedHour,
+          min: formattedMint,
+          month: formattedMonth,
+          year: formattedYear,
+          lat: userDetails.latitude,
+          lon: userDetails.longitude,
+          tzone: userDetails.timezone);
+      await getReportDescDetail(day: formattedDay,
+          hour: formattedHour,
+          min: formattedMint,
+          month: formattedMonth,
+          year: formattedYear,
+          lat: userDetails.latitude,
+          lon: userDetails.longitude,
+          tzone: userDetails.timezone);
 
       pdf.addPage(
         pw.Page(
-            build: (pw.Context context) => pw.Padding(
+            build: (pw.Context context) =>
+                pw.Padding(
                   padding: const pw.EdgeInsets.all(10),
-                  child: pw.Column(crossAxisAlignment: pw.CrossAxisAlignment.start, children: [
-                    pw.Text(
-                      'Basic Details',
-                      style: pw.TextStyle(
-                        fontSize: 14,
-                        fontWeight: pw.FontWeight.bold,
-                        color: const PdfColor.fromInt(0xFF000000),
-                      ),
-                    ),
-                    pw.SizedBox(height: 15),
-                    pw.Container(
-                        padding: const pw.EdgeInsets.only(left: 1.5, right: 1.5),
-                        decoration: pw.BoxDecoration(
-                          //border: pw.Border.all(color: PdfColor.fromInt(0xFF000000)),
-                          borderRadius: pw.BorderRadius.circular(5),
-                        ),
-                        child: kundliBasicDetail != null
-                            ? pw.Column(
-                                children: [
-                                  pw.Container(
-                                    padding: const pw.EdgeInsets.all(8),
-                                    decoration: const pw.BoxDecoration(color: PdfColor.fromInt(0xFFEBE7C6)),
-                                    child: pw.Row(
-                                      mainAxisAlignment: pw.MainAxisAlignment.spaceBetween,
-                                      children: [
-                                        pw.SizedBox(
-                                          width: 90,
-                                          child: pw.Text('Name'),
-                                        ),
-                                        pw.SizedBox(
-                                          width: 180,
-                                          child: pw.Text(userDetails.name),
-                                        )
-                                      ],
-                                    ),
-                                  ),
-                                  pw.Container(
-                                    padding: const pw.EdgeInsets.all(8),
-                                    decoration: const pw.BoxDecoration(
-                                      color: PdfColor.fromInt(0xFFFFFFFF),
-                                    ),
-                                    child: pw.Row(
-                                      mainAxisAlignment: pw.MainAxisAlignment.spaceBetween,
-                                      children: [
-                                        pw.SizedBox(
-                                          width: 90,
-                                          child: pw.Text('Date'),
-                                        ),
-                                        pw.SizedBox(
-                                          width: 180,
-                                          child: pw.Text(
-                                            DateFormat("dd MMMM yyyy").format(userDetails.birthDate),
-                                          ),
-                                        )
-                                      ],
-                                    ),
-                                  ),
-                                  pw.Container(
-                                    padding: const pw.EdgeInsets.all(8),
-                                    decoration: const pw.BoxDecoration(color: PdfColor.fromInt(0xFFEBE7C6)),
-                                    child: pw.Row(
-                                      mainAxisAlignment: pw.MainAxisAlignment.spaceBetween,
-                                      children: [
-                                        pw.SizedBox(
-                                          width: 90,
-                                          child: pw.Text('Time'),
-                                        ),
-                                        pw.SizedBox(
-                                          width: 180,
-                                          child: pw.Text(
-                                            userDetails.birthTime,
-                                          ),
-                                        )
-                                      ],
-                                    ),
-                                  ),
-                                  pw.Container(
-                                    padding: const pw.EdgeInsets.all(8),
-                                    decoration: const pw.BoxDecoration(
-                                      color: PdfColor.fromInt(0xFFFFFFFF),
-                                    ),
-                                    child: pw.Row(
-                                      mainAxisAlignment: pw.MainAxisAlignment.spaceBetween,
-                                      children: [
-                                        pw.SizedBox(
-                                          width: 90,
-                                          child: pw.Text('Place'),
-                                        ),
-                                        pw.SizedBox(
-                                          width: 180,
-                                          child: pw.Text(userDetails.birthPlace),
-                                        )
-                                      ],
-                                    ),
-                                  ),
-                                  pw.Container(
-                                    padding: const pw.EdgeInsets.all(8),
-                                    decoration: const pw.BoxDecoration(color: PdfColor.fromInt(0xFFEBE7C6)),
-                                    child: pw.Row(
-                                      mainAxisAlignment: pw.MainAxisAlignment.spaceBetween,
-                                      children: [
-                                        pw.SizedBox(
-                                          width: 90,
-                                          child: pw.Text('Latitude'),
-                                        ),
-                                        pw.SizedBox(
-                                          width: 180,
-                                          child: pw.Text('${kundliBasicDetail!.lat}'),
-                                        )
-                                      ],
-                                    ),
-                                  ),
-                                  pw.Container(
-                                    padding: const pw.EdgeInsets.all(8),
-                                    decoration: const pw.BoxDecoration(
-                                      color: PdfColor.fromInt(0xFFFFFFFF),
-                                    ),
-                                    child: pw.Row(
-                                      mainAxisAlignment: pw.MainAxisAlignment.spaceBetween,
-                                      children: [
-                                        pw.SizedBox(
-                                          width: 90,
-                                          child: pw.Text('Longitude'),
-                                        ),
-                                        pw.SizedBox(
-                                          width: 180,
-                                          child: pw.Text('${kundliBasicDetail!.lon}'),
-                                        )
-                                      ],
-                                    ),
-                                  ),
-                                  pw.Container(
-                                    padding: const pw.EdgeInsets.all(8),
-                                    decoration: const pw.BoxDecoration(color: PdfColor.fromInt(0xFFEBE7C6)),
-                                    child: pw.Row(
-                                      mainAxisAlignment: pw.MainAxisAlignment.spaceBetween,
-                                      children: [
-                                        pw.SizedBox(
-                                          width: 90,
-                                          child: pw.Text('Timezone'),
-                                        ),
-                                        pw.SizedBox(
-                                          width: 180,
-                                          child: pw.Text('${kundliBasicDetail!.tzone}'),
-                                        )
-                                      ],
-                                    ),
-                                  ),
-                                  pw.Container(
-                                    padding: const pw.EdgeInsets.all(8),
-                                    decoration: const pw.BoxDecoration(
-                                      color: PdfColor.fromInt(0xFFFFFFFF),
-                                    ),
-                                    child: pw.Row(
-                                      mainAxisAlignment: pw.MainAxisAlignment.spaceBetween,
-                                      children: [
-                                        pw.SizedBox(
-                                          width: 90,
-                                          child: pw.Text('Sunrise'),
-                                        ),
-                                        pw.SizedBox(
-                                          width: 180,
-                                          child: pw.Text('${kundliBasicDetail!.sunrise}'),
-                                        )
-                                      ],
-                                    ),
-                                  ),
-                                  pw.Container(
-                                    padding: const pw.EdgeInsets.all(8),
-                                    decoration: const pw.BoxDecoration(color: PdfColor.fromInt(0xFFEBE7C6)),
-                                    child: pw.Row(
-                                      mainAxisAlignment: pw.MainAxisAlignment.spaceBetween,
-                                      children: [
-                                        pw.SizedBox(
-                                          width: 90,
-                                          child: pw.Text('Sunset'),
-                                        ),
-                                        pw.SizedBox(
-                                          width: 180,
-                                          child: pw.Text('${kundliBasicDetail!.sunset}'),
-                                        )
-                                      ],
-                                    ),
-                                  ),
-                                  pw.Container(
-                                    padding: const pw.EdgeInsets.all(8),
-                                    decoration: const pw.BoxDecoration(
-                                      color: PdfColor.fromInt(0xFFFFFFFF),
-                                    ),
-                                    child: pw.Row(
-                                      mainAxisAlignment: pw.MainAxisAlignment.spaceBetween,
-                                      children: [
-                                        pw.SizedBox(
-                                          width: 90,
-                                          child: pw.Text('Ayanamsha'),
-                                        ),
-                                        pw.SizedBox(
-                                          width: 180,
-                                          child: pw.Text('${kundliBasicDetail!.ayanamsha}'),
-                                        )
-                                      ],
-                                    ),
-                                  )
-                                ],
-                              )
-                            : pw.SizedBox()),
-                    pw.SizedBox(
-                      height: 10,
-                    ),
-                    pw.Text(
-                      'Maglik Analysis',
-                      style: pw.TextStyle(
-                        fontSize: 14,
-                        fontWeight: pw.FontWeight.bold,
-                        color: const PdfColor.fromInt(0xFF000000),
-                      ),
-                    ),
-                    pw.SizedBox(
-                      height: 10,
-                    ),
-                    pw.Container(
-                      padding: const pw.EdgeInsets.all(4),
-                      decoration: pw.BoxDecoration(
-                        border: pw.Border.all(color: const PdfColor.fromInt(0xFF4CAF50)),
-                        borderRadius: pw.BorderRadius.circular(5),
-                      ),
-                      child: pw.Row(
-                        children: [
-                          pw.Container(
-                              height: 50,
-                              width: 50,
-                              alignment: pw.Alignment.center,
-                              decoration: const pw.BoxDecoration(
-                                color: PdfColor.fromInt(0xFF4CAF50),
-                                //more than 50% of width makes circle
-                              ),
-                              child: pw.Text('NO', style: const pw.TextStyle(color: PdfColor.fromInt(0xFFFFFFFF)))),
-                          pw.SizedBox(
-                            width: 20,
+                  child: pw.Column(
+                      crossAxisAlignment: pw.CrossAxisAlignment.start,
+                      children: [
+                        pw.Text(
+                          'Basic Details',
+                          style: pw.TextStyle(
+                            fontSize: 14,
+                            fontWeight: pw.FontWeight.bold,
+                            color: const PdfColor.fromInt(0xFF000000),
                           ),
-                          pw.Text(userDetails.name, style: const pw.TextStyle(color: PdfColor.fromInt(0xFF000000)))
-                        ],
-                      ),
-                    ),
-                    pw.SizedBox(
-                      height: 10,
-                    ),
-                    pw.Text(
-                      'Panchang Details',
-                      style: pw.TextStyle(
-                        fontSize: 14,
-                        fontWeight: pw.FontWeight.bold,
-                        color: const PdfColor.fromInt(0xFF000000),
-                      ),
-                    ),
-                    pw.SizedBox(
-                      height: 15,
-                    ),
-                    pw.Container(
-                        padding: const pw.EdgeInsets.only(left: 1.5, right: 1.5),
-                        decoration: pw.BoxDecoration(
-                          // border: pw.Border.all(color: PdfColor.fromInt(0xFF000000)),
-                          borderRadius: pw.BorderRadius.circular(5),
                         ),
-                        child: pw.Column(
-                          children: [
-                            pw.Container(
-                              padding: const pw.EdgeInsets.all(8),
-                              decoration: const pw.BoxDecoration(color: PdfColor.fromInt(0xFFEBE7C6)),
-                              child: pw.Row(
-                                mainAxisAlignment: pw.MainAxisAlignment.spaceBetween,
-                                children: [
-                                  pw.SizedBox(
-                                    width: 90,
-                                    child: pw.Text('Tithi'),
-                                  ),
-                                  pw.SizedBox(
-                                    width: 180,
-                                    child: pw.Text('${kundliBasicPanchangDetail!.tithi}'),
-                                  )
-                                ],
-                              ),
+                        pw.SizedBox(height: 15),
+                        pw.Container(
+                            padding: const pw.EdgeInsets.only(
+                                left: 1.5, right: 1.5),
+                            decoration: pw.BoxDecoration(
+                              //border: pw.Border.all(color: PdfColor.fromInt(0xFF000000)),
+                              borderRadius: pw.BorderRadius.circular(5),
                             ),
-                            pw.Container(
-                              padding: const pw.EdgeInsets.all(8),
-                              decoration: const pw.BoxDecoration(
-                                color: PdfColor.fromInt(0xFFFFFFFF),
-                              ),
-                              child: pw.Row(
-                                mainAxisAlignment: pw.MainAxisAlignment.spaceBetween,
-                                children: [
-                                  pw.SizedBox(
-                                    width: 90,
-                                    child: pw.Text('Karan'),
+                            child: kundliBasicDetail != null
+                                ? pw.Column(
+                              children: [
+                                pw.Container(
+                                  padding: const pw.EdgeInsets.all(8),
+                                  decoration: const pw.BoxDecoration(
+                                      color: PdfColor.fromInt(0xFFEBE7C6)),
+                                  child: pw.Row(
+                                    mainAxisAlignment: pw.MainAxisAlignment
+                                        .spaceBetween,
+                                    children: [
+                                      pw.SizedBox(
+                                        width: 90,
+                                        child: pw.Text('Name'),
+                                      ),
+                                      pw.SizedBox(
+                                        width: 180,
+                                        child: pw.Text(userDetails.name),
+                                      )
+                                    ],
                                   ),
-                                  pw.SizedBox(
-                                    width: 180,
-                                    child: pw.Text('${kundliBasicPanchangDetail!.karan}'),
-                                  )
-                                ],
-                              ),
-                            ),
-                            pw.Container(
-                              padding: const pw.EdgeInsets.all(8),
-                              decoration: const pw.BoxDecoration(color: PdfColor.fromInt(0xFFEBE7C6)),
-                              child: pw.Row(
-                                mainAxisAlignment: pw.MainAxisAlignment.spaceBetween,
-                                children: [
-                                  pw.SizedBox(
-                                    width: 90,
-                                    child: pw.Text('Yog'),
+                                ),
+                                pw.Container(
+                                  padding: const pw.EdgeInsets.all(8),
+                                  decoration: const pw.BoxDecoration(
+                                    color: PdfColor.fromInt(0xFFFFFFFF),
                                   ),
-                                  pw.SizedBox(
-                                    width: 180,
-                                    child: pw.Text(
-                                      // ignore: prefer_if_null_operators
-                                      '${kundliBasicPanchangDetail!.yog != null ? kundliBasicPanchangDetail!.yog : '--'}',
-                                    ),
-                                  )
-                                ],
-                              ),
-                            ),
-                            pw.Container(
-                              padding: const pw.EdgeInsets.all(8),
-                              decoration: const pw.BoxDecoration(
-                                color: PdfColor.fromInt(0xFFFFFFFF),
-                              ),
-                              child: pw.Row(
-                                mainAxisAlignment: pw.MainAxisAlignment.spaceBetween,
-                                children: [
-                                  pw.SizedBox(
-                                    width: 90,
-                                    child: pw.Text('Nakshtra'),
+                                  child: pw.Row(
+                                    mainAxisAlignment: pw.MainAxisAlignment
+                                        .spaceBetween,
+                                    children: [
+                                      pw.SizedBox(
+                                        width: 90,
+                                        child: pw.Text('Date'),
+                                      ),
+                                      pw.SizedBox(
+                                        width: 180,
+                                        child: pw.Text(
+                                          DateFormat("dd MMMM yyyy").format(
+                                              userDetails.birthDate),
+                                        ),
+                                      )
+                                    ],
                                   ),
-                                  pw.SizedBox(
-                                    width: 180,
-                                    child: pw.Text('${kundliBasicPanchangDetail!.nakshatra}'),
-                                  )
-                                ],
-                              ),
-                            ),
-                            pw.Container(
-                              padding: const pw.EdgeInsets.all(8),
-                              decoration: const pw.BoxDecoration(color: PdfColor.fromInt(0xFFEBE7C6)),
-                              child: pw.Row(
-                                mainAxisAlignment: pw.MainAxisAlignment.spaceBetween,
-                                children: [
-                                  pw.SizedBox(
-                                    width: 90,
-                                    child: pw.Text('Sunrise'),
+                                ),
+                                pw.Container(
+                                  padding: const pw.EdgeInsets.all(8),
+                                  decoration: const pw.BoxDecoration(
+                                      color: PdfColor.fromInt(0xFFEBE7C6)),
+                                  child: pw.Row(
+                                    mainAxisAlignment: pw.MainAxisAlignment
+                                        .spaceBetween,
+                                    children: [
+                                      pw.SizedBox(
+                                        width: 90,
+                                        child: pw.Text('Time'),
+                                      ),
+                                      pw.SizedBox(
+                                        width: 180,
+                                        child: pw.Text(
+                                          userDetails.birthTime,
+                                        ),
+                                      )
+                                    ],
                                   ),
-                                  pw.SizedBox(
-                                    width: 180,
-                                    child: pw.Text('${kundliBasicPanchangDetail!.sunrise}'),
-                                  )
-                                ],
-                              ),
-                            ),
-                            pw.Container(
-                              padding: const pw.EdgeInsets.all(8),
-                              decoration: const pw.BoxDecoration(
-                                color: PdfColor.fromInt(0xFFFFFFFF),
-                              ),
-                              child: pw.Row(
-                                mainAxisAlignment: pw.MainAxisAlignment.spaceBetween,
-                                children: [
-                                  pw.SizedBox(
-                                    width: 90,
-                                    child: pw.Text('Sunset'),
+                                ),
+                                pw.Container(
+                                  padding: const pw.EdgeInsets.all(8),
+                                  decoration: const pw.BoxDecoration(
+                                    color: PdfColor.fromInt(0xFFFFFFFF),
                                   ),
-                                  pw.SizedBox(
-                                    width: 180,
-                                    child: pw.Text('${kundliBasicPanchangDetail!.sunset}'),
-                                  )
-                                ],
+                                  child: pw.Row(
+                                    mainAxisAlignment: pw.MainAxisAlignment
+                                        .spaceBetween,
+                                    children: [
+                                      pw.SizedBox(
+                                        width: 90,
+                                        child: pw.Text('Place'),
+                                      ),
+                                      pw.SizedBox(
+                                        width: 180,
+                                        child: pw.Text(userDetails.birthPlace),
+                                      )
+                                    ],
+                                  ),
+                                ),
+                                pw.Container(
+                                  padding: const pw.EdgeInsets.all(8),
+                                  decoration: const pw.BoxDecoration(
+                                      color: PdfColor.fromInt(0xFFEBE7C6)),
+                                  child: pw.Row(
+                                    mainAxisAlignment: pw.MainAxisAlignment
+                                        .spaceBetween,
+                                    children: [
+                                      pw.SizedBox(
+                                        width: 90,
+                                        child: pw.Text('Latitude'),
+                                      ),
+                                      pw.SizedBox(
+                                        width: 180,
+                                        child: pw.Text(
+                                            '${kundliBasicDetail!.lat}'),
+                                      )
+                                    ],
+                                  ),
+                                ),
+                                pw.Container(
+                                  padding: const pw.EdgeInsets.all(8),
+                                  decoration: const pw.BoxDecoration(
+                                    color: PdfColor.fromInt(0xFFFFFFFF),
+                                  ),
+                                  child: pw.Row(
+                                    mainAxisAlignment: pw.MainAxisAlignment
+                                        .spaceBetween,
+                                    children: [
+                                      pw.SizedBox(
+                                        width: 90,
+                                        child: pw.Text('Longitude'),
+                                      ),
+                                      pw.SizedBox(
+                                        width: 180,
+                                        child: pw.Text(
+                                            '${kundliBasicDetail!.lon}'),
+                                      )
+                                    ],
+                                  ),
+                                ),
+                                pw.Container(
+                                  padding: const pw.EdgeInsets.all(8),
+                                  decoration: const pw.BoxDecoration(
+                                      color: PdfColor.fromInt(0xFFEBE7C6)),
+                                  child: pw.Row(
+                                    mainAxisAlignment: pw.MainAxisAlignment
+                                        .spaceBetween,
+                                    children: [
+                                      pw.SizedBox(
+                                        width: 90,
+                                        child: pw.Text('Timezone'),
+                                      ),
+                                      pw.SizedBox(
+                                        width: 180,
+                                        child: pw.Text(
+                                            '${kundliBasicDetail!.tzone}'),
+                                      )
+                                    ],
+                                  ),
+                                ),
+                                pw.Container(
+                                  padding: const pw.EdgeInsets.all(8),
+                                  decoration: const pw.BoxDecoration(
+                                    color: PdfColor.fromInt(0xFFFFFFFF),
+                                  ),
+                                  child: pw.Row(
+                                    mainAxisAlignment: pw.MainAxisAlignment
+                                        .spaceBetween,
+                                    children: [
+                                      pw.SizedBox(
+                                        width: 90,
+                                        child: pw.Text('Sunrise'),
+                                      ),
+                                      pw.SizedBox(
+                                        width: 180,
+                                        child: pw.Text(
+                                            '${kundliBasicDetail!.sunrise}'),
+                                      )
+                                    ],
+                                  ),
+                                ),
+                                pw.Container(
+                                  padding: const pw.EdgeInsets.all(8),
+                                  decoration: const pw.BoxDecoration(
+                                      color: PdfColor.fromInt(0xFFEBE7C6)),
+                                  child: pw.Row(
+                                    mainAxisAlignment: pw.MainAxisAlignment
+                                        .spaceBetween,
+                                    children: [
+                                      pw.SizedBox(
+                                        width: 90,
+                                        child: pw.Text('Sunset'),
+                                      ),
+                                      pw.SizedBox(
+                                        width: 180,
+                                        child: pw.Text(
+                                            '${kundliBasicDetail!.sunset}'),
+                                      )
+                                    ],
+                                  ),
+                                ),
+                                pw.Container(
+                                  padding: const pw.EdgeInsets.all(8),
+                                  decoration: const pw.BoxDecoration(
+                                    color: PdfColor.fromInt(0xFFFFFFFF),
+                                  ),
+                                  child: pw.Row(
+                                    mainAxisAlignment: pw.MainAxisAlignment
+                                        .spaceBetween,
+                                    children: [
+                                      pw.SizedBox(
+                                        width: 90,
+                                        child: pw.Text('Ayanamsha'),
+                                      ),
+                                      pw.SizedBox(
+                                        width: 180,
+                                        child: pw.Text(
+                                            '${kundliBasicDetail!.ayanamsha}'),
+                                      )
+                                    ],
+                                  ),
+                                )
+                              ],
+                            )
+                                : pw.SizedBox()),
+                        pw.SizedBox(
+                          height: 10,
+                        ),
+                        pw.Text(
+                          'Maglik Analysis',
+                          style: pw.TextStyle(
+                            fontSize: 14,
+                            fontWeight: pw.FontWeight.bold,
+                            color: const PdfColor.fromInt(0xFF000000),
+                          ),
+                        ),
+                        pw.SizedBox(
+                          height: 10,
+                        ),
+                        pw.Container(
+                          padding: const pw.EdgeInsets.all(4),
+                          decoration: pw.BoxDecoration(
+                            border: pw.Border.all(
+                                color: const PdfColor.fromInt(0xFF4CAF50)),
+                            borderRadius: pw.BorderRadius.circular(5),
+                          ),
+                          child: pw.Row(
+                            children: [
+                              pw.Container(
+                                  height: 50,
+                                  width: 50,
+                                  alignment: pw.Alignment.center,
+                                  decoration: const pw.BoxDecoration(
+                                    color: PdfColor.fromInt(0xFF4CAF50),
+                                    //more than 50% of width makes circle
+                                  ),
+                                  child: pw.Text('NO', style: const pw
+                                      .TextStyle(color: PdfColor.fromInt(
+                                      0xFFFFFFFF)))),
+                              pw.SizedBox(
+                                width: 20,
                               ),
+                              pw.Text(userDetails.name,
+                                  style: const pw.TextStyle(
+                                      color: PdfColor.fromInt(0xFF000000)))
+                            ],
+                          ),
+                        ),
+                        pw.SizedBox(
+                          height: 10,
+                        ),
+                        pw.Text(
+                          'Panchang Details',
+                          style: pw.TextStyle(
+                            fontSize: 14,
+                            fontWeight: pw.FontWeight.bold,
+                            color: const PdfColor.fromInt(0xFF000000),
+                          ),
+                        ),
+                        pw.SizedBox(
+                          height: 15,
+                        ),
+                        pw.Container(
+                            padding: const pw.EdgeInsets.only(
+                                left: 1.5, right: 1.5),
+                            decoration: pw.BoxDecoration(
+                              // border: pw.Border.all(color: PdfColor.fromInt(0xFF000000)),
+                              borderRadius: pw.BorderRadius.circular(5),
                             ),
-                          ],
-                        )),
-                    pw.SizedBox(
-                      height: 10,
-                    ),
-                  ]),
+                            child: pw.Column(
+                              children: [
+                                pw.Container(
+                                  padding: const pw.EdgeInsets.all(8),
+                                  decoration: const pw.BoxDecoration(
+                                      color: PdfColor.fromInt(0xFFEBE7C6)),
+                                  child: pw.Row(
+                                    mainAxisAlignment: pw.MainAxisAlignment
+                                        .spaceBetween,
+                                    children: [
+                                      pw.SizedBox(
+                                        width: 90,
+                                        child: pw.Text('Tithi'),
+                                      ),
+                                      pw.SizedBox(
+                                        width: 180,
+                                        child: pw.Text(
+                                            '${kundliBasicPanchangDetail!
+                                                .tithi}'),
+                                      )
+                                    ],
+                                  ),
+                                ),
+                                pw.Container(
+                                  padding: const pw.EdgeInsets.all(8),
+                                  decoration: const pw.BoxDecoration(
+                                    color: PdfColor.fromInt(0xFFFFFFFF),
+                                  ),
+                                  child: pw.Row(
+                                    mainAxisAlignment: pw.MainAxisAlignment
+                                        .spaceBetween,
+                                    children: [
+                                      pw.SizedBox(
+                                        width: 90,
+                                        child: pw.Text('Karan'),
+                                      ),
+                                      pw.SizedBox(
+                                        width: 180,
+                                        child: pw.Text(
+                                            '${kundliBasicPanchangDetail!
+                                                .karan}'),
+                                      )
+                                    ],
+                                  ),
+                                ),
+                                pw.Container(
+                                  padding: const pw.EdgeInsets.all(8),
+                                  decoration: const pw.BoxDecoration(
+                                      color: PdfColor.fromInt(0xFFEBE7C6)),
+                                  child: pw.Row(
+                                    mainAxisAlignment: pw.MainAxisAlignment
+                                        .spaceBetween,
+                                    children: [
+                                      pw.SizedBox(
+                                        width: 90,
+                                        child: pw.Text('Yog'),
+                                      ),
+                                      pw.SizedBox(
+                                        width: 180,
+                                        child: pw.Text(
+                                          // ignore: prefer_if_null_operators
+                                          '${kundliBasicPanchangDetail!.yog !=
+                                              null ? kundliBasicPanchangDetail!
+                                              .yog : '--'}',
+                                        ),
+                                      )
+                                    ],
+                                  ),
+                                ),
+                                pw.Container(
+                                  padding: const pw.EdgeInsets.all(8),
+                                  decoration: const pw.BoxDecoration(
+                                    color: PdfColor.fromInt(0xFFFFFFFF),
+                                  ),
+                                  child: pw.Row(
+                                    mainAxisAlignment: pw.MainAxisAlignment
+                                        .spaceBetween,
+                                    children: [
+                                      pw.SizedBox(
+                                        width: 90,
+                                        child: pw.Text('Nakshtra'),
+                                      ),
+                                      pw.SizedBox(
+                                        width: 180,
+                                        child: pw.Text(
+                                            '${kundliBasicPanchangDetail!
+                                                .nakshatra}'),
+                                      )
+                                    ],
+                                  ),
+                                ),
+                                pw.Container(
+                                  padding: const pw.EdgeInsets.all(8),
+                                  decoration: const pw.BoxDecoration(
+                                      color: PdfColor.fromInt(0xFFEBE7C6)),
+                                  child: pw.Row(
+                                    mainAxisAlignment: pw.MainAxisAlignment
+                                        .spaceBetween,
+                                    children: [
+                                      pw.SizedBox(
+                                        width: 90,
+                                        child: pw.Text('Sunrise'),
+                                      ),
+                                      pw.SizedBox(
+                                        width: 180,
+                                        child: pw.Text(
+                                            '${kundliBasicPanchangDetail!
+                                                .sunrise}'),
+                                      )
+                                    ],
+                                  ),
+                                ),
+                                pw.Container(
+                                  padding: const pw.EdgeInsets.all(8),
+                                  decoration: const pw.BoxDecoration(
+                                    color: PdfColor.fromInt(0xFFFFFFFF),
+                                  ),
+                                  child: pw.Row(
+                                    mainAxisAlignment: pw.MainAxisAlignment
+                                        .spaceBetween,
+                                    children: [
+                                      pw.SizedBox(
+                                        width: 90,
+                                        child: pw.Text('Sunset'),
+                                      ),
+                                      pw.SizedBox(
+                                        width: 180,
+                                        child: pw.Text(
+                                            '${kundliBasicPanchangDetail!
+                                                .sunset}'),
+                                      )
+                                    ],
+                                  ),
+                                ),
+                              ],
+                            )),
+                        pw.SizedBox(
+                          height: 10,
+                        ),
+                      ]),
                 )),
       );
 
       pdf.addPage(pw.Page(
-        build: (context) => pw.Padding(
-            padding: const pw.EdgeInsets.all(10),
-            child: pw.Column(crossAxisAlignment: pw.CrossAxisAlignment.start, children: [
-              pw.Text(
-                'Avakhada Details',
-                style: pw.TextStyle(
-                  fontSize: 14,
-                  fontWeight: pw.FontWeight.bold,
-                  color: const PdfColor.fromInt(0xFF000000),
-                ),
-              ),
-              pw.SizedBox(
-                height: 15,
-              ),
-              pw.Container(
-                  padding: const pw.EdgeInsets.only(left: 1.5, right: 1.5),
-                  decoration: pw.BoxDecoration(
-                    //border: pw.Border.all(color: PdfColor.fromInt(0xFF000000)),
-                    borderRadius: pw.BorderRadius.circular(5),
+        build: (context) =>
+            pw.Padding(
+                padding: const pw.EdgeInsets.all(10),
+                child: pw.Column(
+                    crossAxisAlignment: pw.CrossAxisAlignment.start, children: [
+                  pw.Text(
+                    'Avakhada Details',
+                    style: pw.TextStyle(
+                      fontSize: 14,
+                      fontWeight: pw.FontWeight.bold,
+                      color: const PdfColor.fromInt(0xFF000000),
+                    ),
                   ),
-                  child: pw.Column(
-                    children: [
-                      pw.Container(
-                        padding: const pw.EdgeInsets.all(8),
-                        decoration: const pw.BoxDecoration(color: PdfColor.fromInt(0xFFEBE7C6)),
-                        child: pw.Row(
-                          mainAxisAlignment: pw.MainAxisAlignment.spaceBetween,
-                          children: [
-                            pw.SizedBox(
-                              width: 90,
-                              child: pw.Text('Varna'),
-                            ),
-                            pw.SizedBox(
-                              width: 180,
-                              child: pw.Text('${kundliAvakhadaDetail!.varna}'),
-                            )
-                          ],
-                        ),
+                  pw.SizedBox(
+                    height: 15,
+                  ),
+                  pw.Container(
+                      padding: const pw.EdgeInsets.only(left: 1.5, right: 1.5),
+                      decoration: pw.BoxDecoration(
+                        //border: pw.Border.all(color: PdfColor.fromInt(0xFF000000)),
+                        borderRadius: pw.BorderRadius.circular(5),
                       ),
-                      pw.Container(
-                        padding: const pw.EdgeInsets.all(8),
-                        decoration: const pw.BoxDecoration(
-                          color: PdfColor.fromInt(0xFFFFFFFF),
-                        ),
-                        child: pw.Row(
-                          mainAxisAlignment: pw.MainAxisAlignment.spaceBetween,
-                          children: [
-                            pw.SizedBox(
-                              width: 90,
-                              child: pw.Text('Vashya'),
+                      child: pw.Column(
+                        children: [
+                          pw.Container(
+                            padding: const pw.EdgeInsets.all(8),
+                            decoration: const pw.BoxDecoration(
+                                color: PdfColor.fromInt(0xFFEBE7C6)),
+                            child: pw.Row(
+                              mainAxisAlignment: pw.MainAxisAlignment
+                                  .spaceBetween,
+                              children: [
+                                pw.SizedBox(
+                                  width: 90,
+                                  child: pw.Text('Varna'),
+                                ),
+                                pw.SizedBox(
+                                  width: 180,
+                                  child: pw.Text(
+                                      '${kundliAvakhadaDetail!.varna}'),
+                                )
+                              ],
                             ),
-                            pw.SizedBox(
-                              width: 180,
-                              child: pw.Text(
-                                "${kundliAvakhadaDetail!.vashya}",
-                              ),
-                            )
-                          ],
-                        ),
-                      ),
-                      pw.Container(
-                        padding: const pw.EdgeInsets.all(8),
-                        decoration: const pw.BoxDecoration(color: PdfColor.fromInt(0xFFEBE7C6)),
-                        child: pw.Row(
-                          mainAxisAlignment: pw.MainAxisAlignment.spaceBetween,
-                          children: [
-                            pw.SizedBox(
-                              width: 90,
-                              child: pw.Text('Yoni'),
+                          ),
+                          pw.Container(
+                            padding: const pw.EdgeInsets.all(8),
+                            decoration: const pw.BoxDecoration(
+                              color: PdfColor.fromInt(0xFFFFFFFF),
                             ),
-                            pw.SizedBox(
-                              width: 180,
-                              child: pw.Text(
-                                "${kundliAvakhadaDetail!.yoni}",
-                              ),
-                            )
-                          ],
-                        ),
-                      ),
-                      pw.Container(
-                        padding: const pw.EdgeInsets.all(8),
-                        decoration: const pw.BoxDecoration(
-                          color: PdfColor.fromInt(0xFFFFFFFF),
-                        ),
-                        child: pw.Row(
-                          mainAxisAlignment: pw.MainAxisAlignment.spaceBetween,
-                          children: [
-                            pw.SizedBox(
-                              width: 90,
-                              child: pw.Text('Gan'),
+                            child: pw.Row(
+                              mainAxisAlignment: pw.MainAxisAlignment
+                                  .spaceBetween,
+                              children: [
+                                pw.SizedBox(
+                                  width: 90,
+                                  child: pw.Text('Vashya'),
+                                ),
+                                pw.SizedBox(
+                                  width: 180,
+                                  child: pw.Text(
+                                    "${kundliAvakhadaDetail!.vashya}",
+                                  ),
+                                )
+                              ],
                             ),
-                            pw.SizedBox(
-                              width: 180,
-                              child: pw.Text('${kundliAvakhadaDetail!.gan}'),
-                            )
-                          ],
-                        ),
-                      ),
-                      pw.Container(
-                        padding: const pw.EdgeInsets.all(8),
-                        decoration: const pw.BoxDecoration(color: PdfColor.fromInt(0xFFEBE7C6)),
-                        child: pw.Row(
-                          mainAxisAlignment: pw.MainAxisAlignment.spaceBetween,
-                          children: [
-                            pw.SizedBox(
-                              width: 90,
-                              child: pw.Text('Nadi'),
+                          ),
+                          pw.Container(
+                            padding: const pw.EdgeInsets.all(8),
+                            decoration: const pw.BoxDecoration(
+                                color: PdfColor.fromInt(0xFFEBE7C6)),
+                            child: pw.Row(
+                              mainAxisAlignment: pw.MainAxisAlignment
+                                  .spaceBetween,
+                              children: [
+                                pw.SizedBox(
+                                  width: 90,
+                                  child: pw.Text('Yoni'),
+                                ),
+                                pw.SizedBox(
+                                  width: 180,
+                                  child: pw.Text(
+                                    "${kundliAvakhadaDetail!.yoni}",
+                                  ),
+                                )
+                              ],
                             ),
-                            pw.SizedBox(
-                              width: 180,
-                              child: pw.Text('${kundliAvakhadaDetail!.nadi}'),
-                            )
-                          ],
-                        ),
-                      ),
-                      pw.Container(
-                        padding: const pw.EdgeInsets.all(8),
-                        decoration: const pw.BoxDecoration(
-                          color: PdfColor.fromInt(0xFFFFFFFF),
-                        ),
-                        child: pw.Row(
-                          mainAxisAlignment: pw.MainAxisAlignment.spaceBetween,
-                          children: [
-                            pw.SizedBox(
-                              width: 90,
-                              child: pw.Text('Sign'),
+                          ),
+                          pw.Container(
+                            padding: const pw.EdgeInsets.all(8),
+                            decoration: const pw.BoxDecoration(
+                              color: PdfColor.fromInt(0xFFFFFFFF),
                             ),
-                            pw.SizedBox(
-                              width: 180,
-                              child: pw.Text('${kundliAvakhadaDetail!.sign}'),
-                            )
-                          ],
-                        ),
-                      ),
-                      pw.Container(
-                        padding: const pw.EdgeInsets.all(8),
-                        decoration: const pw.BoxDecoration(color: PdfColor.fromInt(0xFFEBE7C6)),
-                        child: pw.Row(
-                          mainAxisAlignment: pw.MainAxisAlignment.spaceBetween,
-                          children: [
-                            pw.SizedBox(
-                              width: 90,
-                              child: pw.Text('Sign Lord'),
+                            child: pw.Row(
+                              mainAxisAlignment: pw.MainAxisAlignment
+                                  .spaceBetween,
+                              children: [
+                                pw.SizedBox(
+                                  width: 90,
+                                  child: pw.Text('Gan'),
+                                ),
+                                pw.SizedBox(
+                                  width: 180,
+                                  child: pw.Text(
+                                      '${kundliAvakhadaDetail!.gan}'),
+                                )
+                              ],
                             ),
-                            pw.SizedBox(
-                              width: 180,
-                              child: pw.Text('${kundliAvakhadaDetail!.signLord}'),
-                            )
-                          ],
-                        ),
-                      ),
-                      pw.Container(
-                        padding: const pw.EdgeInsets.all(8),
-                        decoration: const pw.BoxDecoration(
-                          color: PdfColor.fromInt(0xFFFFFFFF),
-                        ),
-                        child: pw.Row(
-                          mainAxisAlignment: pw.MainAxisAlignment.spaceBetween,
-                          children: [
-                            pw.SizedBox(
-                              child: pw.Text('Nakshatra-Charan'),
+                          ),
+                          pw.Container(
+                            padding: const pw.EdgeInsets.all(8),
+                            decoration: const pw.BoxDecoration(
+                                color: PdfColor.fromInt(0xFFEBE7C6)),
+                            child: pw.Row(
+                              mainAxisAlignment: pw.MainAxisAlignment
+                                  .spaceBetween,
+                              children: [
+                                pw.SizedBox(
+                                  width: 90,
+                                  child: pw.Text('Nadi'),
+                                ),
+                                pw.SizedBox(
+                                  width: 180,
+                                  child: pw.Text(
+                                      '${kundliAvakhadaDetail!.nadi}'),
+                                )
+                              ],
                             ),
-                            pw.SizedBox(
-                              width: 180,
-                              child: pw.Text('${kundliAvakhadaDetail!.naksahtra}'),
-                            )
-                          ],
-                        ),
-                      ),
-                      pw.Container(
-                        padding: const pw.EdgeInsets.all(8),
-                        decoration: const pw.BoxDecoration(color: PdfColor.fromInt(0xFFEBE7C6)),
-                        child: pw.Row(
-                          mainAxisAlignment: pw.MainAxisAlignment.spaceBetween,
-                          children: [
-                            pw.SizedBox(
-                              width: 90,
-                              child: pw.Text('Yog'),
+                          ),
+                          pw.Container(
+                            padding: const pw.EdgeInsets.all(8),
+                            decoration: const pw.BoxDecoration(
+                              color: PdfColor.fromInt(0xFFFFFFFF),
                             ),
-                            pw.SizedBox(
-                              width: 180,
-                              child: pw.Text('${kundliAvakhadaDetail!.yog}'),
-                            )
-                          ],
-                        ),
-                      ),
-                      pw.Container(
-                        padding: const pw.EdgeInsets.all(8),
-                        decoration: const pw.BoxDecoration(
-                          color: PdfColor.fromInt(0xFFFFFFFF),
-                        ),
-                        child: pw.Row(
-                          mainAxisAlignment: pw.MainAxisAlignment.spaceBetween,
-                          children: [
-                            pw.SizedBox(
-                              width: 90,
-                              child: pw.Text('Karan'),
+                            child: pw.Row(
+                              mainAxisAlignment: pw.MainAxisAlignment
+                                  .spaceBetween,
+                              children: [
+                                pw.SizedBox(
+                                  width: 90,
+                                  child: pw.Text('Sign'),
+                                ),
+                                pw.SizedBox(
+                                  width: 180,
+                                  child: pw.Text(
+                                      '${kundliAvakhadaDetail!.sign}'),
+                                )
+                              ],
                             ),
-                            pw.SizedBox(
-                              width: 180,
-                              child: pw.Text('${kundliAvakhadaDetail!.karan}'),
-                            )
-                          ],
-                        ),
-                      ),
-                      pw.Container(
-                        padding: const pw.EdgeInsets.all(8),
-                        decoration: const pw.BoxDecoration(color: PdfColor.fromInt(0xFFEBE7C6)),
-                        child: pw.Row(
-                          mainAxisAlignment: pw.MainAxisAlignment.spaceBetween,
-                          children: [
-                            pw.SizedBox(
-                              width: 90,
-                              child: pw.Text('Tithi'),
+                          ),
+                          pw.Container(
+                            padding: const pw.EdgeInsets.all(8),
+                            decoration: const pw.BoxDecoration(
+                                color: PdfColor.fromInt(0xFFEBE7C6)),
+                            child: pw.Row(
+                              mainAxisAlignment: pw.MainAxisAlignment
+                                  .spaceBetween,
+                              children: [
+                                pw.SizedBox(
+                                  width: 90,
+                                  child: pw.Text('Sign Lord'),
+                                ),
+                                pw.SizedBox(
+                                  width: 180,
+                                  child: pw.Text(
+                                      '${kundliAvakhadaDetail!.signLord}'),
+                                )
+                              ],
                             ),
-                            pw.SizedBox(
-                              width: 180,
-                              child: pw.Text('${kundliAvakhadaDetail!.tithi}'),
-                            )
-                          ],
-                        ),
-                      ),
-                      pw.Container(
-                        padding: const pw.EdgeInsets.all(8),
-                        decoration: const pw.BoxDecoration(color: PdfColor.fromInt(0xFFFFFFFF)),
-                        child: pw.Row(
-                          mainAxisAlignment: pw.MainAxisAlignment.spaceBetween,
-                          children: [
-                            pw.SizedBox(
-                              width: 90,
-                              child: pw.Text('Yunja'),
+                          ),
+                          pw.Container(
+                            padding: const pw.EdgeInsets.all(8),
+                            decoration: const pw.BoxDecoration(
+                              color: PdfColor.fromInt(0xFFFFFFFF),
                             ),
-                            pw.SizedBox(
-                              width: 180,
-                              child: pw.Text('${kundliAvakhadaDetail!.yunja}'),
-                            )
-                          ],
-                        ),
-                      ),
-                      pw.Container(
-                        padding: const pw.EdgeInsets.all(8),
-                        decoration: const pw.BoxDecoration(color: PdfColor.fromInt(0xFFEBE7C6)),
-                        child: pw.Row(
-                          mainAxisAlignment: pw.MainAxisAlignment.spaceBetween,
-                          children: [
-                            pw.SizedBox(
-                              width: 90,
-                              child: pw.Text('Tatva'),
+                            child: pw.Row(
+                              mainAxisAlignment: pw.MainAxisAlignment
+                                  .spaceBetween,
+                              children: [
+                                pw.SizedBox(
+                                  child: pw.Text('Nakshatra-Charan'),
+                                ),
+                                pw.SizedBox(
+                                  width: 180,
+                                  child: pw.Text(
+                                      '${kundliAvakhadaDetail!.naksahtra}'),
+                                )
+                              ],
                             ),
-                            pw.SizedBox(
-                              width: 180,
-                              child: pw.Text('${kundliAvakhadaDetail!.tatva}'),
-                            )
-                          ],
-                        ),
-                      ),
-                      pw.Container(
-                        padding: const pw.EdgeInsets.all(8),
-                        decoration: const pw.BoxDecoration(color: PdfColor.fromInt(0xFFFFFFFF)),
-                        child: pw.Row(
-                          mainAxisAlignment: pw.MainAxisAlignment.spaceBetween,
-                          children: [
-                            pw.SizedBox(
-                              // width: 100,
-                              child: pw.Text('Name albhabet'),
+                          ),
+                          pw.Container(
+                            padding: const pw.EdgeInsets.all(8),
+                            decoration: const pw.BoxDecoration(
+                                color: PdfColor.fromInt(0xFFEBE7C6)),
+                            child: pw.Row(
+                              mainAxisAlignment: pw.MainAxisAlignment
+                                  .spaceBetween,
+                              children: [
+                                pw.SizedBox(
+                                  width: 90,
+                                  child: pw.Text('Yog'),
+                                ),
+                                pw.SizedBox(
+                                  width: 180,
+                                  child: pw.Text(
+                                      '${kundliAvakhadaDetail!.yog}'),
+                                )
+                              ],
                             ),
-                            pw.SizedBox(
-                              width: 180,
-                              child: pw.Text('${kundliAvakhadaDetail!.nameAlphabet}'),
-                            )
-                          ],
-                        ),
-                      ),
-                      pw.Container(
-                        padding: const pw.EdgeInsets.all(8),
-                        decoration: const pw.BoxDecoration(color: PdfColor.fromInt(0xFFEBE7C6)),
-                        child: pw.Row(
-                          mainAxisAlignment: pw.MainAxisAlignment.spaceBetween,
-                          children: [
-                            pw.SizedBox(
-                              width: 90,
-                              child: pw.Text('Paya'),
+                          ),
+                          pw.Container(
+                            padding: const pw.EdgeInsets.all(8),
+                            decoration: const pw.BoxDecoration(
+                              color: PdfColor.fromInt(0xFFFFFFFF),
                             ),
-                            pw.SizedBox(
-                              width: 180,
-                              child: pw.Text('${kundliAvakhadaDetail!.paya}'),
-                            )
-                          ],
-                        ),
-                      )
-                    ],
-                  )),
-            ])),
+                            child: pw.Row(
+                              mainAxisAlignment: pw.MainAxisAlignment
+                                  .spaceBetween,
+                              children: [
+                                pw.SizedBox(
+                                  width: 90,
+                                  child: pw.Text('Karan'),
+                                ),
+                                pw.SizedBox(
+                                  width: 180,
+                                  child: pw.Text(
+                                      '${kundliAvakhadaDetail!.karan}'),
+                                )
+                              ],
+                            ),
+                          ),
+                          pw.Container(
+                            padding: const pw.EdgeInsets.all(8),
+                            decoration: const pw.BoxDecoration(
+                                color: PdfColor.fromInt(0xFFEBE7C6)),
+                            child: pw.Row(
+                              mainAxisAlignment: pw.MainAxisAlignment
+                                  .spaceBetween,
+                              children: [
+                                pw.SizedBox(
+                                  width: 90,
+                                  child: pw.Text('Tithi'),
+                                ),
+                                pw.SizedBox(
+                                  width: 180,
+                                  child: pw.Text(
+                                      '${kundliAvakhadaDetail!.tithi}'),
+                                )
+                              ],
+                            ),
+                          ),
+                          pw.Container(
+                            padding: const pw.EdgeInsets.all(8),
+                            decoration: const pw.BoxDecoration(
+                                color: PdfColor.fromInt(0xFFFFFFFF)),
+                            child: pw.Row(
+                              mainAxisAlignment: pw.MainAxisAlignment
+                                  .spaceBetween,
+                              children: [
+                                pw.SizedBox(
+                                  width: 90,
+                                  child: pw.Text('Yunja'),
+                                ),
+                                pw.SizedBox(
+                                  width: 180,
+                                  child: pw.Text(
+                                      '${kundliAvakhadaDetail!.yunja}'),
+                                )
+                              ],
+                            ),
+                          ),
+                          pw.Container(
+                            padding: const pw.EdgeInsets.all(8),
+                            decoration: const pw.BoxDecoration(
+                                color: PdfColor.fromInt(0xFFEBE7C6)),
+                            child: pw.Row(
+                              mainAxisAlignment: pw.MainAxisAlignment
+                                  .spaceBetween,
+                              children: [
+                                pw.SizedBox(
+                                  width: 90,
+                                  child: pw.Text('Tatva'),
+                                ),
+                                pw.SizedBox(
+                                  width: 180,
+                                  child: pw.Text(
+                                      '${kundliAvakhadaDetail!.tatva}'),
+                                )
+                              ],
+                            ),
+                          ),
+                          pw.Container(
+                            padding: const pw.EdgeInsets.all(8),
+                            decoration: const pw.BoxDecoration(
+                                color: PdfColor.fromInt(0xFFFFFFFF)),
+                            child: pw.Row(
+                              mainAxisAlignment: pw.MainAxisAlignment
+                                  .spaceBetween,
+                              children: [
+                                pw.SizedBox(
+                                  // width: 100,
+                                  child: pw.Text('Name albhabet'),
+                                ),
+                                pw.SizedBox(
+                                  width: 180,
+                                  child: pw.Text(
+                                      '${kundliAvakhadaDetail!.nameAlphabet}'),
+                                )
+                              ],
+                            ),
+                          ),
+                          pw.Container(
+                            padding: const pw.EdgeInsets.all(8),
+                            decoration: const pw.BoxDecoration(
+                                color: PdfColor.fromInt(0xFFEBE7C6)),
+                            child: pw.Row(
+                              mainAxisAlignment: pw.MainAxisAlignment
+                                  .spaceBetween,
+                              children: [
+                                pw.SizedBox(
+                                  width: 90,
+                                  child: pw.Text('Paya'),
+                                ),
+                                pw.SizedBox(
+                                  width: 180,
+                                  child: pw.Text(
+                                      '${kundliAvakhadaDetail!.paya}'),
+                                )
+                              ],
+                            ),
+                          )
+                        ],
+                      )),
+                ])),
       ));
 
       pdf.addPage(pw.Page(
-        build: (context) => pw.Padding(
-            padding: const pw.EdgeInsets.all(10),
-            child: pw.Column(
-              crossAxisAlignment: pw.CrossAxisAlignment.start,
-              children: [
-                pw.Text(
-                  'Charts',
-                  style: pw.TextStyle(
-                    fontSize: 14,
-                    fontWeight: pw.FontWeight.bold,
-                    color: const PdfColor.fromInt(0xFF000000),
-                  ),
-                ),
-                pw.SizedBox(
-                  height: 15,
-                ),
-                pw.Text(
-                  'Planets',
-                  style: const pw.TextStyle(
-                    fontSize: 12,
-                    color: PdfColor.fromInt(0xFF000000),
-                  ),
-                ),
-                pw.SizedBox(
-                  height: 10,
-                ),
-                pw.Text(
-                  '1.Sign',
-                  style: const pw.TextStyle(
-                    fontSize: 11,
-                    color: PdfColor.fromInt(0xFF000000),
-                  ),
-                ),
-                pw.SizedBox(
-                  height: 10,
-                ),
-                pw.Table(
-                  children: [
-                    pw.TableRow(
-                      decoration: pw.BoxDecoration(
-                        color: const PdfColor.fromInt(0xFFEBE7C6),
-                        border: pw.Border.all(
-                          color: const PdfColor.fromInt(0xFF000000),
-                        ),
-                      ),
-                      children: [
-                        pw.Container(
-                          alignment: pw.Alignment.center,
-                          child: pw.Text(
-                            'Planet',
-                            style: pw.TextStyle(
-                              fontSize: 14,
-                              fontWeight: pw.FontWeight.bold,
-                              color: const PdfColor.fromInt(0xFF000000),
-                            ),
-                          ),
-                        ),
-                        pw.Container(
-                          alignment: pw.Alignment.center,
-                          child: pw.Text(
-                            'Sign',
-                            style: pw.TextStyle(
-                              fontSize: 14,
-                              fontWeight: pw.FontWeight.bold,
-                              color: const PdfColor.fromInt(0xFF000000),
-                            ),
-                          ),
-                        ),
-                        pw.Container(
-                          alignment: pw.Alignment.center,
-                          child: pw.Text(
-                            'Sign lord',
-                            style: pw.TextStyle(
-                              fontSize: 14,
-                              fontWeight: pw.FontWeight.bold,
-                              color: const PdfColor.fromInt(0xFF000000),
-                            ),
-                          ),
-                        ),
-                        pw.Container(
-                          alignment: pw.Alignment.center,
-                          child: pw.Text(
-                            'Dgrees',
-                            style: pw.TextStyle(
-                              fontSize: 14,
-                              fontWeight: pw.FontWeight.bold,
-                              color: const PdfColor.fromInt(0xFF000000),
-                            ),
-                          ),
-                        ),
-                        pw.Container(
-                          alignment: pw.Alignment.center,
-                          child: pw.Text(
-                            'House',
-                            style: pw.TextStyle(
-                              fontSize: 14,
-                              fontWeight: pw.FontWeight.bold,
-                              color: const PdfColor.fromInt(0xFF000000),
-                            ),
-                          ),
-                        ),
-                      ],
-                    ),
-                    pw.TableRow(
-                      decoration: pw.BoxDecoration(border: pw.Border.all(color: const PdfColor.fromInt(0xFF000000))),
-                      children: [
-                        pw.Center(child: pw.Text('${ascendantDetails.name}')),
-                        pw.Center(child: pw.Text('${ascendantDetails.sign}')),
-                        pw.Center(
-                          child: pw.Text('${ascendantDetails.signLord}'),
-                        ),
-                        pw.Center(
-                          child: pw.Text(ascendantDetails.fullDegree!.toStringAsFixed(2)),
-                        ),
-                        pw.Center(
-                          child: pw.Text('${ascendantDetails.house}'),
-                        ),
-                      ],
-                    ),
-                    pw.TableRow(
-                      decoration: pw.BoxDecoration(border: pw.Border.all(color: const PdfColor.fromInt(0xFF000000))),
-                      children: [
-                        pw.Center(child: pw.Text('${sunDetails.name}')),
-                        pw.Center(child: pw.Text('${sunDetails.sign}')),
-                        pw.Center(child: pw.Text('${sunDetails.signLord}')),
-                        pw.Center(child: pw.Text(sunDetails.fullDegree!.toStringAsFixed(2))),
-                        pw.Center(child: pw.Text('${sunDetails.house}')),
-                      ],
-                    ),
-                    pw.TableRow(
-                      decoration: pw.BoxDecoration(border: pw.Border.all(color: const PdfColor.fromInt(0xFF000000))),
-                      children: [
-                        pw.Center(child: pw.Text('${moonDetails.name}')),
-                        pw.Center(child: pw.Text('${moonDetails.sign}')),
-                        pw.Center(
-                          child: pw.Text('${moonDetails.signLord}'),
-                        ),
-                        pw.Center(
-                          child: pw.Text(moonDetails.fullDegree!.toStringAsFixed(2)),
-                        ),
-                        pw.Center(
-                          child: pw.Text('${moonDetails.house}'),
-                        ),
-                      ],
-                    ),
-                    pw.TableRow(
-                      decoration: pw.BoxDecoration(border: pw.Border.all(color: const PdfColor.fromInt(0xFF000000))),
-                      children: [
-                        pw.Center(child: pw.Text('${mercuryDetails.name}')),
-                        pw.Center(child: pw.Text('${mercuryDetails.sign}')),
-                        pw.Center(
-                          child: pw.Text('${mercuryDetails.signLord}'),
-                        ),
-                        pw.Center(
-                          child: pw.Text(mercuryDetails.fullDegree!.toStringAsFixed(2)),
-                        ),
-                        pw.Center(
-                          child: pw.Text('${mercuryDetails.house}'),
-                        ),
-                      ],
-                    ),
-                    pw.TableRow(
-                      decoration: pw.BoxDecoration(border: pw.Border.all(color: const PdfColor.fromInt(0xFF000000))),
-                      children: [
-                        pw.Center(child: pw.Text('${venusDetails.name}')),
-                        pw.Center(child: pw.Text('${venusDetails.sign}')),
-                        pw.Center(
-                          child: pw.Text('${venusDetails.signLord}'),
-                        ),
-                        pw.Center(
-                          child: pw.Text(venusDetails.fullDegree!.toStringAsFixed(2)),
-                        ),
-                        pw.Center(
-                          child: pw.Text('${venusDetails.house}'),
-                        ),
-                      ],
-                    ),
-                    pw.TableRow(
-                      decoration: pw.BoxDecoration(border: pw.Border.all(color: const PdfColor.fromInt(0xFF000000))),
-                      children: [
-                        pw.Center(child: pw.Text('${marsDetails.name}')),
-                        pw.Center(child: pw.Text('${marsDetails.sign}')),
-                        pw.Center(
-                          child: pw.Text('${marsDetails.signLord}'),
-                        ),
-                        pw.Center(
-                          child: pw.Text(marsDetails.fullDegree!.toStringAsFixed(2)),
-                        ),
-                        pw.Center(
-                          child: pw.Text('${marsDetails.house}'),
-                        ),
-                      ],
-                    ),
-                    pw.TableRow(
-                      decoration: pw.BoxDecoration(border: pw.Border.all(color: const PdfColor.fromInt(0xFF000000))),
-                      children: [
-                        pw.Center(child: pw.Text('${jupiterDetails.name}')),
-                        pw.Center(child: pw.Text('${jupiterDetails.sign}')),
-                        pw.Center(
-                          child: pw.Text('${jupiterDetails.signLord}'),
-                        ),
-                        pw.Center(
-                          child: pw.Text(jupiterDetails.fullDegree!.toStringAsFixed(2)),
-                        ),
-                        pw.Center(
-                          child: pw.Text('${jupiterDetails.house}'),
-                        ),
-                      ],
-                    ),
-                    pw.TableRow(
-                      decoration: pw.BoxDecoration(border: pw.Border.all(color: const PdfColor.fromInt(0xFF000000))),
-                      children: [
-                        pw.Center(child: pw.Text('${saturnDetails.name}')),
-                        pw.Center(child: pw.Text('${saturnDetails.sign}')),
-                        pw.Center(
-                          child: pw.Text('${saturnDetails.signLord}'),
-                        ),
-                        pw.Center(
-                          child: pw.Text(saturnDetails.fullDegree!.toStringAsFixed(2)),
-                        ),
-                        pw.Center(
-                          child: pw.Text('${saturnDetails.house}'),
-                        ),
-                      ],
-                    ),
-                    pw.TableRow(
-                      decoration: pw.BoxDecoration(border: pw.Border.all(color: const PdfColor.fromInt(0xFF000000))),
-                      children: [
-                        pw.Center(child: pw.Text('${rahuDetails.name}')),
-                        pw.Center(child: pw.Text('${rahuDetails.sign}')),
-                        pw.Center(
-                          child: pw.Text('${rahuDetails.signLord}'),
-                        ),
-                        pw.Center(
-                          child: pw.Text(rahuDetails.fullDegree!.toStringAsFixed(2)),
-                        ),
-                        pw.Center(
-                          child: pw.Text('${rahuDetails.house}'),
-                        ),
-                      ],
-                    ),
-                    pw.TableRow(
-                      decoration: pw.BoxDecoration(border: pw.Border.all(color: const PdfColor.fromInt(0xFF000000))),
-                      children: [
-                        pw.Center(child: pw.Text('${ketuDetails.name}')),
-                        pw.Center(child: pw.Text('${ketuDetails.sign}')),
-                        pw.Center(
-                          child: pw.Text('${ketuDetails.signLord}'),
-                        ),
-                        pw.Center(
-                          child: pw.Text(ketuDetails.fullDegree!.toStringAsFixed(2)),
-                        ),
-                        pw.Center(
-                          child: pw.Text('${ketuDetails.house}'),
-                        ),
-                      ],
-                    ),
-                  ],
-                ),
-                pw.SizedBox(
-                  height: 15,
-                ),
-                pw.Text(
-                  '2.Constellation',
-                  style: const pw.TextStyle(
-                    fontSize: 11,
-                    color: PdfColor.fromInt(0xFF000000),
-                  ),
-                ),
-                pw.SizedBox(
-                  height: 10,
-                ),
-                pw.Table(
-                  children: [
-                    pw.TableRow(
-                      decoration: pw.BoxDecoration(
-                        color: const PdfColor.fromInt(0xFFEBE7C6),
-                        border: pw.Border.all(
-                          color: const PdfColor.fromInt(0xFF000000),
-                        ),
-                      ),
-                      children: [
-                        pw.Container(
-                          alignment: pw.Alignment.center,
-                          child: pw.Text(
-                            'Planet',
-                            style: pw.TextStyle(
-                              fontSize: 14,
-                              fontWeight: pw.FontWeight.bold,
-                              color: const PdfColor.fromInt(0xFF000000),
-                            ),
-                          ),
-                        ),
-                        pw.Container(
-                          alignment: pw.Alignment.center,
-                          child: pw.Text(
-                            'Nakshatra',
-                            style: pw.TextStyle(
-                              fontSize: 14,
-                              fontWeight: pw.FontWeight.bold,
-                              color: const PdfColor.fromInt(0xFF000000),
-                            ),
-                          ),
-                        ),
-                        pw.Container(
-                          alignment: pw.Alignment.center,
-                          child: pw.Text(
-                            'Nakshatra lord',
-                            style: pw.TextStyle(
-                              fontSize: 14,
-                              fontWeight: pw.FontWeight.bold,
-                              color: const PdfColor.fromInt(0xFF000000),
-                            ),
-                          ),
-                        ),
-                        pw.Container(
-                          alignment: pw.Alignment.center,
-                          child: pw.Text(
-                            'House',
-                            style: pw.TextStyle(
-                              fontSize: 14,
-                              fontWeight: pw.FontWeight.bold,
-                              color: const PdfColor.fromInt(0xFF000000),
-                            ),
-                          ),
-                        ),
-                      ],
-                    ),
-                    pw.TableRow(
-                      decoration: pw.BoxDecoration(border: pw.Border.all(color: const PdfColor.fromInt(0xFF000000))),
-                      children: [
-                        pw.Center(child: pw.Text('${ascendantDetails.name}')),
-                        pw.Center(child: pw.Text('${ascendantDetails.nakshatra}')),
-                        pw.Center(
-                          child: pw.Text('${ascendantDetails.nakshatraLord}'),
-                        ),
-                        pw.Center(
-                          child: pw.Text('${ascendantDetails.house!}'),
-                        ),
-                      ],
-                    ),
-                    pw.TableRow(
-                      decoration: pw.BoxDecoration(border: pw.Border.all(color: const PdfColor.fromInt(0xFF000000))),
-                      children: [
-                        pw.Center(child: pw.Text('${sunDetails.name}')),
-                        pw.Center(child: pw.Text('${sunDetails.nakshatra}')),
-                        pw.Center(
-                          child: pw.Text('${sunDetails.nakshatraLord}'),
-                        ),
-                        pw.Center(
-                          child: pw.Text('${sunDetails.house!}'),
-                        ),
-                      ],
-                    ),
-                    pw.TableRow(
-                      decoration: pw.BoxDecoration(border: pw.Border.all(color: const PdfColor.fromInt(0xFF000000))),
-                      children: [
-                        pw.Center(child: pw.Text('${moonDetails.name}')),
-                        pw.Center(child: pw.Text('${moonDetails.nakshatra}')),
-                        pw.Center(
-                          child: pw.Text('${moonDetails.nakshatraLord}'),
-                        ),
-                        pw.Center(
-                          child: pw.Text('${moonDetails.house!}'),
-                        ),
-                      ],
-                    ),
-                    pw.TableRow(
-                      decoration: pw.BoxDecoration(border: pw.Border.all(color: const PdfColor.fromInt(0xFF000000))),
-                      children: [
-                        pw.Center(child: pw.Text('${mercuryDetails.name}')),
-                        pw.Center(child: pw.Text('${mercuryDetails.nakshatra}')),
-                        pw.Center(
-                          child: pw.Text('${mercuryDetails.nakshatraLord}'),
-                        ),
-                        pw.Center(
-                          child: pw.Text('${mercuryDetails.house!}'),
-                        ),
-                      ],
-                    ),
-                    pw.TableRow(
-                      decoration: pw.BoxDecoration(border: pw.Border.all(color: const PdfColor.fromInt(0xFF000000))),
-                      children: [
-                        pw.Center(child: pw.Text('${venusDetails.name}')),
-                        pw.Center(child: pw.Text('${venusDetails.nakshatra}')),
-                        pw.Center(
-                          child: pw.Text('${venusDetails.nakshatraLord}'),
-                        ),
-                        pw.Center(
-                          child: pw.Text('${venusDetails.house!}'),
-                        ),
-                      ],
-                    ),
-                    pw.TableRow(
-                      decoration: pw.BoxDecoration(border: pw.Border.all(color: const PdfColor.fromInt(0xFF000000))),
-                      children: [
-                        pw.Center(child: pw.Text('${marsDetails.name}')),
-                        pw.Center(child: pw.Text('${marsDetails.nakshatra}')),
-                        pw.Center(
-                          child: pw.Text('${marsDetails.nakshatraLord}'),
-                        ),
-                        pw.Center(
-                          child: pw.Text('${marsDetails.house!}'),
-                        ),
-                      ],
-                    ),
-                    pw.TableRow(
-                      decoration: pw.BoxDecoration(border: pw.Border.all(color: const PdfColor.fromInt(0xFF000000))),
-                      children: [
-                        pw.Center(child: pw.Text('${jupiterDetails.name}')),
-                        pw.Center(child: pw.Text('${jupiterDetails.nakshatra}')),
-                        pw.Center(
-                          child: pw.Text('${jupiterDetails.nakshatraLord}'),
-                        ),
-                        pw.Center(
-                          child: pw.Text('${jupiterDetails.house!}'),
-                        ),
-                      ],
-                    ),
-                    pw.TableRow(
-                      decoration: pw.BoxDecoration(border: pw.Border.all(color: const PdfColor.fromInt(0xFF000000))),
-                      children: [
-                        pw.Center(child: pw.Text('${saturnDetails.name}')),
-                        pw.Center(child: pw.Text('${saturnDetails.nakshatra}')),
-                        pw.Center(
-                          child: pw.Text('${saturnDetails.nakshatraLord}'),
-                        ),
-                        pw.Center(
-                          child: pw.Text('${saturnDetails.house!}'),
-                        ),
-                      ],
-                    ),
-                    pw.TableRow(
-                      decoration: pw.BoxDecoration(border: pw.Border.all(color: const PdfColor.fromInt(0xFF000000))),
-                      children: [
-                        pw.Center(child: pw.Text('${rahuDetails.name}')),
-                        pw.Center(child: pw.Text('${rahuDetails.nakshatra}')),
-                        pw.Center(
-                          child: pw.Text('${rahuDetails.nakshatraLord}'),
-                        ),
-                        pw.Center(
-                          child: pw.Text('${rahuDetails.house!}'),
-                        ),
-                      ],
-                    ),
-                    pw.TableRow(
-                      decoration: pw.BoxDecoration(border: pw.Border.all(color: const PdfColor.fromInt(0xFF000000))),
-                      children: [
-                        pw.Center(child: pw.Text('${ketuDetails.name}')),
-                        pw.Center(child: pw.Text('${ketuDetails.nakshatra}')),
-                        pw.Center(
-                          child: pw.Text('${ketuDetails.nakshatraLord}'),
-                        ),
-                        pw.Center(
-                          child: pw.Text('${ketuDetails.house!}'),
-                        ),
-                      ],
-                    ),
-                  ],
-                )
-              ],
-            )),
-      ));
-
-      pdf.addPage(
-        pw.Page(
-            build: (context) => pw.Padding(
-                padding: const pw.EdgeInsets.all(8),
+        build: (context) =>
+            pw.Padding(
+                padding: const pw.EdgeInsets.all(10),
                 child: pw.Column(
                   crossAxisAlignment: pw.CrossAxisAlignment.start,
                   children: [
                     pw.Text(
-                      'KP',
+                      'Charts',
                       style: pw.TextStyle(
                         fontSize: 14,
                         fontWeight: pw.FontWeight.bold,
@@ -1499,100 +1450,541 @@ class KundliController extends GetxController {
                     pw.SizedBox(
                       height: 10,
                     ),
-                    pw.SizedBox(
-                      child: pw.Table(
-                        defaultVerticalAlignment: pw.TableCellVerticalAlignment.middle,
-                        columnWidths: {
-                          0: const pw.FixedColumnWidth(300.0),
-                          1: const pw.FixedColumnWidth(300.0),
-                          2: const pw.FixedColumnWidth(300.0),
-                          3: const pw.FixedColumnWidth(300.0),
-                          4: const pw.FixedColumnWidth(300.0),
-                          5: const pw.FixedColumnWidth(300.0),
-                        },
-                        children: [
-                          pw.TableRow(
-                            decoration: pw.BoxDecoration(
-                              color: const PdfColor.fromInt(0xFFEBE7C6),
-                              border: pw.Border.all(
-                                color: const PdfColor.fromInt(0xFF000000),
-                              ),
-                            ),
-                            children: [
-                              pw.Container(
-                                alignment: pw.Alignment.center,
-                                child: pw.Text(
-                                  'Planet',
-                                  style: pw.TextStyle(
-                                    fontSize: 14,
-                                    fontWeight: pw.FontWeight.bold,
-                                    color: const PdfColor.fromInt(0xFF000000),
-                                  ),
-                                ),
-                              ),
-                              pw.Container(
-                                alignment: pw.Alignment.center,
-                                child: pw.Text(
-                                  'Cusp',
-                                  style: pw.TextStyle(
-                                    fontSize: 14,
-                                    fontWeight: pw.FontWeight.bold,
-                                    color: const PdfColor.fromInt(0xFF000000),
-                                  ),
-                                ),
-                              ),
-                              pw.Container(
-                                alignment: pw.Alignment.center,
-                                child: pw.Text(
-                                  'Sign',
-                                  style: pw.TextStyle(
-                                    fontSize: 14,
-                                    fontWeight: pw.FontWeight.bold,
-                                    color: const PdfColor.fromInt(0xFF000000),
-                                  ),
-                                ),
-                              ),
-                              pw.Container(
-                                alignment: pw.Alignment.center,
-                                child: pw.Text(
-                                  'Sign lord',
-                                  style: pw.TextStyle(
-                                    fontSize: 14,
-                                    fontWeight: pw.FontWeight.bold,
-                                    color: const PdfColor.fromInt(0xFF000000),
-                                  ),
-                                ),
-                              ),
-                              pw.Container(
-                                alignment: pw.Alignment.center,
-                                child: pw.Text(
-                                  'Start lord ',
-                                  style: pw.TextStyle(
-                                    fontSize: 14,
-                                    fontWeight: pw.FontWeight.bold,
-                                    color: const PdfColor.fromInt(0xFF000000),
-                                  ),
-                                ),
-                              ),
-                              pw.Container(
-                                alignment: pw.Alignment.center,
-                                child: pw.Text(
-                                  'Sub lord',
-                                  style: pw.TextStyle(
-                                    fontSize: 14,
-                                    fontWeight: pw.FontWeight.bold,
-                                    color: const PdfColor.fromInt(0xFF000000),
-                                  ),
-                                ),
-                              ),
-                            ],
-                          ),
-                        ],
+                    pw.Text(
+                      '1.Sign',
+                      style: const pw.TextStyle(
+                        fontSize: 11,
+                        color: PdfColor.fromInt(0xFF000000),
                       ),
                     ),
                     pw.SizedBox(
-                        child: pw.Table(
-                            defaultVerticalAlignment: pw.TableCellVerticalAlignment.middle,
+                      height: 10,
+                    ),
+                    pw.Table(
+                      children: [
+                        pw.TableRow(
+                          decoration: pw.BoxDecoration(
+                            color: const PdfColor.fromInt(0xFFEBE7C6),
+                            border: pw.Border.all(
+                              color: const PdfColor.fromInt(0xFF000000),
+                            ),
+                          ),
+                          children: [
+                            pw.Container(
+                              alignment: pw.Alignment.center,
+                              child: pw.Text(
+                                'Planet',
+                                style: pw.TextStyle(
+                                  fontSize: 14,
+                                  fontWeight: pw.FontWeight.bold,
+                                  color: const PdfColor.fromInt(0xFF000000),
+                                ),
+                              ),
+                            ),
+                            pw.Container(
+                              alignment: pw.Alignment.center,
+                              child: pw.Text(
+                                'Sign',
+                                style: pw.TextStyle(
+                                  fontSize: 14,
+                                  fontWeight: pw.FontWeight.bold,
+                                  color: const PdfColor.fromInt(0xFF000000),
+                                ),
+                              ),
+                            ),
+                            pw.Container(
+                              alignment: pw.Alignment.center,
+                              child: pw.Text(
+                                'Sign lord',
+                                style: pw.TextStyle(
+                                  fontSize: 14,
+                                  fontWeight: pw.FontWeight.bold,
+                                  color: const PdfColor.fromInt(0xFF000000),
+                                ),
+                              ),
+                            ),
+                            pw.Container(
+                              alignment: pw.Alignment.center,
+                              child: pw.Text(
+                                'Dgrees',
+                                style: pw.TextStyle(
+                                  fontSize: 14,
+                                  fontWeight: pw.FontWeight.bold,
+                                  color: const PdfColor.fromInt(0xFF000000),
+                                ),
+                              ),
+                            ),
+                            pw.Container(
+                              alignment: pw.Alignment.center,
+                              child: pw.Text(
+                                'House',
+                                style: pw.TextStyle(
+                                  fontSize: 14,
+                                  fontWeight: pw.FontWeight.bold,
+                                  color: const PdfColor.fromInt(0xFF000000),
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                        pw.TableRow(
+                          decoration: pw.BoxDecoration(
+                              border: pw.Border.all(color: const PdfColor
+                                  .fromInt(0xFF000000))),
+                          children: [
+                            pw.Center(child: pw.Text('${ascendantDetails
+                                .name}')),
+                            pw.Center(child: pw.Text('${ascendantDetails
+                                .sign}')),
+                            pw.Center(
+                              child: pw.Text('${ascendantDetails.signLord}'),
+                            ),
+                            pw.Center(
+                              child: pw.Text(ascendantDetails.fullDegree!
+                                  .toStringAsFixed(2)),
+                            ),
+                            pw.Center(
+                              child: pw.Text('${ascendantDetails.house}'),
+                            ),
+                          ],
+                        ),
+                        pw.TableRow(
+                          decoration: pw.BoxDecoration(
+                              border: pw.Border.all(color: const PdfColor
+                                  .fromInt(0xFF000000))),
+                          children: [
+                            pw.Center(child: pw.Text('${sunDetails.name}')),
+                            pw.Center(child: pw.Text('${sunDetails.sign}')),
+                            pw.Center(child: pw.Text('${sunDetails.signLord}')),
+                            pw.Center(child: pw.Text(sunDetails.fullDegree!
+                                .toStringAsFixed(2))),
+                            pw.Center(child: pw.Text('${sunDetails.house}')),
+                          ],
+                        ),
+                        pw.TableRow(
+                          decoration: pw.BoxDecoration(
+                              border: pw.Border.all(color: const PdfColor
+                                  .fromInt(0xFF000000))),
+                          children: [
+                            pw.Center(child: pw.Text('${moonDetails.name}')),
+                            pw.Center(child: pw.Text('${moonDetails.sign}')),
+                            pw.Center(
+                              child: pw.Text('${moonDetails.signLord}'),
+                            ),
+                            pw.Center(
+                              child: pw.Text(moonDetails.fullDegree!
+                                  .toStringAsFixed(2)),
+                            ),
+                            pw.Center(
+                              child: pw.Text('${moonDetails.house}'),
+                            ),
+                          ],
+                        ),
+                        pw.TableRow(
+                          decoration: pw.BoxDecoration(
+                              border: pw.Border.all(color: const PdfColor
+                                  .fromInt(0xFF000000))),
+                          children: [
+                            pw.Center(child: pw.Text('${mercuryDetails.name}')),
+                            pw.Center(child: pw.Text('${mercuryDetails.sign}')),
+                            pw.Center(
+                              child: pw.Text('${mercuryDetails.signLord}'),
+                            ),
+                            pw.Center(
+                              child: pw.Text(mercuryDetails.fullDegree!
+                                  .toStringAsFixed(2)),
+                            ),
+                            pw.Center(
+                              child: pw.Text('${mercuryDetails.house}'),
+                            ),
+                          ],
+                        ),
+                        pw.TableRow(
+                          decoration: pw.BoxDecoration(
+                              border: pw.Border.all(color: const PdfColor
+                                  .fromInt(0xFF000000))),
+                          children: [
+                            pw.Center(child: pw.Text('${venusDetails.name}')),
+                            pw.Center(child: pw.Text('${venusDetails.sign}')),
+                            pw.Center(
+                              child: pw.Text('${venusDetails.signLord}'),
+                            ),
+                            pw.Center(
+                              child: pw.Text(venusDetails.fullDegree!
+                                  .toStringAsFixed(2)),
+                            ),
+                            pw.Center(
+                              child: pw.Text('${venusDetails.house}'),
+                            ),
+                          ],
+                        ),
+                        pw.TableRow(
+                          decoration: pw.BoxDecoration(
+                              border: pw.Border.all(color: const PdfColor
+                                  .fromInt(0xFF000000))),
+                          children: [
+                            pw.Center(child: pw.Text('${marsDetails.name}')),
+                            pw.Center(child: pw.Text('${marsDetails.sign}')),
+                            pw.Center(
+                              child: pw.Text('${marsDetails.signLord}'),
+                            ),
+                            pw.Center(
+                              child: pw.Text(marsDetails.fullDegree!
+                                  .toStringAsFixed(2)),
+                            ),
+                            pw.Center(
+                              child: pw.Text('${marsDetails.house}'),
+                            ),
+                          ],
+                        ),
+                        pw.TableRow(
+                          decoration: pw.BoxDecoration(
+                              border: pw.Border.all(color: const PdfColor
+                                  .fromInt(0xFF000000))),
+                          children: [
+                            pw.Center(child: pw.Text('${jupiterDetails.name}')),
+                            pw.Center(child: pw.Text('${jupiterDetails.sign}')),
+                            pw.Center(
+                              child: pw.Text('${jupiterDetails.signLord}'),
+                            ),
+                            pw.Center(
+                              child: pw.Text(jupiterDetails.fullDegree!
+                                  .toStringAsFixed(2)),
+                            ),
+                            pw.Center(
+                              child: pw.Text('${jupiterDetails.house}'),
+                            ),
+                          ],
+                        ),
+                        pw.TableRow(
+                          decoration: pw.BoxDecoration(
+                              border: pw.Border.all(color: const PdfColor
+                                  .fromInt(0xFF000000))),
+                          children: [
+                            pw.Center(child: pw.Text('${saturnDetails.name}')),
+                            pw.Center(child: pw.Text('${saturnDetails.sign}')),
+                            pw.Center(
+                              child: pw.Text('${saturnDetails.signLord}'),
+                            ),
+                            pw.Center(
+                              child: pw.Text(saturnDetails.fullDegree!
+                                  .toStringAsFixed(2)),
+                            ),
+                            pw.Center(
+                              child: pw.Text('${saturnDetails.house}'),
+                            ),
+                          ],
+                        ),
+                        pw.TableRow(
+                          decoration: pw.BoxDecoration(
+                              border: pw.Border.all(color: const PdfColor
+                                  .fromInt(0xFF000000))),
+                          children: [
+                            pw.Center(child: pw.Text('${rahuDetails.name}')),
+                            pw.Center(child: pw.Text('${rahuDetails.sign}')),
+                            pw.Center(
+                              child: pw.Text('${rahuDetails.signLord}'),
+                            ),
+                            pw.Center(
+                              child: pw.Text(rahuDetails.fullDegree!
+                                  .toStringAsFixed(2)),
+                            ),
+                            pw.Center(
+                              child: pw.Text('${rahuDetails.house}'),
+                            ),
+                          ],
+                        ),
+                        pw.TableRow(
+                          decoration: pw.BoxDecoration(
+                              border: pw.Border.all(color: const PdfColor
+                                  .fromInt(0xFF000000))),
+                          children: [
+                            pw.Center(child: pw.Text('${ketuDetails.name}')),
+                            pw.Center(child: pw.Text('${ketuDetails.sign}')),
+                            pw.Center(
+                              child: pw.Text('${ketuDetails.signLord}'),
+                            ),
+                            pw.Center(
+                              child: pw.Text(ketuDetails.fullDegree!
+                                  .toStringAsFixed(2)),
+                            ),
+                            pw.Center(
+                              child: pw.Text('${ketuDetails.house}'),
+                            ),
+                          ],
+                        ),
+                      ],
+                    ),
+                    pw.SizedBox(
+                      height: 15,
+                    ),
+                    pw.Text(
+                      '2.Constellation',
+                      style: const pw.TextStyle(
+                        fontSize: 11,
+                        color: PdfColor.fromInt(0xFF000000),
+                      ),
+                    ),
+                    pw.SizedBox(
+                      height: 10,
+                    ),
+                    pw.Table(
+                      children: [
+                        pw.TableRow(
+                          decoration: pw.BoxDecoration(
+                            color: const PdfColor.fromInt(0xFFEBE7C6),
+                            border: pw.Border.all(
+                              color: const PdfColor.fromInt(0xFF000000),
+                            ),
+                          ),
+                          children: [
+                            pw.Container(
+                              alignment: pw.Alignment.center,
+                              child: pw.Text(
+                                'Planet',
+                                style: pw.TextStyle(
+                                  fontSize: 14,
+                                  fontWeight: pw.FontWeight.bold,
+                                  color: const PdfColor.fromInt(0xFF000000),
+                                ),
+                              ),
+                            ),
+                            pw.Container(
+                              alignment: pw.Alignment.center,
+                              child: pw.Text(
+                                'Nakshatra',
+                                style: pw.TextStyle(
+                                  fontSize: 14,
+                                  fontWeight: pw.FontWeight.bold,
+                                  color: const PdfColor.fromInt(0xFF000000),
+                                ),
+                              ),
+                            ),
+                            pw.Container(
+                              alignment: pw.Alignment.center,
+                              child: pw.Text(
+                                'Nakshatra lord',
+                                style: pw.TextStyle(
+                                  fontSize: 14,
+                                  fontWeight: pw.FontWeight.bold,
+                                  color: const PdfColor.fromInt(0xFF000000),
+                                ),
+                              ),
+                            ),
+                            pw.Container(
+                              alignment: pw.Alignment.center,
+                              child: pw.Text(
+                                'House',
+                                style: pw.TextStyle(
+                                  fontSize: 14,
+                                  fontWeight: pw.FontWeight.bold,
+                                  color: const PdfColor.fromInt(0xFF000000),
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                        pw.TableRow(
+                          decoration: pw.BoxDecoration(
+                              border: pw.Border.all(color: const PdfColor
+                                  .fromInt(0xFF000000))),
+                          children: [
+                            pw.Center(child: pw.Text('${ascendantDetails
+                                .name}')),
+                            pw.Center(child: pw.Text('${ascendantDetails
+                                .nakshatra}')),
+                            pw.Center(
+                              child: pw.Text('${ascendantDetails
+                                  .nakshatraLord}'),
+                            ),
+                            pw.Center(
+                              child: pw.Text('${ascendantDetails.house!}'),
+                            ),
+                          ],
+                        ),
+                        pw.TableRow(
+                          decoration: pw.BoxDecoration(
+                              border: pw.Border.all(color: const PdfColor
+                                  .fromInt(0xFF000000))),
+                          children: [
+                            pw.Center(child: pw.Text('${sunDetails.name}')),
+                            pw.Center(child: pw.Text('${sunDetails
+                                .nakshatra}')),
+                            pw.Center(
+                              child: pw.Text('${sunDetails.nakshatraLord}'),
+                            ),
+                            pw.Center(
+                              child: pw.Text('${sunDetails.house!}'),
+                            ),
+                          ],
+                        ),
+                        pw.TableRow(
+                          decoration: pw.BoxDecoration(
+                              border: pw.Border.all(color: const PdfColor
+                                  .fromInt(0xFF000000))),
+                          children: [
+                            pw.Center(child: pw.Text('${moonDetails.name}')),
+                            pw.Center(child: pw.Text('${moonDetails
+                                .nakshatra}')),
+                            pw.Center(
+                              child: pw.Text('${moonDetails.nakshatraLord}'),
+                            ),
+                            pw.Center(
+                              child: pw.Text('${moonDetails.house!}'),
+                            ),
+                          ],
+                        ),
+                        pw.TableRow(
+                          decoration: pw.BoxDecoration(
+                              border: pw.Border.all(color: const PdfColor
+                                  .fromInt(0xFF000000))),
+                          children: [
+                            pw.Center(child: pw.Text('${mercuryDetails.name}')),
+                            pw.Center(child: pw.Text('${mercuryDetails
+                                .nakshatra}')),
+                            pw.Center(
+                              child: pw.Text('${mercuryDetails.nakshatraLord}'),
+                            ),
+                            pw.Center(
+                              child: pw.Text('${mercuryDetails.house!}'),
+                            ),
+                          ],
+                        ),
+                        pw.TableRow(
+                          decoration: pw.BoxDecoration(
+                              border: pw.Border.all(color: const PdfColor
+                                  .fromInt(0xFF000000))),
+                          children: [
+                            pw.Center(child: pw.Text('${venusDetails.name}')),
+                            pw.Center(child: pw.Text('${venusDetails
+                                .nakshatra}')),
+                            pw.Center(
+                              child: pw.Text('${venusDetails.nakshatraLord}'),
+                            ),
+                            pw.Center(
+                              child: pw.Text('${venusDetails.house!}'),
+                            ),
+                          ],
+                        ),
+                        pw.TableRow(
+                          decoration: pw.BoxDecoration(
+                              border: pw.Border.all(color: const PdfColor
+                                  .fromInt(0xFF000000))),
+                          children: [
+                            pw.Center(child: pw.Text('${marsDetails.name}')),
+                            pw.Center(child: pw.Text('${marsDetails
+                                .nakshatra}')),
+                            pw.Center(
+                              child: pw.Text('${marsDetails.nakshatraLord}'),
+                            ),
+                            pw.Center(
+                              child: pw.Text('${marsDetails.house!}'),
+                            ),
+                          ],
+                        ),
+                        pw.TableRow(
+                          decoration: pw.BoxDecoration(
+                              border: pw.Border.all(color: const PdfColor
+                                  .fromInt(0xFF000000))),
+                          children: [
+                            pw.Center(child: pw.Text('${jupiterDetails.name}')),
+                            pw.Center(child: pw.Text('${jupiterDetails
+                                .nakshatra}')),
+                            pw.Center(
+                              child: pw.Text('${jupiterDetails.nakshatraLord}'),
+                            ),
+                            pw.Center(
+                              child: pw.Text('${jupiterDetails.house!}'),
+                            ),
+                          ],
+                        ),
+                        pw.TableRow(
+                          decoration: pw.BoxDecoration(
+                              border: pw.Border.all(color: const PdfColor
+                                  .fromInt(0xFF000000))),
+                          children: [
+                            pw.Center(child: pw.Text('${saturnDetails.name}')),
+                            pw.Center(child: pw.Text('${saturnDetails
+                                .nakshatra}')),
+                            pw.Center(
+                              child: pw.Text('${saturnDetails.nakshatraLord}'),
+                            ),
+                            pw.Center(
+                              child: pw.Text('${saturnDetails.house!}'),
+                            ),
+                          ],
+                        ),
+                        pw.TableRow(
+                          decoration: pw.BoxDecoration(
+                              border: pw.Border.all(color: const PdfColor
+                                  .fromInt(0xFF000000))),
+                          children: [
+                            pw.Center(child: pw.Text('${rahuDetails.name}')),
+                            pw.Center(child: pw.Text('${rahuDetails
+                                .nakshatra}')),
+                            pw.Center(
+                              child: pw.Text('${rahuDetails.nakshatraLord}'),
+                            ),
+                            pw.Center(
+                              child: pw.Text('${rahuDetails.house!}'),
+                            ),
+                          ],
+                        ),
+                        pw.TableRow(
+                          decoration: pw.BoxDecoration(
+                              border: pw.Border.all(color: const PdfColor
+                                  .fromInt(0xFF000000))),
+                          children: [
+                            pw.Center(child: pw.Text('${ketuDetails.name}')),
+                            pw.Center(child: pw.Text('${ketuDetails
+                                .nakshatra}')),
+                            pw.Center(
+                              child: pw.Text('${ketuDetails.nakshatraLord}'),
+                            ),
+                            pw.Center(
+                              child: pw.Text('${ketuDetails.house!}'),
+                            ),
+                          ],
+                        ),
+                      ],
+                    )
+                  ],
+                )),
+      ));
+
+      pdf.addPage(
+        pw.Page(
+            build: (context) =>
+                pw.Padding(
+                    padding: const pw.EdgeInsets.all(8),
+                    child: pw.Column(
+                      crossAxisAlignment: pw.CrossAxisAlignment.start,
+                      children: [
+                        pw.Text(
+                          'KP',
+                          style: pw.TextStyle(
+                            fontSize: 14,
+                            fontWeight: pw.FontWeight.bold,
+                            color: const PdfColor.fromInt(0xFF000000),
+                          ),
+                        ),
+                        pw.SizedBox(
+                          height: 15,
+                        ),
+                        pw.Text(
+                          'Planets',
+                          style: const pw.TextStyle(
+                            fontSize: 12,
+                            color: PdfColor.fromInt(0xFF000000),
+                          ),
+                        ),
+                        pw.SizedBox(
+                          height: 10,
+                        ),
+                        pw.SizedBox(
+                          child: pw.Table(
+                            defaultVerticalAlignment: pw
+                                .TableCellVerticalAlignment.middle,
                             columnWidths: {
                               0: const pw.FixedColumnWidth(300.0),
                               1: const pw.FixedColumnWidth(300.0),
@@ -1601,21 +1993,156 @@ class KundliController extends GetxController {
                               4: const pw.FixedColumnWidth(300.0),
                               5: const pw.FixedColumnWidth(300.0),
                             },
-                            children: listOfPlanets
-                                .map((e) => pw.TableRow(decoration: pw.BoxDecoration(border: pw.Border.all(color: const PdfColor.fromInt(0xFF000000))), children: [
-                                      pw.Center(child: pw.Text('${e["planet"]}')),
+                            children: [
+                              pw.TableRow(
+                                decoration: pw.BoxDecoration(
+                                  color: const PdfColor.fromInt(0xFFEBE7C6),
+                                  border: pw.Border.all(
+                                    color: const PdfColor.fromInt(0xFF000000),
+                                  ),
+                                ),
+                                children: [
+                                  pw.Container(
+                                    alignment: pw.Alignment.center,
+                                    child: pw.Text(
+                                      'Planet',
+                                      style: pw.TextStyle(
+                                        fontSize: 14,
+                                        fontWeight: pw.FontWeight.bold,
+                                        color: const PdfColor.fromInt(
+                                            0xFF000000),
+                                      ),
+                                    ),
+                                  ),
+                                  pw.Container(
+                                    alignment: pw.Alignment.center,
+                                    child: pw.Text(
+                                      'Cusp',
+                                      style: pw.TextStyle(
+                                        fontSize: 14,
+                                        fontWeight: pw.FontWeight.bold,
+                                        color: const PdfColor.fromInt(
+                                            0xFF000000),
+                                      ),
+                                    ),
+                                  ),
+                                  pw.Container(
+                                    alignment: pw.Alignment.center,
+                                    child: pw.Text(
+                                      'Sign',
+                                      style: pw.TextStyle(
+                                        fontSize: 14,
+                                        fontWeight: pw.FontWeight.bold,
+                                        color: const PdfColor.fromInt(
+                                            0xFF000000),
+                                      ),
+                                    ),
+                                  ),
+                                  pw.Container(
+                                    alignment: pw.Alignment.center,
+                                    child: pw.Text(
+                                      'Sign lord',
+                                      style: pw.TextStyle(
+                                        fontSize: 14,
+                                        fontWeight: pw.FontWeight.bold,
+                                        color: const PdfColor.fromInt(
+                                            0xFF000000),
+                                      ),
+                                    ),
+                                  ),
+                                  pw.Container(
+                                    alignment: pw.Alignment.center,
+                                    child: pw.Text(
+                                      'Start lord ',
+                                      style: pw.TextStyle(
+                                        fontSize: 14,
+                                        fontWeight: pw.FontWeight.bold,
+                                        color: const PdfColor.fromInt(
+                                            0xFF000000),
+                                      ),
+                                    ),
+                                  ),
+                                  pw.Container(
+                                    alignment: pw.Alignment.center,
+                                    child: pw.Text(
+                                      'Sub lord',
+                                      style: pw.TextStyle(
+                                        fontSize: 14,
+                                        fontWeight: pw.FontWeight.bold,
+                                        color: const PdfColor.fromInt(
+                                            0xFF000000),
+                                      ),
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ],
+                          ),
+                        ),
+                        pw.SizedBox(
+                            child: pw.Table(
+                                defaultVerticalAlignment: pw
+                                    .TableCellVerticalAlignment.middle,
+                                columnWidths: {
+                                  0: const pw.FixedColumnWidth(300.0),
+                                  1: const pw.FixedColumnWidth(300.0),
+                                  2: const pw.FixedColumnWidth(300.0),
+                                  3: const pw.FixedColumnWidth(300.0),
+                                  4: const pw.FixedColumnWidth(300.0),
+                                  5: const pw.FixedColumnWidth(300.0),
+                                },
+                                children: listOfPlanets
+                                    .map((e) =>
+                                    pw.TableRow(decoration: pw.BoxDecoration(
+                                        border: pw.Border.all(
+                                            color: const PdfColor.fromInt(
+                                                0xFF000000))), children: [
+                                      pw.Center(
+                                          child: pw.Text('${e["planet"]}')),
                                       pw.Center(child: pw.Text('${e["cups"]}')),
                                       pw.Center(child: pw.Text('${e["sign"]}')),
-                                      pw.Center(child: pw.Text('${e["signLord"]}')),
-                                      pw.Center(child: pw.Text('${e["starLord"]}')),
-                                      pw.Center(child: pw.Text('${e["subLord"]}')),
+                                      pw.Center(
+                                          child: pw.Text('${e["signLord"]}')),
+                                      pw.Center(
+                                          child: pw.Text('${e["starLord"]}')),
+                                      pw.Center(
+                                          child: pw.Text('${e["subLord"]}')),
                                     ]))
-                                .toList())),
-                    pw.SizedBox(
-                      height: 15,
-                    ),
+                                    .toList())),
+                        pw.SizedBox(
+                          height: 15,
+                        ),
+                        pw.Text(
+                          'Ashtakvarga Chart',
+                          style: pw.TextStyle(
+                            fontSize: 14,
+                            fontWeight: pw.FontWeight.bold,
+                            color: const PdfColor.fromInt(0xFF000000),
+                          ),
+                        ),
+                        pw.SizedBox(
+                          height: 15,
+                        ),
+                        pw.Text(
+                          'The Ashtakavarga system of prediction works on the Bindu or dots. These are basically a point system where each planet except Rahu and Ketu are allotted a specific number in a specific house of your Kundali or birth chart. The higher number denotes the strength of that house in your Kundali. For example, if you have a higher value in the 11th house, which is the house of income, that would be a good sign as the planets in that house have a strong position and influence your Kundali more than others. For that reason, many believe Ashtakavarga in astrology to be even more precise than the birth chart or Janam Kundali analysis.',
+                          style: const pw.TextStyle(
+                            fontSize: 12,
+                            color: PdfColor.fromInt(0xFF000000),
+                          ),
+                        ),
+                      ],
+                    ))),
+      );
+
+      pdf.addPage(pw.Page(
+        build: (context) =>
+            pw.Padding(
+                padding: const pw.EdgeInsets.all(8),
+                child: pw.Column(
+                  crossAxisAlignment: pw.CrossAxisAlignment.start,
+                  children: [
                     pw.Text(
-                      'Ashtakvarga Chart',
+                      'Vimshattari',
                       style: pw.TextStyle(
                         fontSize: 14,
                         fontWeight: pw.FontWeight.bold,
@@ -1626,791 +2153,877 @@ class KundliController extends GetxController {
                       height: 15,
                     ),
                     pw.Text(
-                      'The Ashtakavarga system of prediction works on the Bindu or dots. These are basically a point system where each planet except Rahu and Ketu are allotted a specific number in a specific house of your Kundali or birth chart. The higher number denotes the strength of that house in your Kundali. For example, if you have a higher value in the 11th house, which is the house of income, that would be a good sign as the planets in that house have a strong position and influence your Kundali more than others. For that reason, many believe Ashtakavarga in astrology to be even more precise than the birth chart or Janam Kundali analysis.',
+                      'Mahadasha',
                       style: const pw.TextStyle(
                         fontSize: 12,
                         color: PdfColor.fromInt(0xFF000000),
                       ),
                     ),
+                    vimshattariList!.isEmpty
+                        ? pw.SizedBox()
+                        : pw.Container(
+                      alignment: pw.Alignment.center,
+                      margin: const pw.EdgeInsets.only(top: 10),
+                      child: pw.Column(
+                        mainAxisSize: pw.MainAxisSize.min,
+                        children: [
+                          pw.Row(
+                            children: [
+                              pw.Container(
+                                width: 122,
+                                decoration: pw.BoxDecoration(
+                                  color: const PdfColor.fromInt(0xFFEBE7C6),
+                                  border: pw.Border.all(
+                                      color: const PdfColor.fromInt(
+                                          0xFF9E9E9E)),
+                                  borderRadius: const pw.BorderRadius.only(
+                                      topLeft: pw.Radius.circular(10)),
+                                ),
+                                child: pw.SizedBox(height: 50,
+                                    width: 100,
+                                    child: pw.Center(child: pw.Text('Planet',
+                                        textAlign: pw.TextAlign.center))),
+                              ),
+                              pw.Container(
+                                width: 122,
+                                decoration: const pw.BoxDecoration(
+                                    color: PdfColor.fromInt(0xFFEBE7C6),
+                                    border: pw.Border(
+                                      top: pw.BorderSide(
+                                          color: PdfColor.fromInt(0xFF9E9E9E)),
+                                    )),
+                                child: pw.SizedBox(height: 50,
+                                    width: 100,
+                                    child: pw.Center(child: pw.Text(
+                                        'Start Date',
+                                        textAlign: pw.TextAlign.center))),
+                              ),
+                              pw.Expanded(
+                                child: pw.Container(
+                                  width: 123,
+                                  decoration: pw.BoxDecoration(
+                                      color: const PdfColor.fromInt(0xFFEBE7C6),
+                                      border: pw.Border.all(
+                                          color: const PdfColor.fromInt(
+                                              0xFF9E9E9E)),
+                                      borderRadius: const pw.BorderRadius.only(
+                                          topRight: pw.Radius.circular(10))),
+                                  child: pw.SizedBox(height: 50,
+                                      width: 100,
+                                      child: pw.Center(child: pw.Text(
+                                          'End Date',
+                                          textAlign: pw.TextAlign.center))),
+                                ),
+                              ),
+                            ],
+                          ),
+                          pw.Column(
+                            children: vimshattariList!.last
+                                .map(
+                                  (e) =>
+                                  pw.Row(
+                                    children: [
+                                      pw.Container(
+                                        width: 122,
+                                        decoration: pw.BoxDecoration(
+                                          border: pw.Border.all(
+                                              color: const PdfColor.fromInt(
+                                                  0xFF9E9E9E)),
+                                        ),
+                                        child: pw.SizedBox(height: 50,
+                                            width: 100,
+                                            child: pw.Center(child: pw.Text(
+                                                "$prefix${e.planet!.substring(
+                                                    0, 2).toUpperCase()}",
+                                                textAlign: pw.TextAlign
+                                                    .center))),
+                                      ),
+                                      pw.Container(
+                                        width: 122,
+                                        decoration: pw.BoxDecoration(
+                                          border: pw.Border.all(
+                                              color: const PdfColor.fromInt(
+                                                  0xFF9E9E9E)),
+                                        ),
+                                        child: pw.SizedBox(height: 50,
+                                            width: 100,
+                                            child: pw.Center(child: pw.Text(
+                                                e.start!.split(' ')[0],
+                                                textAlign: pw.TextAlign
+                                                    .center))),
+                                      ),
+                                      pw.Expanded(
+                                        child: pw.Container(
+                                          width: 123,
+                                          decoration: const pw.BoxDecoration(
+                                            border: pw.Border(
+                                              bottom: pw.BorderSide(
+                                                  color: PdfColor.fromInt(
+                                                      0xFF9E9E9E)),
+                                              top: pw.BorderSide(
+                                                  color: PdfColor.fromInt(
+                                                      0xFF9E9E9E)),
+                                              right: pw.BorderSide(
+                                                  color: PdfColor.fromInt(
+                                                      0xFF9E9E9E)),
+                                            ),
+                                          ),
+                                          child: pw.SizedBox(
+                                              height: 50,
+                                              width: 100,
+                                              child: pw.Center(
+                                                  child: pw.Row(
+                                                    mainAxisAlignment: pw
+                                                        .MainAxisAlignment
+                                                        .spaceAround,
+                                                    crossAxisAlignment: pw
+                                                        .CrossAxisAlignment
+                                                        .center,
+                                                    children: [
+                                                      pw.Text(
+                                                          e.end!.split(' ')[0],
+                                                          textAlign: pw
+                                                              .TextAlign
+                                                              .center),
+                                                    ],
+                                                  ))),
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                            )
+                                .toList(),
+                          )
+                        ],
+                      ),
+                    ),
                   ],
-                ))),
-      );
+                )),
+      ));
 
       pdf.addPage(pw.Page(
-        build: (context) => pw.Padding(
-            padding: const pw.EdgeInsets.all(8),
-            child: pw.Column(
-              crossAxisAlignment: pw.CrossAxisAlignment.start,
-              children: [
-                pw.Text(
-                  'Vimshattari',
-                  style: pw.TextStyle(
-                    fontSize: 14,
-                    fontWeight: pw.FontWeight.bold,
-                    color: const PdfColor.fromInt(0xFF000000),
-                  ),
-                ),
-                pw.SizedBox(
-                  height: 15,
-                ),
-                pw.Text(
-                  'Mahadasha',
-                  style: const pw.TextStyle(
-                    fontSize: 12,
-                    color: PdfColor.fromInt(0xFF000000),
-                  ),
-                ),
-                vimshattariList!.isEmpty
-                    ? pw.SizedBox()
-                    : pw.Container(
-                        alignment: pw.Alignment.center,
-                        margin: const pw.EdgeInsets.only(top: 10),
-                        child: pw.Column(
-                          mainAxisSize: pw.MainAxisSize.min,
-                          children: [
-                            pw.Row(
+        build: (context) =>
+            pw.Padding(
+                padding: const pw.EdgeInsets.all(8),
+                child: pw.Column(
+                  crossAxisAlignment: pw.CrossAxisAlignment.start,
+                  children: [
+                    pw.Text(
+                      'Report',
+                      style: pw.TextStyle(
+                        fontSize: 14,
+                        fontWeight: pw.FontWeight.bold,
+                        color: const PdfColor.fromInt(0xFF000000),
+                      ),
+                    ),
+                    pw.SizedBox(
+                      height: 15,
+                    ),
+                    pw.Text(
+                      '1.General',
+                      style: pw.TextStyle(
+                        fontSize: 14,
+                        fontWeight: pw.FontWeight.bold,
+                        color: const PdfColor.fromInt(0xFF000000),
+                      ),
+                    ),
+                    pw.SizedBox(
+                      height: 15,
+                    ),
+                    pw.Text(
+                      'Description',
+                      style: pw.TextStyle(
+                        fontSize: 12,
+                        fontWeight: pw.FontWeight.bold,
+                        color: const PdfColor.fromInt(0xFF000000),
+                      ),
+                    ),
+                    pw.SizedBox(
+                      height: 10,
+                    ),
+                    pw.Text(
+                      '$generalDesc',
+                      style: const pw.TextStyle(
+                        fontSize: 12,
+                        color: PdfColor.fromInt(0xFF000000),
+                      ),
+                    ),
+                    pw.SizedBox(
+                      height: 15,
+                    ),
+                    pw.Text(
+                      '2.Remedies',
+                      style: pw.TextStyle(
+                        fontSize: 14,
+                        fontWeight: pw.FontWeight.bold,
+                        color: const PdfColor.fromInt(0xFF000000),
+                      ),
+                    ),
+                    pw.SizedBox(
+                      height: 15,
+                    ),
+                    pw.Text(
+                      'Gemstones',
+                      style: pw.TextStyle(
+                        fontSize: 12,
+                        fontWeight: pw.FontWeight.bold,
+                        color: const PdfColor.fromInt(0xFF000000),
+                      ),
+                    ),
+                    pw.SizedBox(
+                      height: 10,
+                    ),
+                    pw.Text(
+                      'Life Stone',
+                      style: pw.TextStyle(
+                        fontSize: 12,
+                        fontWeight: pw.FontWeight.bold,
+                        color: const PdfColor.fromInt(0xFF000000),
+                      ),
+                    ),
+                    pw.SizedBox(
+                      height: 10,
+                    ),
+                    pw.Container(
+                      width: double.infinity,
+                      padding: const pw.EdgeInsets.all(8),
+                      margin: const pw.EdgeInsets.only(bottom: 10),
+                      decoration: pw.BoxDecoration(
+                        border: pw.Border.all(
+                            color: const PdfColor.fromInt(0xFF9E9E9E)),
+                        borderRadius: pw.BorderRadius.circular(10),
+                      ),
+                      child: pw.Column(
+                        mainAxisAlignment: pw.MainAxisAlignment.start,
+                        crossAxisAlignment: pw.CrossAxisAlignment.start,
+                        children: [
+                          pw.Text(
+                            'Life Stone',
+                            style: pw.TextStyle(
+                              fontSize: 12,
+                              fontWeight: pw.FontWeight.bold,
+                              color: const PdfColor.fromInt(0xFF000000),
+                            ),
+                          ),
+                          pw.SizedBox(
+                            height: 10,
+                          ),
+                          pw.Text(
+                            'You will be connected to your concerned Astrologer via the chat window. You have to provide your name and gotra for sankalp You will be connected to your concerned Astrologer via the chat window. You have to provide your name and gotra for sankalp',
+                            style: const pw.TextStyle(
+                              fontSize: 12,
+                              color: PdfColor.fromInt(0xFF000000),
+                            ),
+                          ),
+                          pw.SizedBox(height: 10),
+                          pw.Container(
+                            width: double.infinity,
+                            padding: const pw.EdgeInsets.all(8),
+                            margin: const pw.EdgeInsets.only(bottom: 10),
+                            decoration: pw.BoxDecoration(
+                              border: pw.Border.all(color: const PdfColor
+                                  .fromInt(0xFF9E9E9E)),
+                              borderRadius: pw.BorderRadius.circular(10),
+                            ),
+                            child: pw.Column(
                               children: [
                                 pw.Container(
-                                  width: 122,
-                                  decoration: pw.BoxDecoration(
-                                    color: const PdfColor.fromInt(0xFFEBE7C6),
-                                    border: pw.Border.all(color: const PdfColor.fromInt(0xFF9E9E9E)),
-                                    borderRadius: const pw.BorderRadius.only(topLeft: pw.Radius.circular(10)),
+                                  child: pw.Row(
+                                    mainAxisAlignment: pw.MainAxisAlignment
+                                        .start,
+                                    children: [
+                                      pw.SizedBox(
+                                          width: 100,
+                                          child: pw.Text(
+                                            'Life Stone',
+                                            style: pw.TextStyle(
+                                              fontSize: 10,
+                                              fontWeight: pw.FontWeight.bold,
+                                              color: const PdfColor.fromInt(
+                                                  0xFF000000),
+                                            ),
+                                          )),
+                                      pw.SizedBox(
+                                        width: 50,
+                                      ),
+                                      pw.Expanded(
+                                          child: pw.Text(
+                                            '${gemstoneList!.lifeStone!.name}',
+                                            style: pw.TextStyle(
+                                              fontSize: 10,
+                                              fontWeight: pw.FontWeight.bold,
+                                              color: const PdfColor.fromInt(
+                                                  0xFF000000),
+                                            ),
+                                          )),
+                                    ],
                                   ),
-                                  child: pw.SizedBox(height: 50, width: 100, child: pw.Center(child: pw.Text('Planet', textAlign: pw.TextAlign.center))),
+                                ),
+                                pw.SizedBox(
+                                  height: 10,
                                 ),
                                 pw.Container(
-                                  width: 122,
-                                  decoration: const pw.BoxDecoration(
-                                      color: PdfColor.fromInt(0xFFEBE7C6),
-                                      border: pw.Border(
-                                        top: pw.BorderSide(color: PdfColor.fromInt(0xFF9E9E9E)),
-                                      )),
-                                  child: pw.SizedBox(height: 50, width: 100, child: pw.Center(child: pw.Text('Start Date', textAlign: pw.TextAlign.center))),
-                                ),
-                                pw.Expanded(
-                                  child: pw.Container(
-                                    width: 123,
-                                    decoration: pw.BoxDecoration(color: const PdfColor.fromInt(0xFFEBE7C6), border: pw.Border.all(color: const PdfColor.fromInt(0xFF9E9E9E)), borderRadius: const pw.BorderRadius.only(topRight: pw.Radius.circular(10))),
-                                    child: pw.SizedBox(height: 50, width: 100, child: pw.Center(child: pw.Text('End Date', textAlign: pw.TextAlign.center))),
+                                  color: const PdfColor.fromInt(0xFFEBE7C6),
+                                  child: pw.Row(
+                                    mainAxisAlignment: pw.MainAxisAlignment
+                                        .start,
+                                    children: [
+                                      pw.SizedBox(
+                                          width: 100,
+                                          child: pw.Text(
+                                            'How to wear',
+                                            style: const pw.TextStyle(
+                                              fontSize: 10,
+                                              color: PdfColor.fromInt(
+                                                  0xFF000000),
+                                            ),
+                                          )),
+                                      pw.SizedBox(
+                                        width: 50,
+                                      ),
+                                      pw.Expanded(
+                                          child: pw.Text(
+                                            '${gemstoneList!.lifeStone!
+                                                .wearMetal}, ${gemstoneList!
+                                                .lifeStone!.wearFinger}',
+                                            style: const pw.TextStyle(
+                                              fontSize: 10,
+                                              color: PdfColor.fromInt(
+                                                  0xFF000000),
+                                            ),
+                                          )),
+                                    ],
                                   ),
+                                ),
+                                pw.SizedBox(
+                                  height: 10,
                                 ),
                               ],
                             ),
-                            pw.Column(
-                              children: vimshattariList!.last
-                                  .map(
-                                    (e) => pw.Row(
-                                      children: [
-                                        pw.Container(
-                                          width: 122,
-                                          decoration: pw.BoxDecoration(
-                                            border: pw.Border.all(color: const PdfColor.fromInt(0xFF9E9E9E)),
-                                          ),
-                                          child: pw.SizedBox(height: 50, width: 100, child: pw.Center(child: pw.Text("$prefix${e.planet!.substring(0, 2).toUpperCase()}", textAlign: pw.TextAlign.center))),
-                                        ),
-                                        pw.Container(
-                                          width: 122,
-                                          decoration: pw.BoxDecoration(
-                                            border: pw.Border.all(color: const PdfColor.fromInt(0xFF9E9E9E)),
-                                          ),
-                                          child: pw.SizedBox(height: 50, width: 100, child: pw.Center(child: pw.Text(e.start!.split(' ')[0], textAlign: pw.TextAlign.center))),
-                                        ),
-                                        pw.Expanded(
-                                          child: pw.Container(
-                                            width: 123,
-                                            decoration: const pw.BoxDecoration(
-                                              border: pw.Border(
-                                                bottom: pw.BorderSide(color: PdfColor.fromInt(0xFF9E9E9E)),
-                                                top: pw.BorderSide(color: PdfColor.fromInt(0xFF9E9E9E)),
-                                                right: pw.BorderSide(color: PdfColor.fromInt(0xFF9E9E9E)),
-                                              ),
-                                            ),
-                                            child: pw.SizedBox(
-                                                height: 50,
+                          ),
+                        ],
+                      ),
+                    ),
+                  ],
+                )),
+      ));
+
+      pdf.addPage(pw.Page(
+        build: (context) =>
+            pw.Padding(
+                padding: const pw.EdgeInsets.all(8),
+                child: pw.Column(
+                  children: [
+                    pw.Padding(
+                      padding: const pw.EdgeInsets.all(8.0),
+                      child: pw.Column(
+                        mainAxisAlignment: pw.MainAxisAlignment.start,
+                        crossAxisAlignment: pw.CrossAxisAlignment.start,
+                        children: [
+                          pw.Text(
+                            'Lucky Stone',
+                            style: pw.TextStyle(
+                              fontSize: 12,
+                              fontWeight: pw.FontWeight.bold,
+                              color: const PdfColor.fromInt(0xFF000000),
+                            ),
+                          ),
+                          pw.SizedBox(
+                            height: 10,
+                          ),
+                          pw.Container(
+                            width: double.infinity,
+                            padding: const pw.EdgeInsets.all(8),
+                            margin: const pw.EdgeInsets.only(bottom: 10),
+                            decoration: pw.BoxDecoration(
+                              border: pw.Border.all(color: const PdfColor
+                                  .fromInt(0xFF9E9E9E)),
+                              borderRadius: pw.BorderRadius.circular(10),
+                            ),
+                            child: pw.Column(
+                              mainAxisAlignment: pw.MainAxisAlignment.start,
+                              crossAxisAlignment: pw.CrossAxisAlignment.start,
+                              children: [
+                                pw.Text(
+                                  'Lucky Gemstone',
+                                  style: pw.TextStyle(
+                                    fontSize: 12,
+                                    fontWeight: pw.FontWeight.bold,
+                                    color: const PdfColor.fromInt(0xFF000000),
+                                  ),
+                                ),
+                                pw.SizedBox(
+                                  height: 10,
+                                ),
+                                pw.Text(
+                                  'You will be connected to your concerned Astrologer via the chat window. You have to provide your name and gotra for sankalp You will be connected to your concerned Astrologer via the chat window. You have to provide your name and gotra for sankalp',
+                                  style: const pw.TextStyle(
+                                    fontSize: 12,
+                                    color: PdfColor.fromInt(0xFF000000),
+                                  ),
+                                ),
+                                pw.SizedBox(height: 10),
+                                pw.Container(
+                                  width: double.infinity,
+                                  padding: const pw.EdgeInsets.all(8),
+                                  margin: const pw.EdgeInsets.only(bottom: 10),
+                                  decoration: pw.BoxDecoration(
+                                    border: pw.Border.all(
+                                        color: const PdfColor.fromInt(
+                                            0xFF9E9E9E)),
+                                    borderRadius: pw.BorderRadius.circular(10),
+                                  ),
+                                  child: pw.Column(
+                                    children: [
+                                      pw.Container(
+                                        child: pw.Row(
+                                          mainAxisAlignment: pw
+                                              .MainAxisAlignment.start,
+                                          children: [
+                                            pw.SizedBox(
                                                 width: 100,
-                                                child: pw.Center(
-                                                    child: pw.Row(
-                                                  mainAxisAlignment: pw.MainAxisAlignment.spaceAround,
-                                                  crossAxisAlignment: pw.CrossAxisAlignment.center,
-                                                  children: [
-                                                    pw.Text(e.end!.split(' ')[0], textAlign: pw.TextAlign.center),
-                                                  ],
-                                                ))),
-                                          ),
+                                                child: pw.Text(
+                                                  'lucky stone',
+                                                  style: const pw.TextStyle(
+                                                    fontSize: 10,
+                                                    color: PdfColor.fromInt(
+                                                        0xFF000000),
+                                                  ),
+                                                )),
+                                            pw.SizedBox(
+                                              width: 50,
+                                            ),
+                                            pw.Expanded(
+                                                child: pw.Text(
+                                                  '${gemstoneList!.luckyStone!
+                                                      .name}',
+                                                  style: const pw.TextStyle(
+                                                    fontSize: 10,
+                                                    color: PdfColor.fromInt(
+                                                        0xFF000000),
+                                                  ),
+                                                )),
+                                          ],
                                         ),
-                                      ],
-                                    ),
-                                  )
-                                  .toList(),
-                            )
-                          ],
-                        ),
-                      ),
-              ],
-            )),
-      ));
-
-      pdf.addPage(pw.Page(
-        build: (context) => pw.Padding(
-            padding: const pw.EdgeInsets.all(8),
-            child: pw.Column(
-              crossAxisAlignment: pw.CrossAxisAlignment.start,
-              children: [
-                pw.Text(
-                  'Report',
-                  style: pw.TextStyle(
-                    fontSize: 14,
-                    fontWeight: pw.FontWeight.bold,
-                    color: const PdfColor.fromInt(0xFF000000),
-                  ),
-                ),
-                pw.SizedBox(
-                  height: 15,
-                ),
-                pw.Text(
-                  '1.General',
-                  style: pw.TextStyle(
-                    fontSize: 14,
-                    fontWeight: pw.FontWeight.bold,
-                    color: const PdfColor.fromInt(0xFF000000),
-                  ),
-                ),
-                pw.SizedBox(
-                  height: 15,
-                ),
-                pw.Text(
-                  'Description',
-                  style: pw.TextStyle(
-                    fontSize: 12,
-                    fontWeight: pw.FontWeight.bold,
-                    color: const PdfColor.fromInt(0xFF000000),
-                  ),
-                ),
-                pw.SizedBox(
-                  height: 10,
-                ),
-                pw.Text(
-                  '$generalDesc',
-                  style: const pw.TextStyle(
-                    fontSize: 12,
-                    color: PdfColor.fromInt(0xFF000000),
-                  ),
-                ),
-                pw.SizedBox(
-                  height: 15,
-                ),
-                pw.Text(
-                  '2.Remedies',
-                  style: pw.TextStyle(
-                    fontSize: 14,
-                    fontWeight: pw.FontWeight.bold,
-                    color: const PdfColor.fromInt(0xFF000000),
-                  ),
-                ),
-                pw.SizedBox(
-                  height: 15,
-                ),
-                pw.Text(
-                  'Gemstones',
-                  style: pw.TextStyle(
-                    fontSize: 12,
-                    fontWeight: pw.FontWeight.bold,
-                    color: const PdfColor.fromInt(0xFF000000),
-                  ),
-                ),
-                pw.SizedBox(
-                  height: 10,
-                ),
-                pw.Text(
-                  'Life Stone',
-                  style: pw.TextStyle(
-                    fontSize: 12,
-                    fontWeight: pw.FontWeight.bold,
-                    color: const PdfColor.fromInt(0xFF000000),
-                  ),
-                ),
-                pw.SizedBox(
-                  height: 10,
-                ),
-                pw.Container(
-                  width: double.infinity,
-                  padding: const pw.EdgeInsets.all(8),
-                  margin: const pw.EdgeInsets.only(bottom: 10),
-                  decoration: pw.BoxDecoration(
-                    border: pw.Border.all(color: const PdfColor.fromInt(0xFF9E9E9E)),
-                    borderRadius: pw.BorderRadius.circular(10),
-                  ),
-                  child: pw.Column(
-                    mainAxisAlignment: pw.MainAxisAlignment.start,
-                    crossAxisAlignment: pw.CrossAxisAlignment.start,
-                    children: [
-                      pw.Text(
-                        'Life Stone',
-                        style: pw.TextStyle(
-                          fontSize: 12,
-                          fontWeight: pw.FontWeight.bold,
-                          color: const PdfColor.fromInt(0xFF000000),
-                        ),
-                      ),
-                      pw.SizedBox(
-                        height: 10,
-                      ),
-                      pw.Text(
-                        'You will be connected to your concerned Astrologer via the chat window. You have to provide your name and gotra for sankalp You will be connected to your concerned Astrologer via the chat window. You have to provide your name and gotra for sankalp',
-                        style: const pw.TextStyle(
-                          fontSize: 12,
-                          color: PdfColor.fromInt(0xFF000000),
-                        ),
-                      ),
-                      pw.SizedBox(height: 10),
-                      pw.Container(
-                        width: double.infinity,
-                        padding: const pw.EdgeInsets.all(8),
-                        margin: const pw.EdgeInsets.only(bottom: 10),
-                        decoration: pw.BoxDecoration(
-                          border: pw.Border.all(color: const PdfColor.fromInt(0xFF9E9E9E)),
-                          borderRadius: pw.BorderRadius.circular(10),
-                        ),
-                        child: pw.Column(
-                          children: [
-                            pw.Container(
-                              child: pw.Row(
-                                mainAxisAlignment: pw.MainAxisAlignment.start,
-                                children: [
-                                  pw.SizedBox(
-                                      width: 100,
-                                      child: pw.Text(
-                                        'Life Stone',
-                                        style: pw.TextStyle(
-                                          fontSize: 10,
-                                          fontWeight: pw.FontWeight.bold,
-                                          color: const PdfColor.fromInt(0xFF000000),
+                                      ),
+                                      pw.SizedBox(
+                                        height: 10,
+                                      ),
+                                      pw.Container(
+                                        color: const PdfColor.fromInt(
+                                            0xFFEBE7C6),
+                                        child: pw.Row(
+                                          mainAxisAlignment: pw
+                                              .MainAxisAlignment.start,
+                                          children: [
+                                            pw.SizedBox(
+                                                width: 100,
+                                                child: pw.Text(
+                                                  'How to wear',
+                                                  style: const pw.TextStyle(
+                                                    fontSize: 10,
+                                                    color: PdfColor.fromInt(
+                                                        0xFF000000),
+                                                  ),
+                                                )),
+                                            pw.SizedBox(
+                                              width: 50,
+                                            ),
+                                            pw.Expanded(
+                                                child: pw.Text(
+                                                  '${gemstoneList!.luckyStone!
+                                                      .wearMetal}, ${gemstoneList!
+                                                      .luckyStone!.wearFinger}',
+                                                  style: const pw.TextStyle(
+                                                    fontSize: 10,
+                                                    color: PdfColor.fromInt(
+                                                        0xFF000000),
+                                                  ),
+                                                )),
+                                          ],
                                         ),
-                                      )),
-                                  pw.SizedBox(
-                                    width: 50,
+                                      ),
+                                      pw.SizedBox(
+                                        height: 10,
+                                      ),
+                                    ],
                                   ),
-                                  pw.Expanded(
-                                      child: pw.Text(
-                                    '${gemstoneList!.lifeStone!.name}',
-                                    style: pw.TextStyle(
-                                      fontSize: 10,
-                                      fontWeight: pw.FontWeight.bold,
-                                      color: const PdfColor.fromInt(0xFF000000),
+                                )
+                              ],
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                    pw.Padding(
+                      padding: const pw.EdgeInsets.all(8.0),
+                      child: pw.Column(
+                        mainAxisAlignment: pw.MainAxisAlignment.start,
+                        crossAxisAlignment: pw.CrossAxisAlignment.start,
+                        children: [
+                          pw.Text(
+                            'Fortune Stone',
+                            style: pw.TextStyle(
+                              fontSize: 12,
+                              fontWeight: pw.FontWeight.bold,
+                              color: const PdfColor.fromInt(0xFF000000),
+                            ),
+                          ),
+                          pw.SizedBox(
+                            height: 10,
+                          ),
+                          pw.Container(
+                            width: double.infinity,
+                            padding: const pw.EdgeInsets.all(8),
+                            margin: const pw.EdgeInsets.only(bottom: 10),
+                            decoration: pw.BoxDecoration(
+                              border: pw.Border.all(color: const PdfColor
+                                  .fromInt(0xFF9E9E9E)),
+                              borderRadius: pw.BorderRadius.circular(10),
+                            ),
+                            child: pw.Column(
+                              mainAxisAlignment: pw.MainAxisAlignment.start,
+                              crossAxisAlignment: pw.CrossAxisAlignment.start,
+                              children: [
+                                pw.Text(
+                                  'Fortune Stone',
+                                  style: pw.TextStyle(
+                                    fontSize: 12,
+                                    fontWeight: pw.FontWeight.bold,
+                                    color: const PdfColor.fromInt(0xFF000000),
+                                  ),
+                                ),
+                                pw.SizedBox(
+                                  height: 10,
+                                ),
+                                pw.Text(
+                                  'You will be connected to your concerned Astrologer via the chat window. You have to provide your name and gotra for sankalp You will be connected to your concerned Astrologer via the chat window. You have to provide your name and gotra for sankalp',
+                                  style: const pw.TextStyle(
+                                    fontSize: 12,
+                                    color: PdfColor.fromInt(0xFF000000),
+                                  ),
+                                ),
+                                pw.SizedBox(height: 10),
+                                pw.Container(
+                                  width: double.infinity,
+                                  padding: const pw.EdgeInsets.all(8),
+                                  margin: const pw.EdgeInsets.only(bottom: 10),
+                                  decoration: pw.BoxDecoration(
+                                    border: pw.Border.all(
+                                        color: const PdfColor.fromInt(
+                                            0xFF9E9E9E)),
+                                    borderRadius: pw.BorderRadius.circular(10),
+                                  ),
+                                  child: pw.Column(
+                                    children: [
+                                      pw.Container(
+                                        child: pw.Row(
+                                          mainAxisAlignment: pw
+                                              .MainAxisAlignment.start,
+                                          children: [
+                                            pw.SizedBox(
+                                                width: 100,
+                                                child: pw.Text(
+                                                  'fortune stone',
+                                                  style: const pw.TextStyle(
+                                                    fontSize: 10,
+                                                    color: PdfColor.fromInt(
+                                                        0xFF000000),
+                                                  ),
+                                                )),
+                                            pw.SizedBox(
+                                              width: 50,
+                                            ),
+                                            pw.Expanded(
+                                                child: pw.Text(
+                                                  '${gemstoneList!.fortuneStone!
+                                                      .name}',
+                                                  style: pw.TextStyle(
+                                                    fontSize: 10,
+                                                    fontWeight: pw.FontWeight
+                                                        .bold,
+                                                    color: const PdfColor
+                                                        .fromInt(0xFF000000),
+                                                  ),
+                                                )),
+                                          ],
+                                        ),
+                                      ),
+                                      pw.SizedBox(
+                                        height: 10,
+                                      ),
+                                      pw.Container(
+                                        color: const PdfColor.fromInt(
+                                            0xFFEBE7C6),
+                                        child: pw.Row(
+                                          mainAxisAlignment: pw
+                                              .MainAxisAlignment.start,
+                                          children: [
+                                            pw.SizedBox(
+                                                width: 100,
+                                                child: pw.Text(
+                                                  'How to wear',
+                                                  style: const pw.TextStyle(
+                                                    fontSize: 10,
+                                                    color: PdfColor.fromInt(
+                                                        0xFF000000),
+                                                  ),
+                                                )),
+                                            pw.SizedBox(
+                                              width: 50,
+                                            ),
+                                            pw.Expanded(
+                                                child: pw.Text(
+                                                  '${gemstoneList!.fortuneStone!
+                                                      .wearMetal}, ${gemstoneList!
+                                                      .fortuneStone!
+                                                      .wearFinger}',
+                                                  style: const pw.TextStyle(
+                                                    fontSize: 10,
+                                                    color: PdfColor.fromInt(
+                                                        0xFF000000),
+                                                  ),
+                                                )),
+                                          ],
+                                        ),
+                                      ),
+                                      pw.SizedBox(
+                                        height: 10,
+                                      ),
+                                    ],
+                                  ),
+                                )
+                              ],
+                            ),
+                          ),
+                          pw.SizedBox(height: 15),
+                          pw.Text(
+                            '3.Dasha',
+                            style: pw.TextStyle(
+                              fontSize: 14,
+                              fontWeight: pw.FontWeight.bold,
+                              color: const PdfColor.fromInt(0xFF000000),
+                            ),
+                          ),
+                          pw.SizedBox(
+                            height: 15,
+                          ),
+                          pw.Text(
+                            'i.Manglik',
+                            style: pw.TextStyle(
+                              fontSize: 12,
+                              fontWeight: pw.FontWeight.bold,
+                              color: const PdfColor.fromInt(0xFF000000),
+                            ),
+                          ),
+                          pw.SizedBox(
+                            height: 10,
+                          ),
+                          pw.Text(
+                            'Manglik Analysis',
+                            style: pw.TextStyle(
+                              fontSize: 11,
+                              fontWeight: pw.FontWeight.bold,
+                              color: const PdfColor.fromInt(0xFF000000),
+                            ),
+                          ),
+                          pw.SizedBox(
+                            height: 10,
+                          ),
+                          pw.Container(
+                            padding: const pw.EdgeInsets.all(4),
+                            decoration: pw.BoxDecoration(
+                              border: pw.Border.all(color: const PdfColor
+                                  .fromInt(0xFF4CAF50)),
+                              borderRadius: pw.BorderRadius.circular(5),
+                            ),
+                            child: pw.Row(
+                              children: [
+                                pw.Container(
+                                    height: 50,
+                                    width: 50,
+                                    alignment: pw.Alignment.center,
+                                    decoration: const pw.BoxDecoration(
+                                      color: PdfColor.fromInt(0xFF4CAF50),
+                                      //more than 50% of width makes circle
                                     ),
-                                  )),
-                                ],
-                              ),
-                            ),
-                            pw.SizedBox(
-                              height: 10,
-                            ),
-                            pw.Container(
-                              color: const PdfColor.fromInt(0xFFEBE7C6),
-                              child: pw.Row(
-                                mainAxisAlignment: pw.MainAxisAlignment.start,
-                                children: [
-                                  pw.SizedBox(
-                                      width: 100,
-                                      child: pw.Text(
-                                        'How to wear',
+                                    child: pw.Text('NO',
                                         style: const pw.TextStyle(
-                                          fontSize: 10,
-                                          color: PdfColor.fromInt(0xFF000000),
-                                        ),
-                                      )),
-                                  pw.SizedBox(
-                                    width: 50,
-                                  ),
-                                  pw.Expanded(
-                                      child: pw.Text(
-                                    '${gemstoneList!.lifeStone!.wearMetal}, ${gemstoneList!.lifeStone!.wearFinger}',
-                                    style: const pw.TextStyle(
-                                      fontSize: 10,
-                                      color: PdfColor.fromInt(0xFF000000),
-                                    ),
-                                  )),
-                                ],
-                              ),
-                            ),
-                            pw.SizedBox(
-                              height: 10,
-                            ),
-                          ],
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-              ],
-            )),
-      ));
-
-      pdf.addPage(pw.Page(
-        build: (context) => pw.Padding(
-            padding: const pw.EdgeInsets.all(8),
-            child: pw.Column(
-              children: [
-                pw.Padding(
-                  padding: const pw.EdgeInsets.all(8.0),
-                  child: pw.Column(
-                    mainAxisAlignment: pw.MainAxisAlignment.start,
-                    crossAxisAlignment: pw.CrossAxisAlignment.start,
-                    children: [
-                      pw.Text(
-                        'Lucky Stone',
-                        style: pw.TextStyle(
-                          fontSize: 12,
-                          fontWeight: pw.FontWeight.bold,
-                          color: const PdfColor.fromInt(0xFF000000),
-                        ),
-                      ),
-                      pw.SizedBox(
-                        height: 10,
-                      ),
-                      pw.Container(
-                        width: double.infinity,
-                        padding: const pw.EdgeInsets.all(8),
-                        margin: const pw.EdgeInsets.only(bottom: 10),
-                        decoration: pw.BoxDecoration(
-                          border: pw.Border.all(color: const PdfColor.fromInt(0xFF9E9E9E)),
-                          borderRadius: pw.BorderRadius.circular(10),
-                        ),
-                        child: pw.Column(
-                          mainAxisAlignment: pw.MainAxisAlignment.start,
-                          crossAxisAlignment: pw.CrossAxisAlignment.start,
-                          children: [
-                            pw.Text(
-                              'Lucky Gemstone',
-                              style: pw.TextStyle(
-                                fontSize: 12,
-                                fontWeight: pw.FontWeight.bold,
-                                color: const PdfColor.fromInt(0xFF000000),
-                              ),
-                            ),
-                            pw.SizedBox(
-                              height: 10,
-                            ),
-                            pw.Text(
-                              'You will be connected to your concerned Astrologer via the chat window. You have to provide your name and gotra for sankalp You will be connected to your concerned Astrologer via the chat window. You have to provide your name and gotra for sankalp',
-                              style: const pw.TextStyle(
-                                fontSize: 12,
-                                color: PdfColor.fromInt(0xFF000000),
-                              ),
-                            ),
-                            pw.SizedBox(height: 10),
-                            pw.Container(
-                              width: double.infinity,
-                              padding: const pw.EdgeInsets.all(8),
-                              margin: const pw.EdgeInsets.only(bottom: 10),
-                              decoration: pw.BoxDecoration(
-                                border: pw.Border.all(color: const PdfColor.fromInt(0xFF9E9E9E)),
-                                borderRadius: pw.BorderRadius.circular(10),
-                              ),
-                              child: pw.Column(
-                                children: [
-                                  pw.Container(
-                                    child: pw.Row(
-                                      mainAxisAlignment: pw.MainAxisAlignment.start,
-                                      children: [
-                                        pw.SizedBox(
-                                            width: 100,
-                                            child: pw.Text(
-                                              'lucky stone',
-                                              style: const pw.TextStyle(
-                                                fontSize: 10,
-                                                color: PdfColor.fromInt(0xFF000000),
-                                              ),
-                                            )),
-                                        pw.SizedBox(
-                                          width: 50,
-                                        ),
-                                        pw.Expanded(
-                                            child: pw.Text(
-                                          '${gemstoneList!.luckyStone!.name}',
-                                          style: const pw.TextStyle(
-                                            fontSize: 10,
-                                            color: PdfColor.fromInt(0xFF000000),
-                                          ),
-                                        )),
-                                      ],
-                                    ),
-                                  ),
-                                  pw.SizedBox(
-                                    height: 10,
-                                  ),
-                                  pw.Container(
-                                    color: const PdfColor.fromInt(0xFFEBE7C6),
-                                    child: pw.Row(
-                                      mainAxisAlignment: pw.MainAxisAlignment.start,
-                                      children: [
-                                        pw.SizedBox(
-                                            width: 100,
-                                            child: pw.Text(
-                                              'How to wear',
-                                              style: const pw.TextStyle(
-                                                fontSize: 10,
-                                                color: PdfColor.fromInt(0xFF000000),
-                                              ),
-                                            )),
-                                        pw.SizedBox(
-                                          width: 50,
-                                        ),
-                                        pw.Expanded(
-                                            child: pw.Text(
-                                          '${gemstoneList!.luckyStone!.wearMetal}, ${gemstoneList!.luckyStone!.wearFinger}',
-                                          style: const pw.TextStyle(
-                                            fontSize: 10,
-                                            color: PdfColor.fromInt(0xFF000000),
-                                          ),
-                                        )),
-                                      ],
-                                    ),
-                                  ),
-                                  pw.SizedBox(
-                                    height: 10,
-                                  ),
-                                ],
-                              ),
-                            )
-                          ],
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-                pw.Padding(
-                  padding: const pw.EdgeInsets.all(8.0),
-                  child: pw.Column(
-                    mainAxisAlignment: pw.MainAxisAlignment.start,
-                    crossAxisAlignment: pw.CrossAxisAlignment.start,
-                    children: [
-                      pw.Text(
-                        'Fortune Stone',
-                        style: pw.TextStyle(
-                          fontSize: 12,
-                          fontWeight: pw.FontWeight.bold,
-                          color: const PdfColor.fromInt(0xFF000000),
-                        ),
-                      ),
-                      pw.SizedBox(
-                        height: 10,
-                      ),
-                      pw.Container(
-                        width: double.infinity,
-                        padding: const pw.EdgeInsets.all(8),
-                        margin: const pw.EdgeInsets.only(bottom: 10),
-                        decoration: pw.BoxDecoration(
-                          border: pw.Border.all(color: const PdfColor.fromInt(0xFF9E9E9E)),
-                          borderRadius: pw.BorderRadius.circular(10),
-                        ),
-                        child: pw.Column(
-                          mainAxisAlignment: pw.MainAxisAlignment.start,
-                          crossAxisAlignment: pw.CrossAxisAlignment.start,
-                          children: [
-                            pw.Text(
-                              'Fortune Stone',
-                              style: pw.TextStyle(
-                                fontSize: 12,
-                                fontWeight: pw.FontWeight.bold,
-                                color: const PdfColor.fromInt(0xFF000000),
-                              ),
-                            ),
-                            pw.SizedBox(
-                              height: 10,
-                            ),
-                            pw.Text(
-                              'You will be connected to your concerned Astrologer via the chat window. You have to provide your name and gotra for sankalp You will be connected to your concerned Astrologer via the chat window. You have to provide your name and gotra for sankalp',
-                              style: const pw.TextStyle(
-                                fontSize: 12,
-                                color: PdfColor.fromInt(0xFF000000),
-                              ),
-                            ),
-                            pw.SizedBox(height: 10),
-                            pw.Container(
-                              width: double.infinity,
-                              padding: const pw.EdgeInsets.all(8),
-                              margin: const pw.EdgeInsets.only(bottom: 10),
-                              decoration: pw.BoxDecoration(
-                                border: pw.Border.all(color: const PdfColor.fromInt(0xFF9E9E9E)),
-                                borderRadius: pw.BorderRadius.circular(10),
-                              ),
-                              child: pw.Column(
-                                children: [
-                                  pw.Container(
-                                    child: pw.Row(
-                                      mainAxisAlignment: pw.MainAxisAlignment.start,
-                                      children: [
-                                        pw.SizedBox(
-                                            width: 100,
-                                            child: pw.Text(
-                                              'fortune stone',
-                                              style: const pw.TextStyle(
-                                                fontSize: 10,
-                                                color: PdfColor.fromInt(0xFF000000),
-                                              ),
-                                            )),
-                                        pw.SizedBox(
-                                          width: 50,
-                                        ),
-                                        pw.Expanded(
-                                            child: pw.Text(
-                                          '${gemstoneList!.fortuneStone!.name}',
-                                          style: pw.TextStyle(
-                                            fontSize: 10,
-                                            fontWeight: pw.FontWeight.bold,
-                                            color: const PdfColor.fromInt(0xFF000000),
-                                          ),
-                                        )),
-                                      ],
-                                    ),
-                                  ),
-                                  pw.SizedBox(
-                                    height: 10,
-                                  ),
-                                  pw.Container(
-                                    color: const PdfColor.fromInt(0xFFEBE7C6),
-                                    child: pw.Row(
-                                      mainAxisAlignment: pw.MainAxisAlignment.start,
-                                      children: [
-                                        pw.SizedBox(
-                                            width: 100,
-                                            child: pw.Text(
-                                              'How to wear',
-                                              style: const pw.TextStyle(
-                                                fontSize: 10,
-                                                color: PdfColor.fromInt(0xFF000000),
-                                              ),
-                                            )),
-                                        pw.SizedBox(
-                                          width: 50,
-                                        ),
-                                        pw.Expanded(
-                                            child: pw.Text(
-                                          '${gemstoneList!.fortuneStone!.wearMetal}, ${gemstoneList!.fortuneStone!.wearFinger}',
-                                          style: const pw.TextStyle(
-                                            fontSize: 10,
-                                            color: PdfColor.fromInt(0xFF000000),
-                                          ),
-                                        )),
-                                      ],
-                                    ),
-                                  ),
-                                  pw.SizedBox(
-                                    height: 10,
-                                  ),
-                                ],
-                              ),
-                            )
-                          ],
-                        ),
-                      ),
-                      pw.SizedBox(height: 15),
-                      pw.Text(
-                        '3.Dasha',
-                        style: pw.TextStyle(
-                          fontSize: 14,
-                          fontWeight: pw.FontWeight.bold,
-                          color: const PdfColor.fromInt(0xFF000000),
-                        ),
-                      ),
-                      pw.SizedBox(
-                        height: 15,
-                      ),
-                      pw.Text(
-                        'i.Manglik',
-                        style: pw.TextStyle(
-                          fontSize: 12,
-                          fontWeight: pw.FontWeight.bold,
-                          color: const PdfColor.fromInt(0xFF000000),
-                        ),
-                      ),
-                      pw.SizedBox(
-                        height: 10,
-                      ),
-                      pw.Text(
-                        'Manglik Analysis',
-                        style: pw.TextStyle(
-                          fontSize: 11,
-                          fontWeight: pw.FontWeight.bold,
-                          color: const PdfColor.fromInt(0xFF000000),
-                        ),
-                      ),
-                      pw.SizedBox(
-                        height: 10,
-                      ),
-                      pw.Container(
-                        padding: const pw.EdgeInsets.all(4),
-                        decoration: pw.BoxDecoration(
-                          border: pw.Border.all(color: const PdfColor.fromInt(0xFF4CAF50)),
-                          borderRadius: pw.BorderRadius.circular(5),
-                        ),
-                        child: pw.Row(
-                          children: [
-                            pw.Container(
-                                height: 50,
-                                width: 50,
-                                alignment: pw.Alignment.center,
-                                decoration: const pw.BoxDecoration(
-                                  color: PdfColor.fromInt(0xFF4CAF50),
-                                  //more than 50% of width makes circle
+                                            color: PdfColor.fromInt(
+                                                0xFFFFFFFF)))),
+                                pw.SizedBox(
+                                  width: 20,
                                 ),
-                                child: pw.Text('NO', style: const pw.TextStyle(color: PdfColor.fromInt(0xFFFFFFFF)))),
-                            pw.SizedBox(
-                              width: 20,
+                              ],
                             ),
-                          ],
-                        ),
+                          ),
+                          pw.SizedBox(height: 10),
+                          pw.Text(
+                            'This is a computer generated result. Please consult an Astrologer to confirm & understand this in detail.',
+                            style: const pw.TextStyle(
+                              fontSize: 12,
+                              color: PdfColor.fromInt(0xFF9E9E9E),
+                            ),
+                          ),
+                          pw.SizedBox(
+                            height: 10,
+                          ),
+                        ],
                       ),
-                      pw.SizedBox(height: 10),
-                      pw.Text(
-                        'This is a computer generated result. Please consult an Astrologer to confirm & understand this in detail.',
-                        style: const pw.TextStyle(
-                          fontSize: 12,
-                          color: PdfColor.fromInt(0xFF9E9E9E),
-                        ),
-                      ),
-                      pw.SizedBox(
-                        height: 10,
-                      ),
-                    ],
-                  ),
-                )
-              ],
-            )),
+                    )
+                  ],
+                )),
       ));
       pdf.addPage(pw.Page(
-        build: (context) => pw.Padding(
-            padding: const pw.EdgeInsets.all(8),
-            child: pw.Column(
-              crossAxisAlignment: pw.CrossAxisAlignment.start,
-              children: [
-                pw.Text(
-                  'ii.Kalsarpa',
-                  style: pw.TextStyle(
-                    fontSize: 12,
-                    fontWeight: pw.FontWeight.bold,
-                    color: const PdfColor.fromInt(0xFF000000),
-                  ),
-                ),
-                pw.SizedBox(
-                  height: 10,
-                ),
-                pw.Text(
-                  'Kalsarpa Analysis',
-                  style: pw.TextStyle(
-                    fontSize: 12,
-                    fontWeight: pw.FontWeight.bold,
-                    color: const PdfColor.fromInt(0xFF000000),
-                  ),
-                ),
-                pw.SizedBox(
-                  height: 10,
-                ),
-                isKalsarpa == null
-                    ? pw.SizedBox()
-                    : pw.Container(
-                        padding: const pw.EdgeInsets.all(4),
-                        decoration: pw.BoxDecoration(
-                          border: pw.Border.all(color: isKalsarpa == true ? const PdfColor.fromInt(0xFFF44336) : const PdfColor.fromInt(0xFF4CAF50)),
-                          borderRadius: pw.BorderRadius.circular(5),
-                        ),
-                        child: pw.Row(
-                          children: [
-                            pw.Container(
-                                height: 50,
-                                width: 50,
-                                alignment: pw.Alignment.center,
-                                decoration: pw.BoxDecoration(
-                                  color: isKalsarpa == true ? const PdfColor.fromInt(0xFFF44336) : const PdfColor.fromInt(0xFF4CAF50),
-                                  //more than 50% of width makes circle
-                                ),
-                                child: pw.Text(isKalsarpa == true ? 'YES' : 'NO', style: const pw.TextStyle(color: PdfColor.fromInt(0xFFFFFFFF)))),
-                            pw.SizedBox(
-                              width: 10,
-                            ),
-                            pw.Column(crossAxisAlignment: pw.CrossAxisAlignment.start, children: [
-                              pw.Text(
-                                'Kalsarpa',
-                                style: pw.TextStyle(
-                                  fontSize: 12,
-                                  fontWeight: pw.FontWeight.bold,
-                                  color: const PdfColor.fromInt(0xFF000000),
-                                ),
-                              ),
-                              pw.SizedBox(height: 6),
-                              pw.Text(
-                                isKalsarpa == true ? 'Kundli is not free from kalsarpa dosha' : 'Kundli is free from kalsarpa dosha',
-                                style: const pw.TextStyle(
-                                  fontSize: 11,
-                                  color: PdfColor.fromInt(0xFF000000),
-                                ),
-                              )
-                            ])
-                          ],
-                        ),
+        build: (context) =>
+            pw.Padding(
+                padding: const pw.EdgeInsets.all(8),
+                child: pw.Column(
+                  crossAxisAlignment: pw.CrossAxisAlignment.start,
+                  children: [
+                    pw.Text(
+                      'ii.Kalsarpa',
+                      style: pw.TextStyle(
+                        fontSize: 12,
+                        fontWeight: pw.FontWeight.bold,
+                        color: const PdfColor.fromInt(0xFF000000),
                       ),
-                pw.SizedBox(
-                  height: 15,
-                ),
-                pw.Text(
-                  'iii.Sadesati',
-                  style: pw.TextStyle(
-                    fontSize: 12,
-                    fontWeight: pw.FontWeight.bold,
-                    color: const PdfColor.fromInt(0xFF000000),
-                  ),
-                ),
-                pw.SizedBox(
-                  height: 10,
-                ),
-                pw.Text(
-                  'Sadesati Analysis',
-                  style: pw.TextStyle(
-                    fontSize: 12,
-                    fontWeight: pw.FontWeight.bold,
-                    color: const PdfColor.fromInt(0xFF000000),
-                  ),
-                ),
-                pw.SizedBox(
-                  height: 10,
-                ),
-                isSadesati == null
-                    ? pw.SizedBox()
-                    : pw.Container(
-                        padding: const pw.EdgeInsets.all(4),
-                        decoration: pw.BoxDecoration(
-                          border: pw.Border.all(color: isSadesati == true ? const PdfColor.fromInt(0xFFF44336) : const PdfColor.fromInt(0xFF4CAF50)),
-                          borderRadius: pw.BorderRadius.circular(5),
-                        ),
-                        child: pw.Row(
-                          children: [
-                            pw.Container(
-                                height: 50,
-                                width: 50,
-                                alignment: pw.Alignment.center,
-                                decoration: pw.BoxDecoration(
-                                  color: isSadesati == true ? const PdfColor.fromInt(0xFFF44336) : const PdfColor.fromInt(0xFF4CAF50),
-                                  //more than 50% of width makes circle
-                                ),
-                                child: pw.Text(isSadesati == true ? 'YES' : 'NO', style: const pw.TextStyle(color: PdfColor.fromInt(0xFFFFFFFF)))),
-                            pw.SizedBox(
-                              width: 10,
-                            ),
-                            pw.Text(
-                              'Current Sadesati Status',
-                              style: pw.TextStyle(
-                                fontSize: 10,
-                                fontWeight: pw.FontWeight.bold,
-                                color: const PdfColor.fromInt(0xFF000000),
-                              ),
-                            ),
-                          ],
-                        ),
+                    ),
+                    pw.SizedBox(
+                      height: 10,
+                    ),
+                    pw.Text(
+                      'Kalsarpa Analysis',
+                      style: pw.TextStyle(
+                        fontSize: 12,
+                        fontWeight: pw.FontWeight.bold,
+                        color: const PdfColor.fromInt(0xFF000000),
                       ),
-              ],
-            )),
+                    ),
+                    pw.SizedBox(
+                      height: 10,
+                    ),
+                    isKalsarpa == null
+                        ? pw.SizedBox()
+                        : pw.Container(
+                      padding: const pw.EdgeInsets.all(4),
+                      decoration: pw.BoxDecoration(
+                        border: pw.Border.all(
+                            color: isKalsarpa == true ? const PdfColor.fromInt(
+                                0xFFF44336) : const PdfColor.fromInt(
+                                0xFF4CAF50)),
+                        borderRadius: pw.BorderRadius.circular(5),
+                      ),
+                      child: pw.Row(
+                        children: [
+                          pw.Container(
+                              height: 50,
+                              width: 50,
+                              alignment: pw.Alignment.center,
+                              decoration: pw.BoxDecoration(
+                                color: isKalsarpa == true ? const PdfColor
+                                    .fromInt(0xFFF44336) : const PdfColor
+                                    .fromInt(0xFF4CAF50),
+                                //more than 50% of width makes circle
+                              ),
+                              child: pw.Text(isKalsarpa == true ? 'YES' : 'NO',
+                                  style: const pw.TextStyle(color: PdfColor
+                                      .fromInt(0xFFFFFFFF)))),
+                          pw.SizedBox(
+                            width: 10,
+                          ),
+                          pw.Column(
+                              crossAxisAlignment: pw.CrossAxisAlignment.start,
+                              children: [
+                                pw.Text(
+                                  'Kalsarpa',
+                                  style: pw.TextStyle(
+                                    fontSize: 12,
+                                    fontWeight: pw.FontWeight.bold,
+                                    color: const PdfColor.fromInt(0xFF000000),
+                                  ),
+                                ),
+                                pw.SizedBox(height: 6),
+                                pw.Text(
+                                  isKalsarpa == true
+                                      ? 'Kundli is not free from kalsarpa dosha'
+                                      : 'Kundli is free from kalsarpa dosha',
+                                  style: const pw.TextStyle(
+                                    fontSize: 11,
+                                    color: PdfColor.fromInt(0xFF000000),
+                                  ),
+                                )
+                              ])
+                        ],
+                      ),
+                    ),
+                    pw.SizedBox(
+                      height: 15,
+                    ),
+                    pw.Text(
+                      'iii.Sadesati',
+                      style: pw.TextStyle(
+                        fontSize: 12,
+                        fontWeight: pw.FontWeight.bold,
+                        color: const PdfColor.fromInt(0xFF000000),
+                      ),
+                    ),
+                    pw.SizedBox(
+                      height: 10,
+                    ),
+                    pw.Text(
+                      'Sadesati Analysis',
+                      style: pw.TextStyle(
+                        fontSize: 12,
+                        fontWeight: pw.FontWeight.bold,
+                        color: const PdfColor.fromInt(0xFF000000),
+                      ),
+                    ),
+                    pw.SizedBox(
+                      height: 10,
+                    ),
+                    isSadesati == null
+                        ? pw.SizedBox()
+                        : pw.Container(
+                      padding: const pw.EdgeInsets.all(4),
+                      decoration: pw.BoxDecoration(
+                        border: pw.Border.all(
+                            color: isSadesati == true ? const PdfColor.fromInt(
+                                0xFFF44336) : const PdfColor.fromInt(
+                                0xFF4CAF50)),
+                        borderRadius: pw.BorderRadius.circular(5),
+                      ),
+                      child: pw.Row(
+                        children: [
+                          pw.Container(
+                              height: 50,
+                              width: 50,
+                              alignment: pw.Alignment.center,
+                              decoration: pw.BoxDecoration(
+                                color: isSadesati == true ? const PdfColor
+                                    .fromInt(0xFFF44336) : const PdfColor
+                                    .fromInt(0xFF4CAF50),
+                                //more than 50% of width makes circle
+                              ),
+                              child: pw.Text(isSadesati == true ? 'YES' : 'NO',
+                                  style: const pw.TextStyle(color: PdfColor
+                                      .fromInt(0xFFFFFFFF)))),
+                          pw.SizedBox(
+                            width: 10,
+                          ),
+                          pw.Text(
+                            'Current Sadesati Status',
+                            style: pw.TextStyle(
+                              fontSize: 10,
+                              fontWeight: pw.FontWeight.bold,
+                              color: const PdfColor.fromInt(0xFF000000),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ],
+                )),
       ));
       // FirebaseDynamicLinks dynamicLinks = FirebaseDynamicLinks.instance;
       String appShareLink = '';
@@ -2430,12 +3043,32 @@ class KundliController extends GetxController {
       // url = shortLink.shortUrl;
       // appShareLink = url.toString();
       // applink = appShareLink;
-      String fileName = DateTime.now().microsecondsSinceEpoch.toString();
-      final temp = Platform.isAndroid ? await getExternalStorageDirectory() : await getApplicationDocumentsDirectory();
+      String fileName = DateTime
+          .now()
+          .microsecondsSinceEpoch
+          .toString();
+      final temp = Platform.isAndroid
+          ? await getExternalStorageDirectory()
+          : await getApplicationDocumentsDirectory();
       final path = '${temp!.path}/$fileName.pdf';
       File(path).writeAsBytesSync(await pdf.save());
       print('path $path');
-      await FlutterShare.shareFile(filePath: path, title: global.appName, text: "Hey! I am using ${global.getSystemFlagValue(global.systemFlagNameList.appName)} to get predictions related to marriage/career.You should also try and see your future! $appShareLink").then((value) {}).catchError((e) {
+      // await FlutterShare
+      //     .shareFile(filePath: path,
+      //     title: global.appName,
+      //     text: "Hey! I am using ${global.getSystemFlagValue(
+      //         global.systemFlagNameList
+      //             .appName)} to get predictions related to marriage/career.You should also try and see your future! $appShareLink")
+     await SharePlus.instance.share(
+          ShareParams(
+            files: [XFile(path)],
+            title: global.appName,
+            text: "Hey! I am using ${global.getSystemFlagValue(
+                global.systemFlagNameList
+                    .appName)} to get predictions related to marriage/career.You should also try and see your future! $appShareLink",
+          ))
+      .then((value) {})
+          .catchError((e) {
         print(e);
       });
     } catch (e) {
@@ -2446,9 +3079,12 @@ class KundliController extends GetxController {
   getKundliListById(int index) async {
     try {
       editNameController.text = searchKundliList[index].name;
-      editBirthDateController.text = formatDate(searchKundliList[index].birthDate, [dd, '-', mm, '-', yyyy]);
-      editBirthTimeController.text = searchKundliList[index].birthTime.toString();
-      editBirthPlaceController.text = searchKundliList[index].birthPlace.toString();
+      editBirthDateController.text = formatDate(
+          searchKundliList[index].birthDate, [dd, '-', mm, '-', yyyy]);
+      editBirthTimeController.text =
+          searchKundliList[index].birthTime.toString();
+      editBirthPlaceController.text =
+          searchKundliList[index].birthPlace.toString();
       update();
       genderChoose(searchKundliList[index].gender);
     } catch (e) {
@@ -2470,11 +3106,19 @@ class KundliController extends GetxController {
     });
   }
 
-  getBasicDetail({int? day, int? month, int? year, int? hour, int? min, double? lat, double? lon, double? tzone}) async {
+  getBasicDetail(
+      {int? day, int? month, int? year, int? hour, int? min, double? lat, double? lon, double? tzone}) async {
     try {
       await global.checkBody().then((result) async {
         if (result) {
-          await apiHelper.getKundliBasicDetails(day: day, month: month, year: year, hour: hour, min: min, lat: lat, lon: lon, tzone: tzone).then((result) {
+          await apiHelper.getKundliBasicDetails(day: day,
+              month: month,
+              year: year,
+              hour: hour,
+              min: min,
+              lat: lat,
+              lon: lon,
+              tzone: tzone).then((result) {
             if (result != null) {
               Map<String, dynamic> map = result;
               kundliBasicDetail = KundliBasicDetail.fromJson(map);
@@ -2491,14 +3135,23 @@ class KundliController extends GetxController {
     }
   }
 
-  getBasicPanchangDetail({int? day, int? month, int? year, int? hour, int? min, double? lat, double? lon, double? tzone}) async {
+  getBasicPanchangDetail(
+      {int? day, int? month, int? year, int? hour, int? min, double? lat, double? lon, double? tzone}) async {
     try {
       await global.checkBody().then((result) async {
         if (result) {
-          await apiHelper.getKundliBasicPanchangDetails(day: day, month: month, year: year, hour: hour, min: min, lat: lat, lon: lon, tzone: tzone).then((result) {
+          await apiHelper.getKundliBasicPanchangDetails(day: day,
+              month: month,
+              year: year,
+              hour: hour,
+              min: min,
+              lat: lat,
+              lon: lon,
+              tzone: tzone).then((result) {
             if (result != null) {
               Map<String, dynamic> map = result;
-              kundliBasicPanchangDetail = KundliBasicPanchangDetail.fromJson(map);
+              kundliBasicPanchangDetail =
+                  KundliBasicPanchangDetail.fromJson(map);
               update();
             } else {
               global.showToast(message: 'Failed to Panchang Detail');
@@ -2512,11 +3165,19 @@ class KundliController extends GetxController {
     }
   }
 
-  getBasicAvakhadaDetail({int? day, int? month, int? year, int? hour, int? min, double? lat, double? lon, double? tzone}) async {
+  getBasicAvakhadaDetail(
+      {int? day, int? month, int? year, int? hour, int? min, double? lat, double? lon, double? tzone}) async {
     try {
       await global.checkBody().then((result) async {
         if (result) {
-          await apiHelper.getAvakhadaDetails(day: day, month: month, year: year, hour: hour, min: min, lat: lat, lon: lon, tzone: tzone).then((result) {
+          await apiHelper.getAvakhadaDetails(day: day,
+              month: month,
+              year: year,
+              hour: hour,
+              min: min,
+              lat: lat,
+              lon: lon,
+              tzone: tzone).then((result) {
             if (result != null) {
               Map<String, dynamic> map = result;
               kundliAvakhadaDetail = KundliAvakhdaDetail.fromJson(map);
@@ -2533,11 +3194,19 @@ class KundliController extends GetxController {
     }
   }
 
-  getReportDescDetail({int? day, int? month, int? year, int? hour, int? min, double? lat, double? lon, double? tzone}) async {
+  getReportDescDetail(
+      {int? day, int? month, int? year, int? hour, int? min, double? lat, double? lon, double? tzone}) async {
     try {
       await global.checkBody().then((result) async {
         if (result) {
-          await apiHelper.getReport(day: day, month: month, year: year, hour: hour, min: min, lat: lat, lon: lon, tzone: tzone).then((result) {
+          await apiHelper.getReport(day: day,
+              month: month,
+              year: year,
+              hour: hour,
+              min: min,
+              lat: lat,
+              lon: lon,
+              tzone: tzone).then((result) {
             if (result != null) {
               generalDesc = result['asc_report']['report'];
               update();
@@ -2566,11 +3235,19 @@ class KundliController extends GetxController {
     update();
   }
 
-  getChartPlanetsDetail({int? day, int? month, int? year, int? hour, int? min, double? lat, double? lon, double? tzone}) async {
+  getChartPlanetsDetail(
+      {int? day, int? month, int? year, int? hour, int? min, double? lat, double? lon, double? tzone}) async {
     try {
       await global.checkBody().then((result) async {
         if (result) {
-          await apiHelper.getPlanetsDetail(day: day, month: month, year: year, hour: hour, min: min, lat: lat, lon: lon, tzone: tzone).then((result) {
+          await apiHelper.getPlanetsDetail(day: day,
+              month: month,
+              year: year,
+              hour: hour,
+              min: min,
+              lat: lat,
+              lon: lon,
+              tzone: tzone).then((result) {
             if (result != null) {
               planetList = result;
               sunDetails = KundliPlanetsDetail.fromJson(planetList[0]);
@@ -2596,11 +3273,19 @@ class KundliController extends GetxController {
     }
   }
 
-  getSadesatiDetail({int? day, int? month, int? year, int? hour, int? min, double? lat, double? lon, double? tzone}) async {
+  getSadesatiDetail(
+      {int? day, int? month, int? year, int? hour, int? min, double? lat, double? lon, double? tzone}) async {
     try {
       await global.checkBody().then((result) async {
         if (result) {
-          await apiHelper.getSadesati(day: day, month: month, year: year, hour: hour, min: min, lat: lat, lon: lon, tzone: tzone).then((result) {
+          await apiHelper.getSadesati(day: day,
+              month: month,
+              year: year,
+              hour: hour,
+              min: min,
+              lat: lat,
+              lon: lon,
+              tzone: tzone).then((result) {
             if (result != null) {
               isSadesati = result['sadhesati_status'];
               update();
@@ -2616,11 +3301,19 @@ class KundliController extends GetxController {
     }
   }
 
-  getKalsarpaDetail({int? day, int? month, int? year, int? hour, int? min, double? lat, double? lon, double? tzone}) async {
+  getKalsarpaDetail(
+      {int? day, int? month, int? year, int? hour, int? min, double? lat, double? lon, double? tzone}) async {
     try {
       await global.checkBody().then((result) async {
         if (result) {
-          await apiHelper.getKalsarpa(day: day, month: month, year: year, hour: hour, min: min, lat: lat, lon: lon, tzone: tzone).then((result) {
+          await apiHelper.getKalsarpa(day: day,
+              month: month,
+              year: year,
+              hour: hour,
+              min: min,
+              lat: lat,
+              lon: lon,
+              tzone: tzone).then((result) {
             if (result != null) {
               isKalsarpa = result['present'];
               update();
@@ -2636,13 +3329,21 @@ class KundliController extends GetxController {
     }
   }
 
-  getGemstoneDetail({int? day, int? month, int? year, int? hour, int? min, double? lat, double? lon, double? tzone}) async {
+  getGemstoneDetail(
+      {int? day, int? month, int? year, int? hour, int? min, double? lat, double? lon, double? tzone}) async {
     try {
       gemstoneList = null;
 
       await global.checkBody().then((result) async {
         if (result) {
-          await apiHelper.getGemstone(day: day, month: month, year: year, hour: hour, min: min, lat: lat, lon: lon, tzone: tzone).then((result) {
+          await apiHelper.getGemstone(day: day,
+              month: month,
+              year: year,
+              hour: hour,
+              min: min,
+              lat: lat,
+              lon: lon,
+              tzone: tzone).then((result) {
             if (result != null) {
               Map<String, dynamic> map = result;
               gemstoneList = GemstoneModel.fromJson(map);
@@ -2661,13 +3362,21 @@ class KundliController extends GetxController {
     }
   }
 
-  getVimshattariDetail({int? day, int? month, int? year, int? hour, int? min, double? lat, double? lon, double? tzone}) async {
+  getVimshattariDetail(
+      {int? day, int? month, int? year, int? hour, int? min, double? lat, double? lon, double? tzone}) async {
     try {
       // vimshattariList = [];
 
       await global.checkBody().then((result) async {
         if (result) {
-          await apiHelper.getVimshattari(day: day, month: month, year: year, hour: hour, min: min, lat: lat, lon: lon, tzone: tzone).then((result) {
+          await apiHelper.getVimshattari(day: day,
+              month: month,
+              year: year,
+              hour: hour,
+              min: min,
+              lat: lat,
+              lon: lon,
+              tzone: tzone).then((result) {
             if (result != null) {
               // Map<String, dynamic> map = result;
               // vimshattariList = result;
@@ -2689,11 +3398,20 @@ class KundliController extends GetxController {
     }
   }
 
-  getAntardashaDetail({String? antarName, int? day, int? month, int? year, int? hour, int? min, double? lat, double? lon, double? tzone}) async {
+  getAntardashaDetail(
+      {String? antarName, int? day, int? month, int? year, int? hour, int? min, double? lat, double? lon, double? tzone}) async {
     try {
       await global.checkBody().then((result) async {
         if (result) {
-          await apiHelper.getAntardasha(antarDasha: antarName, day: day, month: month, year: year, hour: hour, min: min, lat: lat, lon: lon, tzone: tzone).then((result) {
+          await apiHelper.getAntardasha(antarDasha: antarName,
+              day: day,
+              month: month,
+              year: year,
+              hour: hour,
+              min: min,
+              lat: lat,
+              lon: lon,
+              tzone: tzone).then((result) {
             if (result != null) {
               vimshattariList!.add(result);
 
@@ -2711,11 +3429,19 @@ class KundliController extends GetxController {
     }
   }
 
-  getPatyantarDashaDetail({String? anterName, String? patyantarName, int? day, int? month, int? year, int? hour, int? min, double? lat, double? lon, double? tzone}) async {
+  getPatyantarDashaDetail(
+      {String? anterName, String? patyantarName, int? day, int? month, int? year, int? hour, int? min, double? lat, double? lon, double? tzone}) async {
     try {
       await global.checkBody().then((result) async {
         if (result) {
-          await apiHelper.getPatynatarDasha(day: day, month: month, year: year, hour: hour, min: min, lat: lat, lon: lon, tzone: tzone).then((result) {
+          await apiHelper.getPatynatarDasha(day: day,
+              month: month,
+              year: year,
+              hour: hour,
+              min: min,
+              lat: lat,
+              lon: lon,
+              tzone: tzone).then((result) {
             if (result != null) {
               vimshattariList!.add(result);
 
@@ -2733,11 +3459,19 @@ class KundliController extends GetxController {
     }
   }
 
-  getSookshmaDashaDetail({int? day, int? month, int? year, int? hour, int? min, double? lat, double? lon, double? tzone}) async {
+  getSookshmaDashaDetail(
+      {int? day, int? month, int? year, int? hour, int? min, double? lat, double? lon, double? tzone}) async {
     try {
       await global.checkBody().then((result) async {
         if (result) {
-          await apiHelper.getSookshmaDasha(day: day, month: month, year: year, hour: hour, min: min, lat: lat, lon: lon, tzone: tzone).then((result) {
+          await apiHelper.getSookshmaDasha(day: day,
+              month: month,
+              year: year,
+              hour: hour,
+              min: min,
+              lat: lat,
+              lon: lon,
+              tzone: tzone).then((result) {
             if (result != null) {
               vimshattariList!.add(result);
               update();
@@ -2754,11 +3488,19 @@ class KundliController extends GetxController {
     }
   }
 
-  getPranaDetail({int? day, int? month, int? year, int? hour, int? min, double? lat, double? lon, double? tzone}) async {
+  getPranaDetail(
+      {int? day, int? month, int? year, int? hour, int? min, double? lat, double? lon, double? tzone}) async {
     try {
       await global.checkBody().then((result) async {
         if (result) {
-          await apiHelper.getPrana(day: day, month: month, year: year, hour: hour, min: min, lat: lat, lon: lon, tzone: tzone).then((result) {
+          await apiHelper.getPrana(day: day,
+              month: month,
+              year: year,
+              hour: hour,
+              min: min,
+              lat: lat,
+              lon: lon,
+              tzone: tzone).then((result) {
             if (result != null) {
               vimshattariList!.add(result);
               update();
@@ -2793,7 +3535,9 @@ class KundliController extends GetxController {
     if (kundliName.isEmpty) {
       result = kundliList;
     } else {
-      result = kundliList.where((element) => element.name.toString().toLowerCase().contains(kundliName.toLowerCase())).toList();
+      result = kundliList.where((element) =>
+          element.name.toString().toLowerCase().contains(
+              kundliName.toLowerCase())).toList();
     }
     searchKundliList = result;
     update();
@@ -2961,7 +3705,8 @@ class KundliController extends GetxController {
     try {
       await global.checkBody().then((result) async {
         if (result) {
-          await apiHelper.geoCoding(lat: latitude, long: longitude).then((result) {
+          await apiHelper.geoCoding(lat: latitude, long: longitude).then((
+              result) {
             if (result.status == "true") {
               timeZone = double.parse(result.recordList['timezone'].toString());
               // geoCodingList = result.recordList;
@@ -2978,6 +3723,7 @@ class KundliController extends GetxController {
   }
 
   String? userName;
+
   getName(String text) {
     userName = text;
     update();
@@ -3021,7 +3767,8 @@ class KundliController extends GetxController {
           if (result.status == "200") {
             print('success');
           } else {
-            global.showToast(message: 'Failed to create kundli please try again later!');
+            global.showToast(
+                message: 'Failed to create kundli please try again later!');
           }
         });
       }
@@ -3029,6 +3776,7 @@ class KundliController extends GetxController {
   }
 
   DateTime? pickedDate;
+
   updateKundliData(int id) async {
     KundliModel kundliModel = KundliModel(
       name: editNameController.text,
@@ -3046,7 +3794,8 @@ class KundliController extends GetxController {
           if (result.status == "200") {
             global.showToast(message: 'Your kundli have been updated');
           } else {
-            global.showToast(message: 'Failed to update kundli please try again later!');
+            global.showToast(
+                message: 'Failed to update kundli please try again later!');
           }
         });
       }

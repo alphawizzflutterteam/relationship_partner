@@ -46,7 +46,7 @@ class KundliBrithDateWidget extends StatelessWidget {
             child: Text(
               'Next',
               textAlign: TextAlign.center,
-              style: Get.theme.primaryTextTheme.subtitle1,
+              style: Get.theme.primaryTextTheme.titleMedium,
             ).translate(),
           ),
         ),

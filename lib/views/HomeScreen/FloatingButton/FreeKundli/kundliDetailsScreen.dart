@@ -48,7 +48,7 @@ class KundliDetailsScreen extends BaseRoute {
                 ),
                 child: Row(
                   children: [
-                    Text('Share', style: Theme.of(context).primaryTextTheme.headline3).translate(),
+                    Text('Share', style: Theme.of(context).primaryTextTheme.displaySmall).translate(),
                     Padding(
                       padding: const EdgeInsets.only(left: 6.0),
                       child: Image.asset(
@@ -107,7 +107,7 @@ class KundliDetailsScreen extends BaseRoute {
                             color: kundliController.kundliTabInitialIndex == 0 ? Get.theme.primaryColor : Colors.transparent,
                             borderRadius: const BorderRadius.only(topLeft: Radius.circular(8.0), bottomLeft: Radius.circular(8.0)),
                           ),
-                          child: Text('Basic', textAlign: TextAlign.center, style: Get.textTheme.subtitle1!.copyWith(fontSize: 12, color: Colors.black)).translate(),
+                          child: Text('Basic', textAlign: TextAlign.center, style: Get.textTheme.titleMedium!.copyWith(fontSize: 12, color: Colors.black)).translate(),
                         ),
                       ),
                       InkWell(
@@ -131,7 +131,7 @@ class KundliDetailsScreen extends BaseRoute {
                             color: kundliController.kundliTabInitialIndex == 1 ? Get.theme.primaryColor : Colors.transparent,
                             border: const Border(right: BorderSide(color: Colors.grey), left: BorderSide(color: Colors.grey)),
                           ),
-                          child: Text('Charts', textAlign: TextAlign.center, style: Get.textTheme.subtitle1!.copyWith(fontSize: 12, color: Colors.black)).translate(),
+                          child: Text('Charts', textAlign: TextAlign.center, style: Get.textTheme.titleMedium!.copyWith(fontSize: 12, color: Colors.black)).translate(),
                         ),
                       ),
                       InkWell(
@@ -147,7 +147,7 @@ class KundliDetailsScreen extends BaseRoute {
                           child: Text(
                             'KP',
                             textAlign: TextAlign.center,
-                            style: Get.textTheme.subtitle1!.copyWith(fontSize: 12, color: Colors.black),
+                            style: Get.textTheme.titleMedium!.copyWith(fontSize: 12, color: Colors.black),
                           ).translate(),
                         ),
                       ),
@@ -163,7 +163,7 @@ class KundliDetailsScreen extends BaseRoute {
                               color: kundliController.kundliTabInitialIndex == 3 ? Get.theme.primaryColor : Colors.transparent,
                               border: const Border(right: BorderSide(color: Colors.grey)),
                             ),
-                            child: Text('Ashtakvarga', textAlign: TextAlign.center, style: Get.textTheme.subtitle1!.copyWith(fontSize: 12, color: Colors.black)).translate(),
+                            child: Text('Ashtakvarga', textAlign: TextAlign.center, style: Get.textTheme.titleMedium!.copyWith(fontSize: 12, color: Colors.black)).translate(),
                           ),
                         ),
                       ),
@@ -180,7 +180,7 @@ class KundliDetailsScreen extends BaseRoute {
                           child: Text(
                             'Dasha',
                             textAlign: TextAlign.center,
-                            style: Get.textTheme.subtitle1!.copyWith(fontSize: 12, color: Colors.black),
+                            style: Get.textTheme.titleMedium!.copyWith(fontSize: 12, color: Colors.black),
                           ).translate(),
                         ),
                       ),
@@ -206,7 +206,7 @@ class KundliDetailsScreen extends BaseRoute {
                             color: kundliController.kundliTabInitialIndex == 5 ? Get.theme.primaryColor : Colors.transparent,
                             borderRadius: const BorderRadius.only(topRight: Radius.circular(8.0), bottomRight: Radius.circular(8.0)),
                           ),
-                          child: Text('Report', textAlign: TextAlign.center, style: Get.textTheme.subtitle1!.copyWith(fontSize: 12, color: Colors.black)).translate(),
+                          child: Text('Report', textAlign: TextAlign.center, style: Get.textTheme.titleMedium!.copyWith(fontSize: 12, color: Colors.black)).translate(),
                         ),
                       ),
                     ],

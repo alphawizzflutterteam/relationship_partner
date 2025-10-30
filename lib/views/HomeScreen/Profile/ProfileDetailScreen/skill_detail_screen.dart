@@ -85,13 +85,13 @@ class SkillDetailScreen extends StatelessWidget {
                       tileColor: Colors.white,
                       title: Text(
                         "Gender",
-                        style: Theme.of(context).primaryTextTheme.headline3,
+                        style: Theme.of(context).primaryTextTheme.displaySmall,
                       ).translate(),
                       trailing: Text(
                         global.user.gender != null && global.user.gender != ''
                             ? '${global.user.gender}'
                             : "",
-                        style: Theme.of(context).primaryTextTheme.subtitle1,
+                        style: Theme.of(context).primaryTextTheme.titleMedium,
                       ).translate(),
                     ),
                   ),
@@ -102,14 +102,14 @@ class SkillDetailScreen extends StatelessWidget {
                       tileColor: Colors.white,
                       title: Text(
                         "Date of Birth",
-                        style: Theme.of(context).primaryTextTheme.headline3,
+                        style: Theme.of(context).primaryTextTheme.displaySmall,
                       ).translate(),
                       trailing: Text(
                         global.user.birthDate != null
                             ? DateFormat('dd-MM-yyyy').format(DateTime.parse(
                                 global.user.birthDate.toString()))
                             : "",
-                        style: Theme.of(context).primaryTextTheme.subtitle1,
+                        style: Theme.of(context).primaryTextTheme.titleMedium,
                       ),
                     ),
                   ),
@@ -120,7 +120,7 @@ class SkillDetailScreen extends StatelessWidget {
                       tileColor: Colors.white,
                       title: Text(
                         "Advisor category",
-                        style: Theme.of(context).primaryTextTheme.headline3,
+                        style: Theme.of(context).primaryTextTheme.displaySmall,
                       ).translate(),
                       trailing: SizedBox(
                         width: 200,
@@ -133,7 +133,7 @@ class SkillDetailScreen extends StatelessWidget {
                                   .replaceAll('[', '')
                                   .replaceAll(']', '')
                               : "",
-                          style: Theme.of(context).primaryTextTheme.subtitle1,
+                          style: Theme.of(context).primaryTextTheme.titleMedium,
                           textAlign: TextAlign.end,
                         ).translate(),
                       ),
@@ -146,7 +146,7 @@ class SkillDetailScreen extends StatelessWidget {
                       tileColor: Colors.white,
                       title: Text(
                         "Primary Skill",
-                        style: Theme.of(context).primaryTextTheme.headline3,
+                        style: Theme.of(context).primaryTextTheme.displaySmall,
                       ).translate(),
                       trailing: SizedBox(
                         width: 200,
@@ -159,7 +159,7 @@ class SkillDetailScreen extends StatelessWidget {
                                   .replaceAll('[', '')
                                   .replaceAll(']', '')
                               : "",
-                          style: Theme.of(context).primaryTextTheme.subtitle1,
+                          style: Theme.of(context).primaryTextTheme.titleMedium,
                           textAlign: TextAlign.end,
                         ).translate(),
                       ),
@@ -172,7 +172,7 @@ class SkillDetailScreen extends StatelessWidget {
                       tileColor: Colors.white,
                       title: Text(
                         "All Skill",
-                        style: Theme.of(context).primaryTextTheme.headline3,
+                        style: Theme.of(context).primaryTextTheme.displaySmall,
                       ).translate(),
                       trailing: SizedBox(
                         width: 200,
@@ -185,7 +185,7 @@ class SkillDetailScreen extends StatelessWidget {
                                   .replaceAll('[', '')
                                   .replaceAll(']', '')
                               : "",
-                          style: Theme.of(context).primaryTextTheme.subtitle1,
+                          style: Theme.of(context).primaryTextTheme.titleMedium,
                           textAlign: TextAlign.end,
                         ).translate(),
                       ),
@@ -198,7 +198,7 @@ class SkillDetailScreen extends StatelessWidget {
                       tileColor: Colors.white,
                       title: Text(
                         "Language",
-                        style: Theme.of(context).primaryTextTheme.headline3,
+                        style: Theme.of(context).primaryTextTheme.displaySmall,
                       ).translate(),
                       trailing: SizedBox(
                         width: 200,
@@ -211,7 +211,7 @@ class SkillDetailScreen extends StatelessWidget {
                                   .replaceAll('[', '')
                                   .replaceAll(']', '')
                               : "",
-                          style: Theme.of(context).primaryTextTheme.subtitle1,
+                          style: Theme.of(context).primaryTextTheme.titleMedium,
                           textAlign: TextAlign.end,
                         ).translate(),
                       ),
@@ -224,14 +224,14 @@ class SkillDetailScreen extends StatelessWidget {
                       tileColor: Colors.white,
                       title: Text(
                         "Your charges(per minute)",
-                        style: Theme.of(context).primaryTextTheme.headline3,
+                        style: Theme.of(context).primaryTextTheme.displaySmall,
                       ).translate(),
                       trailing: Text(
                         global.user.charges != null && global.user.charges != 0
                             ? '${global.getSystemFlagValue(global.systemFlagNameList.currency)} '
                                 '${global.user.charges}'
                             : "${global.getSystemFlagValue(global.systemFlagNameList.currency)} 0",
-                        style: Theme.of(context).primaryTextTheme.subtitle1,
+                        style: Theme.of(context).primaryTextTheme.titleMedium,
                       ),
                     ),
                   ),
@@ -242,7 +242,7 @@ class SkillDetailScreen extends StatelessWidget {
                       tileColor: Colors.white,
                       title: Text(
                         "Video charges",
-                        style: Theme.of(context).primaryTextTheme.headline3,
+                        style: Theme.of(context).primaryTextTheme.displaySmall,
                       ).translate(),
                       trailing: Text(
                         global.user.videoCallRate != null &&
@@ -250,7 +250,7 @@ class SkillDetailScreen extends StatelessWidget {
                             ? '${global.getSystemFlagValue(global.systemFlagNameList.currency)} '
                                 '${global.user.videoCallRate}'
                             : "${global.getSystemFlagValue(global.systemFlagNameList.currency)} 0",
-                        style: Theme.of(context).primaryTextTheme.subtitle1,
+                        style: Theme.of(context).primaryTextTheme.titleMedium,
                       ),
                     ),
                   ),
@@ -261,7 +261,7 @@ class SkillDetailScreen extends StatelessWidget {
                       tileColor: Colors.white,
                       title: Text(
                         "Report charges",
-                        style: Theme.of(context).primaryTextTheme.headline3,
+                        style: Theme.of(context).primaryTextTheme.displaySmall,
                       ).translate(),
                       trailing: Text(
                         global.user.reportRate != null &&
@@ -269,7 +269,7 @@ class SkillDetailScreen extends StatelessWidget {
                             ? '${global.getSystemFlagValue(global.systemFlagNameList.currency)} '
                                 '${global.user.reportRate}'
                             : "${global.getSystemFlagValue(global.systemFlagNameList.currency)} 0",
-                        style: Theme.of(context).primaryTextTheme.subtitle1,
+                        style: Theme.of(context).primaryTextTheme.titleMedium,
                       ),
                     ),
                   ),*/
@@ -280,14 +280,14 @@ class SkillDetailScreen extends StatelessWidget {
                       tileColor: Colors.white,
                       title: Text(
                         "Experience In Year",
-                        style: Theme.of(context).primaryTextTheme.headline3,
+                        style: Theme.of(context).primaryTextTheme.displaySmall,
                       ).translate(),
                       trailing: Text(
                         global.user.expirenceInYear != null &&
                                 global.user.expirenceInYear != 0
                             ? '${global.user.expirenceInYear}'
                             : "0",
-                        style: Theme.of(context).primaryTextTheme.subtitle1,
+                        style: Theme.of(context).primaryTextTheme.titleMedium,
                       ),
                     ),
                   ),
@@ -298,14 +298,14 @@ class SkillDetailScreen extends StatelessWidget {
                       tileColor: Colors.white,
                       title: Text(
                         "How many hours you can contribute daily?",
-                        style: Theme.of(context).primaryTextTheme.headline3,
+                        style: Theme.of(context).primaryTextTheme.displaySmall,
                       ).translate(),
                       trailing: Text(
                         global.user.dailyContributionHours != null &&
                                 global.user.dailyContributionHours != 0
                             ? '${global.user.dailyContributionHours}'
                             : "0",
-                        style: Theme.of(context).primaryTextTheme.subtitle1,
+                        style: Theme.of(context).primaryTextTheme.titleMedium,
                       ),
                     ),
                   ),*/
@@ -316,14 +316,14 @@ class SkillDetailScreen extends StatelessWidget {
                       tileColor: Colors.white,
                       title: Text(
                         "Where did you hear about Relationship Revive?",
-                        style: Theme.of(context).primaryTextTheme.headline3,
+                        style: Theme.of(context).primaryTextTheme.displaySmall,
                       ).translate(),
                       trailing: Text(
                         global.user.hearAboutAstroGuru != null &&
                                 global.user.hearAboutAstroGuru != ''
                             ? '${global.user.hearAboutAstroGuru}'
                             : "Youtube",
-                        style: Theme.of(context).primaryTextTheme.subtitle1,
+                        style: Theme.of(context).primaryTextTheme.titleMedium,
                       ).translate(),
                     ),
                   ),*/
@@ -337,7 +337,7 @@ class SkillDetailScreen extends StatelessWidget {
                             title: Text(
                               "Name Of Other Platform?",
                               style:
-                                  Theme.of(context).primaryTextTheme.headline3,
+                                  Theme.of(context).primaryTextTheme.displaySmall,
                             ).translate(),
                             trailing: Text(
                               global.user.otherPlatformName != null &&
@@ -345,7 +345,7 @@ class SkillDetailScreen extends StatelessWidget {
                                   ? '${global.user.otherPlatformName}'
                                   : "",
                               style:
-                                  Theme.of(context).primaryTextTheme.subtitle1,
+                                  Theme.of(context).primaryTextTheme.titleMedium,
                             ).translate(),
                           ),
                         )
@@ -360,7 +360,7 @@ class SkillDetailScreen extends StatelessWidget {
                             title: Text(
                               "Monthly Earning From Other Platform?",
                               style:
-                                  Theme.of(context).primaryTextTheme.headline3,
+                                  Theme.of(context).primaryTextTheme.displaySmall,
                             ).translate(),
                             trailing: Text(
                               global.user.otherPlatformMonthlyEarning != null &&
@@ -369,7 +369,7 @@ class SkillDetailScreen extends StatelessWidget {
                                   ? '${global.user.otherPlatformMonthlyEarning}'
                                   : "",
                               style:
-                                  Theme.of(context).primaryTextTheme.subtitle1,
+                                  Theme.of(context).primaryTextTheme.titleMedium,
                             ).translate(),
                           ),
                         )

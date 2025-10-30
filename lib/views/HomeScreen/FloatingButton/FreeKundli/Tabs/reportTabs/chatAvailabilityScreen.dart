@@ -32,7 +32,7 @@ class ChatAvailabilityScreen extends StatelessWidget {
                 title: Center(
                   child: Text(
                     "Change your availability for chat",
-                    style: Theme.of(context).primaryTextTheme.headline3,
+                    style: Theme.of(context).primaryTextTheme.displaySmall,
                   ).translate(),
                 ),
               ),
@@ -50,7 +50,7 @@ class ChatAvailabilityScreen extends StatelessWidget {
                   ),
                   Text(
                     'Online',
-                    style: Theme.of(context).primaryTextTheme.subtitle1,
+                    style: Theme.of(context).primaryTextTheme.titleMedium,
                   ).translate()
                 ],
               ),
@@ -68,7 +68,7 @@ class ChatAvailabilityScreen extends StatelessWidget {
                   ),
                   Text(
                     'Offline',
-                    style: Theme.of(context).primaryTextTheme.subtitle1,
+                    style: Theme.of(context).primaryTextTheme.titleMedium,
                   ).translate()
                 ],
               ),
@@ -86,7 +86,7 @@ class ChatAvailabilityScreen extends StatelessWidget {
                   ),
                   Text(
                     'Wait Time',
-                    style: Theme.of(context).primaryTextTheme.subtitle1,
+                    style: Theme.of(context).primaryTextTheme.titleMedium,
                   ).translate()
                 ],
               ),

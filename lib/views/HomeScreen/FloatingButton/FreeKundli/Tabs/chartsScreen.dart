@@ -26,7 +26,7 @@ class ChartsScreen extends StatelessWidget {
                         padding: const EdgeInsets.only(top: 8.0, bottom: 8),
                         child: Text(
                           'Planets',
-                          style: Get.textTheme.bodyText2,
+                          style: Get.textTheme.bodyMedium,
                         ).translate(),
                       ),
                       SizedBox(
@@ -69,7 +69,7 @@ class ChartsScreen extends StatelessWidget {
                               ),
                               child: DataTable(
                                 columnSpacing: 20,
-                                dataTextStyle: Get.textTheme.bodyText2!.copyWith(fontSize: 10),
+                                dataTextStyle: Get.textTheme.bodyMedium!.copyWith(fontSize: 10),
                                 horizontalMargin: 10,
                                 headingRowHeight: 48,
                                 columns: [
@@ -250,7 +250,7 @@ class ChartsScreen extends StatelessWidget {
                               ),
                               child: DataTable(
                                   columnSpacing: 20,
-                                  dataTextStyle: Get.textTheme.bodyText2!.copyWith(fontSize: 10),
+                                  dataTextStyle: Get.textTheme.bodyMedium!.copyWith(fontSize: 10),
                                   horizontalMargin: 10,
                                   headingRowHeight: 48,
                                   columns: [

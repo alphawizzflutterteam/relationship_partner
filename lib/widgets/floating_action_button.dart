@@ -41,7 +41,7 @@ class _FloatingActionButtonWidgetState extends State<FloatingActionButtonWidget>
       closedForegroundColor: Colors.indigoAccent,
       openBackgroundColor: Colors.cyan,
       openForegroundColor: Colors.orange,
-      labelsStyle: Theme.of(context).primaryTextTheme.subtitle1,
+      labelsStyle: Theme.of(context).primaryTextTheme.titleMedium,
       labelsBackgroundColor: COLORS().primaryColor,
       speedDialChildren: <SpeedDialChild>[
         SpeedDialChild(

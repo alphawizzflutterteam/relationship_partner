@@ -25,7 +25,7 @@ class VismshattariDasha extends StatelessWidget {
               ),
               child: DataTable(
                 columnSpacing: 20,
-                dataTextStyle: Get.textTheme.bodyText2!.copyWith(fontSize: 10),
+                dataTextStyle: Get.textTheme.bodyMedium!.copyWith(fontSize: 10),
                 horizontalMargin: 10,
                 headingRowHeight: 48,
                 columns: [

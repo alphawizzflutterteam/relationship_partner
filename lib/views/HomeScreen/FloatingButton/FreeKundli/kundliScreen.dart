@@ -117,16 +117,16 @@ class KundaliScreen extends StatelessWidget {
                                 ),
                                 title: Text(
                                   kundliController.searchKundliList[index].name,
-                                  style: Get.textTheme.subtitle1!.copyWith(fontWeight: FontWeight.w500, color: Colors.black),
+                                  style: Get.textTheme.titleMedium!.copyWith(fontWeight: FontWeight.w500, color: Colors.black),
                                 ).translate(),
                                 subtitle: Column(
                                   mainAxisAlignment: MainAxisAlignment.start,
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
-                                    Text('${DateFormat("dd MMM yyyy").format(kundliController.searchKundliList[index].birthDate)},${kundliController.searchKundliList[index].birthTime}', style: Get.textTheme.subtitle1!.copyWith(fontSize: 12, color: Colors.grey)),
+                                    Text('${DateFormat("dd MMM yyyy").format(kundliController.searchKundliList[index].birthDate)},${kundliController.searchKundliList[index].birthTime}', style: Get.textTheme.titleMedium!.copyWith(fontSize: 12, color: Colors.grey)),
                                     Text(
                                       kundliController.searchKundliList[index].birthPlace,
-                                      style: Get.textTheme.subtitle1!.copyWith(fontSize: 12, color: Colors.grey),
+                                      style: Get.textTheme.titleMedium!.copyWith(fontSize: 12, color: Colors.grey),
                                     ).translate(),
                                   ],
                                 ),
@@ -155,7 +155,7 @@ class KundaliScreen extends StatelessWidget {
                                           AlertDialog(
                                             title: Text(
                                               "Are you sure you want to permanently delete this kundli?",
-                                              style: Get.textTheme.bodyText2,
+                                              style: Get.textTheme.bodyMedium,
                                             ).translate(),
                                             content: Row(
                                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -233,7 +233,7 @@ class KundaliScreen extends StatelessWidget {
             child: Text(
               'Create New Kundli',
               textAlign: TextAlign.center,
-              style: Get.theme.primaryTextTheme.subtitle1!.copyWith(fontSize: 12, fontWeight: FontWeight.w500),
+              style: Get.theme.primaryTextTheme.titleMedium!.copyWith(fontSize: 12, fontWeight: FontWeight.w500),
             ).translate(),
           ),
         ),

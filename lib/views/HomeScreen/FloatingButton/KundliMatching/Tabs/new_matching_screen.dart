@@ -35,7 +35,7 @@ class NewMatchingScreen extends StatelessWidget {
                           Center(
                             child: Text(
                               "Boy's Details",
-                              style: Get.theme.primaryTextTheme.headline2,
+                              style: Get.theme.primaryTextTheme.displayMedium,
                             ).translate(),
                           ),
                           CommonSmallTextFieldWidget(
@@ -103,7 +103,7 @@ class NewMatchingScreen extends StatelessWidget {
                           Center(
                             child: Text(
                               "Girl's Details",
-                              style: Get.theme.primaryTextTheme.headline2,
+                              style: Get.theme.primaryTextTheme.displayMedium,
                             ).translate(),
                           ),
                           CommonSmallTextFieldWidget(

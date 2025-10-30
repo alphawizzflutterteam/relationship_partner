@@ -298,7 +298,7 @@ class AddAssistantScreen extends StatelessWidget {
                                                     },
                                                     title: Text(
                                                       global.assistantPrimarySkillModelList![index].name ?? "No primary skills",
-                                                      style: Get.theme.primaryTextTheme.subtitle1,
+                                                      style: Get.theme.primaryTextTheme.titleMedium,
                                                     ),
                                                     activeColor: COLORS().primaryColor,
                                                   );
@@ -388,7 +388,7 @@ class AddAssistantScreen extends StatelessWidget {
                                                       },
                                                       title: Text(
                                                         global.assistantAllSkillModelList![index].name ?? "No Skills",
-                                                        style: Get.theme.primaryTextTheme.subtitle1,
+                                                        style: Get.theme.primaryTextTheme.titleMedium,
                                                       ),
                                                       activeColor: COLORS().primaryColor,
                                                     );
@@ -477,7 +477,7 @@ class AddAssistantScreen extends StatelessWidget {
                                                       },
                                                       title: Text(
                                                         global.assistantLanguageModelList![index].name ?? "No language",
-                                                        style: Get.theme.primaryTextTheme.subtitle1,
+                                                        style: Get.theme.primaryTextTheme.titleMedium,
                                                       ),
                                                       activeColor: COLORS().primaryColor,
                                                     );
@@ -603,7 +603,7 @@ class AddAssistantScreen extends StatelessWidget {
           ),
           title: Text(
             "Camera",
-            style: Get.theme.primaryTextTheme.subtitle1,
+            style: Get.theme.primaryTextTheme.titleMedium,
           ).translate(),
           onTap: () async {
             assistantController.imageFile = await assistantController.imageService(ImageSource.camera);
@@ -620,7 +620,7 @@ class AddAssistantScreen extends StatelessWidget {
           ),
           title: Text(
             "Gallery",
-            style: Get.theme.primaryTextTheme.subtitle1,
+            style: Get.theme.primaryTextTheme.titleMedium,
           ).translate(),
           onTap: () async {
             assistantController.imageFile = await assistantController.imageService(ImageSource.gallery);
@@ -635,7 +635,7 @@ class AddAssistantScreen extends StatelessWidget {
           leading: Icon(Icons.cancel, color: COLORS().errorColor),
           title: Text(
             "Cancel",
-            style: Get.theme.primaryTextTheme.subtitle1,
+            style: Get.theme.primaryTextTheme.titleMedium,
           ).translate(),
           onTap: () {
             Get.back();

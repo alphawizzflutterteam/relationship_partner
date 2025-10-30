@@ -67,7 +67,7 @@ class AddAmountScreen extends StatelessWidget {
                         padding: const EdgeInsets.all(5),
                         child: Text(
                           'Choose a Bank account or UPI ID',
-                          style: Get.theme.primaryTextTheme.headline4,
+                          style: Get.theme.primaryTextTheme.headlineMedium,
                         ).translate(),
                       ),
                     ),
@@ -88,7 +88,7 @@ class AddAmountScreen extends StatelessWidget {
                           ),
                           Text(
                             'Bank Account',
-                            style: Theme.of(context).textTheme.subtitle2,
+                            style: Theme.of(context).textTheme.titleSmall,
                           ).translate(),
                         ],
                       ),
@@ -105,7 +105,7 @@ class AddAmountScreen extends StatelessWidget {
                           ),
                           Text(
                             'UPI ID',
-                            style: Theme.of(context).textTheme.subtitle2,
+                            style: Theme.of(context).textTheme.titleSmall,
                           ).translate(),
                         ],
                       ),

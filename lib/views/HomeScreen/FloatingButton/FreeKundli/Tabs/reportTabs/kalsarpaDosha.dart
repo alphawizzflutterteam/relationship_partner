@@ -19,7 +19,7 @@ class KalsarpaDosha extends StatelessWidget {
         const SizedBox(
           height: 10,
         ),
-        Text('Kalsarpa Analysis', style: Get.textTheme.subtitle1!.copyWith(fontWeight: FontWeight.bold)).translate(),
+        Text('Kalsarpa Analysis', style: Get.textTheme.titleMedium!.copyWith(fontWeight: FontWeight.bold)).translate(),
         const SizedBox(
           height: 10,
         ),

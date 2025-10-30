@@ -62,11 +62,11 @@ class GeneralReport extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.start,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text('Description', style: Get.textTheme.subtitle1!.copyWith(fontWeight: FontWeight.bold)).translate(),
+                  Text('Description', style: Get.textTheme.titleMedium!.copyWith(fontWeight: FontWeight.bold)).translate(),
                   const SizedBox(
                     height: 10,
                   ),
-                  Text('${kundliController.generalDesc}', style: Get.textTheme.subtitle1!.copyWith(fontSize: 14)).translate()
+                  Text('${kundliController.generalDesc}', style: Get.textTheme.titleMedium!.copyWith(fontSize: 14)).translate()
                 ],
               ),
             ),

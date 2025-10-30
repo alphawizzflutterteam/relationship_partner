@@ -224,7 +224,7 @@ class SearchBlogScreen extends StatelessWidget {
                                     children: [
                                       Text(
                                         blogController.astrologySearchBlogs[index].title,
-                                        style: Theme.of(context).primaryTextTheme.bodyText1,
+                                        style: Theme.of(context).primaryTextTheme.bodyLarge,
                                         textAlign: TextAlign.start,
                                       ).translate(),
                                       Padding(
@@ -234,11 +234,11 @@ class SearchBlogScreen extends StatelessWidget {
                                           children: [
                                             Text(
                                               blogController.astrologySearchBlogs[index].author,
-                                              style: Theme.of(context).primaryTextTheme.subtitle2,
+                                              style: Theme.of(context).primaryTextTheme.titleSmall,
                                             ).translate(),
                                             Text(
                                               DateFormat("MMM d,yyyy").format(DateTime.parse(blogController.astrologySearchBlogs[index].createdAt)),
-                                              style: Theme.of(context).primaryTextTheme.subtitle2,
+                                              style: Theme.of(context).primaryTextTheme.titleSmall,
                                             )
                                           ],
                                         ),

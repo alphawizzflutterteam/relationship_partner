@@ -29,9 +29,9 @@ class ContainerListTileWidget extends StatelessWidget {
         ),
         title: Text(
           title!,
-          style: title == '' ? const TextStyle(fontSize: 0) : Get.textTheme.subtitle1!.copyWith(fontWeight: FontWeight.w500, color: Colors.black),
+          style: title == '' ? const TextStyle(fontSize: 0) : Get.textTheme.titleMedium!.copyWith(fontWeight: FontWeight.w500, color: Colors.black),
         ).translate(),
-        subtitle: Text(subTitle!, style: Theme.of(context).primaryTextTheme.subtitle2).translate(),
+        subtitle: Text(subTitle!, style: Theme.of(context).primaryTextTheme.titleSmall).translate(),
       ),
     );
   }

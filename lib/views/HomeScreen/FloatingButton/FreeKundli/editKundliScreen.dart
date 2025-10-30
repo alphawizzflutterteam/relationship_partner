@@ -46,7 +46,7 @@ class EditKundliScreen extends StatelessWidget {
                       const SizedBox(
                         width: 10,
                       ),
-                      Text('Edit Kundli', style: Get.textTheme.subtitle1).translate()
+                      Text('Edit Kundli', style: Get.textTheme.titleMedium).translate()
                     ],
                   ),
                   Padding(
@@ -103,7 +103,7 @@ class EditKundliScreen extends StatelessWidget {
                                               width: double.infinity,
                                               child: Text(
                                                 value,
-                                                style: Get.theme.primaryTextTheme.bodyText1,
+                                                style: Get.theme.primaryTextTheme.bodyLarge,
                                                 textAlign: TextAlign.start,
                                               ).translate(),
                                             ),
@@ -180,7 +180,7 @@ class EditKundliScreen extends StatelessWidget {
                             child: Text(
                               'Update',
                               textAlign: TextAlign.center,
-                              style: Get.theme.primaryTextTheme.subtitle1!.copyWith(),
+                              style: Get.theme.primaryTextTheme.titleMedium!.copyWith(),
                             ).translate(),
                           ),
                         ),
@@ -204,7 +204,7 @@ class EditKundliScreen extends StatelessWidget {
       firstDate: DateTime(1960),
       lastDate: DateTime.now(),
       dateFormat: "dd-MM-yyyy",
-      itemTextStyle: Get.theme.textTheme.subtitle1!.copyWith(
+      itemTextStyle: Get.theme.textTheme.titleMedium!.copyWith(
         fontSize: 15,
         fontWeight: FontWeight.w400,
         letterSpacing: 0,

@@ -67,13 +67,13 @@ class ReportHistoryDetailScreen extends StatelessWidget {
                           child: ListTile(
                             title: Text(
                               "Report Type",
-                              style: Theme.of(context).primaryTextTheme.headline3,
+                              style: Theme.of(context).primaryTextTheme.displaySmall,
                             ).translate(),
                             trailing: SizedBox(
                               width: 190,
                               child: Text(
                                 reportHistoryData?.reportType != null ? '${reportHistoryData!.reportType}' : "",
-                                style: Theme.of(context).primaryTextTheme.subtitle1,
+                                style: Theme.of(context).primaryTextTheme.titleMedium,
                                 textAlign: TextAlign.end,
                               ).translate(),
                             ),
@@ -84,13 +84,13 @@ class ReportHistoryDetailScreen extends StatelessWidget {
                           child: ListTile(
                             title: Text(
                               "First Name",
-                              style: Theme.of(context).primaryTextTheme.headline3,
+                              style: Theme.of(context).primaryTextTheme.displaySmall,
                             ).translate(),
                             trailing: SizedBox(
                               width: 190,
                               child: Text(
                                 reportHistoryData?.firstName != null && reportHistoryData!.firstName!.isNotEmpty ? '${reportHistoryData?.firstName}' : 'User',
-                                style: Theme.of(context).primaryTextTheme.subtitle1,
+                                style: Theme.of(context).primaryTextTheme.titleMedium,
                                 textAlign: TextAlign.end,
                               ).translate(),
                             ),
@@ -101,13 +101,13 @@ class ReportHistoryDetailScreen extends StatelessWidget {
                           child: ListTile(
                             title: Text(
                               "Last Name",
-                              style: Theme.of(context).primaryTextTheme.headline3,
+                              style: Theme.of(context).primaryTextTheme.displaySmall,
                             ).translate(),
                             trailing: SizedBox(
                               width: 190,
                               child: Text(
                                 reportHistoryData?.lastName != null ? '${reportHistoryData!.lastName}' : "",
-                                style: Theme.of(context).primaryTextTheme.subtitle1,
+                                style: Theme.of(context).primaryTextTheme.titleMedium,
                                 textAlign: TextAlign.end,
                               ).translate(),
                             ),
@@ -118,11 +118,11 @@ class ReportHistoryDetailScreen extends StatelessWidget {
                           child: ListTile(
                             title: Text(
                               "Phone Number",
-                              style: Theme.of(context).primaryTextTheme.headline3,
+                              style: Theme.of(context).primaryTextTheme.displaySmall,
                             ).translate(),
                             trailing: Text(
                               reportHistoryData?.contactNo != null ? '${reportHistoryData!.contactNo}' : "",
-                              style: Theme.of(context).primaryTextTheme.subtitle1,
+                              style: Theme.of(context).primaryTextTheme.titleMedium,
                             ),
                           ),
                         ),
@@ -131,11 +131,11 @@ class ReportHistoryDetailScreen extends StatelessWidget {
                           child: ListTile(
                             title: Text(
                               "Gender",
-                              style: Theme.of(context).primaryTextTheme.headline3,
+                              style: Theme.of(context).primaryTextTheme.displaySmall,
                             ).translate(),
                             trailing: Text(
                               reportHistoryData!.gender != null ? '${reportHistoryData!.gender}' : "",
-                              style: Theme.of(context).primaryTextTheme.subtitle1,
+                              style: Theme.of(context).primaryTextTheme.titleMedium,
                             ).translate(),
                           ),
                         ),
@@ -144,11 +144,11 @@ class ReportHistoryDetailScreen extends StatelessWidget {
                           child: ListTile(
                             title: Text(
                               "Date of Birth",
-                              style: Theme.of(context).primaryTextTheme.headline3,
+                              style: Theme.of(context).primaryTextTheme.displaySmall,
                             ).translate(),
                             trailing: Text(
                               reportHistoryData!.birthDate != null ? DateFormat('dd-MM-yyyy').format(reportHistoryData!.birthDate!) : "",
-                              style: Theme.of(context).primaryTextTheme.subtitle1,
+                              style: Theme.of(context).primaryTextTheme.titleMedium,
                             ),
                           ),
                         ),
@@ -157,11 +157,11 @@ class ReportHistoryDetailScreen extends StatelessWidget {
                           child: ListTile(
                             title: Text(
                               "Time of Birth",
-                              style: Theme.of(context).primaryTextTheme.headline3,
+                              style: Theme.of(context).primaryTextTheme.displaySmall,
                             ).translate(),
                             trailing: Text(
                               reportHistoryData!.birthTime != null ? '${reportHistoryData!.birthTime}' : "",
-                              style: Theme.of(context).primaryTextTheme.subtitle1,
+                              style: Theme.of(context).primaryTextTheme.titleMedium,
                             ),
                           ),
                         ),
@@ -170,13 +170,13 @@ class ReportHistoryDetailScreen extends StatelessWidget {
                           child: ListTile(
                             title: Text(
                               "Place of Birth",
-                              style: Theme.of(context).primaryTextTheme.headline3,
+                              style: Theme.of(context).primaryTextTheme.displaySmall,
                             ).translate(),
                             trailing: SizedBox(
                               width: 190,
                               child: Text(
                                 reportHistoryData!.birthPlace != null ? '${reportHistoryData!.birthPlace}' : "",
-                                style: Theme.of(context).primaryTextTheme.subtitle1,
+                                style: Theme.of(context).primaryTextTheme.titleMedium,
                                 textAlign: TextAlign.end,
                               ).translate(),
                             ),
@@ -188,13 +188,13 @@ class ReportHistoryDetailScreen extends StatelessWidget {
                                 child: ListTile(
                                   title: Text(
                                     "Occupation",
-                                    style: Theme.of(context).primaryTextTheme.headline3,
+                                    style: Theme.of(context).primaryTextTheme.displaySmall,
                                   ).translate(),
                                   trailing: SizedBox(
                                     width: 190,
                                     child: Text(
                                       reportHistoryData!.occupation != null ? '${reportHistoryData!.occupation}' : "",
-                                      style: Theme.of(context).primaryTextTheme.subtitle1,
+                                      style: Theme.of(context).primaryTextTheme.titleMedium,
                                       textAlign: TextAlign.end,
                                     ).translate(),
                                   ),
@@ -206,11 +206,11 @@ class ReportHistoryDetailScreen extends StatelessWidget {
                           child: ListTile(
                             title: Text(
                               "Marital Status",
-                              style: Theme.of(context).primaryTextTheme.headline3,
+                              style: Theme.of(context).primaryTextTheme.displaySmall,
                             ).translate(),
                             trailing: Text(
                               reportHistoryData?.maritalStatus != null ? '${reportHistoryData!.maritalStatus}' : "",
-                              style: Theme.of(context).primaryTextTheme.subtitle1,
+                              style: Theme.of(context).primaryTextTheme.titleMedium,
                             ).translate(),
                           ),
                         ),
@@ -223,13 +223,13 @@ class ReportHistoryDetailScreen extends StatelessWidget {
                                           child: ListTile(
                                             title: Text(
                                               "Partner name",
-                                              style: Theme.of(context).primaryTextTheme.headline3,
+                                              style: Theme.of(context).primaryTextTheme.displaySmall,
                                             ).translate(),
                                             trailing: SizedBox(
                                               width: 190,
                                               child: Text(
                                                 reportHistoryData!.partnerName != null ? '${reportHistoryData!.partnerName}' : "",
-                                                style: Theme.of(context).primaryTextTheme.subtitle1,
+                                                style: Theme.of(context).primaryTextTheme.titleMedium,
                                                 textAlign: TextAlign.end,
                                               ).translate(),
                                             ),
@@ -242,11 +242,11 @@ class ReportHistoryDetailScreen extends StatelessWidget {
                                           child: ListTile(
                                             title: Text(
                                               "Partner Date of Birth",
-                                              style: Theme.of(context).primaryTextTheme.headline3,
+                                              style: Theme.of(context).primaryTextTheme.displaySmall,
                                             ).translate(),
                                             trailing: Text(
                                               reportHistoryData!.partnerBirthDate != null ? DateFormat('dd-MM-yyyy').format(reportHistoryData!.partnerBirthDate!) : "",
-                                              style: Theme.of(context).primaryTextTheme.subtitle1,
+                                              style: Theme.of(context).primaryTextTheme.titleMedium,
                                             ),
                                           ),
                                         )
@@ -257,11 +257,11 @@ class ReportHistoryDetailScreen extends StatelessWidget {
                                           child: ListTile(
                                             title: Text(
                                               "Partner Time of Birth",
-                                              style: Theme.of(context).primaryTextTheme.headline3,
+                                              style: Theme.of(context).primaryTextTheme.displaySmall,
                                             ).translate(),
                                             trailing: Text(
                                               reportHistoryData!.partnerBirthTime != null ? '${reportHistoryData!.partnerBirthTime}' : "",
-                                              style: Theme.of(context).primaryTextTheme.subtitle1,
+                                              style: Theme.of(context).primaryTextTheme.titleMedium,
                                             ),
                                           ),
                                         )
@@ -272,13 +272,13 @@ class ReportHistoryDetailScreen extends StatelessWidget {
                                           child: ListTile(
                                             title: Text(
                                               "Partner Place of Birth",
-                                              style: Theme.of(context).primaryTextTheme.headline3,
+                                              style: Theme.of(context).primaryTextTheme.displaySmall,
                                             ).translate(),
                                             trailing: SizedBox(
                                               width: 190,
                                               child: Text(
                                                 reportHistoryData!.partnerBirthPlace != null ? '${reportHistoryData!.partnerBirthPlace}' : "",
-                                                style: Theme.of(context).primaryTextTheme.subtitle1,
+                                                style: Theme.of(context).primaryTextTheme.titleMedium,
                                                 textAlign: TextAlign.end,
                                               ).translate(),
                                             ),
@@ -294,14 +294,14 @@ class ReportHistoryDetailScreen extends StatelessWidget {
                             childrenPadding: const EdgeInsets.symmetric(horizontal: 8),
                             title: Text(
                               "Comments",
-                              style: Theme.of(context).primaryTextTheme.headline3,
+                              style: Theme.of(context).primaryTextTheme.displaySmall,
                             ).translate(),
                             children: [
                               Padding(
                                 padding: const EdgeInsets.only(bottom: 20),
                                 child: Text(
                                   reportHistoryData!.comments != null ? '${reportHistoryData!.comments}' : 'I want my full 2022 Detailed Yearly Report',
-                                  style: Theme.of(context).primaryTextTheme.subtitle1,
+                                  style: Theme.of(context).primaryTextTheme.titleMedium,
                                 ).translate(),
                               ),
                             ],

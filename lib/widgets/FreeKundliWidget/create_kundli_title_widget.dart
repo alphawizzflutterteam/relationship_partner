@@ -8,6 +8,6 @@ class CreateKundliTitleWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Text(title!, style: Get.textTheme.headline5).translate();
+    return Text(title!, style: Get.textTheme.headlineSmall).translate();
   }
 }

@@ -147,7 +147,7 @@ class _AcceptCallScreenState extends State<AcceptCallScreen> {
                                             "Name",
                                             style: Theme.of(context)
                                                 .primaryTextTheme
-                                                .headline3,
+                                                .displaySmall,
                                           ),
                                           trailing: SizedBox(
                                             width: 120,
@@ -157,7 +157,7 @@ class _AcceptCallScreenState extends State<AcceptCallScreen> {
                                                   "User",
                                               style: Theme.of(context)
                                                   .primaryTextTheme
-                                                  .subtitle1,
+                                                  .titleMedium,
                                               textAlign: TextAlign.end,
                                             ),
                                           ),
@@ -169,7 +169,7 @@ class _AcceptCallScreenState extends State<AcceptCallScreen> {
                                             "Birth Date",
                                             style: Theme.of(context)
                                                 .primaryTextTheme
-                                                .headline3,
+                                                .displaySmall,
                                           ),
                                           trailing: SizedBox(
                                             width: 120,
@@ -181,7 +181,7 @@ class _AcceptCallScreenState extends State<AcceptCallScreen> {
                                               textAlign: TextAlign.end,
                                               style: Theme.of(context)
                                                   .primaryTextTheme
-                                                  .subtitle1,
+                                                  .titleMedium,
                                             ),
                                           ),
                                         ),
@@ -192,7 +192,7 @@ class _AcceptCallScreenState extends State<AcceptCallScreen> {
                                             "Birth Time",
                                             style: Theme.of(context)
                                                 .primaryTextTheme
-                                                .headline3,
+                                                .displaySmall,
                                           ),
                                           trailing: Text(
                                             callController
@@ -200,7 +200,7 @@ class _AcceptCallScreenState extends State<AcceptCallScreen> {
                                                 .toString(),
                                             style: Theme.of(context)
                                                 .primaryTextTheme
-                                                .subtitle1,
+                                                .titleMedium,
                                           ),
                                         ),
                                         ListTile(
@@ -210,7 +210,7 @@ class _AcceptCallScreenState extends State<AcceptCallScreen> {
                                             "Birth Place",
                                             style: Theme.of(context)
                                                 .primaryTextTheme
-                                                .headline3,
+                                                .displaySmall,
                                           ),
                                           trailing: SizedBox(
                                             width: 120,
@@ -220,7 +220,7 @@ class _AcceptCallScreenState extends State<AcceptCallScreen> {
                                                   .toString(),
                                               style: Theme.of(context)
                                                   .primaryTextTheme
-                                                  .subtitle1,
+                                                  .titleMedium,
                                               textAlign: TextAlign.end,
                                             ),
                                           ),
@@ -232,7 +232,7 @@ class _AcceptCallScreenState extends State<AcceptCallScreen> {
                                             "Phone Number",
                                             style: Theme.of(context)
                                                 .primaryTextTheme
-                                                .headline3,
+                                                .displaySmall,
                                           ),
                                           trailing: Text(
                                             callController
@@ -240,7 +240,7 @@ class _AcceptCallScreenState extends State<AcceptCallScreen> {
                                                 .toString(),
                                             style: Theme.of(context)
                                                 .primaryTextTheme
-                                                .subtitle1,
+                                                .titleMedium,
                                             textAlign: TextAlign.end,
                                           ),
                                         ),
@@ -251,7 +251,7 @@ class _AcceptCallScreenState extends State<AcceptCallScreen> {
                                             "Occupation",
                                             style: Theme.of(context)
                                                 .primaryTextTheme
-                                                .headline3,
+                                                .displaySmall,
                                           ),
                                           trailing: SizedBox(
                                             width: 120,
@@ -261,7 +261,7 @@ class _AcceptCallScreenState extends State<AcceptCallScreen> {
                                                   .toString(),
                                               style: Theme.of(context)
                                                   .primaryTextTheme
-                                                  .subtitle1,
+                                                  .titleMedium,
                                               textAlign: TextAlign.end,
                                             ),
                                           ),
@@ -277,7 +277,7 @@ class _AcceptCallScreenState extends State<AcceptCallScreen> {
                                                   "Topic",
                                                   style: Theme.of(context)
                                                       .primaryTextTheme
-                                                      .headline3,
+                                                      .displaySmall,
                                                 ),
                                                 trailing: SizedBox(
                                                   width: 120,
@@ -287,7 +287,7 @@ class _AcceptCallScreenState extends State<AcceptCallScreen> {
                                                         .toString(),
                                                     style: Theme.of(context)
                                                         .primaryTextTheme
-                                                        .subtitle1,
+                                                        .titleMedium,
                                                     textAlign: TextAlign.end,
                                                   ),
                                                 ),
@@ -305,7 +305,7 @@ class _AcceptCallScreenState extends State<AcceptCallScreen> {
                                                   "Partner Name",
                                                   style: Theme.of(context)
                                                       .primaryTextTheme
-                                                      .headline3,
+                                                      .displaySmall,
                                                 ),
                                                 trailing: Text(
                                                   callController
@@ -313,7 +313,7 @@ class _AcceptCallScreenState extends State<AcceptCallScreen> {
                                                       .toString(),
                                                   style: Theme.of(context)
                                                       .primaryTextTheme
-                                                      .subtitle1,
+                                                      .titleMedium,
                                                   textAlign: TextAlign.end,
                                                 ),
                                               )
@@ -328,7 +328,7 @@ class _AcceptCallScreenState extends State<AcceptCallScreen> {
                                                   "Partner Birth Date",
                                                   style: Theme.of(context)
                                                       .primaryTextTheme
-                                                      .headline3,
+                                                      .displaySmall,
                                                 ),
                                                 trailing: SizedBox(
                                                   width: 120,
@@ -341,7 +341,7 @@ class _AcceptCallScreenState extends State<AcceptCallScreen> {
                                                                 .toString())),
                                                     style: Theme.of(context)
                                                         .primaryTextTheme
-                                                        .subtitle1,
+                                                        .titleMedium,
                                                     textAlign: TextAlign.end,
                                                   ),
                                                 ),
@@ -360,7 +360,7 @@ class _AcceptCallScreenState extends State<AcceptCallScreen> {
                                                   "Partner Birth Time",
                                                   style: Theme.of(context)
                                                       .primaryTextTheme
-                                                      .headline3,
+                                                      .displaySmall,
                                                 ),
                                                 trailing: Text(
                                                   callController.intakeData[0]
@@ -368,7 +368,7 @@ class _AcceptCallScreenState extends State<AcceptCallScreen> {
                                                       .toString(),
                                                   style: Theme.of(context)
                                                       .primaryTextTheme
-                                                      .subtitle1,
+                                                      .titleMedium,
                                                 ),
                                               )
                                             : const SizedBox(),
@@ -385,7 +385,7 @@ class _AcceptCallScreenState extends State<AcceptCallScreen> {
                                                   "Partner Birth Place",
                                                   style: Theme.of(context)
                                                       .primaryTextTheme
-                                                      .headline3,
+                                                      .displaySmall,
                                                 ),
                                                 trailing: SizedBox(
                                                   width: 120,
@@ -395,7 +395,7 @@ class _AcceptCallScreenState extends State<AcceptCallScreen> {
                                                         .toString(),
                                                     style: Theme.of(context)
                                                         .primaryTextTheme
-                                                        .subtitle1,
+                                                        .titleMedium,
                                                     textAlign: TextAlign.end,
                                                   ),
                                                 ),
@@ -428,7 +428,7 @@ class _AcceptCallScreenState extends State<AcceptCallScreen> {
                       children: [
                         Text(
                           widget.name == '' ? 'User' : widget.name,
-                          style: Get.textTheme.subtitle1!.copyWith(
+                          style: Get.textTheme.titleMedium!.copyWith(
                               fontWeight: FontWeight.w500, fontSize: 20),
                         ),
                         const SizedBox(

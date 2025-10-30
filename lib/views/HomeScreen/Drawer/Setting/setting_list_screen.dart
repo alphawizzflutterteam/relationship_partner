@@ -42,7 +42,7 @@ class SettingListScreen extends StatelessWidget {
                 ),
                 title: Text(
                   "Terms and Condition",
-                  style: Theme.of(context).primaryTextTheme.subtitle1,
+                  style: Theme.of(context).primaryTextTheme.titleMedium,
                 ).translate(),
                 trailing:
                     Icon(Icons.arrow_forward_ios, color: COLORS().primaryColor),
@@ -62,7 +62,7 @@ class SettingListScreen extends StatelessWidget {
                 ),
                 title: Text(
                   "Privacy Policy",
-                  style: Theme.of(context).primaryTextTheme.subtitle1,
+                  style: Theme.of(context).primaryTextTheme.titleMedium,
                 ).translate(),
                 trailing:
                     Icon(Icons.arrow_forward_ios, color: COLORS().primaryColor),
@@ -82,7 +82,7 @@ class SettingListScreen extends StatelessWidget {
                 ),
                 title: Text(
                   "Share App",
-                  style: Theme.of(context).primaryTextTheme.subtitle1,
+                  style: Theme.of(context).primaryTextTheme.titleMedium,
                 ).translate(),
                 trailing:
                 Icon(Icons.arrow_forward_ios, color: COLORS().primaryColor),
@@ -102,7 +102,7 @@ class SettingListScreen extends StatelessWidget {
                 ),
                 title: Text(
                   "Logout my account",
-                  style: Theme.of(context).primaryTextTheme.subtitle1,
+                  style: Theme.of(context).primaryTextTheme.titleMedium,
                 ).translate(),
                 trailing:
                     Icon(Icons.arrow_forward_ios, color: COLORS().primaryColor),

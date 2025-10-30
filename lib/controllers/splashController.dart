@@ -14,7 +14,7 @@ import 'package:astrologer_app/views/Authentication/login_screen.dart';
 import 'package:astrologer_app/views/HomeScreen/home_screen.dart';
 // import 'package:firebase_dynamic_links/firebase_dynamic_links.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
-import 'package:flutter_share/flutter_share.dart';
+// import 'package:flutter_share/flutter_share.dart';
 import 'package:get/get.dart';
 import 'package:astrologer_app/utils/global.dart' as global;
 import 'package:shared_preferences/shared_preferences.dart';

@@ -102,7 +102,7 @@ class DrawerScreen extends StatelessWidget {
                         global.user.name != null && global.user.name != ''
                             ? '${global.user.name}'
                             : "Advisor",
-                        style: Theme.of(context).primaryTextTheme.headline2,
+                        style: Theme.of(context).primaryTextTheme.displayMedium,
                       ).translate(),
                       Padding(
                         padding: const EdgeInsets.all(8.0),
@@ -114,7 +114,7 @@ class DrawerScreen extends StatelessWidget {
                               padding: const EdgeInsets.only(left: 5),
                               child: Text(
                                 '+91-',
-                                style: Theme.of(context).textTheme.caption,
+                                style: Theme.of(context).textTheme.bodySmall,
                               ),
                             ),
                             Text(
@@ -122,7 +122,7 @@ class DrawerScreen extends StatelessWidget {
                                       global.user.contactNo != ''
                                   ? '${global.user.contactNo}'
                                   : "",
-                              style: Theme.of(context).textTheme.caption,
+                              style: Theme.of(context).textTheme.bodySmall,
                             ),
                           ],
                         ),
@@ -148,7 +148,7 @@ class DrawerScreen extends StatelessWidget {
                     padding: const EdgeInsets.only(left: 10),
                     child: Text(
                       "My Assistant",
-                      style: Theme.of(context).textTheme.subtitle1,
+                      style: Theme.of(context).textTheme.titleMedium,
                     ).translate(),
                   ),
                 ],
@@ -171,7 +171,7 @@ class DrawerScreen extends StatelessWidget {
                     padding: const EdgeInsets.only(left: 10),
                     child: Text(
                       "Assistant Chat Request",
-                      style: Theme.of(context).textTheme.subtitle1,
+                      style: Theme.of(context).textTheme.titleMedium,
                     ).translate(),
                   ),
                 ],
@@ -200,7 +200,7 @@ class DrawerScreen extends StatelessWidget {
                     padding: const EdgeInsets.only(left: 10),
                     child: Text(
                       "Wallet Transactions",
-                      style: Theme.of(context).textTheme.subtitle1,
+                      style: Theme.of(context).textTheme.titleMedium,
                     ).translate(),
                   ),
                 ],
@@ -223,7 +223,7 @@ class DrawerScreen extends StatelessWidget {
                     padding: const EdgeInsets.only(left: 10),
                     child: Text(
                       "Customer Review",
-                      style: Theme.of(context).textTheme.subtitle1,
+                      style: Theme.of(context).textTheme.titleMedium,
                     ).translate(),
                   ),
                 ],
@@ -249,7 +249,7 @@ class DrawerScreen extends StatelessWidget {
                     padding: const EdgeInsets.only(left: 10),
                     child: Text(
                       "App Review",
-                      style: Theme.of(context).textTheme.subtitle1,
+                      style: Theme.of(context).textTheme.titleMedium,
                     ).translate(),
                   ),
                 ],
@@ -274,7 +274,7 @@ class DrawerScreen extends StatelessWidget {
                     padding: const EdgeInsets.only(left: 10),
                     child: Text(
                       "Settings",
-                      style: Theme.of(context).textTheme.subtitle1,
+                      style: Theme.of(context).textTheme.titleMedium,
                     ).translate(),
                   ),
                 ],

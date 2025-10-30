@@ -32,14 +32,14 @@ class OtherDetailScreen extends StatelessWidget {
                       childrenPadding: const EdgeInsets.symmetric(horizontal: 5),
                       title: Text(
                         "Why do you think we should onboard you ?",
-                        style: Theme.of(context).primaryTextTheme.headline3,
+                        style: Theme.of(context).primaryTextTheme.displaySmall,
                       ).translate(),
                       children: [
                         Padding(
                           padding: const EdgeInsets.only(bottom: 10),
                           child: Text(
                             global.user.onboardYou != null && global.user.onboardYou != '' ? '${global.user.onboardYou}' : "Beacuse I am Professional",
-                            style: Theme.of(context).primaryTextTheme.subtitle1,
+                            style: Theme.of(context).primaryTextTheme.titleMedium,
                           ).translate(),
                         ),
                       ],
@@ -52,11 +52,11 @@ class OtherDetailScreen extends StatelessWidget {
                       tileColor: Colors.white,
                       title: Text(
                         "Suitable time for interview",
-                        style: Theme.of(context).primaryTextTheme.headline3,
+                        style: Theme.of(context).primaryTextTheme.displaySmall,
                       ).translate(),
                       trailing: Text(
                         global.user.suitableInterviewTime != null && global.user.suitableInterviewTime != '' ? '${global.user.suitableInterviewTime}' : "",
-                        style: Theme.of(context).primaryTextTheme.subtitle1,
+                        style: Theme.of(context).primaryTextTheme.titleMedium,
                       ).translate(),
                     ),
                   ),*/
@@ -70,7 +70,7 @@ class OtherDetailScreen extends StatelessWidget {
                             title: Text(
                               "Currently Live City",
                               style:
-                                  Theme.of(context).primaryTextTheme.headline3,
+                                  Theme.of(context).primaryTextTheme.displaySmall,
                             ).translate(),
                             trailing: Text(
                               global.user.currentCity != null &&
@@ -78,7 +78,7 @@ class OtherDetailScreen extends StatelessWidget {
                                   ? '${global.user.currentCity}'
                                   : "",
                               style:
-                                  Theme.of(context).primaryTextTheme.subtitle1,
+                                  Theme.of(context).primaryTextTheme.titleMedium,
                             ).translate(),
                           ),
                         )
@@ -90,13 +90,13 @@ class OtherDetailScreen extends StatelessWidget {
                       tileColor: Colors.white,
                       title: Text(
                         "Main source of business",
-                        style: Theme.of(context).primaryTextTheme.headline3,
+                        style: Theme.of(context).primaryTextTheme.displaySmall,
                       ).translate(),
                       trailing: SizedBox(
                         width: 190,
                         child: Text(
                           global.user.mainSourceOfBusiness != null && global.user.mainSourceOfBusiness != '' ? '${global.user.mainSourceOfBusiness}' : "",
-                          style: Theme.of(context).primaryTextTheme.subtitle1,
+                          style: Theme.of(context).primaryTextTheme.titleMedium,
                           textAlign: TextAlign.end,
                         ).translate(),
                       ),
@@ -109,7 +109,7 @@ class OtherDetailScreen extends StatelessWidget {
                       tileColor: Colors.white,
                       title: Text(
                         "Highest Qualification",
-                        style: Theme.of(context).primaryTextTheme.headline3,
+                        style: Theme.of(context).primaryTextTheme.displaySmall,
                       ).translate(),
                       trailing: SizedBox(
                         width: 190,
@@ -118,7 +118,7 @@ class OtherDetailScreen extends StatelessWidget {
                                   global.user.highestQualification != ''
                               ? '${global.user.highestQualification}'
                               : "",
-                          style: Theme.of(context).primaryTextTheme.subtitle1,
+                          style: Theme.of(context).primaryTextTheme.titleMedium,
                           textAlign: TextAlign.end,
                         ),
                       ),
@@ -131,7 +131,7 @@ class OtherDetailScreen extends StatelessWidget {
                       tileColor: Colors.white,
                       title: Text(
                         "Degree/Diploma",
-                        style: Theme.of(context).primaryTextTheme.headline3,
+                        style: Theme.of(context).primaryTextTheme.displaySmall,
                       ).translate(),
                       trailing: SizedBox(
                         width: 150,
@@ -140,7 +140,7 @@ class OtherDetailScreen extends StatelessWidget {
                                   global.user.degreeDiploma != ''
                               ? '${global.user.degreeDiploma}'
                               : "",
-                          style: Theme.of(context).primaryTextTheme.subtitle1,
+                          style: Theme.of(context).primaryTextTheme.titleMedium,
                           textAlign: TextAlign.end,
                         ),
                       ),
@@ -156,7 +156,7 @@ class OtherDetailScreen extends StatelessWidget {
                             title: Text(
                               "College/School/University",
                               style:
-                                  Theme.of(context).primaryTextTheme.headline3,
+                                  Theme.of(context).primaryTextTheme.displaySmall,
                             ).translate(),
                             trailing: SizedBox(
                               width: 190,
@@ -168,7 +168,7 @@ class OtherDetailScreen extends StatelessWidget {
                                     : "",
                                 style: Theme.of(context)
                                     .primaryTextTheme
-                                    .subtitle1,
+                                    .titleMedium,
                                 textAlign: TextAlign.end,
                               ),
                             ),
@@ -185,7 +185,7 @@ class OtherDetailScreen extends StatelessWidget {
                             title: Text(
                               "Your learning platform",
                               style:
-                                  Theme.of(context).primaryTextTheme.headline3,
+                                  Theme.of(context).primaryTextTheme.displaySmall,
                             ).translate(),
                             trailing: Text(
                               global.user.learnAstrology != null &&
@@ -193,7 +193,7 @@ class OtherDetailScreen extends StatelessWidget {
                                   ? '${global.user.learnAstrology}'
                                   : "",
                               style:
-                                  Theme.of(context).primaryTextTheme.subtitle1,
+                                  Theme.of(context).primaryTextTheme.titleMedium,
                             ).translate(),
                           ),
                         )
@@ -208,7 +208,7 @@ class OtherDetailScreen extends StatelessWidget {
                             title: Text(
                               "InstaGram Link",
                               style:
-                                  Theme.of(context).primaryTextTheme.headline3,
+                                  Theme.of(context).primaryTextTheme.displaySmall,
                             ).translate(),
                             trailing: Text(
                               global.user.instagramProfileLink != null &&
@@ -216,7 +216,7 @@ class OtherDetailScreen extends StatelessWidget {
                                   ? '${global.user.instagramProfileLink}'
                                   : "",
                               style:
-                                  Theme.of(context).primaryTextTheme.subtitle1,
+                                  Theme.of(context).primaryTextTheme.titleMedium,
                             ),
                           ),
                         )
@@ -231,7 +231,7 @@ class OtherDetailScreen extends StatelessWidget {
                             title: Text(
                               "Facebook Link",
                               style:
-                                  Theme.of(context).primaryTextTheme.headline3,
+                                  Theme.of(context).primaryTextTheme.displaySmall,
                             ).translate(),
                             trailing: Text(
                               global.user.facebookProfileLink != null &&
@@ -239,7 +239,7 @@ class OtherDetailScreen extends StatelessWidget {
                                   ? '${global.user.facebookProfileLink}'
                                   : "",
                               style:
-                                  Theme.of(context).primaryTextTheme.subtitle1,
+                                  Theme.of(context).primaryTextTheme.titleMedium,
                             ),
                           ),
                         )
@@ -254,7 +254,7 @@ class OtherDetailScreen extends StatelessWidget {
                             title: Text(
                               "LinkedIn",
                               style:
-                                  Theme.of(context).primaryTextTheme.headline3,
+                                  Theme.of(context).primaryTextTheme.displaySmall,
                             ).translate(),
                             trailing: Text(
                               global.user.linkedInProfileLink != null &&
@@ -262,7 +262,7 @@ class OtherDetailScreen extends StatelessWidget {
                                   ? '${global.user.linkedInProfileLink}'
                                   : "",
                               style:
-                                  Theme.of(context).primaryTextTheme.subtitle1,
+                                  Theme.of(context).primaryTextTheme.titleMedium,
                             ),
                           ),
                         )
@@ -277,7 +277,7 @@ class OtherDetailScreen extends StatelessWidget {
                             title: Text(
                               "Youtube",
                               style:
-                                  Theme.of(context).primaryTextTheme.headline3,
+                                  Theme.of(context).primaryTextTheme.displaySmall,
                             ).translate(),
                             trailing: Text(
                               global.user.youtubeProfileLink != null &&
@@ -285,7 +285,7 @@ class OtherDetailScreen extends StatelessWidget {
                                   ? '${global.user.youtubeProfileLink}'
                                   : "",
                               style:
-                                  Theme.of(context).primaryTextTheme.subtitle1,
+                                  Theme.of(context).primaryTextTheme.titleMedium,
                             ),
                           ),
                         )
@@ -300,7 +300,7 @@ class OtherDetailScreen extends StatelessWidget {
                             title: Text(
                               "Website",
                               style:
-                                  Theme.of(context).primaryTextTheme.headline3,
+                                  Theme.of(context).primaryTextTheme.displaySmall,
                             ).translate(),
                             trailing: Text(
                               global.user.webSiteProfileLink != null &&
@@ -308,7 +308,7 @@ class OtherDetailScreen extends StatelessWidget {
                                   ? '${global.user.webSiteProfileLink}'
                                   : "",
                               style:
-                                  Theme.of(context).primaryTextTheme.subtitle1,
+                                  Theme.of(context).primaryTextTheme.titleMedium,
                             ),
                           ),
                         )
@@ -323,7 +323,7 @@ class OtherDetailScreen extends StatelessWidget {
                             title: Text(
                               "Refferences Name",
                               style:
-                                  Theme.of(context).primaryTextTheme.headline3,
+                                  Theme.of(context).primaryTextTheme.displaySmall,
                             ).translate(),
                             trailing: Text(
                               global.user.referedPersonName != null &&
@@ -331,7 +331,7 @@ class OtherDetailScreen extends StatelessWidget {
                                   ? '${global.user.referedPersonName}'
                                   : "",
                               style:
-                                  Theme.of(context).primaryTextTheme.subtitle1,
+                                  Theme.of(context).primaryTextTheme.titleMedium,
                             ).translate(),
                           ),
                         )
@@ -343,11 +343,11 @@ class OtherDetailScreen extends StatelessWidget {
                       tileColor: Colors.white,
                       title: Text(
                         "Expected Minimum Earning",
-                        style: Theme.of(context).primaryTextTheme.headline3,
+                        style: Theme.of(context).primaryTextTheme.displaySmall,
                       ).translate(),
                       trailing: Text(
                         global.user.expectedMinimumEarning != null ? '${global.user.expectedMinimumEarning}' : "${global.getSystemFlagValue(global.systemFlagNameList.currency)} 0",
-                        style: Theme.of(context).primaryTextTheme.subtitle1,
+                        style: Theme.of(context).primaryTextTheme.titleMedium,
                       ),
                     ),
                   ),*/
@@ -358,11 +358,11 @@ class OtherDetailScreen extends StatelessWidget {
                       tileColor: Colors.white,
                       title: Text(
                         "Expected Maximum Earning",
-                        style: Theme.of(context).primaryTextTheme.headline3,
+                        style: Theme.of(context).primaryTextTheme.displaySmall,
                       ).translate(),
                       trailing: Text(
                         global.user.expectedMaximumEarning != null ? '${global.user.expectedMaximumEarning}' : "${global.getSystemFlagValue(global.systemFlagNameList.currency)} 0",
-                        style: Theme.of(context).primaryTextTheme.subtitle1,
+                        style: Theme.of(context).primaryTextTheme.titleMedium,
                       ),
                     ),
                   ),*/
@@ -373,7 +373,7 @@ class OtherDetailScreen extends StatelessWidget {
                       backgroundColor: Colors.transparent,
                       title: Text(
                         "Long Bio",
-                        style: Theme.of(context).primaryTextTheme.headline3,
+                        style: Theme.of(context).primaryTextTheme.displaySmall,
                       ).translate(),
                       childrenPadding:
                           const EdgeInsets.symmetric(horizontal: 8),
@@ -385,7 +385,7 @@ class OtherDetailScreen extends StatelessWidget {
                                     global.user.longBio != ''
                                 ? '${global.user.longBio}'
                                 : "My Name is developer And i am working as astrologer in this company",
-                            style: Theme.of(context).primaryTextTheme.subtitle1,
+                            style: Theme.of(context).primaryTextTheme.titleMedium,
                           ).translate(),
                         ),
                       ],

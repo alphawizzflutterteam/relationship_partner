@@ -99,30 +99,30 @@ class WalletHistoryScreen extends StatelessWidget {
                                                       child: signupController.astrologerList[0].wallet![index].transactionType == 'Gift'
                                                           ? Text(
                                                               signupController.astrologerList[0].wallet![index].name != null ? 'Recived gift from ${signupController.astrologerList[0].wallet![index].name}' : "Recived gift from user",
-                                                              style: Get.theme.primaryTextTheme.headline3,
+                                                              style: Get.theme.primaryTextTheme.displaySmall,
                                                               textAlign: TextAlign.justify,
                                                             ).translate()
                                                           : signupController.astrologerList[0].wallet![index].transactionType == 'Call'
                                                               ? Text(
                                                                   signupController.astrologerList[0].wallet![index].name != null ? '${signupController.astrologerList[0].wallet![index].transactionType}ed with ${signupController.astrologerList[0].wallet![index].name == '' ? 'user' : signupController.astrologerList[0].wallet![index].name} for ${signupController.astrologerList[0].wallet![index].totalMin!} minutes' : "Recived gift",
-                                                                  style: Get.theme.primaryTextTheme.headline3,
+                                                                  style: Get.theme.primaryTextTheme.displaySmall,
                                                                   textAlign: TextAlign.justify,
                                                                 ).translate()
                                                               : signupController.astrologerList[0].wallet![index].transactionType == 'Chat'
                                                                   ? Text(
                                                                       signupController.astrologerList[0].wallet![index].name != null ? '${signupController.astrologerList[0].wallet![index].transactionType}ed with ${signupController.astrologerList[0].wallet![index].name == '' ? 'user' : signupController.astrologerList[0].wallet![index].name} for ${signupController.astrologerList[0].wallet![index].totalMin!} minutes' : "Recived gift",
-                                                                      style: Get.theme.primaryTextTheme.headline3,
+                                                                      style: Get.theme.primaryTextTheme.displaySmall,
                                                                       textAlign: TextAlign.justify,
                                                                     ).translate()
                                                                   : signupController.astrologerList[0].wallet![index].transactionType == 'Report'
                                                                       ? Text(
                                                                           signupController.astrologerList[0].wallet![index].name != null ? '${signupController.astrologerList[0].wallet![index].transactionType} Request from ${signupController.astrologerList[0].wallet![index].name == '' ? 'user' : signupController.astrologerList[0].wallet![index].name}' : "Report request from user",
-                                                                          style: Get.theme.primaryTextTheme.headline3,
+                                                                          style: Get.theme.primaryTextTheme.displaySmall,
                                                                           textAlign: TextAlign.justify,
                                                                         ).translate()
                                                                       : Text(
                                                                           signupController.astrologerList[0].wallet![index].name != null ? '${signupController.astrologerList[0].wallet![index].transactionType} with ${signupController.astrologerList[0].wallet![index].name!} for ${signupController.astrologerList[0].wallet![index].totalMin!} minutes' : "Recived gift",
-                                                                          style: Get.theme.primaryTextTheme.headline3,
+                                                                          style: Get.theme.primaryTextTheme.displaySmall,
                                                                           textAlign: TextAlign.justify,
                                                                         ).translate(),
                                                     ),
@@ -130,7 +130,7 @@ class WalletHistoryScreen extends StatelessWidget {
                                                       padding: const EdgeInsets.only(top: 2),
                                                       child: Text(
                                                         DateFormat('dd MMM yyyy , hh:mm a').format(DateTime.parse(signupController.astrologerList[0].wallet![index].createdAt!.toString())),
-                                                        style: Get.theme.primaryTextTheme.subtitle2,
+                                                        style: Get.theme.primaryTextTheme.titleSmall,
                                                       ),
                                                     ),
                                                   ],

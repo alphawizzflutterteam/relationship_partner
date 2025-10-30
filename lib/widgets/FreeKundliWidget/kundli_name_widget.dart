@@ -50,7 +50,7 @@ class KundliNameWidget extends StatelessWidget {
             child: Text(
               'Next',
               textAlign: TextAlign.center,
-              style: Get.theme.primaryTextTheme.subtitle1!.copyWith(color: kundliController.isDisable ? const Color.fromARGB(255, 100, 98, 98) : null),
+              style: Get.theme.primaryTextTheme.titleMedium!.copyWith(color: kundliController.isDisable ? const Color.fromARGB(255, 100, 98, 98) : null),
             ).translate(),
           ),
         ),

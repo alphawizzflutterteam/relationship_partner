@@ -7,7 +7,7 @@ import 'package:astrologer_app/controllers/dailyHoroscopeController.dart';
 import 'package:astrologer_app/controllers/splashController.dart';
 import 'package:astrologer_app/views/HomeScreen/FloatingButton/DailyHoroscope/dailyHoroScopeDetailScreen.dart';
 import 'package:cached_network_image/cached_network_image.dart';
-import 'package:custom_clippers/custom_clippers.dart';
+// import 'package:custom_clippers/custom_clippers.dart';
 import 'package:flutter/material.dart';
 import 'package:astrologer_app/utils/global.dart' as global;
 import 'package:flutter_html/flutter_html.dart';
@@ -34,7 +34,7 @@ class DailyHoroscopeScreen extends StatelessWidget {
             backgroundColor: Get.theme.primaryColor,
             title: Text(
               'Daily Horoscope',
-              style: Get.theme.primaryTextTheme.headline6!.copyWith(fontSize: 18, fontWeight: FontWeight.normal),
+              style: Get.theme.primaryTextTheme.titleLarge!.copyWith(fontSize: 18, fontWeight: FontWeight.normal),
             ).translate(),
             leading: IconButton(
               onPressed: () => Get.back(),
@@ -67,7 +67,7 @@ class DailyHoroscopeScreen extends StatelessWidget {
                         ),
                         Padding(
                           padding: const EdgeInsets.all(4.0),
-                          child: Text('Share', style: Get.textTheme.subtitle1!.copyWith(fontSize: 12)).translate(),
+                          child: Text('Share', style: Get.textTheme.titleMedium!.copyWith(fontSize: 12)).translate(),
                         )
                       ],
                     ),
@@ -127,7 +127,7 @@ class DailyHoroscopeScreen extends StatelessWidget {
                                         Text(
                                           global.hororscopeSignList[index].name,
                                           textAlign: TextAlign.center,
-                                          style: Get.textTheme.subtitle1!.copyWith(fontSize: 10),
+                                          style: Get.textTheme.titleMedium!.copyWith(fontSize: 10),
                                         ).translate()
                                       ],
                                     ),
@@ -159,7 +159,7 @@ class DailyHoroscopeScreen extends StatelessWidget {
                                   child: Text(
                                     'Yesterday',
                                     textAlign: TextAlign.center,
-                                    style: Get.textTheme.subtitle1!.copyWith(fontSize: 12),
+                                    style: Get.textTheme.titleMedium!.copyWith(fontSize: 12),
                                   ).translate(),
                                 ),
                               ),
@@ -176,7 +176,7 @@ class DailyHoroscopeScreen extends StatelessWidget {
                                     color: dailyHoroscopeController.day == 2 ? const Color.fromARGB(255, 247, 243, 214) : Colors.transparent,
                                     border: Border.all(color: dailyHoroscopeController.day == 2 ? Get.theme.primaryColor : Colors.grey),
                                   ),
-                                  child: Text('Today', textAlign: TextAlign.center, style: Get.textTheme.subtitle1!.copyWith(fontSize: 12)).translate(),
+                                  child: Text('Today', textAlign: TextAlign.center, style: Get.textTheme.titleMedium!.copyWith(fontSize: 12)).translate(),
                                 ),
                               ),
                             ),
@@ -196,7 +196,7 @@ class DailyHoroscopeScreen extends StatelessWidget {
                                   child: Text(
                                     'Tomorrow',
                                     textAlign: TextAlign.center,
-                                    style: Get.textTheme.subtitle1!.copyWith(fontSize: 12),
+                                    style: Get.textTheme.titleMedium!.copyWith(fontSize: 12),
                                   ).translate(),
                                 ),
                               ),
@@ -318,7 +318,7 @@ class DailyHoroscopeScreen extends StatelessWidget {
                                           dailyHoroscopeController.dailyList!.yeasterDayHoroscope!.isNotEmpty
                                               ? Padding(
                                                   padding: const EdgeInsets.all(8.0),
-                                                  child: Text('Daily Horoscope', style: Get.textTheme.subtitle1).translate(),
+                                                  child: Text('Daily Horoscope', style: Get.textTheme.titleMedium).translate(),
                                                 )
                                               : const SizedBox(),
                                           ListView.builder(
@@ -356,8 +356,8 @@ class DailyHoroscopeScreen extends StatelessWidget {
                                                                                 : dailyHoroscopeController.dailyList!.yeasterDayHoroscope![index].category == "Health"
                                                                                     ? "🩺 "
                                                                                     : "✈️ ",
-                                                                    style: Get.textTheme.subtitle1!.copyWith(fontWeight: FontWeight.w400)),
-                                                                Text('${dailyHoroscopeController.dailyList!.yeasterDayHoroscope![index].category}', style: Get.textTheme.subtitle1!.copyWith(fontWeight: FontWeight.w400)).translate(),
+                                                                    style: Get.textTheme.titleMedium!.copyWith(fontWeight: FontWeight.w400)),
+                                                                Text('${dailyHoroscopeController.dailyList!.yeasterDayHoroscope![index].category}', style: Get.textTheme.titleMedium!.copyWith(fontWeight: FontWeight.w400)).translate(),
                                                               ],
                                                             ),
                                                             Text('${dailyHoroscopeController.dailyList!.yeasterDayHoroscope![index].percent}%'),
@@ -409,7 +409,7 @@ class DailyHoroscopeScreen extends StatelessWidget {
                                                           Row(
                                                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                                             children: [
-                                                              Text('${dailyHoroscopeController.dailyList!.todayHoroscope![index].category}', style: Get.textTheme.subtitle1!.copyWith(fontWeight: FontWeight.w400)).translate(),
+                                                              Text('${dailyHoroscopeController.dailyList!.todayHoroscope![index].category}', style: Get.textTheme.titleMedium!.copyWith(fontWeight: FontWeight.w400)).translate(),
                                                               Text('${dailyHoroscopeController.dailyList!.todayHoroscope![index].percent}%'),
                                                             ],
                                                           ),
@@ -457,14 +457,14 @@ class DailyHoroscopeScreen extends StatelessWidget {
                                                                   Row(
                                                                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                                                     children: [
-                                                                      Text('${dailyHoroscopeController.dailyList!.tomorrowHoroscope![index].category}', style: Get.textTheme.subtitle1!.copyWith(fontWeight: FontWeight.w400)).translate(),
+                                                                      Text('${dailyHoroscopeController.dailyList!.tomorrowHoroscope![index].category}', style: Get.textTheme.titleMedium!.copyWith(fontWeight: FontWeight.w400)).translate(),
                                                                       Text('${dailyHoroscopeController.dailyList!.tomorrowHoroscope![index].percent}%'),
                                                                     ],
                                                                   ),
                                                                   const SizedBox(
                                                                     height: 10,
                                                                   ),
-                                                                  Text('${dailyHoroscopeController.dailyList!.tomorrowHoroscope![index].description}', style: Get.textTheme.subtitle1!.copyWith(color: Colors.grey, fontSize: 14)).translate()
+                                                                  Text('${dailyHoroscopeController.dailyList!.tomorrowHoroscope![index].description}', style: Get.textTheme.titleMedium!.copyWith(color: Colors.grey, fontSize: 14)).translate()
                                                                 ],
                                                               ),
                                                             ),
@@ -482,7 +482,7 @@ class DailyHoroscopeScreen extends StatelessWidget {
                                               dailyHoroscopeController.dailyList!.todayHoroscope!.isNotEmpty
                                                   ? Padding(
                                                       padding: const EdgeInsets.all(8.0),
-                                                      child: Text('Daily Horoscope', style: Get.textTheme.subtitle1).translate(),
+                                                      child: Text('Daily Horoscope', style: Get.textTheme.titleMedium).translate(),
                                                     )
                                                   : const SizedBox(),
                                               ListView.builder(
@@ -520,8 +520,8 @@ class DailyHoroscopeScreen extends StatelessWidget {
                                                                                     : dailyHoroscopeController.dailyList!.todayHoroscope![index].category == "Health"
                                                                                         ? "🩺 "
                                                                                         : "✈️ ",
-                                                                        style: Get.textTheme.subtitle1!.copyWith(fontWeight: FontWeight.w400)),
-                                                                    Text('${dailyHoroscopeController.dailyList!.todayHoroscope![index].category}', style: Get.textTheme.subtitle1!.copyWith(fontWeight: FontWeight.w400)).translate(),
+                                                                        style: Get.textTheme.titleMedium!.copyWith(fontWeight: FontWeight.w400)),
+                                                                    Text('${dailyHoroscopeController.dailyList!.todayHoroscope![index].category}', style: Get.textTheme.titleMedium!.copyWith(fontWeight: FontWeight.w400)).translate(),
                                                                   ],
                                                                 ),
                                                                 Text('${dailyHoroscopeController.dailyList!.todayHoroscope![index].percent}%'),
@@ -558,7 +558,7 @@ class DailyHoroscopeScreen extends StatelessWidget {
                                                   dailyHoroscopeController.dailyList!.tomorrowHoroscope!.isNotEmpty
                                                       ? Padding(
                                                           padding: const EdgeInsets.all(8.0),
-                                                          child: Text('Daily Horoscope', style: Get.textTheme.subtitle1).translate(),
+                                                          child: Text('Daily Horoscope', style: Get.textTheme.titleMedium).translate(),
                                                         )
                                                       : const SizedBox(),
                                                   ListView.builder(
@@ -596,8 +596,8 @@ class DailyHoroscopeScreen extends StatelessWidget {
                                                                                         : dailyHoroscopeController.dailyList!.tomorrowHoroscope![index].category == "Health"
                                                                                             ? "🩺 "
                                                                                             : "✈️ ",
-                                                                            style: Get.textTheme.subtitle1!.copyWith(fontWeight: FontWeight.w400)),
-                                                                        Text('${dailyHoroscopeController.dailyList!.tomorrowHoroscope![index].category}', style: Get.textTheme.subtitle1!.copyWith(fontWeight: FontWeight.w400)).translate(),
+                                                                            style: Get.textTheme.titleMedium!.copyWith(fontWeight: FontWeight.w400)),
+                                                                        Text('${dailyHoroscopeController.dailyList!.tomorrowHoroscope![index].category}', style: Get.textTheme.titleMedium!.copyWith(fontWeight: FontWeight.w400)).translate(),
                                                                       ],
                                                                     ),
                                                                     Text('${dailyHoroscopeController.dailyList!.tomorrowHoroscope![index].percent}%'),
@@ -630,7 +630,7 @@ class DailyHoroscopeScreen extends StatelessWidget {
                         ),
                       ),
                     ),
-                    dailyHoroscopeController.dailyList!.tomorrowInsight!.isNotEmpty || dailyHoroscopeController.dailyList!.todayInsight!.isNotEmpty || dailyHoroscopeController.dailyList!.yeasterdayInsight!.isNotEmpty ? Text('Daily Horosope Insights', style: Get.textTheme.subtitle1).translate() : const SizedBox(),
+                    dailyHoroscopeController.dailyList!.tomorrowInsight!.isNotEmpty || dailyHoroscopeController.dailyList!.todayInsight!.isNotEmpty || dailyHoroscopeController.dailyList!.yeasterdayInsight!.isNotEmpty ? Text('Daily Horosope Insights', style: Get.textTheme.titleMedium).translate() : const SizedBox(),
                     dailyHoroscopeController.day == 1
                         ? dailyHoroscopeController.dailyList!.yeasterdayInsight!.isNotEmpty
                             ? ListView.builder(
@@ -665,7 +665,7 @@ class DailyHoroscopeScreen extends StatelessWidget {
                                             child: RotatedBox(
                                               quarterTurns: 45,
                                               child: ClipPath(
-                                                clipper: MultiplePointsClipper(Sides.bottom, heightOfPoint: 10, numberOfPoints: 1),
+                                                // clipper: MultiplePointsClipper(Sides.bottom, heightOfPoint: 10, numberOfPoints: 1),
                                                 child: Container(
                                                   width: 20,
                                                   height: 135,
@@ -692,7 +692,7 @@ class DailyHoroscopeScreen extends StatelessWidget {
                                           ),
                                           Text(
                                             "\"${dailyHoroscopeController.dailyList!.yeasterdayInsight![index].title} \"",
-                                            style: Get.theme.primaryTextTheme.subtitle1!.copyWith(fontWeight: FontWeight.w500),
+                                            style: Get.theme.primaryTextTheme.titleMedium!.copyWith(fontWeight: FontWeight.w500),
                                           ).translate(),
                                           const SizedBox(
                                             height: 10,
@@ -725,7 +725,7 @@ class DailyHoroscopeScreen extends StatelessWidget {
                                                 ),
                                               ),
                                             ),
-                                            child: Text('Watch ${dailyHoroscopeController.dailyList!.yeasterdayInsight![index].title}', style: Get.textTheme.subtitle1!.copyWith(fontSize: 12, fontWeight: FontWeight.w500)).translate(),
+                                            child: Text('Watch ${dailyHoroscopeController.dailyList!.yeasterdayInsight![index].title}', style: Get.textTheme.titleMedium!.copyWith(fontSize: 12, fontWeight: FontWeight.w500)).translate(),
                                           ),
                                         ],
                                       ),
@@ -759,7 +759,7 @@ class DailyHoroscopeScreen extends StatelessWidget {
                                                 child: RotatedBox(
                                                   quarterTurns: 45,
                                                   child: ClipPath(
-                                                    clipper: MultiplePointsClipper(Sides.bottom, heightOfPoint: 10, numberOfPoints: 1),
+                                                    // clipper: MultiplePointsClipper(Sides.bottom, heightOfPoint: 10, numberOfPoints: 1),
                                                     child: Container(
                                                       width: 20,
                                                       height: 135,
@@ -786,7 +786,7 @@ class DailyHoroscopeScreen extends StatelessWidget {
                                               ),
                                               Text(
                                                 "\"${dailyHoroscopeController.dailyList!.todayInsight![1].title} \"",
-                                                style: Get.theme.primaryTextTheme.subtitle1!.copyWith(fontWeight: FontWeight.w500),
+                                                style: Get.theme.primaryTextTheme.titleMedium!.copyWith(fontWeight: FontWeight.w500),
                                               ).translate(),
                                               const SizedBox(
                                                 height: 10,
@@ -813,7 +813,7 @@ class DailyHoroscopeScreen extends StatelessWidget {
                                                     ),
                                                   ),
                                                 ),
-                                                child: Text('Watch Movie', style: Get.textTheme.subtitle1!.copyWith(fontSize: 12, fontWeight: FontWeight.w500)).translate(),
+                                                child: Text('Watch Movie', style: Get.textTheme.titleMedium!.copyWith(fontSize: 12, fontWeight: FontWeight.w500)).translate(),
                                               ),
                                             ],
                                           ),
@@ -846,7 +846,7 @@ class DailyHoroscopeScreen extends StatelessWidget {
                                                         child: RotatedBox(
                                                           quarterTurns: 45,
                                                           child: ClipPath(
-                                                            clipper: MultiplePointsClipper(Sides.bottom, heightOfPoint: 10, numberOfPoints: 1),
+                                                            // clipper: MultiplePointsClipper(Sides.bottom, heightOfPoint: 10, numberOfPoints: 1),
                                                             child: Container(
                                                               width: 20,
                                                               height: 135,
@@ -873,7 +873,7 @@ class DailyHoroscopeScreen extends StatelessWidget {
                                                       ),
                                                       Text(
                                                         "\"${dailyHoroscopeController.dailyList!.tomorrowInsight![2].title} \"",
-                                                        style: Get.theme.primaryTextTheme.subtitle1!.copyWith(fontWeight: FontWeight.w500),
+                                                        style: Get.theme.primaryTextTheme.titleMedium!.copyWith(fontWeight: FontWeight.w500),
                                                       ).translate(),
                                                       const SizedBox(
                                                         height: 10,
@@ -893,7 +893,7 @@ class DailyHoroscopeScreen extends StatelessWidget {
                                                             ),
                                                           ),
                                                         ),
-                                                        child: Text('Watch Movie', style: Get.textTheme.subtitle1!.copyWith(fontSize: 12, fontWeight: FontWeight.w500)).translate(),
+                                                        child: Text('Watch Movie', style: Get.textTheme.titleMedium!.copyWith(fontSize: 12, fontWeight: FontWeight.w500)).translate(),
                                                       ),
                                                     ],
                                                   ),
@@ -934,7 +934,7 @@ class DailyHoroscopeScreen extends StatelessWidget {
                                                 child: RotatedBox(
                                                   quarterTurns: 45,
                                                   child: ClipPath(
-                                                    clipper: MultiplePointsClipper(Sides.bottom, heightOfPoint: 10, numberOfPoints: 1),
+                                                    // clipper: MultiplePointsClipper(Sides.bottom, heightOfPoint: 10, numberOfPoints: 1),
                                                     child: Container(
                                                       width: 20,
                                                       height: 135,
@@ -961,7 +961,7 @@ class DailyHoroscopeScreen extends StatelessWidget {
                                               ),
                                               Text(
                                                 "\"${dailyHoroscopeController.dailyList!.todayInsight![index].title} \"",
-                                                style: Get.theme.primaryTextTheme.subtitle1!.copyWith(fontWeight: FontWeight.w500),
+                                                style: Get.theme.primaryTextTheme.titleMedium!.copyWith(fontWeight: FontWeight.w500),
                                               ).translate(),
                                               const SizedBox(
                                                 height: 10,
@@ -994,7 +994,7 @@ class DailyHoroscopeScreen extends StatelessWidget {
                                                     ),
                                                   ),
                                                 ),
-                                                child: Text('Watch ${dailyHoroscopeController.dailyList!.todayInsight![index].title}', style: Get.textTheme.subtitle1!.copyWith(fontSize: 12, fontWeight: FontWeight.w500)).translate(),
+                                                child: Text('Watch ${dailyHoroscopeController.dailyList!.todayInsight![index].title}', style: Get.textTheme.titleMedium!.copyWith(fontSize: 12, fontWeight: FontWeight.w500)).translate(),
                                               ),
                                             ],
                                           ),
@@ -1034,7 +1034,7 @@ class DailyHoroscopeScreen extends StatelessWidget {
                                                     child: RotatedBox(
                                                       quarterTurns: 45,
                                                       child: ClipPath(
-                                                        clipper: MultiplePointsClipper(Sides.bottom, heightOfPoint: 10, numberOfPoints: 1),
+                                                        // clipper: MultiplePointsClipper(Sides.bottom, heightOfPoint: 10, numberOfPoints: 1),
                                                         child: Container(
                                                           width: 20,
                                                           height: 135,
@@ -1061,7 +1061,7 @@ class DailyHoroscopeScreen extends StatelessWidget {
                                                   ),
                                                   Text(
                                                     "\"${dailyHoroscopeController.dailyList!.tomorrowInsight![index].title} \"",
-                                                    style: Get.theme.primaryTextTheme.subtitle1!.copyWith(fontWeight: FontWeight.w500),
+                                                    style: Get.theme.primaryTextTheme.titleMedium!.copyWith(fontWeight: FontWeight.w500),
                                                   ).translate(),
                                                   const SizedBox(
                                                     height: 10,
@@ -1096,7 +1096,7 @@ class DailyHoroscopeScreen extends StatelessWidget {
                                                     ),
                                                     child: Text(
                                                       'Watch ${dailyHoroscopeController.dailyList!.tomorrowInsight![index].title}',
-                                                      style: Get.textTheme.subtitle1!.copyWith(
+                                                      style: Get.textTheme.titleMedium!.copyWith(
                                                         fontSize: 12,
                                                         fontWeight: FontWeight.w500,
                                                       ),
@@ -1126,7 +1126,7 @@ class DailyHoroscopeScreen extends StatelessWidget {
                                 border: Border.all(color: dailyHoroscopeController.isWeek ? Get.theme.primaryColor : Colors.grey),
                                 borderRadius: const BorderRadius.only(topLeft: Radius.circular(10.0), bottomLeft: Radius.circular(10.0)),
                               ),
-                              child: Text('''Weekly \n Horoscope''', textAlign: TextAlign.center, style: Get.textTheme.subtitle1!.copyWith(fontSize: 12)).translate(),
+                              child: Text('''Weekly \n Horoscope''', textAlign: TextAlign.center, style: Get.textTheme.titleMedium!.copyWith(fontSize: 12)).translate(),
                             ),
                           ),
                         ),
@@ -1145,7 +1145,7 @@ class DailyHoroscopeScreen extends StatelessWidget {
                               child: Text(
                                 '''Monthly \n Horoscope''',
                                 textAlign: TextAlign.center,
-                                style: Get.textTheme.subtitle1!.copyWith(fontSize: 12),
+                                style: Get.textTheme.titleMedium!.copyWith(fontSize: 12),
                               ).translate(),
                             ),
                           ),
@@ -1166,7 +1166,7 @@ class DailyHoroscopeScreen extends StatelessWidget {
                               child: Text(
                                 '''Yearly \n Horoscope''',
                                 textAlign: TextAlign.center,
-                                style: Get.textTheme.subtitle1!.copyWith(fontSize: 12),
+                                style: Get.textTheme.titleMedium!.copyWith(fontSize: 12),
                               ).translate(),
                             ),
                           ),
@@ -1192,7 +1192,7 @@ class DailyHoroscopeScreen extends StatelessWidget {
                                   Center(
                                     child: Text(
                                       'Weekly Horoscope',
-                                      style: Get.textTheme.subtitle1!.copyWith(fontWeight: FontWeight.bold),
+                                      style: Get.textTheme.titleMedium!.copyWith(fontWeight: FontWeight.bold),
                                       textAlign: TextAlign.center,
                                     ).translate(),
                                   ),
@@ -1210,7 +1210,7 @@ class DailyHoroscopeScreen extends StatelessWidget {
                                           endIndent: 10,
                                         ),
                                       ),
-                                      Text(DateFormat('dd MMM yyyy').format(DateTime.now()), style: Get.textTheme.subtitle1!.copyWith(fontSize: 13, color: Colors.grey)),
+                                      Text(DateFormat('dd MMM yyyy').format(DateTime.now()), style: Get.textTheme.titleMedium!.copyWith(fontSize: 13, color: Colors.grey)),
                                       const Expanded(
                                         child: Divider(
                                           color: Colors.black,
@@ -1238,7 +1238,7 @@ class DailyHoroscopeScreen extends StatelessWidget {
                                           children: [
                                             Text(
                                               '${dailyHoroscopeController.dailyList!.weeklyHoroScope![index].title}',
-                                              style: Get.textTheme.subtitle1!.copyWith(fontWeight: FontWeight.bold),
+                                              style: Get.textTheme.titleMedium!.copyWith(fontWeight: FontWeight.bold),
                                             ).translate(),
                                             const SizedBox(
                                               height: 10,
@@ -1272,7 +1272,7 @@ class DailyHoroscopeScreen extends StatelessWidget {
                                         children: [
                                           Text(
                                             'Monthly Horoscope',
-                                            style: Get.textTheme.subtitle1!.copyWith(fontWeight: FontWeight.bold, color: Colors.black),
+                                            style: Get.textTheme.titleMedium!.copyWith(fontWeight: FontWeight.bold, color: Colors.black),
                                           ).translate(),
                                           const SizedBox(
                                             height: 3,
@@ -1288,7 +1288,7 @@ class DailyHoroscopeScreen extends StatelessWidget {
                                                   endIndent: 10,
                                                 ),
                                               ),
-                                              Text(DateFormat('MMMM yyy').format(DateTime.now()), style: Get.textTheme.subtitle1!.copyWith(fontSize: 13, color: Colors.grey)),
+                                              Text(DateFormat('MMMM yyy').format(DateTime.now()), style: Get.textTheme.titleMedium!.copyWith(fontSize: 13, color: Colors.grey)),
                                               const Expanded(
                                                 child: Divider(
                                                   color: Colors.black,
@@ -1316,7 +1316,7 @@ class DailyHoroscopeScreen extends StatelessWidget {
                                                   children: [
                                                     Text(
                                                       dailyHoroscopeController.dailyList!.monthlyHoroScope![index].title!,
-                                                      style: Get.textTheme.subtitle1!.copyWith(fontWeight: FontWeight.bold),
+                                                      style: Get.textTheme.titleMedium!.copyWith(fontWeight: FontWeight.bold),
                                                     ).translate(),
                                                     const SizedBox(
                                                       height: 10,

@@ -27,7 +27,7 @@ import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_html/flutter_html.dart';
-import 'package:flutter_share/flutter_share.dart';
+// import 'package:flutter_share/flutter_share.dart';
 import 'package:google_translator/google_translator.dart';
 import 'package:http/http.dart' as http;
 import 'package:flutter/services.dart';
@@ -37,6 +37,7 @@ import 'package:intl/intl.dart';
 import 'package:package_info_plus/package_info_plus.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:screenshot/screenshot.dart';
+import 'package:share_plus/share_plus.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:translator/translator.dart';
 
@@ -118,11 +119,17 @@ String getSystemFlagValue(String flag) {
 }
 
 Future<void> share() async {
-  await FlutterShare.share(
-    title: '1 item',
-    text: '1 item',
-    chooserTitle: '1 item',
-  );
+  // await FlutterShare.share(
+  //   title: '1 item',
+  //   text: '1 item',
+  //   chooserTitle: '1 item',
+  // );
+  SharePlus.instance.share(
+      ShareParams(
+        title: '1 item',
+        text: '1 item'
+      ));
+
 }
 
 //Base url for api
@@ -395,11 +402,17 @@ createAndShareLinkForDailyHorscope(ScreenshotController sc) async {
           final temp = await getExternalStorageDirectory();
           final path = '${temp!.path}/$fileName.jpg';
           File(path).writeAsBytesSync(image);
-          await FlutterShare.shareFile(
-                  filePath: path,
+          // await FlutterShare.shareFile(
+          //         filePath: path,
+          //         title: getSystemFlagValue(systemFlagNameList.appName),
+          //         text:
+          //             "Check out your free daily horoscope on ${getSystemFlagValue(systemFlagNameList.appName)} & plan your day batter $appShareLink")
+          await SharePlus.instance.share(
+              ShareParams(
+                  files: [XFile(path)],
                   title: getSystemFlagValue(systemFlagNameList.appName),
-                  text:
-                      "Check out your free daily horoscope on ${getSystemFlagValue(systemFlagNameList.appName)} & plan your day batter $appShareLink")
+                  text: "Check out your free daily horoscope on ${getSystemFlagValue(systemFlagNameList.appName)} & plan your day batter $appShareLink"
+              ))
               .then((value) {})
               .catchError((e) {
             print(e);

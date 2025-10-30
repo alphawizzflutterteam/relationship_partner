@@ -49,7 +49,7 @@ class DailyHoroscopeContainer extends StatelessWidget {
                       const SizedBox(
                         width: 10,
                       ),
-                      Text('$date', style: Get.textTheme.subtitle1!.copyWith(color: Colors.white)),
+                      Text('$date', style: Get.textTheme.titleMedium!.copyWith(color: Colors.white)),
                       const SizedBox(
                         width: 10,
                       ),
@@ -75,18 +75,18 @@ class DailyHoroscopeContainer extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.start,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text('Your Daily horoscope is ready!', style: Get.textTheme.subtitle1!.copyWith(fontSize: 13, color: Colors.white)).translate(),
+                  Text('Your Daily horoscope is ready!', style: Get.textTheme.titleMedium!.copyWith(fontSize: 13, color: Colors.white)).translate(),
                   const SizedBox(
                     height: 10,
                   ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      colorCode == null || colorCode == "" ? const SizedBox() : Text('Lucky Colour', style: Get.textTheme.subtitle1!.copyWith(fontSize: 10, color: Colors.white)).translate(),
+                      colorCode == null || colorCode == "" ? const SizedBox() : Text('Lucky Colour', style: Get.textTheme.titleMedium!.copyWith(fontSize: 10, color: Colors.white)).translate(),
                       const SizedBox(
                         width: 25,
                       ),
-                      moodOfDay == "" ? const SizedBox() : Text('Mood of day', style: Get.textTheme.subtitle1!.copyWith(fontSize: 10, color: Colors.white)).translate()
+                      moodOfDay == "" ? const SizedBox() : Text('Mood of day', style: Get.textTheme.titleMedium!.copyWith(fontSize: 10, color: Colors.white)).translate()
                     ],
                   ),
                   Row(
@@ -102,7 +102,7 @@ class DailyHoroscopeContainer extends StatelessWidget {
                       const SizedBox(
                         width: 72,
                       ),
-                      Text(moodOfDay, style: Get.textTheme.subtitle1!.copyWith(fontSize: 10, color: Colors.white))
+                      Text(moodOfDay, style: Get.textTheme.titleMedium!.copyWith(fontSize: 10, color: Colors.white))
                     ],
                   ),
                   const SizedBox(
@@ -111,21 +111,21 @@ class DailyHoroscopeContainer extends StatelessWidget {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      luckyNumber == "" ? const SizedBox() : Text('Lucky Number', style: Get.textTheme.subtitle1!.copyWith(fontSize: 10, color: Colors.white)).translate(),
+                      luckyNumber == "" ? const SizedBox() : Text('Lucky Number', style: Get.textTheme.titleMedium!.copyWith(fontSize: 10, color: Colors.white)).translate(),
                       const SizedBox(
                         width: 25,
                       ),
-                      luckyTime == "" ? const SizedBox() : Text('Lucky Time', style: Get.textTheme.subtitle1!.copyWith(fontSize: 10, color: Colors.white)).translate()
+                      luckyTime == "" ? const SizedBox() : Text('Lucky Time', style: Get.textTheme.titleMedium!.copyWith(fontSize: 10, color: Colors.white)).translate()
                     ],
                   ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
-                      Text(luckyNumber ?? "", style: Get.textTheme.subtitle1!.copyWith(fontSize: 10, color: Colors.white)),
+                      Text(luckyNumber ?? "", style: Get.textTheme.titleMedium!.copyWith(fontSize: 10, color: Colors.white)),
                       const SizedBox(
                         width: 88,
                       ),
-                      Text(luckyTime ?? "", style: Get.textTheme.subtitle1!.copyWith(fontSize: 10, color: Colors.white))
+                      Text(luckyTime ?? "", style: Get.textTheme.titleMedium!.copyWith(fontSize: 10, color: Colors.white))
                     ],
                   )
                 ],

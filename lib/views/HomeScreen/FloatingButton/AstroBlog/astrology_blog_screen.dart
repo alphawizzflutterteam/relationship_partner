@@ -179,7 +179,7 @@ class AstrologyBlogScreen extends StatelessWidget {
                                       children: [
                                         Text(
                                           blogController.astrologyBlogs[index].title,
-                                          style: Theme.of(context).primaryTextTheme.headline3,
+                                          style: Theme.of(context).primaryTextTheme.displaySmall,
                                         ).translate(),
                                         Padding(
                                           padding: const EdgeInsets.only(top: 8, bottom: 8),
@@ -188,11 +188,11 @@ class AstrologyBlogScreen extends StatelessWidget {
                                             children: [
                                               Text(
                                                 blogController.astrologyBlogs[index].author,
-                                                style: Theme.of(context).primaryTextTheme.subtitle2,
+                                                style: Theme.of(context).primaryTextTheme.titleSmall,
                                               ).translate(),
                                               Text(
                                                 DateFormat("MMM d,yyyy").format(DateTime.parse(blogController.astrologyBlogs[index].createdAt)),
-                                                style: Theme.of(context).primaryTextTheme.subtitle2,
+                                                style: Theme.of(context).primaryTextTheme.titleSmall,
                                               )
                                             ],
                                           ),

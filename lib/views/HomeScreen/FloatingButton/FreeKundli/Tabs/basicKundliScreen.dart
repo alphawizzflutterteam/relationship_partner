@@ -27,7 +27,7 @@ class BasicKundliScreen extends StatelessWidget {
                 padding: const EdgeInsets.only(top: 15.0),
                 child: Text(
                   'Basic Details',
-                  style: Get.textTheme.bodyText1,
+                  style: Get.textTheme.bodyLarge,
                 ).translate(),
               ),
               const SizedBox(height: 15),
@@ -235,7 +235,7 @@ class BasicKundliScreen extends StatelessWidget {
               ),
               Text(
                 'Maglik Analysis',
-                style: Get.textTheme.bodyText1,
+                style: Get.textTheme.bodyLarge,
               ).translate(),
               const SizedBox(
                 height: 10,
@@ -251,7 +251,7 @@ class BasicKundliScreen extends StatelessWidget {
               ),
               Text(
                 'Panchang Details',
-                style: Get.textTheme.bodyText1,
+                style: Get.textTheme.bodyLarge,
               ).translate(),
               const SizedBox(
                 height: 15,
@@ -379,7 +379,7 @@ class BasicKundliScreen extends StatelessWidget {
               ),
               Text(
                 'Avakhada Details',
-                style: Get.textTheme.bodyText1,
+                style: Get.textTheme.bodyLarge,
               ).translate(),
               const SizedBox(
                 height: 15,

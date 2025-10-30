@@ -159,7 +159,7 @@ class ReportHistoryListScreen extends StatelessWidget {
                                                               padding: const EdgeInsets.only(left: 5),
                                                               child: Text(
                                                                 signupController.astrologerList[0].reportHistory![index].firstName!,
-                                                                style: Get.theme.primaryTextTheme.headline3,
+                                                                style: Get.theme.primaryTextTheme.displaySmall,
                                                               ).translate(),
                                                             ),
                                                           ],
@@ -177,7 +177,7 @@ class ReportHistoryListScreen extends StatelessWidget {
                                                                 padding: const EdgeInsets.only(left: 5),
                                                                 child: Text(
                                                                   DateFormat('dd-MM-yyyy').format(DateTime.parse(signupController.astrologerList[0].reportHistory![index].birthDate.toString())),
-                                                                  style: Get.theme.primaryTextTheme.subtitle2,
+                                                                  style: Get.theme.primaryTextTheme.titleSmall,
                                                                 ),
                                                               ),
                                                             ],
@@ -197,7 +197,7 @@ class ReportHistoryListScreen extends StatelessWidget {
                                                                       padding: const EdgeInsets.only(left: 5),
                                                                       child: Text(
                                                                         signupController.astrologerList[0].reportHistory![index].birthTime!,
-                                                                        style: Get.theme.primaryTextTheme.subtitle2,
+                                                                        style: Get.theme.primaryTextTheme.titleSmall,
                                                                       ),
                                                                     ),
                                                                   ],

@@ -4,7 +4,7 @@ import 'dart:async';
 import 'dart:convert';
 import 'dart:developer';
 import 'dart:io';
-import 'package:agora_rtm/agora_rtm.dart';
+// import 'package:agora_rtm/agora_rtm.dart';
 import 'package:astrologer_app/controllers/Authentication/signup_otp_controller.dart';
 import 'package:astrologer_app/models/Master%20Table%20Model/all_skill_model.dart';
 import 'package:astrologer_app/models/Master%20Table%20Model/astrologer_category_list_model.dart';

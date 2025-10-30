@@ -18,7 +18,7 @@ class TimeWiseHoroscopeWidget extends StatelessWidget {
       padding: const EdgeInsets.all(8.0),
       child: Column(
         children: [
-          Text('Yearly Horoscope', style: Get.textTheme.subtitle1!.copyWith(fontWeight: FontWeight.bold, color: Colors.black)).translate(),
+          Text('Yearly Horoscope', style: Get.textTheme.titleMedium!.copyWith(fontWeight: FontWeight.bold, color: Colors.black)).translate(),
           const SizedBox(
             height: 3,
           ),
@@ -33,7 +33,7 @@ class TimeWiseHoroscopeWidget extends StatelessWidget {
                   endIndent: 10,
                 ),
               ),
-              Text(DateFormat('yyy').format(DateTime.now()), style: Get.textTheme.subtitle1!.copyWith(fontSize: 13, color: Colors.grey)),
+              Text(DateFormat('yyy').format(DateTime.now()), style: Get.textTheme.titleMedium!.copyWith(fontSize: 13, color: Colors.grey)),
               const Expanded(
                 child: Divider(
                   color: Colors.black,
@@ -60,7 +60,7 @@ class TimeWiseHoroscopeWidget extends StatelessWidget {
                       children: [
                         Text(
                           dailyHoroscopeModel.yearlyHoroScope![index].title!,
-                          style: Get.textTheme.subtitle1!.copyWith(fontWeight: FontWeight.bold, color: Colors.black),
+                          style: Get.textTheme.titleMedium!.copyWith(fontWeight: FontWeight.bold, color: Colors.black),
                         ).translate(),
                         const SizedBox(
                           height: 10,

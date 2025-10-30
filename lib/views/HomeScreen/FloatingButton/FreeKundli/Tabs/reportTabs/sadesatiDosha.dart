@@ -16,7 +16,7 @@ class SadesatiDosha extends StatelessWidget {
         const SizedBox(
           height: 10,
         ),
-        Text('Sadesati Analysis', style: Get.textTheme.subtitle1!.copyWith(fontWeight: FontWeight.bold)).translate(),
+        Text('Sadesati Analysis', style: Get.textTheme.titleMedium!.copyWith(fontWeight: FontWeight.bold)).translate(),
         const SizedBox(
           height: 10,
         ),
@@ -30,7 +30,7 @@ class SadesatiDosha extends StatelessWidget {
             children: [
               Text(
                 'Current Sadesati Status',
-                style: Get.textTheme.bodyText1!.copyWith(fontWeight: FontWeight.bold),
+                style: Get.textTheme.bodyLarge!.copyWith(fontWeight: FontWeight.bold),
               ).translate(),
               Row(
                 children: [

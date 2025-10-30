@@ -33,13 +33,13 @@ class PersonalDetailScreen extends StatelessWidget {
                 ),
                 title: Text(
                   "Name",
-                  style: Theme.of(context).primaryTextTheme.headline3,
+                  style: Theme.of(context).primaryTextTheme.displaySmall,
                 ).translate(),
                 trailing: Text(
                   global.user.name != null && global.user.name != ''
                       ? '${global.user.name}'
                       : "Astologer name",
-                  style: Theme.of(context).primaryTextTheme.subtitle1,
+                  style: Theme.of(context).primaryTextTheme.titleMedium,
                 ).translate(),
               ),
               Padding(
@@ -53,7 +53,7 @@ class PersonalDetailScreen extends StatelessWidget {
                   ),
                   title: Text(
                     "Email",
-                    style: Theme.of(context).primaryTextTheme.headline3,
+                    style: Theme.of(context).primaryTextTheme.displaySmall,
                   ).translate(),
                   trailing: SizedBox(
                     width: 190,
@@ -61,7 +61,7 @@ class PersonalDetailScreen extends StatelessWidget {
                       global.user.email != null && global.user.email != ''
                           ? '${global.user.email}'
                           : "astri@gmail.com",
-                      style: Theme.of(context).primaryTextTheme.subtitle1,
+                      style: Theme.of(context).primaryTextTheme.titleMedium,
                       textAlign: TextAlign.end,
                     ),
                   ),
@@ -78,7 +78,7 @@ class PersonalDetailScreen extends StatelessWidget {
                   ),
                   title: Text(
                     "Mobile Number",
-                    style: Theme.of(context).primaryTextTheme.headline3,
+                    style: Theme.of(context).primaryTextTheme.displaySmall,
                   ).translate(),
                   trailing: SizedBox(
                     width: Get.width * 0.34,
@@ -87,14 +87,14 @@ class PersonalDetailScreen extends StatelessWidget {
                       children: [
                         Text(
                           '+91 ',
-                          style: Theme.of(context).primaryTextTheme.subtitle1,
+                          style: Theme.of(context).primaryTextTheme.titleMedium,
                         ),
                         Text(
                           global.user.contactNo != null &&
                                   global.user.contactNo != ''
                               ? '${global.user.contactNo}'
                               : "",
-                          style: Theme.of(context).primaryTextTheme.subtitle1,
+                          style: Theme.of(context).primaryTextTheme.titleMedium,
                           textAlign: TextAlign.end,
                         ),
                       ],

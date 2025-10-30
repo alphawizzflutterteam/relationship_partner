@@ -77,18 +77,18 @@ class FollowerListScreen extends StatelessWidget {
                                   children: [
                                     Text(
                                       followingController.followerList[index].name != null || followingController.followerList[index].name != "" ? followingController.followerList[index].name! : 'following 1',
-                                      style: Theme.of(context).primaryTextTheme.headline2,
+                                      style: Theme.of(context).primaryTextTheme.displayMedium,
                                     ).translate(),
                                     followingController.followerList[index].email != null && followingController.followerList[index].email!.isNotEmpty
                                         ? Row(
                                             children: [
                                               Text(
                                                 "Email: ",
-                                                style: Theme.of(context).primaryTextTheme.subtitle1,
+                                                style: Theme.of(context).primaryTextTheme.titleMedium,
                                               ).translate(),
                                               Text(
                                                 followingController.followerList[index].email != null ? followingController.followerList[index].email! : 'abc@gmail.com',
-                                                style: Theme.of(context).primaryTextTheme.subtitle1,
+                                                style: Theme.of(context).primaryTextTheme.titleMedium,
                                               ),
                                             ],
                                           )
@@ -97,11 +97,11 @@ class FollowerListScreen extends StatelessWidget {
                                       children: [
                                         Text(
                                           "Mobile No: ",
-                                          style: Theme.of(context).primaryTextTheme.subtitle1,
+                                          style: Theme.of(context).primaryTextTheme.titleMedium,
                                         ).translate(),
                                         Text(
                                           followingController.followerList[index].contactNo != null ? followingController.followerList[index].contactNo! : '',
-                                          style: Theme.of(context).primaryTextTheme.subtitle1,
+                                          style: Theme.of(context).primaryTextTheme.titleMedium,
                                         ),
                                       ],
                                     ),

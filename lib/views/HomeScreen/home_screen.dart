@@ -147,7 +147,7 @@ class HomeScreen extends StatelessWidget {
                                                                             .center,
                                                                     children: [
                                                                       Text('Choose your app language',
-                                                                              style: Get.textTheme.subtitle1!.copyWith(fontWeight: FontWeight.bold))
+                                                                              style: Get.textTheme.titleMedium!.copyWith(fontWeight: FontWeight.bold))
                                                                           .translate(),
                                                                       GetBuilder<
                                                                               HomeController>(
@@ -177,11 +177,11 @@ class HomeScreen extends StatelessWidget {
                                                                                 child: Column(mainAxisSize: MainAxisSize.min, children: [
                                                                                   Text(
                                                                                     homeController.lan[index].title,
-                                                                                    style: Get.textTheme.bodyText2,
+                                                                                    style: Get.textTheme.bodyMedium,
                                                                                   ),
                                                                                   Text(
                                                                                     homeController.lan[index].subTitle,
-                                                                                    style: Get.textTheme.bodyText2!.copyWith(fontSize: 12),
+                                                                                    style: Get.textTheme.bodyMedium!.copyWith(fontSize: 12),
                                                                                   )
                                                                                 ]),
                                                                               );
@@ -218,7 +218,7 @@ class HomeScreen extends StatelessWidget {
                                                                                 MaterialStateProperty.all(Get.theme.primaryColor),
                                                                           ),
                                                                           child:
-                                                                              Text('APPLY', style: Get.textTheme.bodyText1).translate(),
+                                                                              Text('APPLY', style: Get.textTheme.bodyLarge).translate(),
                                                                         ),
                                                                       )
                                                                     ]))
@@ -283,7 +283,7 @@ class HomeScreen extends StatelessWidget {
                                                     style: Get
                                                         .theme
                                                         .primaryTextTheme
-                                                        .headline3,
+                                                        .displaySmall,
                                                   ),
                                                   Text(
                                                     walletController.withdraw
@@ -297,7 +297,7 @@ class HomeScreen extends StatelessWidget {
                                                     style: Get
                                                         .theme
                                                         .primaryTextTheme
-                                                        .headline3,
+                                                        .displaySmall,
                                                   ),
                                                 ],
                                               ),
@@ -522,7 +522,7 @@ class HomeScreen extends StatelessWidget {
                                                                                 ? "User"
                                                                                 : chatController.chatList[index].name!,
                                                                             style:
-                                                                                Get.theme.primaryTextTheme.headline3,
+                                                                                Get.theme.primaryTextTheme.displaySmall,
                                                                           ).translate(),
                                                                         ),
                                                                       ],
@@ -548,7 +548,7 @@ class HomeScreen extends StatelessWidget {
                                                                             child:
                                                                                 Text(
                                                                               DateFormat('dd-MM-yyyy').format(DateTime.parse(chatController.chatList[index].birthDate.toString())),
-                                                                              style: Get.theme.primaryTextTheme.subtitle2,
+                                                                              style: Get.theme.primaryTextTheme.titleSmall,
                                                                             ),
                                                                           ),
                                                                         ],
@@ -573,7 +573,7 @@ class HomeScreen extends StatelessWidget {
                                                                                   padding: const EdgeInsets.only(left: 5),
                                                                                   child: Text(
                                                                                     chatController.chatList[index].birthTime!,
-                                                                                    style: Get.theme.primaryTextTheme.subtitle2,
+                                                                                    style: Get.theme.primaryTextTheme.titleSmall,
                                                                                   ),
                                                                                 ),
                                                                               ],
@@ -847,7 +847,7 @@ class HomeScreen extends StatelessWidget {
                                                                                 ? "User"
                                                                                 : callController.callList[index].name,
                                                                             style:
-                                                                                Get.theme.primaryTextTheme.headline3,
+                                                                                Get.theme.primaryTextTheme.displaySmall,
                                                                           ) /*.translate()*/,
                                                                         ),
                                                                       ],
@@ -873,7 +873,7 @@ class HomeScreen extends StatelessWidget {
                                                                             child:
                                                                                 Text(
                                                                               DateFormat('dd-MM-yyyy').format(DateTime.parse(callController.callList[index].birthDate.toString())),
-                                                                              style: Get.theme.primaryTextTheme.subtitle2,
+                                                                              style: Get.theme.primaryTextTheme.titleSmall,
                                                                             ),
                                                                           ),
                                                                         ],
@@ -898,7 +898,7 @@ class HomeScreen extends StatelessWidget {
                                                                                   padding: const EdgeInsets.only(left: 5),
                                                                                   child: Text(
                                                                                     callController.callList[index].birthTime!,
-                                                                                    style: Get.theme.primaryTextTheme.subtitle2,
+                                                                                    style: Get.theme.primaryTextTheme.titleSmall,
                                                                                   ),
                                                                                 ),
                                                                               ],
@@ -1230,7 +1230,7 @@ class HomeScreen extends StatelessWidget {
                                                                                   children: [
                                                                                     Text(
                                                                                       '#00${signupController.astrologerList[0].callHistory![index].id.toString()}',
-                                                                                      style: Get.theme.primaryTextTheme.subtitle2,
+                                                                                      style: Get.theme.primaryTextTheme.titleSmall,
                                                                                     ),
                                                                                   ],
                                                                                 ),
@@ -1238,14 +1238,14 @@ class HomeScreen extends StatelessWidget {
                                                                                   padding: const EdgeInsets.only(top: 8.0),
                                                                                   child: Text(
                                                                                     signupController.astrologerList[0].callHistory![index].name != null || signupController.astrologerList[0].callHistory![index].name.toString().isNotEmpty ? signupController.astrologerList[0].callHistory![index].name.toString() : "User",
-                                                                                    style: Get.theme.primaryTextTheme.headline3,
+                                                                                    style: Get.theme.primaryTextTheme.displaySmall,
                                                                                   ).translate(),
                                                                                 ),
                                                                                 Padding(
                                                                                   padding: const EdgeInsets.only(top: 8.0),
                                                                                   child: Text(
                                                                                     DateFormat('dd MMM yyyy , hh:mm a').format(DateTime.parse(signupController.astrologerList[0].callHistory![index].createdAt.toString())),
-                                                                                    style: Get.theme.primaryTextTheme.subtitle1,
+                                                                                    style: Get.theme.primaryTextTheme.titleMedium,
                                                                                   ),
                                                                                 ),
                                                                                 Padding(
@@ -1261,11 +1261,11 @@ class HomeScreen extends StatelessWidget {
                                                                                     children: [
                                                                                       Text(
                                                                                         "Rate : ",
-                                                                                        style: Get.theme.primaryTextTheme.subtitle2,
+                                                                                        style: Get.theme.primaryTextTheme.titleSmall,
                                                                                       ).translate(),
                                                                                       Text(
                                                                                         '${global.getSystemFlagValue(global.systemFlagNameList.currency)} ${signupController.astrologerList[0].callHistory![index].callRate} /min',
-                                                                                        style: Get.theme.primaryTextTheme.subtitle2,
+                                                                                        style: Get.theme.primaryTextTheme.titleSmall,
                                                                                       ),
                                                                                     ],
                                                                                   ),
@@ -1276,11 +1276,11 @@ class HomeScreen extends StatelessWidget {
                                                                                     children: [
                                                                                       Text(
                                                                                         "Duration : ",
-                                                                                        style: Get.theme.primaryTextTheme.subtitle2,
+                                                                                        style: Get.theme.primaryTextTheme.titleSmall,
                                                                                       ).translate(),
                                                                                       Text(
                                                                                         signupController.astrologerList[0].callHistory![index].totalMin != null && signupController.astrologerList[0].callHistory![index].totalMin!.isNotEmpty ? "${signupController.astrologerList[0].callHistory![index].totalMin} min" : "0 min",
-                                                                                        style: Get.theme.primaryTextTheme.subtitle2,
+                                                                                        style: Get.theme.primaryTextTheme.titleSmall,
                                                                                       ).translate(),
                                                                                     ],
                                                                                   ),
@@ -1291,11 +1291,11 @@ class HomeScreen extends StatelessWidget {
                                                                                     children: [
                                                                                       Text(
                                                                                         "Deduction : ",
-                                                                                        style: Get.theme.primaryTextTheme.subtitle2,
+                                                                                        style: Get.theme.primaryTextTheme.titleSmall,
                                                                                       ).translate(),
                                                                                       Text(
                                                                                         "${global.getSystemFlagValue(global.systemFlagNameList.currency)} ${signupController.astrologerList[0].callHistory![index].deduction}",
-                                                                                        style: Get.theme.primaryTextTheme.subtitle2,
+                                                                                        style: Get.theme.primaryTextTheme.titleSmall,
                                                                                       ),
                                                                                     ],
                                                                                   ),
@@ -1543,7 +1543,7 @@ class HomeScreen extends StatelessWidget {
                                                                                     children: [
                                                                                       Text(
                                                                                         '#00${signupController.astrologerList[0].chatHistory![index].id.toString()}',
-                                                                                        style: Get.theme.primaryTextTheme.subtitle2,
+                                                                                        style: Get.theme.primaryTextTheme.titleSmall,
                                                                                       ),
                                                                                     ],
                                                                                   ),
@@ -1551,14 +1551,14 @@ class HomeScreen extends StatelessWidget {
                                                                                     padding: const EdgeInsets.only(top: 8.0),
                                                                                     child: Text(
                                                                                       signupController.astrologerList[0].chatHistory![index].name != null && signupController.astrologerList[0].chatHistory![index].name!.isNotEmpty ? signupController.astrologerList[0].chatHistory![index].name! : "User",
-                                                                                      style: Get.theme.primaryTextTheme.headline3,
+                                                                                      style: Get.theme.primaryTextTheme.displaySmall,
                                                                                     ).translate(),
                                                                                   ),
                                                                                   Padding(
                                                                                     padding: const EdgeInsets.only(top: 8.0),
                                                                                     child: Text(
                                                                                       DateFormat('dd MMM yyyy , hh:mm a').format(DateTime.parse(signupController.astrologerList[0].chatHistory![index].createdAt.toString())),
-                                                                                      style: Get.theme.primaryTextTheme.subtitle1,
+                                                                                      style: Get.theme.primaryTextTheme.titleMedium,
                                                                                     ),
                                                                                   ),
                                                                                   Padding(
@@ -1574,11 +1574,11 @@ class HomeScreen extends StatelessWidget {
                                                                                       children: [
                                                                                         Text(
                                                                                           "Rate : ",
-                                                                                          style: Get.theme.primaryTextTheme.subtitle2,
+                                                                                          style: Get.theme.primaryTextTheme.titleSmall,
                                                                                         ).translate(),
                                                                                         Text(
                                                                                           signupController.astrologerList[0].chatHistory![index].chatRate != null && signupController.astrologerList[0].chatHistory![index].chatRate!.isNotEmpty ? '${global.getSystemFlagValue(global.systemFlagNameList.currency)} ${signupController.astrologerList[0].chatHistory![index].chatRate} /min' : "${global.getSystemFlagValue(global.systemFlagNameList.currency)} 0/min",
-                                                                                          style: Get.theme.primaryTextTheme.subtitle2,
+                                                                                          style: Get.theme.primaryTextTheme.titleSmall,
                                                                                         ).translate(),
                                                                                       ],
                                                                                     ),
@@ -1589,11 +1589,11 @@ class HomeScreen extends StatelessWidget {
                                                                                       children: [
                                                                                         Text(
                                                                                           "Duration : ",
-                                                                                          style: Get.theme.primaryTextTheme.subtitle2,
+                                                                                          style: Get.theme.primaryTextTheme.titleSmall,
                                                                                         ).translate(),
                                                                                         Text(
                                                                                           signupController.astrologerList[0].chatHistory![index].totalMin != null && signupController.astrologerList[0].chatHistory![index].totalMin!.isNotEmpty ? "${signupController.astrologerList[0].chatHistory![index].totalMin} min" : "0 min",
-                                                                                          style: Get.theme.primaryTextTheme.subtitle2,
+                                                                                          style: Get.theme.primaryTextTheme.titleSmall,
                                                                                         ).translate(),
                                                                                       ],
                                                                                     ),
@@ -1604,11 +1604,11 @@ class HomeScreen extends StatelessWidget {
                                                                                       children: [
                                                                                         Text(
                                                                                           "Deduction : ",
-                                                                                          style: Get.theme.primaryTextTheme.subtitle2,
+                                                                                          style: Get.theme.primaryTextTheme.titleSmall,
                                                                                         ).translate(),
                                                                                         Text(
                                                                                           "${global.getSystemFlagValue(global.systemFlagNameList.currency)} ${signupController.astrologerList[0].chatHistory![index].deduction}",
-                                                                                          style: Get.theme.primaryTextTheme.subtitle2,
+                                                                                          style: Get.theme.primaryTextTheme.titleSmall,
                                                                                         ),
                                                                                       ],
                                                                                     ),
@@ -1715,7 +1715,7 @@ class HomeScreen extends StatelessWidget {
                                   : COLORS().primaryColor,
                             ),
                             Text("Home",
-                                    style: Get.theme.primaryTextTheme.caption)
+                                    style: Get.theme.primaryTextTheme.bodySmall)
                                 .translate(),
                           ],
                         ),
@@ -1739,7 +1739,7 @@ class HomeScreen extends StatelessWidget {
                                   : Colors.black,
                             ),
                             Text("Live",
-                                    style: Get.theme.primaryTextTheme.caption)
+                                    style: Get.theme.primaryTextTheme.bodySmall)
                                 .translate(),
                           ],
                         ),
@@ -1764,7 +1764,7 @@ class HomeScreen extends StatelessWidget {
                                   : COLORS().primaryColor,
                             ),
                             Text("History",
-                                    style: Get.theme.primaryTextTheme.caption)
+                                    style: Get.theme.primaryTextTheme.bodySmall)
                                 .translate(),
                           ],
                         ),
@@ -1788,7 +1788,7 @@ class HomeScreen extends StatelessWidget {
                                   : COLORS().primaryColor,
                             ),
                             Text("Profile",
-                                    style: Get.theme.primaryTextTheme.caption)
+                                    style: Get.theme.primaryTextTheme.bodySmall)
                                 .translate(),
                           ],
                         ),

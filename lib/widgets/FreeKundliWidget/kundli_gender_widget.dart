@@ -48,7 +48,7 @@ class KundliGenderWidget extends StatelessWidget {
                       padding: const EdgeInsets.only(top: 5.0),
                       child: Text(
                         kundliController.gender[index].title!,
-                        style: Theme.of(context).primaryTextTheme.subtitle1,
+                        style: Theme.of(context).primaryTextTheme.titleMedium,
                       ).translate(),
                     )
                   ],

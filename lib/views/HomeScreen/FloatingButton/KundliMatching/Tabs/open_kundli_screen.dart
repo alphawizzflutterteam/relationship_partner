@@ -76,7 +76,7 @@ class OpenKundliScreen extends StatelessWidget {
               padding: const EdgeInsets.only(bottom: 10.0),
               child: Text(
                 "Recently Opened",
-                style: Theme.of(context).primaryTextTheme.subtitle1,
+                style: Theme.of(context).primaryTextTheme.titleMedium,
               ).translate(),
             ),
             Expanded(
@@ -104,15 +104,15 @@ class OpenKundliScreen extends StatelessWidget {
                           children: [
                             Text(
                               kundliController.searchKundliList[index].name,
-                              style: Theme.of(context).primaryTextTheme.headline3,
+                              style: Theme.of(context).primaryTextTheme.displaySmall,
                             ).translate(),
                             Text(
                               "${DateFormat("dd MMM yyyy").format(kundliController.searchKundliList[index].birthDate)},${kundliController.searchKundliList[index].birthTime}",
-                              style: Theme.of(context).primaryTextTheme.subtitle2,
+                              style: Theme.of(context).primaryTextTheme.titleSmall,
                             ),
                             Text(
                               kundliController.searchKundliList[index].birthPlace,
-                              style: Theme.of(context).primaryTextTheme.subtitle2,
+                              style: Theme.of(context).primaryTextTheme.titleSmall,
                             ).translate(),
                           ],
                         ),

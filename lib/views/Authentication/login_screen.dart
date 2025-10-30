@@ -201,7 +201,7 @@ class LoginScreen extends StatelessWidget {
                                     text: '${loginController.signupText} ',
                                     style: Theme.of(context)
                                         .primaryTextTheme
-                                        .subtitle1,
+                                        .titleMedium,
                                     children: [
                                       TextSpan(
                                         text:
@@ -317,7 +317,7 @@ class LoginScreen extends StatelessWidget {
                                       text: '${loginController.notaAccountText} ',
                                       style: Theme.of(context)
                                           .primaryTextTheme
-                                          .subtitle1,
+                                          .titleMedium,
                                       children: <TextSpan>[
                                         TextSpan(
                                           text: loginController.signUp,

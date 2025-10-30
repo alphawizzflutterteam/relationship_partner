@@ -275,10 +275,11 @@ class _MyAppState extends State<MyApp> {
       requestSoundPermission: true,
       requestBadgePermission: true,
       defaultPresentSound: true,
-      onDidReceiveLocalNotification: (id, title, body, payload) async {
-        print("object notification call");
-        return;
-      },
+      requestAlertPermission: true,
+      // onDidReceiveLocalNotification: (id, title, body, payload) async {
+      //   print("object notification call");
+      //   return;
+      // },
     );
     AndroidInitializationSettings android =
         const AndroidInitializationSettings('@mipmap/ic_launcher');

@@ -1,3 +1,10 @@
+plugins {
+    id "com.android.application"
+    id "org.jetbrains.kotlin.android"
+    id "dev.flutter.flutter-gradle-plugin"
+    id "com.google.gms.google-services"
+}
+
 def localProperties = new Properties()
 def localPropertiesFile = rootProject.file('local.properties')
 if (localPropertiesFile.exists()) {
@@ -21,9 +28,9 @@ if (flutterVersionName == null) {
     flutterVersionName = '1.0'
 }
 
-apply plugin: 'com.android.application'
-apply plugin: 'kotlin-android'
-apply from: "$flutterRoot/packages/flutter_tools/gradle/flutter.gradle"
+//apply plugin: 'com.android.application'
+//apply plugin: 'kotlin-android'
+//apply from: "$flutterRoot/packages/flutter_tools/gradle/flutter.gradle"
 
 
 def keystoreProperties = new Properties()
@@ -32,12 +39,14 @@ if (keystorePropertiesFile.exists()) {
    keystoreProperties.load(new FileInputStream(keystorePropertiesFile))
 }
 android {
-    compileSdkVersion 34
-    ndkVersion flutter.ndkVersion
+    namespace "com.relationship_app"
+    compileSdkVersion 35
+    ndkVersion "28.2.13676358"
 
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
+        coreLibraryDesugaringEnabled true
     }
 
     defaultConfig {
@@ -45,15 +54,15 @@ android {
         applicationId "com.relationship_app"
         // You can update the following values to match your application needs.
         // For more information, see: https://docs.flutter.dev/deployment/android#reviewing-the-build-configuration.
-        minSdkVersion 21
-        targetSdkVersion 34
+        minSdkVersion 23
+        targetSdkVersion 35
         versionCode flutterVersionCode.toInteger()
         versionName flutterVersionName
         multiDexEnabled true
          //comment this line when app is in debug mode it's only works for relase apk
-        ndk {
-           abiFilters "armeabi", "armeabi-v7a","arm64-v8a"
-      }
+//        ndk {
+//           abiFilters "armeabi", "armeabi-v7a","arm64-v8a"
+//      }
     }
     signingConfigs {
         release {
@@ -71,10 +80,10 @@ android {
             // Signing with the debug keys for now, so `flutter run --release` works.
             signingConfig signingConfigs.release
 //            signingConfig signingConfigs.debug
-            minifyEnabled true
+            minifyEnabled false
             //useProguard true
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
-            shrinkResources true
+            shrinkResources false
         }
     }
 
@@ -93,9 +102,10 @@ dependencies {
   //implementation 'androidx.multidex:multidex: 2.0.1'
   implementation 'com.google.firebase:firebase-analytics'
   implementation 'com.google.firebase:firebase-auth'
+    coreLibraryDesugaring 'com.android.tools:desugar_jdk_libs:2.1.4'
   // TODO: Add the dependencies for Firebase products you want to use
   // When using the BoM, don't specify versions in Firebase dependencies
   // https://firebase.google.com/docs/android/setup#available-libraries
 }
 
-apply plugin: 'com.google.gms.google-services'
+//apply plugin: 'com.google.gms.google-services'

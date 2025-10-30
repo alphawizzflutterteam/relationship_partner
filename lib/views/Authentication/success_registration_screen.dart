@@ -45,7 +45,7 @@ class SuccessRegistrationScreen extends StatelessWidget {
               child: Center(
                 child: Text(
                   "Thank you for your interest and for submitting your details. Our team will review your profile and provide an update shortly",
-                  style: Theme.of(context).primaryTextTheme.subtitle1,
+                  style: Theme.of(context).primaryTextTheme.titleMedium,
                 ),
               ),
             ),
@@ -54,7 +54,7 @@ class SuccessRegistrationScreen extends StatelessWidget {
               child: Center(
                 child: Text(
                   "Feel free to reach us at support@neeluworld.com",
-                  style: Theme.of(context).primaryTextTheme.subtitle1,
+                  style: Theme.of(context).primaryTextTheme.titleMedium,
                 ),
               ),
             )

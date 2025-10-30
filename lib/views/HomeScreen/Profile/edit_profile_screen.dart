@@ -110,7 +110,7 @@ class EditProfileScreen extends StatelessWidget {
                                       child: Text(
                                         "Personal Details",
                                         style: Get
-                                            .theme.primaryTextTheme.headline2,
+                                            .theme.primaryTextTheme.displayMedium,
                                       ).translate(),
                                     ),
                                   ),
@@ -294,7 +294,7 @@ class EditProfileScreen extends StatelessWidget {
                                       child: Text(
                                         "Skill Details",
                                         style: Get
-                                            .theme.primaryTextTheme.headline2,
+                                            .theme.primaryTextTheme.displayMedium,
                                       ).translate(),
                                     ),
                                   ),
@@ -489,7 +489,7 @@ class EditProfileScreen extends StatelessWidget {
                                                                 style: Get
                                                                     .theme
                                                                     .primaryTextTheme
-                                                                    .subtitle1,
+                                                                    .titleMedium,
                                                               ),
                                                               activeColor: COLORS()
                                                                   .primaryColor,
@@ -674,7 +674,7 @@ class EditProfileScreen extends StatelessWidget {
                                                                   style: Get
                                                                       .theme
                                                                       .primaryTextTheme
-                                                                      .subtitle1,
+                                                                      .titleMedium,
                                                                 ),
                                                                 activeColor:
                                                                     COLORS()
@@ -853,7 +853,7 @@ class EditProfileScreen extends StatelessWidget {
                                                                   style: Get
                                                                       .theme
                                                                       .primaryTextTheme
-                                                                      .subtitle1,
+                                                                      .titleMedium,
                                                                 ).translate(),
                                                                 activeColor:
                                                                     COLORS()
@@ -1031,7 +1031,7 @@ class EditProfileScreen extends StatelessWidget {
                                                                   style: Get
                                                                       .theme
                                                                       .primaryTextTheme
-                                                                      .subtitle1,
+                                                                      .titleMedium,
                                                                 ),
                                                                 activeColor:
                                                                     COLORS()
@@ -1285,7 +1285,7 @@ class EditProfileScreen extends StatelessWidget {
                                     child: Text(
                                             "Where did you hear about AstroGuru?",
                                             style: Get.theme.primaryTextTheme
-                                                .subtitle1)
+                                                .titleMedium)
                                         .translate(),
                                   ),
                                   Padding(
@@ -1333,7 +1333,7 @@ class EditProfileScreen extends StatelessWidget {
                                               MessageConstants.YES,
                                               style: Theme.of(context)
                                                   .primaryTextTheme
-                                                  .subtitle1,
+                                                  .titleMedium,
                                             ).translate()
                                           ],
                                         ),
@@ -1354,7 +1354,7 @@ class EditProfileScreen extends StatelessWidget {
                                               MessageConstants.No,
                                               style: Theme.of(context)
                                                   .primaryTextTheme
-                                                  .subtitle1,
+                                                  .titleMedium,
                                             ).translate()
                                           ],
                                         ),
@@ -1461,7 +1461,7 @@ class EditProfileScreen extends StatelessWidget {
                                       child: Text(
                                         "Other Details",
                                         style: Get
-                                            .theme.primaryTextTheme.headline2,
+                                            .theme.primaryTextTheme.displayMedium,
                                       ).translate(),
                                     ),
                                   ),
@@ -1523,7 +1523,7 @@ class EditProfileScreen extends StatelessWidget {
                                       "Which city do you currently live in?",
                                       style: Theme.of(context)
                                           .primaryTextTheme
-                                          .subtitle1,
+                                          .titleMedium,
                                     ).translate(),
                                   ),
                                   Padding(
@@ -1627,7 +1627,7 @@ class EditProfileScreen extends StatelessWidget {
                                       "College/School/University",
                                       style: Theme.of(context)
                                           .primaryTextTheme
-                                          .subtitle1,
+                                          .titleMedium,
                                     ).translate(),
                                   ),
                                   Padding(
@@ -1654,7 +1654,7 @@ class EditProfileScreen extends StatelessWidget {
                                       "From where did you learn Astrology?",
                                       style: Theme.of(context)
                                           .primaryTextTheme
-                                          .subtitle1,
+                                          .titleMedium,
                                     ).translate(),
                                   ),
                                   Padding(
@@ -1679,7 +1679,7 @@ class EditProfileScreen extends StatelessWidget {
                                       "Instagram profile link",
                                       style: Theme.of(context)
                                           .primaryTextTheme
-                                          .subtitle1,
+                                          .titleMedium,
                                     ).translate(),
                                   ),
                                   Padding(
@@ -1703,7 +1703,7 @@ class EditProfileScreen extends StatelessWidget {
                                       "Facebook profile link",
                                       style: Theme.of(context)
                                           .primaryTextTheme
-                                          .subtitle1,
+                                          .titleMedium,
                                     ).translate(),
                                   ),
                                   Padding(
@@ -1728,7 +1728,7 @@ class EditProfileScreen extends StatelessWidget {
                                       "LinkedIn profile link",
                                       style: Theme.of(context)
                                           .primaryTextTheme
-                                          .subtitle1,
+                                          .titleMedium,
                                     ).translate(),
                                   ),
                                   Padding(
@@ -1753,7 +1753,7 @@ class EditProfileScreen extends StatelessWidget {
                                       "Youtube profile link",
                                       style: Theme.of(context)
                                           .primaryTextTheme
-                                          .subtitle1,
+                                          .titleMedium,
                                     ).translate(),
                                   ),
                                   Padding(
@@ -1777,7 +1777,7 @@ class EditProfileScreen extends StatelessWidget {
                                       "Website profile link",
                                       style: Theme.of(context)
                                           .primaryTextTheme
-                                          .subtitle1,
+                                          .titleMedium,
                                     ).translate(),
                                   ),
                                   Padding(
@@ -1800,7 +1800,7 @@ class EditProfileScreen extends StatelessWidget {
                                       "Did anybody refer you to AstroGuru?",
                                       style: Theme.of(context)
                                           .primaryTextTheme
-                                          .subtitle1,
+                                          .titleMedium,
                                     ).translate(),
                                   ),
                                   Padding(
@@ -1824,7 +1824,7 @@ class EditProfileScreen extends StatelessWidget {
                                               MessageConstants.YES,
                                               style: Theme.of(context)
                                                   .primaryTextTheme
-                                                  .subtitle1,
+                                                  .titleMedium,
                                             ).translate()
                                           ],
                                         ),
@@ -1845,7 +1845,7 @@ class EditProfileScreen extends StatelessWidget {
                                               MessageConstants.No,
                                               style: Theme.of(context)
                                                   .primaryTextTheme
-                                                  .subtitle1,
+                                                  .titleMedium,
                                             ).translate(),
                                           ],
                                         ),
@@ -1870,7 +1870,7 @@ class EditProfileScreen extends StatelessWidget {
                                                     "Name of the person who referred you?",
                                                     style: Theme.of(context)
                                                         .primaryTextTheme
-                                                        .subtitle1,
+                                                        .titleMedium,
                                                   ).translate(),
                                                 ),
                                                 Padding(
@@ -2146,7 +2146,7 @@ class EditProfileScreen extends StatelessWidget {
                                       child: Text(
                                         "Set Your Availability",
                                         style: Get
-                                            .theme.primaryTextTheme.headline2,
+                                            .theme.primaryTextTheme.displayMedium,
                                       ).translate(),
                                     ),
                                   ),
@@ -2155,7 +2155,7 @@ class EditProfileScreen extends StatelessWidget {
                                     child: Text(
                                       'Daily Schedual Time',
                                       style:
-                                          Get.theme.primaryTextTheme.headline2,
+                                          Get.theme.primaryTextTheme.displayMedium,
                                     ).translate(),
                                   ),
                                   Padding(
@@ -2186,7 +2186,7 @@ class EditProfileScreen extends StatelessWidget {
                                                         style: Get
                                                             .theme
                                                             .primaryTextTheme
-                                                            .subtitle1,
+                                                            .titleMedium,
                                                       ).translate(),
                                                     ),
                                                   ),
@@ -2807,7 +2807,7 @@ class EditProfileScreen extends StatelessWidget {
               ),
               title: Text(
                 "Camera",
-                style: Get.theme.primaryTextTheme.subtitle1,
+                style: Get.theme.primaryTextTheme.titleMedium,
               ).translate(),
               onTap: () async {
                 editProfileController.imageFile = await editProfileController
@@ -2830,7 +2830,7 @@ class EditProfileScreen extends StatelessWidget {
               ),
               title: Text(
                 "Gallery",
-                style: Get.theme.primaryTextTheme.subtitle1,
+                style: Get.theme.primaryTextTheme.titleMedium,
               ).translate(),
               onTap: () async {
                 editProfileController.imageFile = await editProfileController
@@ -2848,7 +2848,7 @@ class EditProfileScreen extends StatelessWidget {
               leading: Icon(Icons.cancel, color: COLORS().errorColor),
               title: Text(
                 "Cancel",
-                style: Get.theme.primaryTextTheme.subtitle1,
+                style: Get.theme.primaryTextTheme.titleMedium,
               ).translate(),
               onTap: () {
                 Get.back();
@@ -2880,7 +2880,7 @@ class EditProfileScreen extends StatelessWidget {
                   children: [
                     Text(
                       'Available Time Start',
-                      style: Get.theme.primaryTextTheme.subtitle1,
+                      style: Get.theme.primaryTextTheme.titleMedium,
                     ).translate(),
                     Padding(
                       padding: const EdgeInsets.only(top: 5),
@@ -2902,7 +2902,7 @@ class EditProfileScreen extends StatelessWidget {
                       padding: const EdgeInsets.only(top: 12.0),
                       child: Text(
                         'Available Time End',
-                        style: Get.theme.primaryTextTheme.subtitle1,
+                        style: Get.theme.primaryTextTheme.titleMedium,
                       ).translate(),
                     ),
                     Padding(

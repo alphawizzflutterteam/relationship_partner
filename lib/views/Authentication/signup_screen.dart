@@ -128,7 +128,7 @@ class SignupScreen extends StatelessWidget {
                                       child: Text(
                                         "Personal Details",
                                         style: Get
-                                            .theme.primaryTextTheme.headline2,
+                                            .theme.primaryTextTheme.displayMedium,
                                       ),
                                     ),
                                   ),
@@ -360,7 +360,7 @@ class SignupScreen extends StatelessWidget {
                                       child: Text(
                                         "Skill Details",
                                         style: Get
-                                            .theme.primaryTextTheme.headline2,
+                                            .theme.primaryTextTheme.displayMedium,
                                       ),
                                     ),
                                   ),
@@ -528,7 +528,7 @@ class SignupScreen extends StatelessWidget {
                                                                 style: Get
                                                                     .theme
                                                                     .primaryTextTheme
-                                                                    .subtitle1,
+                                                                    .titleMedium,
                                                               ),
                                                               activeColor: COLORS()
                                                                   .primaryColor,
@@ -708,7 +708,7 @@ class SignupScreen extends StatelessWidget {
                                                                   style: Get
                                                                       .theme
                                                                       .primaryTextTheme
-                                                                      .subtitle1,
+                                                                      .titleMedium,
                                                                 ),
                                                                 activeColor:
                                                                     COLORS()
@@ -883,7 +883,7 @@ class SignupScreen extends StatelessWidget {
                                                                   style: Get
                                                                       .theme
                                                                       .primaryTextTheme
-                                                                      .subtitle1,
+                                                                      .titleMedium,
                                                                 ),
                                                                 activeColor: COLORS()
                                                                     .primaryColor,
@@ -1062,7 +1062,7 @@ class SignupScreen extends StatelessWidget {
                                                                   style: Get
                                                                       .theme
                                                                       .primaryTextTheme
-                                                                      .subtitle1,
+                                                                      .titleMedium,
                                                                 ),
                                                                 activeColor:
                                                                     COLORS()
@@ -1336,7 +1336,7 @@ class SignupScreen extends StatelessWidget {
                                     padding: const EdgeInsets.only(top: 12),
                                     child: Text(
                                       "Where did you hear about AstroGuru?",
-                                      style: Get.theme.primaryTextTheme.subtitle1,
+                                      style: Get.theme.primaryTextTheme.titleMedium,
                                     ),
                                   ),
                                   Padding(
@@ -1384,7 +1384,7 @@ class SignupScreen extends StatelessWidget {
                                               MessageConstants.YES,
                                               style: Theme.of(context)
                                                   .primaryTextTheme
-                                                  .subtitle1,
+                                                  .titleMedium,
                                             )
                                           ],
                                         ),
@@ -1405,7 +1405,7 @@ class SignupScreen extends StatelessWidget {
                                               MessageConstants.No,
                                               style: Theme.of(context)
                                                   .primaryTextTheme
-                                                  .subtitle1,
+                                                  .titleMedium,
                                             )
                                           ],
                                         ),
@@ -1507,7 +1507,7 @@ class SignupScreen extends StatelessWidget {
                                       child: Text(
                                         "Other Details",
                                         style: Get
-                                            .theme.primaryTextTheme.headline2,
+                                            .theme.primaryTextTheme.displayMedium,
                                       ),
                                     ),
                                   ),
@@ -1564,7 +1564,7 @@ class SignupScreen extends StatelessWidget {
                                       "Which city do you currently live in?",
                                       style: Theme.of(context)
                                           .primaryTextTheme
-                                          .subtitle1,
+                                          .titleMedium,
                                     ),
                                   ),
                                   Padding(
@@ -1667,7 +1667,7 @@ class SignupScreen extends StatelessWidget {
                                       "College/School/University",
                                       style: Theme.of(context)
                                           .primaryTextTheme
-                                          .subtitle1,
+                                          .titleMedium,
                                     ),
                                   ),
                                   Padding(
@@ -1696,7 +1696,7 @@ class SignupScreen extends StatelessWidget {
                                       "From where did you learn Astrology?",
                                       style: Theme.of(context)
                                           .primaryTextTheme
-                                          .subtitle1,
+                                          .titleMedium,
                                     ),
                                   ),
                                   Padding(
@@ -1724,7 +1724,7 @@ class SignupScreen extends StatelessWidget {
                                       "Instagram profile link",
                                       style: Theme.of(context)
                                           .primaryTextTheme
-                                          .subtitle1,
+                                          .titleMedium,
                                     ),
                                   ),
                                   Padding(
@@ -1748,7 +1748,7 @@ class SignupScreen extends StatelessWidget {
                                       "Facebook profile link",
                                       style: Theme.of(context)
                                           .primaryTextTheme
-                                          .subtitle1,
+                                          .titleMedium,
                                     ),
                                   ),
                                   Padding(
@@ -1772,7 +1772,7 @@ class SignupScreen extends StatelessWidget {
                                       "LinkedIn profile link",
                                       style: Theme.of(context)
                                           .primaryTextTheme
-                                          .subtitle1,
+                                          .titleMedium,
                                     ),
                                   ),
                                   Padding(
@@ -1796,7 +1796,7 @@ class SignupScreen extends StatelessWidget {
                                       "Youtube profile link",
                                       style: Theme.of(context)
                                           .primaryTextTheme
-                                          .subtitle1,
+                                          .titleMedium,
                                     ),
                                   ),
                                   Padding(
@@ -1820,7 +1820,7 @@ class SignupScreen extends StatelessWidget {
                                       "Website profile link",
                                       style: Theme.of(context)
                                           .primaryTextTheme
-                                          .subtitle1,
+                                          .titleMedium,
                                     ),
                                   ),
                                   Padding(
@@ -1843,7 +1843,7 @@ class SignupScreen extends StatelessWidget {
                                       "Did anybody refer you to AstroGuru?",
                                       style: Theme.of(context)
                                           .primaryTextTheme
-                                          .subtitle1,
+                                          .titleMedium,
                                     ),
                                   ),
                                   Padding(
@@ -1866,7 +1866,7 @@ class SignupScreen extends StatelessWidget {
                                               MessageConstants.YES,
                                               style: Theme.of(context)
                                                   .primaryTextTheme
-                                                  .subtitle1,
+                                                  .titleMedium,
                                             )
                                           ],
                                         ),
@@ -1886,7 +1886,7 @@ class SignupScreen extends StatelessWidget {
                                               MessageConstants.No,
                                               style: Theme.of(context)
                                                   .primaryTextTheme
-                                                  .subtitle1,
+                                                  .titleMedium,
                                             )
                                           ],
                                         ),
@@ -1910,7 +1910,7 @@ class SignupScreen extends StatelessWidget {
                                                     "Name of the person who referred you?",
                                                     style: Theme.of(context)
                                                         .primaryTextTheme
-                                                        .subtitle1,
+                                                        .titleMedium,
                                                   ),
                                                 ),
                                                 Padding(
@@ -2039,7 +2039,7 @@ class SignupScreen extends StatelessWidget {
                                       child: Text(
                                         "Assignment",
                                         style:
-                                            Get.theme.primaryTextTheme.headline2,
+                                            Get.theme.primaryTextTheme.displayMedium,
                                       ),
                                     ),
                                   ),
@@ -2177,7 +2177,7 @@ class SignupScreen extends StatelessWidget {
                                       child: Text(
                                         "Set Your Availability",
                                         style: Get
-                                            .theme.primaryTextTheme.headline2,
+                                            .theme.primaryTextTheme.displayMedium,
                                       ),
                                     ),
                                   ),
@@ -2186,7 +2186,7 @@ class SignupScreen extends StatelessWidget {
                                     child: Text(
                                       'Daily Schedual Time',
                                       style:
-                                          Get.theme.primaryTextTheme.headline2,
+                                          Get.theme.primaryTextTheme.displayMedium,
                                     ),
                                   ),
                                   Padding(
@@ -2214,7 +2214,7 @@ class SignupScreen extends StatelessWidget {
                                                         style: Get
                                                             .theme
                                                             .primaryTextTheme
-                                                            .subtitle1,
+                                                            .titleMedium,
                                                       ),
                                                     ),
                                                   ),
@@ -2637,7 +2637,7 @@ class SignupScreen extends StatelessWidget {
               ),
               title: Text(
                 "Camera",
-                style: Get.theme.primaryTextTheme.subtitle1,
+                style: Get.theme.primaryTextTheme.titleMedium,
               ),
               onTap: () async {
                 Get.back();
@@ -2652,7 +2652,7 @@ class SignupScreen extends StatelessWidget {
               ),
               title: Text(
                 "Gallery",
-                style: Get.theme.primaryTextTheme.subtitle1,
+                style: Get.theme.primaryTextTheme.titleMedium,
               ),
               onTap: () async {
                 Get.back();
@@ -2663,7 +2663,7 @@ class SignupScreen extends StatelessWidget {
               leading: Icon(Icons.cancel, color: COLORS().errorColor),
               title: Text(
                 "Cancel",
-                style: Get.theme.primaryTextTheme.subtitle1,
+                style: Get.theme.primaryTextTheme.titleMedium,
               ),
               onTap: () {
                 Get.back();
@@ -2695,7 +2695,7 @@ class SignupScreen extends StatelessWidget {
                   children: [
                     Text(
                       'Available Time Start',
-                      style: Get.theme.primaryTextTheme.subtitle1,
+                      style: Get.theme.primaryTextTheme.titleMedium,
                     ),
                     Padding(
                       padding: const EdgeInsets.only(top: 5),
@@ -2717,7 +2717,7 @@ class SignupScreen extends StatelessWidget {
                       padding: const EdgeInsets.only(top: 12.0),
                       child: Text(
                         'Available Time End',
-                        style: Get.theme.primaryTextTheme.subtitle1,
+                        style: Get.theme.primaryTextTheme.titleMedium,
                       ),
                     ),
                     Padding(

@@ -21,6 +21,7 @@ Map<int, Color> color = {
 
 class Themes {
   static final light = ThemeData.light().copyWith(
+    useMaterial3: false,
     colorScheme: ColorScheme.fromSwatch(
       primarySwatch: MaterialColor(0xff11A3C7, color), //0xffffc107
     ),
@@ -32,52 +33,52 @@ class Themes {
       foregroundColor: COLORS().blackColor,
       elevation: 0.5,
     ),
-    backgroundColor: Colors.white,
+    // backgroundColor: Colors.white,
 
     primaryColor: const Color(0xff11A3C7),
 
     textTheme: const TextTheme(
-      headline1: TextStyle(color: Colors.black),
-      headline2: TextStyle(color: Colors.black),
-      headline3: TextStyle(color: Colors.black),
-      headline4: TextStyle(color: Colors.black),
-      headline5: TextStyle(color: Colors.black), //
-      headline6: TextStyle(color: Colors.black), //
-      caption: TextStyle(color: Colors.black),
-      subtitle1: TextStyle(color: Colors.black, fontSize: 14),
-      subtitle2: TextStyle(color: Colors.black),
-      bodyText1: TextStyle(color: Colors.black),
-      bodyText2: TextStyle(color: Colors.black),
+      displayLarge: TextStyle(color: Colors.black),
+      displayMedium: TextStyle(color: Colors.black),
+      displaySmall: TextStyle(color: Colors.black),
+      headlineMedium: TextStyle(color: Colors.black),
+      headlineSmall: TextStyle(color: Colors.black), //
+      titleLarge: TextStyle(color: Colors.black), //
+      bodySmall: TextStyle(color: Colors.black),
+      titleMedium: TextStyle(color: Colors.black, fontSize: 14),
+      titleSmall: TextStyle(color: Colors.black),
+      bodyLarge: TextStyle(color: Colors.black),
+      bodyMedium: TextStyle(color: Colors.black),
     ),
     primaryTextTheme: TextTheme(
-      headline1: const TextStyle(
+      displayLarge: const TextStyle(
           color: Colors.black,
           fontWeight: FontWeight.w300,
           fontSize: 19), //APPbAR
-      headline2: const TextStyle(
+      displayMedium: const TextStyle(
           color: Colors.black,
           fontWeight: FontWeight.bold,
           fontSize: 16), //SignUp ma Title
-      headline3: const TextStyle(
+      displaySmall: const TextStyle(
           color: Colors.black,
           fontWeight: FontWeight.bold,
           fontSize: 15), // Bold Name
-      headline4: const TextStyle(
+      headlineMedium: const TextStyle(
           color: Colors.black,
           fontWeight: FontWeight.w500,
           fontSize: 19), //AppBar bold
-      headline5: const TextStyle(color: Colors.white),
-      headline6: const TextStyle(color: Colors.black),
-      caption:
+      headlineSmall: const TextStyle(color: Colors.white),
+      titleLarge: const TextStyle(color: Colors.black),
+      bodySmall:
           TextStyle(color: COLORS().bodyTextColor, fontSize: 10), //bottom Bar
-      subtitle1: TextStyle(color: COLORS().bodyTextColor), //Body Text ma
-      subtitle2: const TextStyle(
+      titleMedium: TextStyle(color: COLORS().bodyTextColor), //Body Text ma
+      titleSmall: const TextStyle(
           color: Colors.grey,
           fontSize: 14,
           fontWeight: FontWeight.w400), //small subtitle
-      bodyText1: const TextStyle(
+      bodyLarge: const TextStyle(
           color: Colors.black, fontSize: 12, fontWeight: FontWeight.w400),
-      bodyText2: const TextStyle(color: Colors.black),
+      bodyMedium: const TextStyle(color: Colors.black),
     ),
 //Card theme
     cardTheme: const CardTheme(
@@ -128,34 +129,35 @@ class Themes {
     ),
   );
   static final dark = ThemeData.dark().copyWith(
-      backgroundColor: Colors.black,
+      useMaterial3: false,
+      // backgroundColor: Colors.black,
       primaryColor: const Color(0xff11A3C7),
       textTheme: const TextTheme(
-        headline1: TextStyle(color: Colors.black),
-        headline2: TextStyle(color: Colors.black),
-        headline3: TextStyle(color: Colors.black),
-        headline4: TextStyle(color: Colors.black),
-        headline5: TextStyle(color: Colors.white), //
-        headline6: TextStyle(color: Colors.black), //
-        caption: TextStyle(color: Colors.black),
-        subtitle1: TextStyle(color: Colors.black),
-        subtitle2: TextStyle(color: Colors.black),
-        bodyText1: TextStyle(color: Colors.black),
-        bodyText2: TextStyle(color: Colors.black),
+        displayLarge: TextStyle(color: Colors.black),
+        displayMedium: TextStyle(color: Colors.black),
+        displaySmall: TextStyle(color: Colors.black),
+        headlineMedium: TextStyle(color: Colors.black),
+        headlineSmall: TextStyle(color: Colors.white), //
+        titleLarge: TextStyle(color: Colors.black), //
+        bodySmall: TextStyle(color: Colors.black),
+        titleMedium: TextStyle(color: Colors.black),
+        titleSmall: TextStyle(color: Colors.black),
+        bodyLarge: TextStyle(color: Colors.black),
+        bodyMedium: TextStyle(color: Colors.black),
       ),
       primaryTextTheme: const TextTheme(
-        headline1: TextStyle(
+        displayLarge: TextStyle(
             color: Colors.white, fontWeight: FontWeight.w300, fontSize: 19), //
-        headline2: TextStyle(color: Colors.black),
-        headline3: TextStyle(color: Colors.black),
-        headline4: TextStyle(color: Colors.black),
-        headline5: TextStyle(color: Colors.white),
-        headline6: TextStyle(color: Colors.black),
-        subtitle1: TextStyle(color: Colors.black), //
-        subtitle2: TextStyle(color: Colors.black),
-        bodyText1: TextStyle(color: Colors.black),
-        bodyText2: TextStyle(color: Colors.black),
-        caption: TextStyle(color: Colors.black),
+        displayMedium: TextStyle(color: Colors.black),
+        displaySmall: TextStyle(color: Colors.black),
+        headlineMedium: TextStyle(color: Colors.black),
+        headlineSmall: TextStyle(color: Colors.white),
+        titleLarge: TextStyle(color: Colors.black),
+        titleMedium: TextStyle(color: Colors.black), //
+        titleSmall: TextStyle(color: Colors.black),
+        bodyLarge: TextStyle(color: Colors.black),
+        bodyMedium: TextStyle(color: Colors.black),
+        bodySmall: TextStyle(color: Colors.black),
       ),
       cardTheme: CardTheme(
         margin: const EdgeInsets.all(10),
